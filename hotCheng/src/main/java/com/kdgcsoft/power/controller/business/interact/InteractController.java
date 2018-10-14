@@ -47,7 +47,7 @@ import sun.misc.BASE64Encoder;
 
 /**   
  * @Title: Controller
- * @Description: 交流互动的后台代码
+ * @Description: 交流互动的别的账号后台代码
  * @date 2017-08-21
  * @version V1.0   
  *
