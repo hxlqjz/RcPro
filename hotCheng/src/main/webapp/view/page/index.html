@@ -1,0 +1,512 @@
+<html><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />	
+		<link rel="stylesheet" href="static/css/common.css">		
+		<link rel="stylesheet" href="static/css/cropper.css">
+  	    <link rel="stylesheet" href="static/css/myCrop.css">
+  	    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  	    <link rel="stylesheet" href="static/css/index.css">
+  	    <script type="text/javascript" src="static/js/jquery.min.js" ></script>
+        <script type="text/javascript" src="static/js/exif.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="static/js/cropper.js"></script>
+		<script type="text/javascript" src="static/js/myCrop.js?v=1.0.4"></script>
+		<script src="static/mui/js/mui.min.js"></script>
+		<script src="static/js/tool.js"></script> 
+		<script src="static/js/template.js"></script>
+
+		<style type="text/css">
+		.file {
+    position: relative;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-top:5px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    left:26%;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    color: #004974;
+    text-decoration: none;
+}
+</style>
+
+ <script id="que_rec" type="text/html">
+{{each list as value j}}
+<table class="table">
+					<tbody>
+		  {{if  j == 0}}
+                    <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="{{list[j].lyId}}" checked ></td><td>{{list[j].carBrand}}&nbsp;&nbsp;{{list[j].carForm}}<br />{{list[j].carOutput}}&nbsp;&nbsp;{{list[j].carYear}}</td><td>{{list[j].saleName}}<br />{{list[j].lyId}}</td></tr>					
+				{{else}} 
+           <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="{{list[j].lyId}}"></td><td>{{list[j].carBrand}}&nbsp;&nbsp;{{list[j].carForm}}<br />{{list[j].carOutput}}&nbsp;&nbsp;{{list[j].carYear}}</td><td>{{list[j].saleName}}<br />{{list[j].lyId}}</td></tr>	
+        {{/if}}	            
+ 				</tbody>	 	  	
+	 	  	</table> 
+ {{/each}}   
+	</script>
+	
+	 <script id="input_rec" type="text/html">
+{{each list as value j}}
+	<li carBrand="{{list[j].carBrand}}" fatory="{{list[j].fatory}}" carForm="{{list[j].carForm}}" >{{list[j].carBrandFatoryForm}}</li>
+ {{/each}}   
+	</script>
+
+	</head>
+	<body>
+		<header>
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy"><a href="view/page/index.html"></a></div>
+		</header>
+		<!-- -->
+		<ul class="tab-car">
+			<li class="carActive"><a href="view/page/pinPai.html">品牌选车</a></li>
+			<li id="vinCodeLi">VIN码查询</li>
+			<li>产品检索</li>
+		</ul>
+		<!-- -->
+		<div class="car-search" style="display: block;">
+			<label>车型检索</label>
+			<div class="inputBox clearfix">
+				<input type="text" placeholder="输入车型关键字，如Polo" id="inputSelectInput"  class="intText intTextSelect">
+				<a href="view/page/product.html"><input type="button" value="查&nbsp;&nbsp;询" onclick="openProduct()"  class="intBtn"></a>
+				<ul class="inputBoxSelect" id="inputSelect_div" style="height:160px;width:100%;overflow: auto;">
+					
+				</ul>
+			</div>
+		</div>
+		<div class="car-search">
+			<label>VIN码查询</label>
+			<div class="inputBox clearfix">
+				<input type="text" placeholder="输入17位VIN码" class="intText intText2">
+				<input type="button" value="查&nbsp;&nbsp;询" class="intBtn" onclick="vinCodeQuery()">
+			</div>			
+		</div>
+		<div class="car-search">
+			<label>产品检索</label>
+			<div class="inputBox clearfix">
+				<input type="text" placeholder="输入产品编号/OE号" class="intText">
+				<input type="button" value="查&nbsp;&nbsp;询" class="intBtn">
+			</div>			
+		</div>
+		
+		<!--VIN识别-->
+	<!-- 	<div class="vinMa" onclick="window.location.href='view/page/product_1.html'">
+			<div class="vinImg"><img src="static/img/vin.png"></div>
+			<div class="vinsb">VIN码识别</div>
+		</div> -->
+		<div id="vinCodeDiv" >
+			  <a onclick="openFile()" id="file_0_a" class="file">
+		<div class="vinMa" >
+			<div class="vinImg"><img src="static/img/vin.png"></div>
+			<div class="vinsb">
+			 <form id="plantotalform" enctype="multipart/form-data" class="mui-input-group" >  
+       VIN码识别
+   		  		<input id="inputImage"   name="inputImage"   type="file"   accept="image/*" mutiple="mutiple" capture="camera" >    
+   		  		<img id="textId" alt="" src="" style="width:100px;height:100px;display:none;">    
+   		  			<br/>
+  	     	<img  id="showImg"  style="width:100px;height:100px;display:none;"/>        		  
+	  	   
+	  	   </form>
+	  	     <form id="registerForm">
+	  	   </form>
+	  	   </div>
+		</div>
+		   </a>  
+		   </div>	
+		
+		<!--footer -->
+		<footer>
+			<div class="foot1">
+				<span>移动版</span>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="javascript:;">热骋</a>
+			</div>
+			<div class="foot2">系统版本<i>RC5861-1.07 .13499s</i></div>
+
+		</footer>
+		
+		<!--VIN码查询键盘-->
+		<div class="keyBg">
+			<div class="keyBorderBox">
+				<div class="title-close">
+					<h4>vin码输入</h4>
+					<img src="static/img/close.png" class="close">
+				</div>
+				<div class="keyVin">
+					<ul class="keyInput clearfix">
+						<li class="keyAcitive"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+						<li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+					</ul>
+					<button class="keyBtn">确 认</button>
+				</div>
+				<ul class="keyBorder">
+					<li>
+						<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+					</li>
+					<li>
+						<span class="keyNo">Q</span><span>W</span><span>E</span><span>R</span><span>T</span><span>Y</span><span>U</span><span class="keyNo">I</span><span class="keyNo">O</span><span>P</span>
+					</li>
+					<li>
+						<span>A</span><span>S</span><span>D</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span><span class="remove"><img src="static/img/remove.png"></span>
+					</li>
+					<li class="keyBorder-li4">
+						<span class="prevNext prev">&lt;</span><span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span><span>N</span><span>M</span><span class="prevNext next">&gt;</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		     <!-- 模态框（Modal） -->
+     	<div class="container" style="padding: 0;margin: 0;position:fixed;display: none;top: 0;left: 0;z-index: 200;" id="containerDiv">
+	    <div class="row" style="display: none;" id="imgEdit">
+	      <div class="col-md-9">
+	        <div class="img-container">
+	          <img src="" alt="Picture">
+	        </div>
+	      </div>
+	    </div>
+	    <div class="row" id="actions" style="padding: 0;margin: 0;width: 100%;position: fixed;bottom: 5px;">
+	      <div class="col-md-9 docs-buttons">
+	        <div class="btn-group" >
+	          <button type="button" class="btn btn-primary" data-method="destroy" title="Destroy" style="height: auto;">
+	            <span class="docs-tooltip" data-toggle="tooltip" >
+	              <span class="fa fa-power-off" >取消</span>
+	            </span>
+	          </button>
+	        </div>
+	
+	        <div class="btn-group btn-group-crop " style="float: right;">
+	          <button type="button" class="btn btn-primary" id="imgCutConfirm" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 320, &quot;height&quot;: 180 }" style="height: auto;margin-right: 17px;">
+	            <span class="docs-tooltip" data-toggle="tooltip" title="">确认</span> <!--cropper.getCroppedCanvas({ width: 320, height: 180 }) -->
+	          </button>
+	        </div>	
+	      </div><!-- /.docs-buttons -->
+	    </div>
+  	</div>
+  	
+    <!--预览模态框（Modal） -->
+   <div class="modal fade" id="vinQueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	 <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					产品匹配结果
+				</h4>
+			</div>
+			<div class="modal-body" style="height:75%;width:100%;" >
+					  <div class="container table-responsive" id="goodRecDiv">	  
+			     
+	 		        </div>	
+					
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>	
+					 <button type="button" class="btn btn-default btn-primary" onclick="queSelectVal()"  data-glyphicon="glyphicon-ok">确定</button>					
+			</div>
+		   </div><!-- /.modal-content -->
+	        </div><!-- /.modal -->
+		      </div>
+     
+    <!-- ajax请求的 遮罩层 -->
+    <div class="modal fade" id="loadingModal">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5>正在加载...</h5>
+    </div>
+</div>
+		<script>
+		var inputSelectVal=new Array();
+		 function openFile(){
+			  fileElem = document.getElementById("inputImage");
+			  fileElem.click();
+		 };
+		
+		
+		$(function(){
+			var file = document.getElementById("inputImage");
+	        if (getIos()) {
+	            file.removeAttribute("capture");
+	        }
+	        function getIos() {
+	            var ua=navigator.userAgent.toLowerCase();
+	            if (ua.match(/iPhone\sOS/i) == "iphone os") {
+	                return true;
+	            } else {
+	                return false;
+	            }
+	        }
+
+			
+				//键盘
+				function keyBorder(){
+					
+					$(".keyBorder").on("click","li span:not('.prevNext,.keyNo,.remove')",function(){							  								  							  									
+						var aa=$(".keyInput li").html();
+						var bb=$(".keyInput li.keyAcitive").html();																				
+						if(aa.length<=17 && bb.length==0){									
+							$(".keyInput li.keyAcitive").html($(this).html());
+							$(".keyInput li.keyAcitive").next().addClass("keyAcitive").siblings().removeClass("keyAcitive");
+							
+						}
+						else{
+							$(".keyInput li.keyAcitive").html($(this).html());
+							$(".keyInput li.keyAcitive").addClass("keyAcitive").siblings().removeClass("keyAcitive");
+						}
+						
+					})  
+					$('.prev').click(function(){
+						
+						if($(".keyInput li:eq(0)").is('.keyAcitive')){
+							$(".keyInput li:eq(0)").addClass("keyAcitive").siblings().removeClass("keyAcitive");
+						}else{
+							$(".keyInput li.keyAcitive").removeClass("keyAcitive").prev().addClass("keyAcitive");
+						}
+					})
+					$('.next').click(function(){
+						if($(".keyInput li:last").is('.keyAcitive')){
+							$(".keyInput li:last").addClass("keyAcitive").siblings().removeClass("keyAcitive");
+						}else{
+							$(".keyInput li.keyAcitive").removeClass("keyAcitive").next().addClass("keyAcitive");
+						}						
+					})
+					
+					//删除
+					$('.remove').click(function(){
+						if(!($(".keyInput li.keyAcitive").html().length==0)){
+				
+							$(".keyInput li.keyAcitive").html("").prev().addClass("keyAcitive").siblings().removeClass("keyAcitive");							
+						}			
+					})
+					$(".keyInput").on("click","li",function(){
+						$(this).addClass("keyAcitive").siblings().removeClass("keyAcitive");
+					})
+
+				}
+				keyBorder();
+				$('.close').click(function(){
+					$(".keyBg").hide();
+				})
+				$('.intText2').click(function(){
+					document.activeElement.blur();//禁止手机自带软键盘弹出
+					$(".keyBg").show();
+				})	
+				$(".keyBtn").click(function(){
+					var inText2="";
+					inText2 +=$(".keyInput li").text();
+
+					$('.intText2').val(inText2)
+					$(".keyBg").hide();
+				})
+				
+				initVinCodeV();
+			})
+			
+			//如果之前扫过vin码值，则做记录
+			function initVinCodeV(){
+			var vinC=localStorage.getItem("vinCodeV");
+			if(vinC!=null){
+				  for(var i=0;i<vinC.length;i++){
+		            	var v=vinC.substring(i,i+1);
+		            	$(".keyInput li.keyAcitive").html(v);
+						$(".keyInput li.keyAcitive").next().addClass("keyAcitive").siblings().removeClass("keyAcitive");
+		            }	
+			   }
+						        
+	    		$('.intText2').val(vinC);
+		   };
+		</script>
+				
+		<script>
+		 var fileImg = "";
+			$(function(){
+				$('.tab-car').on("click","li",function(){
+					$(this).addClass("carActive").siblings().removeClass("carActive");
+					/* if(this.id=="vinCodeLi"){
+						$("#vinCodeDiv").css("display","block");
+					}else{
+						$("#vinCodeDiv").css("display","none");
+					} */
+					$(".car-search").hide().eq($(this).index()).show();				
+				})
+								
+				//车型检索下拉框		
+				$(".intTextSelect").click(function(){
+					$(".inputBoxSelect").show();				
+					$("#vinCodeDiv").css("display","none");
+				})
+
+				$(".inputBoxSelect").on("click","li",function(){
+					$(".intTextSelect").val($(this).text());
+					var carBrand=this.getAttribute("carBrand");
+					var carForm=this.getAttribute("carForm");
+					var fatory=this.getAttribute("fatory");
+					localStorage.setItem("carBrand",carBrand);
+					localStorage.setItem("carForm",carForm);
+					localStorage.setItem("fatory",fatory);
+					$(".inputBoxSelect").hide();
+					$("#vinCodeDiv").css("display","block");
+				})	
+								
+				$("#imgCutConfirm").bind("click",function(){
+					 $("#containerDiv").hide();
+			     	 $("#imgEdit").hide();
+			     	 $("#getCroppedCanvasModal").modal("hide");
+				})
+				findCarBrandFatoryForm();//查找所有车型
+			})
+			//解决输入框获取焦点时底部弹上来问题
+			$(document).ready(function(){			
+			    var h=$(window).height();
+			    $(window).resize(function() {
+			        if($(window).height()<h){
+			            $('footer').hide();
+			        }
+			        if($(window).height()>=h){
+			            $('footer').show();
+			        }
+			    });
+			
+			});
+			
+			//提交表达
+			function submitForm(){
+				 $("#registerForm").attr("enctype","multipart/form-data");	
+				var formData = new FormData($("#registerForm")[0]);
+				formData.append("textT2",fileImg);//
+				formData.append("fileFileName","photo.jpg");	
+				 var url =basUrl+"/vinCode/findVehicleInfoByImgData.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        data: formData,  
+			        timeout : 100000, //超时时间设置，单位毫秒
+			        async: true,  
+			        cache: false,  
+			        contentType: false,  
+			        processData: false, 
+			        beforeSend:function() { 			        
+			        	$("#loadingModal").modal('show');
+			        },
+			        success: function (result) {
+			        	var rec=JSON.parse(result);
+			        	localStorage.setItem("vinCodeV",rec.data);
+			        //	document.activeElement.blur();//禁止手机自带软键盘弹出
+			        	var vinC=rec.data;
+			        	$('.tab-car li').removeClass("carActive").eq(1).addClass("carActive");
+			        //	$(".car-search").hide().eq(1).show();	
+			            for(var i=0;i<vinC.length;i++){
+			            	var v=vinC.substring(i,i+1);
+			            	$(".keyInput li.keyAcitive").html(v);
+							$(".keyInput li.keyAcitive").next().addClass("keyAcitive").siblings().removeClass("keyAcitive");
+			            }	
+			    		$('.intText2').val(rec.data)
+						//$(".keyBg").show();
+			    		window.location.href="view/page/indexVincode.html";
+			       	}, 
+			       	complete: function () {
+			       		$("#loadingModal").modal('hide');
+			        },
+			        error: function (returndata) {
+			        	//localStorage.setItem("vinCodeV",rec.data);
+			        	//window.open("view/page/confirmVincode.html");			 		
+			        }
+					}); 
+										
+			};
+			
+			//vin码查询事件
+			function vinCodeQuery(){
+				var vinC=$('.intText2').val();
+				 var leng=vinC.length;
+				 if(leng==17){
+					 findCarStyleList(vinC);
+				 }else{
+					 alert("车型码不对，请您修改");
+				 }
+			};
+			
+			function findCarStyleList(vinCode){
+			
+			/* 	*/
+				window.location.href="view/page/product_1.html";		
+			};
+			
+			//确定按钮的事件
+			function queSelectVal(){
+				 var lyId = $("input[name='cartype']:checked").val();
+				 $("#vinQueModal").modal('hide');  //手动关闭
+				 
+				 window.location.href="view/page/carTableQue.html";
+				 localStorage.setItem("lyId",lyId);
+			};
+			
+			//查找所有 品牌厂家车型数据
+			function findCarBrandFatoryForm(){
+				var url =basUrl+"/carStyleSublist/findCarbrandFatoryFormLs.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        data : {			       
+					},  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	var rec=JSON.parse(result);
+			        	var res=rec.ls;			
+			        	inputSelectVal=res;//将所有的车型数据存放数组里
+			        	/* document.getElementById("inputSelect_div").innerHTML =template("input_rec", {
+							list: res
+						});	 */		        	
+			       	},  
+			        error: function (returndata) {			        
+			        }
+			       	
+					});
+			};	
+             
+			
+			$("#inputSelectInput").on('input propertychange',function(){
+	            var val=$(this).val();
+	            changeinputOption(val);	            
+			});
+			function changeinputOption(val){
+				var newArr=new Array();
+				for(var i=0;i<inputSelectVal.length;i++){
+					var row=inputSelectVal[i];
+					if(row["carBrandFatoryForm"].indexOf(val)!=-1){
+						newArr.push(row);						
+					}
+				}
+				document.getElementById("inputSelect_div").innerHTML =template("input_rec", {
+					list: newArr
+				});					
+			};
+			
+			function openProduct(){
+				var val=$("#inputSelectInput").val();
+			}
+
+			
+		</script>
+	
+
+</body></html>

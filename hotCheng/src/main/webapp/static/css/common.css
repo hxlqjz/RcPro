@@ -1,0 +1,36 @@
+* {margin: 0;padding: 0;}
+body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,span{ margin:0px; padding:0px; border: 0px;}
+body {font-size: 14px;font-family: "微软雅黑";background: #FFF;}
+h1,h2,h3,h4,h5,h6{font-weight:normal; }
+ul,ol {list-style: none;}
+a {text-decoration: none;color: #333333;}
+a:hover{text-decoration: none;}
+input{outline: none;}
+input[type=button],button{cursor: pointer;}
+img {display: block;border: none;}
+table{border-collapse: collapse;}
+i{font-style: normal;}
+
+/*input输入框palaceholder颜色*/
+:-moz-placeholder{color: #b8b8b8;}
+::-moz-placeholder{color: #b8b8b8;}
+:-ms-input-placeholder{color: #b8b8b8;}
+::-webkit-input-placeholder{color: #b8b8b8;}
+
+.bgWhite{ background:#fff;}
+.fl{ float:left;}
+.fr{ float:right;}
+
+.ml0{margin-left: 0;}
+.mr0{margin-right: 0;}
+.mt0{margin-top: 0px;}
+.ml20{margin-left: 20px;}
+.mr20{margin-right: 20px;}
+.pt0{padding-bottom: 0;}
+.pl0{padding-left: 0;}
+.pr0{padding-right: 0;}
+
+/* 清除 浮动*/
+.overflow{overflow: auto;zoom: 1;}
+.clearfix:after, .clearfix:before{ content:""; display:block; clear:both;visibility:hidden;height:0; }
+.clearfix{zoom:1;}

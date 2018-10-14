@@ -1,0 +1,87 @@
+﻿.titleselectBox{width: 95%;padding: 10px 0;border-bottom: 1px solid #BEBDBD;position: fixed;top: 50px;left: 2.5%;z-index: 10;}
+.productTitleBox img{width: 30px;height: 30px;float: left;}
+.productTitleBox h3{font-weight: bold;font-size: 18px;float: left;line-height: 30px;}
+.productTitleBox h3 span{margin-left: 5px;}
+/*下拉框*/
+.productSelectBox{font-size: 14px;}
+.productSelect{margin-top: 5px;}
+.productSelect .proSelect{float: left;width: 31.33%;height: 32px;background: #FFF;margin-left: 3%;
+border: 1px solid #bebdbd;box-sizing: border-box;position: relative;border-radius: 5px;box-shadow: 2px 2px 2px #bbb;}
+.productSelect .proSelect:first-child{margin-left: 0;}
+.productSelect .proSelect p{position: absolute;left: 0;line-height: 32px;text-align: center;width: calc(100% - 23px);}
+.productSelect .proSelect .selectImg{position: absolute;right: 5px;width: 18px;height: 18px;top: 7px;
+background: url(../img/images/AVIA_03.jpg) no-repeat;background-size: 100% 100%;}
+.productSelect .proSelect .selectImg1{background: url(../img/images/AVIA_07.jpg) no-repeat;}
+.productSelect1 .proSelect:nth-of-type(1){width: 65.66%;}
+.productSelect1 .proSelect:nth-of-type(2){width: 31.33%;}
+/*下拉框-下拉列表*/
+.select-ul{position: absolute;width: 100%;border: 1px solid #bebdbd;box-sizing: border-box;top: 32px;
+background: #FFF;z-index: 10;display: none;box-shadow: none;}
+.select-ul li{line-height: 25px;text-align: center;}
+/*中间部分*/
+.productBox{width: 95%;margin: auto;position: relative;border-bottom: 60px solid transparent;
+height: calc(100% - 235px);height: -webkit-calc(100% - 235px);overflow: hidden;}
+.productSolider li{float: left;width: 100%;overflow: auto;}
+.titleBox{margin: 6px 0;}
+.titleBox img{height: 32px;float:left;box-shadow: 2px 2px 2px #bbb;}
+.titleBox h3{font-size: 16px;margin-left: 10px;float: left;line-height: 32px;}
+
+.tableBox{width: 100%;background: #FFF;border-top: 1px solid #000;}
+.tableBox table tr{border-bottom: 1px solid #bebdbd;}
+.tableBox table tr:last-child{border-bottom: none;}
+.tableBox table td{padding: 12px 5px;font-size: 15px;}
+.tableBox.rePin{background: #ececec;border: 1px solid #bebdbd;box-sizing: border-box;padding: 0 8px;}
+.rePin table td{padding: 6px 12px;font-size: 14px;}
+
+
+
+/*底部logo*/
+.navSolider{position: fixed;bottom: 10px;left: 50%;z-index: 10;}
+.navSolider li{float: left;margin-left: 10px;width: 25px;height: 25px;
+background-repeat: no-repeat;background-size: 100% 100%;opacity: 0.8;}
+.navSolider li:nth-of-type(1){margin-left: 0;background-image: url(../img/images/foot_1.jpg);}
+.navSolider li:nth-of-type(2){background-image: url(../img/images/foot_2.jpg);}
+.navSolider li:nth-of-type(3){background-image: url(../img/images/foot_3.jpg);}
+.navSolider li:nth-of-type(4){background-image: url(../img/images/foot_4.jpg);}
+.navSolider li:nth-of-type(5){background-image: url(../img/images/foot_5.jpg);}
+.navSolider li:nth-of-type(6){background-image: url(../img/images/foot_6.jpg);}
+.navSolider li.navActive{width: 35px;height: 35px;opacity: 1;}
+.navSolider li:nth-of-type(1).navActive{background-image: url(../img/images/foot_7.jpg);}
+.navSolider li:nth-of-type(2).navActive{background-image: url(../img/images/foot_8.jpg);}
+.navSolider li:nth-of-type(3).navActive{background-image: url(../img/images/foot_9.jpg);}
+.navSolider li:nth-of-type(4).navActive{background-image: url(../img/images/foot_10.jpg);}
+.navSolider li:nth-of-type(5).navActive{background-image: url(../img/images/foot_11.jpg);}
+.navSolider li:nth-of-type(6).navActive{background-image: url(../img/images/foot_12.jpg);}
+
+
+/*汽车型号*/
+.productTypeBox{width: 95%;padding: 10px 0;border-bottom: 1px solid #BEBDBD;
+z-index: 10;height: 142px;border-top: 50px solid transparent;margin: auto;}
+.typeBox-ul{overflow-y: auto;height: 100%;overflow-x: hidden;}
+.typeBox-ul li{height: 65px;margin-top: 12px;border-radius: 10px;background: url(../img/images/typebg1.jpg) repeat-x;
+background-size: 100% 100%;/*font-size: 10px;*/text-align: center;border-left: 1px solid #BEBDBD;border-right: 1px solid #BEBDBD;
+padding: 9px 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+.typeBox-ul li:nth-of-type(1){margin-top: 0px;}
+.typeBox-ul li p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.typeBox-ul li.typeActive{background: url(../img/images/typebg2.jpg) repeat-x;color: #FFF;} 
+/*滚动条样式*/
+.typeBox-ul::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+}
+.typeBox-ul::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+	height: 50px;border: 1px solid #235285;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: url(../img/line.jpg) repeat-x;background-size: 100% 100%;
+}
+.typeBox-ul::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: url(../img/images/gun.png) repeat-x;
+    background-size: 100% 100%;
+}
+.typeBox-ul::-webkit-scrollbar-track-piece {  
+    background-color: rgba(0, 0, 0, 0);  
+    border-left: 10px solid rgba(0, 0, 0, 0);  
+}  

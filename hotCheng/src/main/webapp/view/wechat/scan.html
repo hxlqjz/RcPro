@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title></title>
+<base href="/hotCheng/" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_626784_0j006ef09vff.css">
+<link rel="stylesheet" href="static/css/common.css">
+<link rel="stylesheet" href="static/css/index.css">
+<script src="static/js/mui.min.js"></script>
+<script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
+<link href="static/css/mui.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="static/css/mui.picker.min.css" />
+<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<a href="http://sao315.com/w/api/saoyisao">
+<i class="dzwfont dzw-saomiao" style="font-size:45px;"> 扫描</i>
+</a>
+<div id="result"></div>
+<script type="text/javascript">
+window.addEventListener("pageshow", ready);
+function ready(){
+	var qr = getQueryString("qrresult");
+	$.ajax({
+		type : "POST",
+		url : 'statistics/getActivate.action',
+		data:{
+			qrCode:qr
+		},
+		success : function(result) {
+			if(result == 0){
+				alert("请联系经销商");
+			}else if(result == 2){
+				alert("显示查询页面")
+			}else if(result == 1){
+				alert("弹出界面");
+			}else{
+				alert("...")
+			}
+		},
+		failure : function(error) {
+			console.log(error)
+		}
+	});
+}
+
+
+function a(){
+	$.ajax({
+		type : "POST",
+		url : 'statistics/getActivate.action',
+		data:{
+			qrCode:qr
+		},
+		success : function(result) {
+			if(result == 0){
+				alert("请联系经销商");
+			}else if(result == 2){
+				alert("显示查询页面")
+			}else if(result == 1){
+				alert("弹出界面");
+			}else{
+				alert("...")
+			}
+		},
+		failure : function(error) {
+			console.log(error)
+		}
+	});
+}
+/* if(qr){
+	$("#result").html(qr);
+	$.ajax({
+		type : "POST",
+		url : 'localhost:18080/hotCheng/statistics/getActivate.action',
+		data:{
+			qrCode:qr
+		},
+		success : function(result) {
+			if(result == 0){
+				alert("请联系经销商");
+			}else if(result == 2){
+				alert("显示查询页面")
+			}else if(result == 1){
+				alert("弹出界面");
+			}else{
+				alert("...")
+			}
+		},
+		failure : function(error) {
+			console.log(error)
+		}
+	});
+}
+ */
+function getQueryString(name){
+	var reg = new RegExp("\\b"+name+"=([^&]*)");
+	var r = location.href.match(reg);
+	if(r!=null)return unescape(r[1]);
+}
+</script>
+</body>
+</html>

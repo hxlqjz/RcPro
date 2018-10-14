@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <base href="/hotCheng/" />
+    <title>支付</title>
+    <style>
+        *{padding: 0;margin: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);outline:none;}
+        .main{width: 50%;margin: 5% 25%;}
+        .main div{height: 50px;margin-bottom: 20px;line-height: 45px;}
+        .radiobox{width:22px;height:18px; ;margin-right: 20px;position: relative;top:-10px;border: 1px solid #5FB878;}
+        .main input[type=submit]{width: 100%;line-height: 42px;border: 0;background: #00AAEE;font-size: 1.4rem;border-radius: 8px;color: #fff;margin-top: 20px;}
+        /*.radiobox:checked{background: url('check.png') no-repeat center;}*/
+        .main div label{display: inline-block;}
+    </style>
+</head>
+<body>
+<div class="main">
+    <form action="" method="post">
+        <div><input type="radio" class="radiobox" name="payment" id="zhifubao" value="1"/><label for="zhifubao"><img src="static/images/zhifubao.png"/></label></div>
+        <div><input type="radio" class="radiobox" name="payment" id="weixin" value="2"/><label for="weixin"><img src="static/images/weixin.png"/></label></div>
+        <input type="submit" value="确认支付" />
+    </form>
+</div>
+</body>
+</html>

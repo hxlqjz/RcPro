@@ -1,0 +1,103 @@
+
+<!Doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>车型匹配的产品</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	 <base href="/hotCheng/" />
+	 <link rel="stylesheet" href="static/css/bootstrap.min.css">
+	 <script src="static/js/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="static/js/bootstrap.min.js"></script> 
+	 <script src="static/js/tool.js"></script>     
+	 <script src="static/js/template.js"></script>
+	 <style>
+	 *{padding:0;margin:0;}
+	/*  table{border:1px solid ##888888;width:100%;margin:3% 0;border-collapse:collapse;box-shadow: 0 0 5px #888888;border-radius:8px;background:#fff;}
+	 table:first-child{margin-top:0;}
+	 table tr td{line-height:23px;width:60%;padding:3px 0;border-bottom:1px solid #ddd;}
+	 table tr td span{padding:4px 10px;display:inline-block;width:70%;}
+	 table tr td:first-child{text-align:right;width:38%;padding:0 2%;}
+	
+	
+	 table tr td.center{text-align:center;width:100%;padding:2px 0;} */
+	 
+	 .title{background:#3697fd;color:#fff;text-align:center;font-size:16px;line-height:40px;}
+	 .table>tbody>tr:first-child>td{border-top:0;text-align: center;}
+	 
+	 .table>tbody>tr>td:first-child{text-align: center;}
+	 </style>
+    </head>
+      <script id="que_rec" type="text/html">
+		{{each list as value j}}
+	       <table class="table">
+					<tbody>
+                    <tr><td colspan="2" class='center'>{{list[j].ngkBrand}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].ngkType}}<br />{{list[j].outputAmount}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].marketYear}}</td></tr>
+					<tr><td>发动机:</td><td><span>{{list[j].engineType}}</span></td></tr>
+					<tr><td>NGK:</td><td><span>{{list[j].sparkPlug}}</span></td></tr>
+					<tr><td>安装支数:</td><td><span>{{list[j].gearNum}}</span></td></tr>
+ 	             </tbody>	 	  	
+	 	  	</table>
+	     {{/each}}
+	</script>
+	
+  <body style="background:#f2f2f2;">
+  <div>
+          <p class='title'>车型匹配的结果</p>
+	    <div class="container table-responsive" id="ngkQueRec">	           
+	 	 <!--  	<table class="table">
+					<tbody>				
+					<tr><td colspan="2">奥迪（AUDI） A1<br>1.4T 2013.9</td></tr>
+					<tr><td>发动机</td><td><span>CFB</span></td></tr>
+					<tr><td>NGK</td><td><span>PZFR6R</span></td></tr>
+					<tr><td>安装支数</td><td><span>4</span></td></tr>				
+					</tbody>	 	  	
+	 	  	</table> -->
+	    </div>	
+	   </div> 
+</body>
+
+<script>
+$(document).ready(function(e) {
+  	var brand=localStorage.getItem("brand");
+	var type=localStorage.getItem("type");
+	var output=localStorage.getItem("output");
+	var year=localStorage.getItem("year");
+	findNgkGood(brand,type,output,year);
+});
+
+//加载对应的车型产品
+function findNgkGood(brand,type,output,year){
+	var url =basUrl+"/ngk/findCarListByBrandAndTypeAndOutPutAndYear.action";
+	$.ajax({  
+        url: url,
+        type: 'POST',  
+        data : {
+        	brand:brand,
+        	type:type,
+        	output:output,
+        	year:year
+        	
+		},  
+        timeout : 10000, //超时时间设置，单位毫秒
+        async: false,  
+        success: function (result) {
+        	var rec=JSON.parse(result);
+        	var res=rec.data.res;
+        	var rowList = new Array(res.length);
+        	for(var i=0;i<rowList.length;i++){
+				rowList[i]=res[i]
+			}
+        	document.getElementById("ngkQueRec").innerHTML =template("que_rec", {
+				list: rowList
+			});
+       	},  
+        error: function (returndata) {
+        
+        }
+       	
+		});
+};
+</script>
+</html>

@@ -1,0 +1,91 @@
+html{height: 100%;}
+body{background: #ececec;font-size: 16px;height: 100%;}
+header{width: 100%;height: 50px;background: #000 url(../img/tabli.jpg) repeat-x;background-size: 100% 100%;padding: 0 10px;box-sizing: border-box;
+}
+.headTitle{height: 30px;float: left;vertical-align: middle;margin-top: 10px;max-width: calc(100% - 65px);}
+.headsy{float: right;width: 65px;height: 30px;background: url(../img/headsy.png) no-repeat center;background-size: 100% 100%;margin-top: 10px;}
+.headsy a{display: block;width: 100%;height: 100%;}
+/*查询方式tab*/
+.tab-car {width: 90%;height: 40px;margin: 8% auto 5%;background: #FFF;}
+.tab-car li {float: left;width: 33.33%;box-sizing: border-box;text-align: center;line-height: 40px;border: 1px solid #bebdbd;}
+.tab-car li:nth-of-type(1){border-right:none;}
+.tab-car li:nth-of-type(2){}
+.tab-car li:nth-of-type(3){border-left:none;}
+.tab-car li.carActive{background: url(../img/line.jpg) repeat-x;color: #FFF;background-size: 100% 100%;border: 1px solid #235285;}
+.tab-car li.carActive a{color: #FFF;}
+/*查询*/
+.car-search{width:90%;margin: auto;display: none;}
+.car-search label{font-size: 13px;}
+.car-search .inputBox{margin-top: 5px;position: relative;}
+.car-search .inputBox input{box-sizing: border-box;height: 40px;float: left;display: block;line-height: 40px;font-size: 15px;}
+.car-search .intText{width: 70%;border: 1px solid #bebdbd;border-right:none;border-radius: 6px 0 0 6px;padding-left: 7px;}
+.car-search .intBtn{width: 30%;border-radius: 0 6px 6px 0;background: url(../img/tabli.jpg) repeat-x;background-size: 100% 100%;color: #FFF;}
+/*车型检索下拉框*/
+.inputBoxSelect{position: absolute;width: 70%;top: 40px;border: 1px solid #bebdbd;background: #FFF;display: none;}
+.inputBoxSelect li{text-align: center;line-height: 30px;}
+/*VIN码识别margin值越大位置越低，长宽由width和height控制，中间扫描图片相对位置padding-top控制*/
+.vinMa{width: 150px;height: 150px;border-radius: 50%;margin: 15% auto 0;background: url(../img/yuan.png);background-size: 100% 100%;padding-top: 30px;box-sizing: border-box;}
+.vinImg{width: 40%;margin: 0 auto 10px;}
+.vinImg img{width: 100%;}
+.vinsb{color: #FFF;text-align: center;}
+/*footer*/
+footer{width: 90%;border-top: 1px solid #bebdbd;position: absolute;bottom: 15px;left: 5%;}
+.foot1{text-align: center;font-size: 16px;line-height: 200%;}
+.foot1 a{color: #0370ba;font-weight: bold;}
+.foot2{text-align: center;font-size: 12px;}
+.foot2 i{font-size: 10px;color: #333;display:inline-block;-webkit-transform:scale(0.833);vertical-align: bottom;}
+
+
+/*vin码输入键盘*/
+.keyBg{position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,0.7);left: 0;top: 0;display: none;}
+.keyBorderBox{position: absolute;width: 100%;background: #dfe4ea;z-index: 100;left: 0;bottom: 0;padding-bottom: 40px;}
+.title-close{line-height: 35px;height: 35px;padding: 0 2%;}
+.title-close h4{font-size: 14px;float: left;}
+.title-close img{float: right;width: 15px;margin-top: 10px;margin-right: 6px;}
+.keyVin{background: #FFF;padding: 3% 0;}
+.keyVin .keyInput{width: 96%;border: 1px solid #edf2f7;margin:  auto;}
+.keyVin .keyInput li{width: 5.88%;float: left;height: 36px;text-align: center;line-height: 36px;}
+.keyVin .keyInput li.keyAcitive{background: #888888;}
+.keyVin .keyBtn{display:block;width: 96%;height: 38px;background: #568cbb;color: #FFF;font-size: 16px;margin: 3% auto 0;}
+.keyBorder li{margin-top: 3%;zoom:1;}
+.keyBorder li:after,.keyBorder li:before{ content:""; display:block; clear:both;visibility:hidden;height:0;}
+.keyBorder li span{display:block;border-radius: 6px;background: #FFF;font-size: 14px;float: left;width: 8.35%;height: 38px;margin-left: 1.5%;text-align: center;line-height: 38px;}
+.keyBorder li span.keyNo{background: #CCC;}
+/*.keyBorder .keyBorder-li3 span{margin-left: 2.485%;}*/
+.keyBorder .keyBorder-li4 span.prevNext{width: 12.5%;font-size: 24px;}
+.keyBorder li span.remove img{width: 16px;height: 16px;margin: 11px auto;}
+
+
+/*品牌选车*/
+/*热门品牌*/
+.pinPai-title{border-bottom: 1px solid #bebdbd;font-size: 14px;line-height: 28px;padding-left: 2%;}
+.reMen-ul{width: 95%;padding: 3% 0;}
+.reMen-ul li{float: left;width: 20%;margin-top: 5%;}
+.reMen-ul li:nth-of-type(1),.reMen-ul li:nth-of-type(2),.reMen-ul li:nth-of-type(3),.reMen-ul li:nth-of-type(4),.reMen-ul li:nth-of-type(5){margin-top: 0;}
+.reMen-ul li .imgBox{position: relative; width: 50%;height: 0;padding-bottom: 50%;margin: auto;}
+.reMen-ul li .imgBox img{position: absolute;left: 0;width: 100%;height: 100%;}
+.reMen-ul li p{font-size: 15px;text-align: center;color: #000c08;}
+/*间隔*/
+.line{width: 100%;height: 7px;background: url(../img/tabli.jpg) repeat-x;background-size: 100% 100%;}
+/*首字母--品牌*/
+.ziMu-ul li{border-bottom: 1px solid #bebdbd;zoom: 1;padding: 1.5% 2%;}
+.ziMu-ul li:after,.ziMu-ul li:before{ content:""; display:block; clear:both;visibility:hidden;height:0;}
+.ziMu-ul li:last-child{border-bottom: none;}
+.ziMu-ul li img{width: 35px;height: 35px;float: left;}
+.ziMu-ul li p{float: left;font-size: 15px;line-height: 35px;margin-left: 2%;}
+/*侧边栏字母瞄点*/
+.aside-zimu{height: calc(100% - 50px);position: fixed;z-index: 500;width: 8%;right: 0;top: 55px;}
+.aside-zimu a{display: block;text-align: center;color: #6a6e6d;height: 3.6%;font-size: 14px;transform: scale(1,1);}
+.aside-zimu a:hover{transform: scale(1.4,1.4);}
+/*侧边滑出品牌详情*/
+.ppDetail-box{width: 100%;height: 100%;position: fixed;z-index: 999;background: rgba(0,0,0,0.6);
+transition: right .3s;right: -100%;top: 0;}
+.ppDetail-close{width: 36%;height: 100%;position: absolute;left: 0;}
+.ppDetail{width: 64%;height: 100%;background: #ececec;position: absolute;right: 0;top: 0;padding: 3% 2%;overflow: hidden;box-sizing: border-box;}
+.ppDetail-ulBox{height: 100%;overflow-y: auto;}
+.ppDetail h3{height: 38px;background: url(../img/line.jpg) repeat-x;color: #FFF;background-size: 100% 100%;border: 1px solid #235285;
+line-height: 38px;font-size: 16px;padding-left: 8px;margin: 4% 0;}
+.ppDetail h3:first-child{margin-top: 0;}
+.ppDetail .ppDetail-ul{/*height:90%;overflow-y: auto;*/}
+.ppDetail .ppDetail-ul li{line-height: 200%;padding-left: 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.ppDetail .ppDetail-ul li:hover{background: #ddd;}

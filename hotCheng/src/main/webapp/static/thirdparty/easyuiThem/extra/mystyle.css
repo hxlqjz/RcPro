@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+.CTable{ table-layout:fixed;border-collapse:collapse; color:#333;}
+.CTable > tbody >tr > td,.CTable >tr > td{ padding:2px; min-height:28px; line-height:20px; border:1px solid #ccc;}
+.CTable td.CTableTitle1{color:#868686;background:#F9F9F9; font-weight:normal; font-size:14px; line-height:1.6em; text-align:left;}
+
+.btn{ display: inline-block; border-radius: 5px; padding: 0px 15px; text-decoration: none; line-height: 28px;
+height: 28px;vertical-align: middle;}
+	.default{ background: url(btnNew.png) 0 -50px repeat-x; border: 1px solid #DCDCDC; color: #555; }
+	.default:hover{ background: url(btnNew.png) 0 0 repeat-x; border: 1px solid #0087E1; color: #FFF}
+	.default:active{ background: url(btnNew.png) 0 -200px repeat-x; border: 1px solid #000E75}

@@ -1,0 +1,102 @@
+   <!DOCTYPE html>
+<html>
+
+    
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+     <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <base href="/hotCheng/" />
+        <link href="static/mui/css/mui.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <script src="static/mui/js/mui.min.js"></script>
+        <script src="static/js/jquery-1.9.1.min.js"></script>
+        <script src="static/js/template.js"></script>
+        <script src="static/js/tool.js"></script> 
+        <script type="text/javascript" src="static/js/bootstrap.min.js"></script>   
+        <script src="static/js/template.js"></script>  
+    <style type="text/css">
+        .modal-open,
+        .modal-open .navbar-fixed-top,
+        .modal-open .navbar-fixed-bottom {
+            margin-right: 0;
+        }
+        .modal {
+            bottom: auto;            
+            padding: 0;
+            background-color: #ffffff;
+            border: 1px solid #999999;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            background-clip: padding-box;
+            overflow-y: auto;
+        }
+        .modal.container {
+            max-width: none;
+        }
+        #firstmodal {
+            width: 98%;
+            height: 98%;
+        }
+        #secondmodal {
+            width: 99%;
+            height: 99%;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $('#m1').on("click", function() {
+                $('#firstmodal').modal();
+            });
+            $('#m2').on("click", function () {
+                $('#secondmodal').modal();
+            });
+        });
+    </script>
+</head>
+<body>
+        <div class="content" style="margin-left: 100px;margin-top: 100px;">
+            <button class="btn btn-primary btn-lg" id="m1">打开第一层模态窗口</button>
+        </div>
+    
+        <div id="firstmodal" class="modal container fade" tabindex="-1" style="display: none;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">第一层模态窗口</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <button class="btn btn-primary btn-lg" id="m2">打开第二层模态窗口</button>
+                 
+                   
+                </p>
+                
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+            </div>
+        </div>
+    
+        <div id="secondmodal" class="modal container fade" tabindex="-1" style="display: none;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">第二层模态窗口</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                
+                   
+                </p>
+                
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+            </div>
+        </div>
+</body>
+    
+    </html>

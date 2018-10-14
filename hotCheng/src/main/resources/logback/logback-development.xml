@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d [%t] %-5p [%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="sqlCONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%n===========================================SQL START==========================================%n%m%n===========================================SQL  END============================================%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="rootRollingSql" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <file>logs/sql/sql.log</file>  
+  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <fileNamePattern>logs/sql/sql.%d{yyyy-MM-dd}.log</fileNamePattern>  
+            <!-- 设置日志的滚动时间 -->  
+            <maxHistory>30</maxHistory>  
+        </rollingPolicy>  
+        <encoder>  
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</pattern>  
+            <charset>UTF-8</charset>  
+        </encoder>  
+    </appender>  
+		<!-- 利用内存存储的日志缓冲区，用于在线查看日志。不要修改name！ -->
+	<appender name="CYCLIC" class="ch.qos.logback.core.read.CyclicBufferAppender">
+		<MaxSize>500</MaxSize>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/hrzy.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>100MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%d [%thread] - &lt;%m&gt;%n</pattern>
+		</encoder>
+	</appender>
+	<!--log4jdbc   begin -->
+    <!-- 
+    	jdbc.sqlonly不显示sql执行的时间
+    	jdbc.sqltiming显示sql执行的时间{executed in 2 msec} 
+    	二者使用一个即可       
+    --> 
+    <logger name="jdbc.sqlonly" level="OFF"  addtivity="false">
+        <appender-ref ref="sqlCONSOLE"/>
+        <appender-ref ref="rootRollingSql"/>
+    </logger>
+    <logger name="jdbc.sqltiming" level="INFO">
+        <appender-ref ref="sqlCONSOLE"/>
+        <appender-ref ref="rootRollingSql"/>
+    </logger>
+    <!-- log all jdbc calls except ResultSet calls -->
+	  <logger name="jdbc.audit" additivity="false">
+	    <level value="OFF"/>
+	    <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="rootRollingSql"/>
+	  </logger>
+    
+    <!-- log the jdbc ResultSet calls -->
+	  <logger name="jdbc.resultset" additivity="false">
+	    <level value="OFF"/>
+	    <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="rootRollingSql"/>
+	  </logger>
+    
+    <!-- log connection open/close events and dump of all open connection numbers -->
+	<logger name="jdbc.connection" additivity="false">
+	    <level value="OFF"/>
+	    <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="rootRollingSql"/>
+	</logger>    
+    <!--log4jdbc   end -->
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"
+		level="WARN" />
+<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CYCLIC" />
+	</root>
+</included>

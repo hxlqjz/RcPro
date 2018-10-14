@@ -1,0 +1,1445 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>热骋汽车</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <base href="/hotCheng/" />
+    <link rel="stylesheet" href="static/mui/css/mui.min.css">	
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/cropper.css">
+  	<link rel="stylesheet" href="static/css/myCrop.css">
+  
+	<script src="static/js/tool.js"></script> 
+   
+<style type="text/css">body {
+  font-family: "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "SimSun", "\5B8B\4F53", "Arial Narrow";
+  margin: 0;
+  
+  background-color: #f6f6f7;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url(static/js/iconfont.woff) format('woff'), url(static/js/iconfont.ttf) format('truetype'), url(js/iconfont.svg) format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-list {
+  color: #0066b6;
+  font-size: 1.2rem;
+  margin-right: .5rem;
+}
+.icon-white {
+  color: #fff;
+  margin-right: .5rem;
+}
+.hidden {
+  display: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+a,
+ul,
+ol,
+li,
+div,
+dl,
+dd,
+input,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+i {
+  font-style: normal;
+}
+.ellipsistext {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.hidden {
+  display: none;
+}
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.search-top {
+  width: 100%;
+  padding-bottom: .5rem;
+  position: relative;
+  background: url(static/images/list-back.jpg) no-repeat;
+  background-size: 100% ;
+}
+.search-top .navbar img {
+  height: 1.5rem;
+  padding: 0.75rem 1rem;
+}
+.search-top .page-title {
+  display: block;
+  color: #d5d5d5;
+  text-align: center;
+  line-height: 2rem;
+}
+.logo {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  background: #1582dd;
+  color: #fff;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.app-link {
+  display: inline-block;
+  width: 100%;
+  height: 1rem;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+.app-link a {
+  display: inline-block;
+  width: 48%;
+  vertical-align: middle;
+  text-align: center;
+}
+.app-link .active {
+  color: #1582dd;
+  font-weight: 600;
+}
+.search-input {
+  width: 92%;
+  margin: 0 auto;
+  color: #9a9a9a;
+  background: #fff;
+  padding-left: .5rem;
+  border-radius: 5px;
+}
+.search-input .icon-search {
+  font-size: 2rem;
+  color: #2079e6;
+}
+.search-input .input-keyword {
+  height: 2.7rem;
+  line-height: 2.7rem;
+  outline: none;
+  margin: .6rem;
+  border: 0;
+  width: 60%;
+  font-size: 1.4rem;
+}
+.search-input .search-btn {
+  width: auto;
+  height: 4rem;
+  line-height: 4rem;
+  background: #0066b6;
+  text-align: center;
+  color: #fff;
+  padding: 0 1.4rem;
+  float: right;
+  border-radius: 0 5px 5px 0;
+}
+.nav-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}
+.nav-content {
+  width: 70%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background: rgba(25, 1, 26, 0.9);
+}
+.nav-content .nav-logo {
+  position: relative;
+  width: 100%;
+  height: 25%;
+}
+.nav-content .nav-logo span {
+  display: block;
+  width: 10rem;
+  height: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+.nav-content .nav-logo span img {
+  width: 100%;
+}
+.nav-content .nav-link {
+  margin: 1rem auto;
+}
+.nav-content .nav-link a {
+  display: block;
+  margin: 1rem 20%;
+  color: #fff;
+  line-height: 2rem;
+}
+.nav-right {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 70%;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0);
+}
+.show {
+  display: block;
+  -webkit-animation-name: navAnimation;
+          animation-name: navAnimation;
+  -webkit-animation: navAnimation 0.5s ease-in;
+          animation: navAnimation 0.5s ease-in;
+}
+.hide {
+  -webkit-animation-name: hideNav;
+          animation-name: hideNav;
+  -webkit-animation: hideNav 2s ease;
+          animation: hideNav 2s ease;
+  display: none;
+}
+.newsdetail-no-result {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  display: none;
+}
+.newsdetail-no-result span {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.newsdetail-no-result span img {
+  width: 100%;
+}
+@-webkit-keyframes navAnimation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0 ;
+  }
+}
+@-webkit-keyframes hideNav {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+</style><style type="text/css">.news-nav-btn {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 2rem;
+  color: #e0d2da;
+  z-index: 98;
+}
+.index-body {
+  background: url(static/images/back.jpg);
+}
+.index-search-top {
+  width: 100%;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  position: relative;
+  background: url(images/list-back.jpg) no-repeat;
+  background-size: 100% ;
+}
+.index-search-top .search-input {
+  display: block;
+  width: 92%;
+  margin: 0 auto;
+  color: #9a9a9a;
+  background: #fff;
+  padding-left: .5rem;
+  border-radius: 5px;
+}
+.index-search-top .search-input .icon-search {
+  font-size: 2rem;
+  color: #2079e6;
+}
+.index-search-top .search-input span {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  outline: none;
+  border: 0;
+  width: 65%;
+  font-size: 1rem;
+}
+.index-search-top .search-input .search-btn {
+  width: auto;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  background: #0066b6;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+  float: right;
+  border-radius: 0 5px 5px 0;
+}
+.index-nav-top {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+  padding-bottom: 1rem;
+}
+.index-nav-top span {
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.index-nav-top span img {
+  height: 2.5rem;
+}
+.news-swiper-container {
+  margin: .5rem 0 .5rem 0;
+  height: 176px;
+  position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+.news-swiper-container .init-news-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 129;
+}
+.news-swiper-container .init-news-wrapper .swiper-slide {
+  display: block;
+  height: 176px;
+  box-sizing: content-box;
+}
+.news-swiper-container .init-news-wrapper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+.news-swiper-container .init-news-wrapper .swiper-slide .init-news-title {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.news-swiper-container .init-news-wrapper .swiper-slide .init-news-title i {
+  display: inline-block;
+  width: 15rem;
+  padding-left: 1rem;
+  color: #fff;
+}
+.news-swiper-container .swiper-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-transition-property: -webkit-transform, left, top;
+  -webkit-transition-duration: 0s;
+  -webkit-transform: translate3d(0px, 0, 0);
+  -webkit-transition-timing-function: ease;
+  -moz-transition-property: -moz-transform, left, top;
+  -moz-transition-duration: 0s;
+  -moz-transform: translate3d(0px, 0, 0);
+  -moz-transition-timing-function: ease;
+  -o-transition-property: -o-transform, left, top;
+  -o-transition-duration: 0s;
+  -o-transform: translate3d(0px, 0, 0);
+  -o-transition-timing-function: ease;
+  -o-transform: translate(0px, 0px);
+  -ms-transition-property: -ms-transform, left, top;
+  -ms-transition-duration: 0s;
+  -ms-transform: translate3d(0px, 0, 0);
+  -ms-transition-timing-function: ease;
+  -webkit-transition-property: left, top, -webkit-transform;
+  transition-property: left, top, -webkit-transform;
+  transition-property: transform, left, top;
+  transition-property: transform, left, top, -webkit-transform;
+  transition-duration: 0s;
+  transform: translate3d(0px, 0, 0);
+  transition-timing-function: ease;
+  box-sizing: content-box;
+}
+.news-swiper-container .swiper-wrapper .swiper-slide {
+  display: block;
+  float: left;
+  box-sizing: content-box;
+  position: relative;
+}
+.news-swiper-container .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+.news-swiper-container .swiper-wrapper .swiper-slide .swiper-title {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.news-swiper-container .swiper-wrapper .swiper-slide .swiper-title i {
+  display: inline-block;
+  width: 15rem;
+  padding-left: 1rem;
+  color: #fff;
+}
+.news-swiper-container .pagination {
+  position: absolute;
+  z-index: 20;
+  right: 10px;
+  bottom: 10px;
+}
+.news-swiper-container .pagination .swiper-pagination-switch {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background: #fff;
+  margin-right: 5px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.news-swiper-container .pagination .swiper-active-switch {
+  background: #0066b6;
+}
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;
+  z-index: 909;
+  text-align: center;
+}
+.loading nav {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  color: #fff;
+}
+.loading nav .loading-gif {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+}
+.loading nav .loading-gif img {
+  width: 100%;
+}
+.loading nav i {
+  line-height: 20px;
+  color: #999;
+}
+.news-main .news-channel {
+  width: 95%;
+  margin: 0 auto;
+  display: table;
+}
+.news-main .news-channel li {
+  line-height: 1.5rem;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.news-main .news-channel .active {
+  color: #0066b6;
+  border-bottom: 2px solid #0076d2;
+}
+.news-main .news-loading {
+  width: 100%;
+  height: 600px;
+  background: #fff;
+  position: absolute;
+  z-index: 9;
+  display: none;
+  margin-top: 1.7rem;
+}
+.news-main .news-loading nav {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  margin-top: 30%;
+}
+.news-main .news-loading nav .news-loading-box {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+}
+.news-main .news-loading nav .news-loading-box img {
+  width: 100%;
+}
+.news-main .news-lists {
+  padding: 0 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+.news-main .news-lists .news-no-result {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  display: none;
+}
+.news-main .news-lists .news-no-result span {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.news-main .news-lists .news-no-result span img {
+  width: 100%;
+}
+.news-main .news-lists .news-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: .5rem 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.news-main .news-lists .news-item .news-item-img {
+  display: inline-block;
+  width: 6rem;
+  height: 4rem;
+  overflow: hidden;
+  padding-right: .5rem;
+}
+.news-main .news-lists .news-item .news-item-img img {
+  width: 100%;
+  height: 100%;
+}
+.news-main .news-lists .news-item .news-item-nav {
+  height: 4rem;
+  position: relative;
+  flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+}
+.news-main .news-lists .news-item .news-item-nav .news-item-title {
+  color: #323232;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.news-main .news-lists .news-item .news-item-nav span,
+.news-main .news-lists .news-item .news-item-nav i {
+  font-size: .5rem;
+  color: #666;
+  line-height: 1rem;
+}
+.news-main .news-lists .news-item .news-item-nav .news-item-resource {
+  width: 6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.news-main .news-lists .news-item .news-item-nav .news-item-time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.news-main .news-more {
+  width: 100%;
+  background: #c4c4c4;
+  text-align: center;
+  line-height: 2rem;
+  color: #666;
+  margin-top: -1px;
+}
+.news-main .news-pc-link {
+  width: 100%;
+  background: #e0e0e0;
+  text-align: center;
+  line-height: 2rem;
+  margin-top: -1px;
+  color: #666;
+}
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: .8rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+}
+@media only screen and (min-width: 401px) {
+  .news-swiper-container {
+    height: 224px;
+  }
+}
+@media screen and (max-width: 321px) and (min-width: 351px) {
+  .news-swiper-container {
+    height: 135px;
+  }
+}
+@media screen and (max-width: 360px) and (min-width: 351px) {
+  .news-swiper-container {
+    height: 152px;
+  }
+}
+@media screen and (max-width: 375px) and (min-width: 361px) {
+  .news-swiper-container {
+    height: 168px;
+  }
+}
+@media screen and (max-width: 414px) and (min-width: 375px) {
+  .news-swiper-container {
+    height: 176px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 414px) {
+  .news-swiper-container {
+    height: 186px;
+  }
+}
+</style><style type="text/css">.search-navbar {
+  padding: 0.75rem 1rem;
+}
+.search-navbar img {
+  height: 2rem;
+}
+.index-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 568px;
+  background: url(static/images/onlineLogo.png);
+  background-size: 100% auto;
+  height: auto;
+}
+.index-wrap .search-wrap {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.index-wrap .search-wrap .search-tag {
+  width: 80%;
+  display: flex;
+  display: box;
+  /* OLD - Android 4.4- */
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  margin: 0 auto .5rem;
+}
+.index-wrap .search-wrap .search-tag .selected-item {
+  display: inline-block;
+  color: #fff;
+  height: 3.3rem;
+  text-align: center;
+  line-height: 3.3rem;
+  position: relative;
+  padding: 0 1rem;
+  border-radius: 5px;
+}
+.index-wrap .search-wrap .search-tag .first-select {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  margin-right: 1rem;
+  font-size:1.6rem;
+  
+}
+.index-wrap .search-wrap .search-tag .second-select {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  font-size:1.6rem;
+}
+.index-wrap .search-wrap .search-tag .selected-tag {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  color: #0066b6;
+  z-index: 99;
+  
+}
+.index-wrap .search-wrap .search-tag .active {
+  background: #0066b6;
+}
+.index-wrap .search-wrap .title {
+  width: 50%;
+  line-height: 2rem;
+  margin: 10px auto 10px;
+  color: #fff;
+}
+.index-wrap .search-wrap .search-minglu-items {
+  margin-top: 1rem;
+  color: #300832;
+  padding: 0 .5rem;
+}
+.index-wrap .search-wrap .search-minglu-items a {
+  display: inline-block;
+  padding: .5rem;
+  border-radius: 5px;
+  font-size: .8rem;
+  margin-bottom: .5rem;
+  background: rgba(255, 255, 255, 0.6);
+}
+.index-wrap .footer {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: .8rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+</style><style type="text/css">.article-detail-wrap {
+  padding: 1rem;
+  line-height: 1.5rem;
+}
+.article-detail-wrap .title {
+  text-align: left;
+  color: #323232;
+  margin: 1rem 0;
+}
+.article-detail-wrap img {
+  width: 100%;
+}
+.article-detail-wrap .source-time {
+  padding: .5rem 0 2rem 0;
+  color: #666;
+  font-size: .8rem;
+}
+.article-detail-wrap .source-time .news-detail-resource {
+  float: left;
+  width: 8rem;
+}
+.article-detail-wrap .source-time .news-detail-time {
+  float: right;
+}
+.article-detail-wrap .article-text {
+  margin: 1rem 0;
+}
+.article-detail-wrap .article-text video {
+  width: 100%;
+}
+.article-detail-wrap .article-more {
+  display: block;
+  width: 60%;
+  line-height: 2rem;
+  border: 1px solid #1582dd;
+  color: #1582dd;
+  border-radius: 15px;
+  text-align: center;
+  margin: 1rem auto;
+}
+.article-detail-wrap .article-more i {
+  color: #1582dd;
+}
+</style><style type="text/css">.title {
+  color: #323232;
+  text-align: center;
+  margin: 1rem 0;
+}
+.article-wrap p {
+  color: #666;
+  line-height: 1.5rem;
+  margin: 1rem;
+}
+.article-wrap p .blue {
+  color: #0066b6;
+}
+</style><style type="text/css">.article-wrap .title {
+  color: #323232;
+  text-align: center;
+  margin: 1rem 0;
+}
+.article-wrap p {
+  color: #666;
+  line-height: 1.5rem;
+  margin: 1rem;
+}
+.article-wrap p .blue {
+  color: #0066b6;
+}
+.article-wrap p span {
+  display: block;
+}
+.article-wrap .telphone {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #666;
+  margin: 1rem;
+}
+.article-wrap .telphone .tel-title {
+  width: 3rem;
+}
+.article-wrap .telphone .tel-no {
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+}
+</style><style type="text/css">.article-wrap .title {
+  color: #323232;
+  text-align: center;
+  margin: 1rem 0;
+}
+.article-wrap p {
+  color: #666;
+  line-height: 1.5rem;
+  margin: 1rem;
+}
+.article-wrap p .blue {
+  color: #0066b6;
+}
+</style><style type="text/css">.object-select {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 2rem;
+  background: #fff;
+  box-shadow: 0 1px 1px #dddada;
+}
+.object-select .object-type {
+  width: 12rem;
+  margin: 0 auto;
+  display: flex;
+  display: box;
+  /* OLD - Android 4.4- */
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  line-height: 1.5rem;
+}
+.object-select .object-type a {
+  line-height: 2rem;
+  text-align: center;
+}
+.object-select .object-type .first-select {
+  width: 6rem;
+  border-right: 1px solid #e0e0e0;
+}
+.object-select .object-type .second-select {
+  flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+}
+.object-select .object-type .active {
+  color: #1582dd;
+}
+.no-data {
+  margin-top: 5rem;
+}
+.no-data .no-result {
+  width: 8rem;
+  margin: 0 auto;
+}
+.no-data .no-result img {
+  width: 100%;
+}
+.no-data p {
+  text-align: center;
+  color: #9a9a9a;
+}
+.search-results a {
+  display: block;
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 1rem 1rem;
+  box-shadow: 0 1px 1px #dddada;
+}
+.search-results a .search-name {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.search-results a p {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.search-results a p span {
+  display: block;
+  line-height: 1.5rem;
+}
+.search-results a p .search-result-label {
+  width: 7rem;
+  color: #9a9a9a;
+}
+.search-results a p .search-result-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.loading-more {
+  display: block;
+  text-align: center;
+  margin: 1rem auto;
+  color: #aaa;
+}
+</style><style type="text/css">.search-detail h4 {
+  font-weight: normal;
+  line-height: 1rem;
+  padding: .5rem 1rem;
+  background: #cfdfef;
+  color: #323232;
+  margin: .5rem 0;
+}
+.record-box {
+  background: #fff;
+  line-height: 1rem;
+  color: #585858;
+  margin-bottom: .5rem;
+  box-shadow: 0 1px 1px #dddada;
+}
+.record-box .icon-big {
+  font-size: 1.8rem;
+  margin-left: -3px;
+  margin-right: 0;
+}
+.record-box .icon-small {
+  font-size: 1rem;
+  margin-left: 3px;
+}
+.record-box ul {
+  padding: 1rem 1rem .5rem 1rem;
+  margin-bottom: 1rem;
+  border-top: 1px dashed #ccc;
+}
+.record-box ul li {
+  padding: .3rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.record-box ul li .search-detail-item-label {
+  width: 6rem;
+  color: #9a9a9a;
+  padding-right: 1rem;
+}
+.record-box ul li .search-detail-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+}
+.record-box .record-list-title {
+  display: block;
+  background: #fff;
+  padding: .5rem 1rem;
+  color: #0066b6;
+  line-height: 1rem;
+  position: relative;
+}
+.record-box .record-list-title label {
+  padding: 0 .5rem;
+  color: #585858;
+}
+.record-box .record-list-title .more-icon {
+  float: right;
+  color: #323140;
+  line-height: .6rem;
+}
+.record-box .iconfont-toggle {
+  display: inline-block;
+  line-height: 1.5rem;
+  width: 1.5rem;
+  color: #9a9a9a;
+  background: #fff;
+  text-align: center;
+  position: absolute;
+  right: 1rem;
+  top: .2rem;
+}
+.record-box .icon-more {
+  width: 100%;
+  line-height: 1.5rem;
+  display: inline-block;
+  color: #9a9a9a;
+  background: #fff;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+.to-top {
+  font-size: 1.5rem;
+  color: #a3a4a5;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+</style><style type="text/css">.pub-search-detail {
+  background: #fff;
+  margin: .5rem 0;
+  line-height: 1rem;
+}
+.pub-search-detail .record-title {
+  display: block;
+  padding: .5rem 1rem;
+  color: #323232;
+  line-height: 1.5rem;
+  background: #cfdfef;
+}
+.pub-search-detail ul {
+  padding: 1rem 1rem .5rem 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed #e8e8e8;
+}
+.pub-search-detail ul li {
+  padding: .3rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pub-search-detail ul li .search-detail-item-label {
+  width: 6rem;
+  color: #9a9a9a;
+  padding-right: 1rem;
+}
+.pub-search-detail ul li .search-detail-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+}
+</style>
+<style>
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    margin-top:5px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.mui-input-group {background:transparent;}
+</style>
+<style>
+  .cropper-point{width:20px;height:20px;border-radius:50%;}
+  .cropper-point.point-n{ top: -10px;}
+  .cropper-point.point-nw{top: -10px;left:-10px;}
+  .cropper-point.point-ne{top: -10px;right:-10px;}
+  .cropper-point.point-w{ left: -10px;}
+  .cropper-point.point-e{ right: -10px;}
+  .cropper-point.point-sw{ bottom: -10px;left: -10px;}
+  .cropper-point.point-s{ bottom: -10px;}
+ .cropper-point.point-se{width:20px;height:20px;border-radius:50%; right: -10px;bottom: -10px;}
+  #loading{text-align:center;}
+  #loading span{font-size:44px;margin:65% auto;display:block;}
+  
+  
+  .index-wrap .search-wrap .search-tag{width:200px;margin:0 4%;}
+  .index-wrap .search-wrap .search-tag .selected-item{border:1px solid #1a82d2;border-bottom:0;border-radius:5px 5px 0 0;background:#fff;color:#1a82d2;margin-right:10px;}
+  .index-wrap .search-wrap .search-tag .active{background:#1a82d2;color:#fff;}
+  .search-input{border:2px solid #1a82d2;border-radius: 0;}
+  .search-input .search-btn{border-radius: 0;background:#1a82d2;}
+  .mui-input-group{text-align: center;}
+  .mui-input-group:before{background-color:none;height:0;}
+  .mui-input-group:after{background-color:none;height:0;}
+  .table-responsive{width:100%;}
+</style>
+ <script id="que_rec" type="text/html">
+{{each list as value j}}
+<table class="table">
+					<tbody>
+		  {{if  j == 0}}
+                    <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="{{list[j].lyId}}" checked ></td><td>{{list[j].carBrand}}&nbsp;&nbsp;{{list[j].carForm}}<br />{{list[j].carOutput}}&nbsp;&nbsp;{{list[j].carYear}}</td><td>{{list[j].saleName}}<br />{{list[j].lyId}}</td></tr>					
+				{{else}} 
+           <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="{{list[j].lyId}}"></td><td>{{list[j].carBrand}}&nbsp;&nbsp;{{list[j].carForm}}<br />{{list[j].carOutput}}&nbsp;&nbsp;{{list[j].carYear}}</td><td>{{list[j].saleName}}<br />{{list[j].lyId}}</td></tr>	
+        {{/if}}	            
+ 				</tbody>	 	  	
+	 	  	</table> 
+ {{/each}}   
+	</script>
+
+<script type="text/javascript" src="static/js/jquery.min.js" ></script>
+<script type="text/javascript" src="static/js/exif.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/cropper.js"></script>
+<script type="text/javascript" src="static/js/myCrop.js?v=1.0.4"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+ <script src="static/js/template.js"></script>
+ <script src="static/mui/js/mui.min.js"></script>
+ 
+<script>
+function ct(i){
+	//alert($);
+	if(i==0){
+		//企业
+		$("#grss").removeClass("active");
+		$("#gricon").show()
+		$("#qyss").addClass("active");
+		$("#qyicon").hide();
+		$("#xycx_search").attr("placeholder","17位车型码");
+		$("#snapVincode").css('display','none'); 
+	}else if(i==1){
+		//个人			
+		$("#qyss").removeClass("active");
+		$("#qyicon").show();
+		$("#grss").addClass("active");
+		$("#gricon").hide();
+		$("#xycx_search").attr("placeholder","17位车型码");		
+		$("#snapVincode").css('display','block'); 
+	}
+}
+
+var fileImg = "";
+$(function(){
+
+	$("#imgCutConfirm").bind("click",function(){
+		 $("#containerDiv").hide();
+     	 $("#imgEdit").hide();
+     	 $("#getCroppedCanvasModal").modal("hide");
+	})
+})
+
+function findCarStyleList(vinCode){
+	var url =basUrl+"/vinCode/findCarStyleList.action";
+	$.ajax({  
+        url: url,
+        type: 'POST',  
+        data : {
+        vinCode:vinCode
+		},  
+        timeout : 10000, //超时时间设置，单位毫秒
+        async: false,  
+        success: function (result) {
+        	var rec=JSON.parse(result);
+        	var res=rec.data;
+        	var rowList = new Array(res.length);
+        	for(var i=0;i<rowList.length;i++){
+				rowList[i]=res[i]
+			}
+        	document.getElementById("goodRecDiv").innerHTML =template("que_rec", {
+				list: rowList
+			});
+        	 $("#vinQueModal").modal('show');  //手动打开
+       	},  
+        error: function (returndata) {
+        
+        }
+       	
+		});
+};
+
+function query(){
+	var vinCode=$('#xycx_search').val();
+
+	 var leng=vinCode.length;
+	 if(leng==17){
+		 findCarStyleList(vinCode);
+	 }else{
+		 alert("车型码不对，请您修改");
+	 }
+	
+	 /* var url =basUrl+"/vinCode/findVehicleInfoByVinCode.action";
+		$.ajax({
+			url : url,
+			data : {
+				vinCode:vinCode
+			},
+			dataType: 'json',
+			success : function(rec) {
+				$('#que_code').val(rec.data.Vin);
+				$('#que_year').val(rec.data.VinYear);
+				$('#que_argus').val(rec.data.result);
+				$('#que_modelBtn').click();
+			},
+			error:function(data){
+				$('#que_code').val("");
+				$('#que_year').val("");
+				$('#que_argus').val("");
+				$('#que_modelBtn').click();
+			}
+		});  */
+}
+
+//确定按钮的事件
+
+function queSelectVal(){
+	 var lyId = $("input[name='cartype']:checked").val();
+	 $("#vinQueModal").modal('hide');  //手动关闭
+	 
+	 window.open("view/page/carTableQue.html");
+	 localStorage.setItem("lyId",lyId);
+};
+	
+
+
+//提交表达
+function submitForm(){
+
+	 $("#registerForm").attr("enctype","multipart/form-data");	
+	var formData = new FormData($("#registerForm")[0]);
+	formData.append("textT2",fileImg);//
+	formData.append("fileFileName","photo.jpg");	
+	 var url =basUrl+"/vinCode/findVehicleInfoByImgData.action";
+		var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
+		mask.show();//显示遮罩
+	$.ajax({  
+        url: url,
+        type: 'POST',  
+        data: formData,  
+        timeout : 10000, //超时时间设置，单位毫秒
+        async: true,  
+        cache: false,  
+        contentType: false,  
+        processData: false, 
+       /*   beforeSend:function(XMLHttpRequest){
+            //alert('远程调用开始...');
+            $("#loading").html("<span class='mui-spinner'></span>");
+       },  */
+        success: function (result) {
+        	var rec=JSON.parse(result);
+        	localStorage.setItem("vinCodeV",rec.data);
+        	window.open("view/page/confirmVincode.html");
+        	mask.close();//关闭遮罩		
+        /* 	$('#que_code').val(rec.data.Vin);
+			$('#que_year').val(rec.data.VinYear);
+			$('#que_argus').val(rec.data.result);
+			$('#que_modelBtn').click(); */
+       	}, 
+       /*   complete:function(XMLHttpRequest,textStatus){
+            // alert('远程调用成功，状态文本值：'+textStatus);
+           $("#loading").empty();
+         },  */
+        error: function (returndata) {
+        	/* $('#que_code').val("");
+			$('#que_year').val("");
+			$('#que_argus').val("");
+			$('#que_modelBtn').click(); */
+        	localStorage.setItem("vinCodeV",rec.data);
+        	window.open("view/page/confirmVincode.html");
+        	mask.close();//关闭遮罩
+        }
+		}); 
+		
+		
+}
+
+	
+</script>
+
+</head>
+
+<body> 
+    
+    <div class="wrap" id="app">
+    <div class="index-wrap">
+    <div class="search-wrap" id="searchWrap">
+        <p class="title" style="margin-bottom: 20px;font-size:18px;">车型搜索平台</p>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" id="que_modelBtn" style="display:none;" data-target="#myModal">
+       </button>
+        <nav class="search-tag">
+            <i id="qyss" class="selected-item second-select active" data-view="1" onclick="javascript:ct(0)">按编码</i>   
+             <i id="grss" class="selected-item second-select" data-view="2" onclick="javascript:ct(1)">按Vin码</i>                          
+        </nav>
+        <nav class="search-input">
+            <i class="iconfont icon-search"></i>
+            <input id="xycx_search" class="input-keyword" type="text" autocomplete="off" placeholder="17位车型码">
+            <a href="javascript:query()" class="search-btn" style="cursor:pointer;" >查询</a>
+        </nav>
+        <div id="inputAdd">
+      <div id="snapVincode" style="display:none;">
+        <form id="plantotalform" enctype="multipart/form-data" class="mui-input-group" >  
+       	  <a href="javascript:;" id="file_0_a" class="file">拍照识别
+   		  		<input id="inputImage"   name="inputImage"   type="file"   accept="image/*" multiple >    
+   		  		<img id="textId" alt="" src="" style="width:100px;height:100px;display:none;">    
+   		  			<br/>
+  	     	<img  id="showImg"  style="width:100px;height:100px;display:none;"/>        		  
+	  	   </a>  	   
+	  	   </form>
+	  	   <form id="registerForm">
+	  	   </form>
+  	   	</div>   	 
+    	</div> 
+    	 
+    </div>
+      
+      
+     <!-- 模态框（Modal） -->
+     	<div class="container" style="padding: 0;margin: 0;position:fixed;display: none;top: 0;left: 0;z-index: 200;" id="containerDiv">
+	    <div class="row" style="display: none;" id="imgEdit">
+	      <div class="col-md-9">
+	        <div class="img-container">
+	          <img src="" alt="Picture">
+	        </div>
+	      </div>
+	    </div>
+	    <div class="row" id="actions" style="padding: 0;margin: 0;width: 100%;position: fixed;bottom: 5px;">
+	      <div class="col-md-9 docs-buttons">
+	        <div class="btn-group" >
+	          <button type="button" class="btn btn-primary" data-method="destroy" title="Destroy" style="height: auto;">
+	            <span class="docs-tooltip" data-toggle="tooltip" >
+	              <span class="fa fa-power-off" >取消</span>
+	            </span>
+	          </button>
+	        </div>
+	
+	        <div class="btn-group btn-group-crop " style="float: right;">
+	          <button type="button" class="btn btn-primary" id="imgCutConfirm" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 320, &quot;height&quot;: 180 }" style="height: auto;margin-right: 17px;">
+	            <span class="docs-tooltip" data-toggle="tooltip" title="">确认</span> <!--cropper.getCroppedCanvas({ width: 320, height: 180 }) -->
+	          </button>
+	        </div>	
+	      </div><!-- /.docs-buttons -->
+	    </div>
+  	</div>
+     
+
+ <!--预览模态框（Modal） -->
+   <div class="modal fade" id="vinQueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	 <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					产品匹配结果
+				</h4>
+			</div>
+			<div class="modal-body" style="height:75%;width:100%;" >
+					  <div class="container table-responsive" id="goodRecDiv">	  
+			     
+	 		        </div>	
+					
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>	
+					 <button type="button" class="btn btn-default btn-primary" onclick="queSelectVal()"  data-glyphicon="glyphicon-ok">确定</button>					
+			</div>
+		   </div><!-- /.modal-content -->
+	        </div><!-- /.modal -->
+		      </div>
+    <footer class="footer">
+    <p>版权所有：热骋汽车</p>
+</footer> 
+</div>
+</div>
+
+<div id="loading"></div>
+</body>
+
+</html>

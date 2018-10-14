@@ -1,0 +1,492 @@
+<html><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />
+		<link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/index.css">
+		<link rel="stylesheet" href="static/css/product.css" />
+		<script type="text/javascript" src="static/js/plugin/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="static/js/plugin/touchslider.js"></script>
+		<script src="static/js/tool.js"></script> 
+		<script src="static/js/template.js"></script>
+		<script type="text/javascript" src="static/layer/layer.js"></script>
+		<style>
+		.table-responsive{width:100%;}
+		.table{
+		 margin-bottom: 2px;
+		 margin-top: 2px;
+		}
+	   .table>tbody>tr:first-child>td{ text-align: center;border: 0;}	   
+		</style>
+		
+		<script id="que_rec" type="text/html">
+{{each list as value j}}
+	     <li id="{{list[j].lyId}}" >
+			<p>{{list[j].fatory}}&nbsp;{{list[j].carForm}}&nbsp;{{list[j].chassis}}&nbsp;{{list[j].car_year}}</p>
+	        <p>{{list[j].saleName}} &nbsp;{{list[j].engineType}}</p>
+	  </li>
+ {{/each}}   
+	</script>
+	
+			 <script id="dc_rec" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>电池编码：</td>
+								<td>{{list[j].batteryProduct}}</td>
+		</tr>
+ 		<tr>
+								<td>备注：</td>
+								<td>{{list[j].batteryRemark}}</td>
+		</tr>
+ {{/each}}   
+	</script>	
+	
+	<script id="hhs_rec" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>火花塞编码：</td>
+								<td>{{list[j].hhsProduct}}</td>
+		</tr>
+ 		<tr>
+								<td>备注：</td>
+								<td>{{list[j].hhsBz}}</td>
+		</tr>
+ {{/each}}   
+	</script>
+	
+	<script id="rc_rec" type="text/html">
+{{each list as value j}}
+<table border="0" cellspacing="5" cellpadding="2" width="100%" class="table" >
+	  <tbody>
+                    <tr><td colspan="2" class='center'>{{list[j].carBrand}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].carForm}}&nbsp;&nbsp;&nbsp;{{list[j].carOutput}}<br />{{list[j].carYear}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].saleName}}</td></tr>
+					<tr><td>厂家:</td><td><span>{{list[j].fatory}}</span></td></tr>
+					<tr><td>排放标准:</td><td><span>{{list[j].outputStand}}</span></td></tr>
+					<tr><td>发动机型号:</td><td><span>{{list[j].engineType}}</span></td></tr>
+					<tr><td>进气形式:</td><td><span>{{list[j].gasForm}}</span></td></tr>
+					<tr><td>燃油标号:</td><td><span>{{list[j].gasGrade}}</span></td></tr>
+					<tr><td>气缸数(个):</td><td><span>{{list[j].cylinderNum}}</span></td></tr>
+					<tr><td>变速箱型号:</td><td><span>&nbsp;</span></td></tr>
+					<tr><td>变速器描述:</td><td><span>{{list[j].shiftMemo}}</span></td></tr>
+					<tr><td>档位数:</td><td><span>{{list[j].gearsNum}}</span></td></tr>
+					<tr><td>前制动器类型:</td><td><span>{{list[j].prefixBrakingType}}</span></td></tr>
+					<tr><td>后制动器类型:</td><td><span>{{list[j].suffixBrakingType}}</span></td></tr>
+					<tr><td>助力类型:</td><td><span>{{list[j].assistanceType}}</span></td></tr>
+					<tr><td>轴距(mm):</td><td><span>{{list[j].wheelbase}}</span></td></tr>
+					<tr><td>前轮胎规格:</td><td><span>{{list[j].preffixTyreScale}}</span></td></tr>
+					<tr><td>后轮胎规格:</td><td><span>{{list[j].suffixTyreScale}}</span></td></tr>
+ 	             </tbody>	
+	</table>
+ {{/each}}   
+	</script>
+	
+		 <script id="preB_bf" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>宝丰编码：</td>
+								<td>{{list[j].fBfBrake}}</td>
+		</tr>
+ {{/each}}   
+	</script>	
+	 <script id="sufB_bf" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>宝丰编码：</td>
+								<td>{{list[j].rBfBrake}}</td>
+		</tr>
+ {{/each}}   
+	</script>	
+	
+	 <script id="preB_bds" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>奔德士编码：</td>
+								<td>{{list[j].fBdsBrake}}</td>
+		</tr>
+ {{/each}}   
+	</script>	
+	 <script id="sufB_bds" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>奔德士编码：</td>
+								<td>{{list[j].rBdsBrake}}</td>
+		</tr>
+ {{/each}}   
+	</script>	
+	 <script id="rh_ls" type="text/html">
+{{each list as value j}}
+	  <tr>
+								<td>AVIA编码：</td>
+								<td>{{list[j].avia}}</td>
+
+		</tr>
+  <tr>
+								<td>机油保养加注量：</td>
+								<td>{{list[j].oilFill}}</td>
+
+		</tr>
+ {{if   list[j].jybz !=null && list[j].jybz!='' }}
+  		<tr>
+								<td>备注：</td>
+								<td>{{list[j].jybz}}</td>
+
+		</tr>
+{{/if}} 
+ {{/each}}   
+	</script>	
+	 <script id="bsx_ls" type="text/html">
+{{each list as value j}}
+	   <tr>
+								<td>变速箱油型号:</td>
+								<td>{{list[j].aviaBsxypXh}}</td>
+		</tr>
+ {{if   list[j].bsxbz !=null && list[j].bsxbz!='' }}
+ 			<tr>
+								<td>备注:</td>
+								<td>{{list[j].bsxbz}}</td>
+		</tr>
+{{/if}} 
+
+ {{/each}}   
+	</script>	
+	
+	</head>
+	<body>
+		<header style="position: fixed;z-index: 10;">
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy"><a href="view/page/index.html"></a></div>
+		</header>
+		<!--型号分类盒子-->
+		<div class="productTypeBox">
+			<ul class="typeBox-ul" id="goodRecDiv" >
+				
+			</ul>
+		</div>
+		<!--中间部分-->
+		<div class="productBox" id="slider">
+			<ul class="productSolider">
+				<li>	
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_13.jpg"/>
+						<h3>前制动片</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="preB_bf_div">										
+						</table>
+					</div>	
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_13.jpg"/>
+						<h3>后制动片</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="sufB_bf_div">									
+						</table>
+					</div>					
+				</li>				
+				<li>
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_14.jpg"/>
+						<h3>前制动片</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="preB_bds_div">																			
+						</table>
+					</div>
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_14.jpg"/>
+						<h3>后制动片</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="sufB_bds_div">																		
+						</table>
+					</div>		
+				</li>
+
+				<li>
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_15.jpg"/>
+						<h3>润滑油</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="rhls_div">												
+						</table>
+					</div>	
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_15.jpg"/>
+						<h3>变速箱油</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="bsxls_div">										
+						</table>
+					</div>					
+				</li>
+				<li>
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_16.jpg"/>
+						<h3>免维护电池</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="dc_div">
+							<tr>
+								<td>泰科编码</td>
+								<td><a href="#">DB4006</a></td>
+							</tr>
+							<tr>
+								<td>泰科编码</td>
+								<td><a href="#">DB4006</a></td>
+							
+							</tr>						
+						</table>
+					</div>				
+				</li>
+				<li>
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_17.jpg"/>
+						<h3>火花塞</h3>
+					</div>
+					<div class="tableBox">
+						<table border="0" cellspacing="0" cellpadding="" width="100%" id="hhs_div">
+							<tr>
+								<td>LOOGE编码</td>
+								<td><a href="#">DB4006</a></td>
+							</tr>
+							<tr>
+								<td>LOOGE编码</td>
+								<td><a href="#">DB4006</a></td>
+							
+							</tr>						
+						</table>
+					</div>					
+				</li>				
+				<li>				
+					<div class="titleBox clearfix">
+						<img src="static/img/images/foot_18.jpg"/>
+						<h3 style="font-size: 11px;line-height: 16px;">选择排量.年款.销售名称等选项<br/>查看车型参数</h3>
+					</div>
+					<div class="tableBox rePin" id="rc_div">													
+					</div>		
+				</li>				
+			</ul>
+		</div>
+		<!--底部logo -->
+		<ul class="navSolider">
+			<li class="navActive"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>			
+		</ul>	
+
+
+		<script>
+			$(function(){				
+				$(".productBox").css("top",$(".titleselectBox").height() + 71 +"px");//
+				$(".navSolider").css("margin-left",-($(".navSolider").width()/2) +"px");//底部logo				
+				$(".navSolider .navActive").siblings().css("margin-top","7.5px");//底部logo	
+				
+				
+				//汽车类型
+				$(".typeBox-ul").on("click","li",function(){
+					var idv=this.id;
+					var i= ityzl_SHOW_LOAD_LAYER();
+					findTheProducts(idv,i);//查找所有产品数据
+					findCarStyleLs(idv,i);//查找热诚数据
+					$(this).addClass("typeActive").siblings().removeClass("typeActive");
+				})
+				if($(".typeBox-ul li").length>3){
+					$(".typeBox-ul li").css("margin-right","10px")
+				}							
+			})
+			
+		</script>
+		<script type="text/javascript" src="static/js/plugin/touchslider.js"></script><!--左右滑动-->
+		<script type="text/javascript">
+		 function ityzl_SHOW_LOAD_LAYER(){
+		   		return layer.msg('努力中...', {icon: 16,shade: [0.5, '#f5f5f5'],scrollbar: false,offset: '0px', time:100000}) ;
+		   	}
+		   	function ityzl_CLOSE_LOAD_LAYER(index){
+		   		layer.close(index);
+		   	}
+		   	function ityzl_SHOW_TIP_LAYER(){
+		   		layer.msg('恭喜您，加载完成！',{time: 1000,offset: '10px'});
+		   	}
+		
+			$(function() {
+				var tt = new TouchSlider({
+					id: 'slider',
+					'auto': '-1',
+					fx: 'ease-out',
+					direction: 'left',
+					speed: 450,
+					timeout: 3500,
+					'before': function(index) {
+	
+						var es = $('#slider').find('.productSolider li');
+	
+						var it = $(es[index]).index();
+
+						$(".navSolider li").eq(it).addClass("navActive").css("margin-top","0").siblings().css("margin-top","5px").removeClass("navActive");
+					//	es.scrollTop(0);
+						es.eq(it).siblings().animate({scrollTop: 0 }, 500);
+
+					}
+				});//手指滑动切换页面
+				for(var i=0;i<$(".navSolider li").length;i++){
+					(function(){
+						var j=i;
+						$(".navSolider li")[j].tt = tt;
+						$(".navSolider li")[j].onclick=function(){
+							this.tt.slide(j);
+							return false;
+						}
+					})();
+				}
+				/* $(".navSolider").on("click","li",function(){
+					$('#slider').find('.productSolider').css("left",-$('.productSolider li').width()*$(this).index()+'px');
+					$(this).addClass("navActive").css("margin-top","0").siblings().css("margin-top","5px").removeClass("navActive");
+					$('.productSolider li').scrollTop(0);
+				})//点击底部logo切换页面 */
+				var i= ityzl_SHOW_LOAD_LAYER();
+				 setTimeout("load("+i+")", 100);
+				
+			})
+			
+			function load(i){
+				var url =basUrl+"/vinCode/findCarStyleList.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        data : {
+			        vinCode:localStorage.getItem("vinCodeV")
+					},  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	var rec=JSON.parse(result);
+			        	var res=rec.data;
+			        	var rowList = new Array(res.length);
+			        	var lyIds=[];
+			        	var rcLs=[];
+			        	for(var i=0;i<rowList.length;i++){
+							rowList[i]=res[i]
+							lyIds.push(res[i].lyId);
+						}			        
+			        	document.getElementById("goodRecDiv").innerHTML =template("que_rec", {
+							list: rowList
+						});
+			        	
+			        	if(rowList.length>0){
+			        		rcLs.push(rowList[0]);
+			        	}
+			        	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+							list: rcLs
+						});
+			        	// $("#vinQueModal").modal('show');  //手动打开	
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			        	 i= ityzl_SHOW_LOAD_LAYER();
+			        	findTheProducts(lyIds.join(","),i);
+			        	
+			       	},  
+			        error: function (returndata) {
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			        }
+			       	
+					}); 
+			}
+			
+			function findCarStyleLs(ids,i){
+				var url =basUrl+"/vinCode/findCarStyleListByLyId.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        data : {
+			        	lyIds:ids
+			        },  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	var rec=JSON.parse(result);
+			        	var res=rec.data;
+			        	var rowList = new Array(res.length);
+			        	var lyIds=[];
+			        	for(var i=0;i<rowList.length;i++){
+							rowList[i]=res[i]
+							lyIds.push(res[i].lyId);
+						}			        
+			        	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+							list: rowList							
+						});
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			       	},  
+			        error: function (returndata) {
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			        }
+			       	
+					}); 
+			}
+			
+			//查找相应的产品	
+			function findTheProducts(lyIds,i){	
+			       	var url =basUrl+"/carStyleSublist/findTheProductsByIds.action";
+			    	$.ajax({  
+			            url: url,
+			            type: 'POST',  
+			            data:{
+			            	lyIds:lyIds			            	
+			            },  
+			            timeout : 10000, //超时时间设置，单位毫秒
+			            async: false,         
+			            success: function (result) {
+			            	var rec=JSON.parse(result);
+			            	var pre_bf_Bls=rec.data.pre_bf_Bls;//宝丰前制动
+			            	var suf_bf_Bls=rec.data.suf_bf_Bls;//宝丰后制动
+			            	var pre_bds_Bls=rec.data.pre_bds_Bls;//奔德士前制动
+			            	var suf_bds_Bls=rec.data.suf_bds_Bls;//奔德士后制动
+			            	var rhls=rec.data.rhls;//润滑油品
+			            	var bsxls=rec.data.bsxls;//变速箱油品
+			            	var dcls=rec.data.dcls;//电池
+			            	var hhsls=rec.data.hhsls;//火花塞
+			            	
+			            	document.getElementById("preB_bf_div").innerHTML =template("preB_bf", {
+								list: pre_bf_Bls
+							});
+			            	document.getElementById("sufB_bf_div").innerHTML =template("sufB_bf", {
+								list: suf_bf_Bls
+							});
+			            	document.getElementById("preB_bds_div").innerHTML =template("preB_bds", {
+								list: pre_bds_Bls
+							});
+			            	document.getElementById("sufB_bds_div").innerHTML =template("sufB_bds", {
+								list: suf_bds_Bls
+							});
+			            	
+			            	document.getElementById("rhls_div").innerHTML =template("rh_ls", {
+								list: rhls
+							});
+			            	document.getElementById("bsxls_div").innerHTML =template("bsx_ls", {
+								list: bsxls
+							});
+			            	document.getElementById("hhs_div").innerHTML =template("hhs_rec", {
+								list: hhsls
+							});		
+			            	document.getElementById("dc_div").innerHTML =template("dc_rec", {
+								list: dcls
+							});
+			            	ityzl_CLOSE_LOAD_LAYER(i);
+			            					          
+			           	},  
+			            error: function (returndata) {
+			            	ityzl_CLOSE_LOAD_LAYER(i);
+			            }          	
+			    		});
+			       
+			}
+			
+
+
+		</script>	
+
+	</body>
+</html>

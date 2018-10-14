@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d [%t] %-5p [%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- 利用内存存储的日志缓冲区，用于在线查看日志。不要修改name！ -->
+	<appender name="CYCLIC" class="ch.qos.logback.core.read.CyclicBufferAppender">
+		<MaxSize>500</MaxSize>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				logs/kdgcsoft.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>15</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d [%t] %-5p [%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger
+		name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"
+		level="WARN" />
+	<logger
+		name="org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation"
+		level="WARN" />
+	<logger name="org.springframework.beans.factory" level="WARN" />
+	<logger name="org.springframework.context.support" level="WARN" />
+
+	<!-- <logger name="javamelody" level="ERROR" /> -->
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CYCLIC" />
+	</root>
+
+</included>

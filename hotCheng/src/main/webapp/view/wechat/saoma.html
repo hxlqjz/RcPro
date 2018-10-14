@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />
+		<script src="static/js/mui.min.js"></script>
+	    <script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
+	    <link href="static/css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="static/css/mui.picker.min.css" />
+		<link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/smIndex.css">	    
+		<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy"><a href="view/wechat/index.html"></a></div>
+		</header>
+		<div class="mainBg"></div>
+		<!-- -->				
+		<div class="taikeContainer" style="margin-top: 25%;">
+			<img src="static/img/taike.png" class="taikeLogo" style="width: 50%;"/>
+			<div class="containerBox" style="">
+				<h3 class="conH3">安装车辆信息</h3>
+				<input type="text" class="taikeBtn taikeInt" id="plateNumber" placeholder="车牌号" style="height:70px;padding:0;"/>
+				<input type="text" class="taikeBtn taikeInt" id="carTel" placeholder="车主手机号" style="height:70px;padding:0;"/>
+				<button class="taikeBtn" id="sub">确&nbsp;&nbsp;定</button>
+			</div>
+		</div>
+		<!--footer -->
+		<footer>
+			<div class="foot1">
+				<span>移动版</span>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="javascript:;">热骋</a>
+			</div>
+			<div class="foot2">系统版本<i>RC5861-1.07 .13499s</i></div>
+
+		</footer>
+		
+		<script>
+			mui.init();
+			window.addEventListener("pageshow", ready);
+			function ready(){
+				var scanWechat =localStorage.getItem("scanWechat");
+				var qr = getUrlParms("qrCode");
+				document.getElementById("sub").addEventListener("click", function() {
+					var plateNumber = $("#plateNumber").val();
+					var carTel = $("#carTel").val();
+					if((plateNumber != null&& plateNumber != "")&&(carTel!=null&&carTel != "")){
+						mui.ajax("statistics/scanToBack.action", {
+							data: {
+								scanWechat: localStorage.getItem("scanWechat"),
+								qrCode:qr, 
+								plateNumber:plateNumber,
+								carTel:carTel
+							},
+							dataType: "json", //服务器返回json格式数据
+							type: 'get', //HTTP请求类型 
+							timeout: 60000, //超时时间设置为60秒；
+							success: function(result) { //服务器返回响应
+								mui.toast("扫码成功");
+								var query = result.data.queryPower;
+								//根据role判断去chaxun1页面还是chaxun2页面
+								if(query == 1){
+									window.location.href='view/wechat/chaxun1.html?qrCode='+qr; 
+								}else{
+									window.location.href='view/wechat/chaxun2.html?qrCode='+qr; 
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								console.log(errorThrown)
+							}
+						}); 
+					}else{
+						mui.toast("请输入车牌号和手机号");
+					}
+				});
+				
+				window.addEventListener("popstate", function(e) { 
+					window.location.href='view/wechat/chaxun.html';
+				}, false);
+
+			}
+			function getUrlParms(name) {
+			    let tstr = window.location.href;
+			    let index = tstr.indexOf('?')
+			    let str = tstr.substring(index + 1);
+			    let arr = str.split('&');
+			    let result = {};
+			    arr.forEach((item) => {
+			        let a = item.split('=');
+			        result[a[0]] = a[1];
+			    })
+			    return result[name];
+			}
+
+			//解决输入框获取焦点时底部弹上来问题
+			$(document).ready(function(){			
+			    var h=$(window).height();
+			    $(window).resize(function() {
+			        if($(window).height()<h){
+			            $('footer').hide();
+			        }
+			        if($(window).height()>=h){
+			            $('footer').show();
+			        }
+			    });
+				$("input").focus(function(){
+			    	$(this).attr("placeholder","")
+			    })//input输入框获取焦点时placeholder为空				
+			});
+		</script>
+	
+
+</body></html>

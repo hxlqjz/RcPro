@@ -1,0 +1,257 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />
+		<script src="static/js/mui.min.js"></script>
+	    <script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
+	    <link href="static/css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="static/css/mui.picker.min.css" />
+	    <link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/smIndex.css">
+		<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy headback"><a href="view/wechat/chaxun.html"></a></div>
+		</header>
+		<!-- -->
+		<div class="jiluContainer">
+			<div class="clearfix">
+			    <button id='start' data-options='{"type":"date"}' class="btn mui-btn date-btn jiluInt">起始时间</button>
+			    <button id='end' data-options='{"type":"date"}' class="btn mui-btn  date-btn jiluInt">终止时间</button>
+				<input type="hidden" id="startDate"  autocomplete="off"/>
+				<input type="hidden" id="endDate"  autocomplete="off"/>
+				<button id='provinceBtn'  class="btn mui-btn jiluInt" >省份</button>
+				<button id='storeBtn'  class="btn mui-btn jiluInt" >门店</button>
+				<input type="hidden" id="storeName"  autocomplete="off"/>
+				<input type="hidden" id="province"  autocomplete="off"/>				
+				<button class="jiluBtn" id="query">查询</button>
+			</div> 
+			<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable" id="tjtable">
+				<tr id="tjlist">
+					<th>能佰尔型号</th><th width="25%">统计</th>
+				</tr>
+				<tr><td>合计数量</td><td id="count"></td></tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable" style="margin-top: 10px;">
+				<tr><td>合计红包</td><td width="25%" id="sum"></td></tr>	
+			</table>	
+		</div>
+		<!--footer -->
+		<footer>
+			<div class="foot1">
+				<span>移动版</span>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="javascript:;">热骋</a>
+			</div>
+			<div class="foot2">系统版本<i>RC5861-1.07 .13499s</i></div>
+
+		</footer>	
+	<script>
+		window.addEventListener("pageshow", ready);
+		var scanWechat =  localStorage.getItem("scanWechat");
+		function ready(){
+			
+			//设置时间初始值为当月
+			var currentDate = new Date();
+			var year = currentDate.getFullYear();
+			var mon = currentDate.getMonth()+1;
+			if(mon.length < 2){
+				mon = "0" + mon;
+			}
+			var day = currentDate.getDate();
+			if(day.length < 2){
+				day = "0" + day;
+			}
+			var end = year + "-" + mon + "-" + day;
+			var first = year + "-" + mon + "-1";
+			document.getElementById("start").innerHTML = first;
+			document.getElementById("startDate").value = first;
+			document.getElementById("end").innerHTML = end;
+			document.getElementById("endDate").value = end;
+			document.getElementById("storeBtn").innerHTML = "全部";
+			document.getElementById("storeName").value = "";
+			document.getElementById("provinceBtn").innerHTML = "全部";
+			document.getElementById("province").value ="";
+			
+			load();
+			var btns = mui('.date-btn');
+			btns.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					var _self = this;
+					if(_self.picker) {
+						_self.picker.show(function (rs) {
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					} else {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						var s = document.getElementById("startDate").value;
+						var e = document.getElementById("endDate").value;
+						var endDate = new Date();
+						var startDate = "";
+						if(e != null && e != undefined && e != "" && id == "start"){
+							endDate = e;
+						}
+						if(s != null && s != undefined && s != "" && id == "end"){
+							startDate = s;
+						}
+						_self.picker = new mui.DtPicker({
+							type:"date",
+							beginDate:new Date(startDate),
+							endDate:new Date(endDate)
+						});
+						_self.picker.show(function(rs) {
+							document.getElementById(id).innerHTML = rs.text;
+							document.getElementById(id+"Date").value = rs.text;
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					}
+				}, false);
+			});
+			
+			document.getElementById("provinceBtn").addEventListener("click", function() {
+				var aId = this.getAttribute('id');
+				var url = 'statistics/getProvince.action';
+			 	mui.ajax(url, {
+					data: {}, 
+					dataType: "json", //服务器返回json格式数据
+					type: 'get', //HTTP请求类型 
+					timeout: 60000, //超时时间设置为60秒；
+					success: function(data) { //服务器返回响应
+						var picker = new mui.PopPicker();
+						var jsondata = [];
+						console.log(data[0].province)
+						var qb = {};
+						qb.value = null;
+						qb.text = "全部";
+						jsondata.push(qb);
+						if(data.length == 0) {
+							picker.hide();
+						} else {
+							for(var i = 0; i < data.length; i++) {
+								var udata = {};
+								udata.value = data[i].province;
+								udata.text = data[i].province;
+								jsondata.push(udata);
+							}
+							picker.setData(jsondata);
+							picker.show(function(items) {
+								document.getElementById("provinceBtn").innerHTML = items[0].text;
+								document.getElementById("province").value = items[0].value;
+								document.getElementById("storeBtn").innerHTML = "全部";
+								document.getElementById("storeName").value = "";
+							});
+						}
+				
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(errorThrown)
+					}
+				}); 
+			});
+			document.getElementById("storeBtn").addEventListener("click", function() {
+				var aId = this.getAttribute('id'); 
+				var url = 'statistics/getStore.action';
+				var param = {
+					province:$("#province").val()
+				};
+			 	mui.ajax(url, {
+					data: param,
+					dataType: "json", //服务器返回json格式数据
+					type: 'get', //HTTP请求类型 
+					timeout: 60000, //超时时间设置为60秒；
+					success: function(data) { //服务器返回响应
+						var picker = new mui.PopPicker();
+						var jsondata = [];
+						var qb = {};
+						qb.value = null;
+						qb.text = "全部";
+						jsondata.push(qb);
+						if(data.length == 0) {
+							picker.hide();
+						} else {
+							for(var i = 0; i < data.length; i++) {
+								var udata = {};
+								udata.value = data[i].storename;
+								udata.text = data[i].storename;
+								jsondata.push(udata);
+							}
+							picker.setData(jsondata);
+							picker.show(function(items) {
+								document.getElementById("storeBtn").innerHTML = items[0].text;
+								document.getElementById("storeName").value = items[0].value;
+							});
+						}
+				
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(errorThrown)
+					}
+				}); 
+			});
+			document.getElementById("query").addEventListener("click", function() {
+				load();
+			});
+		}
+		
+		function load(){
+			
+			var province = document.getElementById("province").value;
+			var storeName = document.getElementById("storeName").value;
+			var start = document.getElementById("startDate").value;
+			var end = document.getElementById("endDate").value;
+		
+			mui.ajax("statistics/getListByRole.action", {
+				data: {
+					scanWechat: localStorage.getItem("scanWechat"),
+					province:province,
+					storeName:storeName,
+					start:start,
+					end:end
+				},
+				dataType: "json", //服务器返回json格式数据
+				type: 'get', //HTTP请求类型 
+				timeout: 60000, //超时时间设置为60秒；
+				success: function(result) { //服务器返回响应
+					$("#tjtable  tr:not(:first):not(:last)").html("");
+					$("#sum").text("");
+					$("#count").text("");
+					var tjHtml = "";
+					for(var i=0;i<result.list.length;i++){
+						tjHtml += "<tr><td>"+ result.list[i].productModel +"</td><td>"+ result.list[i].count +"</td></tr>";
+					}
+					$("#tjlist").after(tjHtml);
+					$("#count").text(result.count);
+					$("#sum").text(result.sum);
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log(errorThrown)
+				}
+			}); 
+		}
+		
+		$(document).ready(function(){			
+		    var h=$(window).height();
+		    $(window).resize(function() {
+		        if($(window).height()<h){
+		            $('footer').hide();
+		        }
+		        if($(window).height()>=h){
+		            $('footer').show();
+		        }
+		    });
+			 $("input").focus(function(){
+		    	$(this).attr("placeholder","")
+		    })//input输入框获取焦点时placeholder为空
+		});
+	</script>
+	</body>
+</html>

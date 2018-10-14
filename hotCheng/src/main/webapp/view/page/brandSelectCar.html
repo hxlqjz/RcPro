@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <base href="/hotCheng/" />
+        <link href="static/mui/css/mui.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <script src="static/mui/js/mui.min.js"></script>
+        <script src="static/js/jquery-1.9.1.min.js"></script>
+        <script src="static/js/template.js"></script>
+        <script src="static/js/tool.js"></script> 
+        <script type="text/javascript" src="static/js/bootstrap.min.js"></script>   
+        <script src="static/js/template.js"></script>   
+    </head>
+    <style>
+ .mui-input-row .mui-btn {
+    float: right;
+    width: 60%;
+    margin-bottom: 0;
+    padding-left: 0;
+    border: 0;
+  }
+  .mui-input-row label{width: 40%;padding: 11px 0px 11px 40px;}
+ 
+/* .mui-input-group{background:#f1f3f5;} */
+
+.title{background:#3697fd;margin:0;line-height:40px;color:#fff;text-align:center;font-size:16px;}
+/* .mui-input-row label{color:#3697fd;} */
+.mui-btn-primary{margin-right:20px;}
+
+.mui-content{border:0px solid #ddd;box-shadow:0 0 3px #ddd inset;}
+ .mui-input-group:after {
+  height:0px;
+  }
+  </style>
+  
+   <style>
+	 *{padding:0;margin:0;}
+	 cartable{border:1px solid ##888888;width:100%;margin:3% 0;border-collapse:collapse;box-shadow: 0 0 5px #888888;border-radius:8px;background:#fff;}
+	 cartable:first-child{margin-top:0;}
+	 cartable tr td{line-height:35px;width:60%;padding:3px 0;border-bottom:1px solid #ddd;}
+	 cartable tr td span{padding:4px 10px;display:inline-block;width:70%;}
+	 cartable tr td:first-child{text-align:right;width:38%;padding:0 2%;}
+	 table tr td.center{text-align:center;width:100%;padding:2px 0;}
+	 .title{background:#3697fd;color:#fff;text-align:center;font-size:16px;line-height:40px;}
+	 .carRadioCls{
+	 width:10%;
+	 }
+	 
+	 .table-responsive{width:100%;}
+	 
+	 .carRadioCls{height:18px;width:18px;}
+	 .table>tbody>tr:first-child>td{border-top:0;}
+	 </style>
+	 
+<!--  多层模态框 -->
+ 
+    
+  <script id="que_rec" type="text/html">
+{{each list as value j}}
+<table class="table">
+					<tbody>
+		  {{if  j == 0}}
+                    <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="{{list[j].lyId}}" checked ></td><td>{{list[j].carBrand}}&nbsp;&nbsp;{{list[j].carForm}}<br />{{list[j].carOutputTl}}&nbsp;&nbsp;{{list[j].carYear}}</td><td>{{list[j].saleName}}<br />{{list[j].lyId}}</td></tr>					
+				{{else}} 
+           <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="{{list[j].lyId}}"></td><td>{{list[j].carBrand}}&nbsp;&nbsp;{{list[j].carForm}}<br />{{list[j].carOutputTl}}&nbsp;&nbsp;{{list[j].carYear}}</td><td>{{list[j].saleName}}<br />{{list[j].lyId}}</td></tr>	
+        {{/if}}	            
+ 				</tbody>	 	  	
+	 	  	</table> 
+ {{/each}}   
+	</script>
+	 
+	       <script id="car_rec" type="text/html">
+		{{each list as value j}}
+	       <table class="table" style="margin:0;">
+					<tbody>
+                    <tr><td colspan="2" class='center'>{{list[j].carBrand}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].carForm}}&nbsp;&nbsp;&nbsp;{{list[j].carOutputTl}}<br />{{list[j].carYear}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].saleName}}</td></tr>
+					<tr><td>厂家:</td><td><span>{{list[j].fatory}}</span></td></tr>
+					<tr><td>排放标准:</td><td><span>{{list[j].outputStand}}</span></td></tr>
+					<tr><td>发动机型号:</td><td><span>{{list[j].engineType}}</span></td></tr>
+					<tr><td>进气形式:</td><td><span>{{list[j].gasForm}}</span></td></tr>
+					<tr><td>燃油标号:</td><td><span>{{list[j].gasGrade}}</span></td></tr>
+					<tr><td>气缸数(个):</td><td><span>{{list[j].cylinderNum}}</span></td></tr>
+					<tr><td>平台号:</td><td><span>{{list[j].chassis}}</span></td></tr>
+					<tr><td>变速器描述:</td><td><span>{{list[j].shiftMemo}}</span></td></tr>
+					<tr><td>档位数:</td><td><span>{{list[j].gearsNum}}</span></td></tr>
+					<tr><td>前制动器类型:</td><td><span>{{list[j].prefixBrakingType}}</span></td></tr>
+					<tr><td>后制动器类型:</td><td><span>{{list[j].suffixBrakingType}}</span></td></tr>
+					<tr><td>助力类型:</td><td><span>{{list[j].assistanceType}}</span></td></tr>
+					<tr><td>轴距(mm):</td><td><span>{{list[j].wheelbase}}</span></td></tr>
+					<tr><td>前轮胎规格:</td><td><span>{{list[j].preffixTyreScale}}</span></td></tr>
+					<tr><td>后轮胎规格:</td><td><span>{{list[j].suffixTyreScale}}</span></td></tr>
+ 	             </tbody>	
+	 	  	</table>
+	     {{/each}}
+	</script>
+	
+	   <script id="good_rec" type="text/html">
+		{{each list as value j}}
+	       <table class="table" style="margin:0;">
+					<tbody>
+                    <tr><td colspan="2" class='center'>{{list[j].carBrand}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].carForm}}&nbsp;&nbsp;&nbsp;{{list[j].carOutputTl}}<br />{{list[j].carYear}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list[j].saleName}}</td></tr>
+					<tr><td>产品A:</td><td><span>&nbsp;{{list[j].goodA}}</span></td></tr>
+					<tr><td>产品B:</td><td><span>&nbsp;{{list[j].goodB}}</span></td></tr>
+					<tr><td>产品C:</td><td><span>&nbsp;{{list[j].goodC}}</span></td></tr>
+					<tr><td>产品D:</td><td><span>&nbsp;{{list[j].goodD}}</span></td></tr>
+					<tr><td>产品E:</td><td><span>&nbsp;{{list[j].goodE}}</span></td></tr>
+					<tr><td>产品F:</td><td><span>&nbsp;{{list[j].goodF}}</span></td></tr>
+					<tr><td>产品G:</td><td><span>&nbsp;{{list[j].goodG}}</span></td></tr>
+			
+ 	             </tbody>	
+	 	  	</table>
+	     {{/each}}
+	</script>
+	   
+<body>
+ 
+		<div class="mui-content">
+	         <p class="title">车辆型号查询</p>
+					<form id="plantotalform" enctype="multipart/form-data" class="mui-input-group">
+					  <input type="hidden" id="partolId" name="partolId" value="">  
+							<div id="sd" class="mui-input-row">
+							<label >品牌：</label>						
+							<select id="carBrand" onchange="changeBrand()" class="mui-btn mui-btn-block">												
+						   </select>
+						   <a  class="mui-navigate-right"></a>
+						   </div>
+						   
+							 <div class="mui-input-row">
+							<label  >厂家：</label>
+						   <select id="fatory" onchange="changeType()" class="mui-btn mui-btn-block">												
+						   </select>
+						     <a  class="mui-navigate-right"></a>
+							</div>
+							<div class="mui-input-row">
+							<label  >车型：</label>
+							<select id="carForm" onchange="changeCarForm()" class="mui-btn mui-btn-block">												
+						   </select>
+						   <a  class="mui-navigate-right"></a>
+						    </div>
+							 <div class="mui-input-row">
+							<label  >排量：</label>
+						    <select id="carOutputTl"  onchange="changeOutput()" class="mui-btn mui-btn-block">												
+						    </select>
+						     <a  class="mui-navigate-right"></a>
+							</div>	
+							 <div class="mui-input-row">
+							<label  >年款：</label>
+						    <select id="carYear"  onchange="changeCarYear()" class="mui-btn mui-btn-block">												
+						    </select>
+						     <a  class="mui-navigate-right"></a>
+							</div>	
+							<div class="mui-input-row">
+							<label  >销售名称：</label>
+						    <select id="saleName"  onchange="changeSaleName()" class="mui-btn mui-btn-block">												
+						    </select>
+						     <a  class="mui-navigate-right"></a>
+							</div>	
+							 <div class="mui-input-row">
+							<label  >生产年份：</label>
+						    <select id="marketYear"  onchange="changeMarketYear()" class="mui-btn mui-btn-block">												
+						    </select>
+						     <a  class="mui-navigate-right"></a>
+							</div>		
+		         			
+					<div class="mui-button-row" style="margin-top: 20px;margin-left:5px;margin-right:5px;" >
+							<!-- <button class="mui-btn mui-btn-primary" type="button" onclick="xcglEditFun();">上&nbsp;&nbsp;&nbsp;&nbsp;报</button> -->
+							<!-- <button class="mui-btn" type="button" onclick="queryCarList();">查&nbsp;&nbsp;&nbsp;&nbsp;询</button> -->
+							<a onclick="queryCarList();" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" style="padding: 5px 20px; text-decoration: none;">查&nbsp;&nbsp;&nbsp;&nbsp;询</a>
+							  <button type="button" class="btn btn-block" style="display:none;" data-toggle="modal" id="carTypeSelect" data-target="#myModal">
+	                        Large Demo Modal
+	                    </button>
+					</div>
+					</form>
+					
+			<!--预览模态框（Modal） -->
+<div class="modal fade" id="myModal" class="modal container" tabindex="-1" style="overflow: auto" >
+	<div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					车型匹配结果
+				</h4>
+			</div>
+			<div class="modal-body" style="height:95%;width:100%;" >
+					  <div class="container table-responsive" id="ngkQueRec">	  
+				<!-- <table class="table">
+					<tbody>
+                    <tr> <td><input type="radio" class="carRadioCls" name="cartype" value="1"></td><td>大众&nbsp;&nbsp;2018款<br />1.4L&nbsp;&nbsp;2013</td><td>CFV0614D0030</td></tr>
+					<tr><td><input type="radio" class="carRadioCls" name="cartype" value="2"></td><td>发动机:CFB</span></td><td>CFV0614D0030</td></tr>
+					<tr><td><input type="radio" class="carRadioCls" name="cartype" value="3"></td><td>NGK:<span>96</span></td><td>CFV0614D0030</td></tr>
+					<tr><td><input type="radio" class="carRadioCls" name="cartype" value="4"></td><td>安装支数:<span>3</span></td><td>CFV0614D0030</td></tr>
+ 	             </tbody>	 	  	
+	 	  	</table>   -->       
+	 		        </div>	
+					
+			</div>
+			<div class="modal-footer" style="margin-left:5px;margin-right:5px;border:none;">
+			<a id="carSelectVal" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" style="padding: 5px 20px; text-decoration: none;">确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+				<!--  <button type="button" class="btn btn-default btn-primary" id="carSelectVal" data-glyphicon="glyphicon-ok">确定</button>				 -->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div> 
+
+ <!--产品预览模态框（Modal） -->
+   <div class="modal fade" id="tableGoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow: auto">
+	 <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#myModal').modal('show'); " >
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					产品匹配结果
+				</h4>
+			</div>
+			<div class="modal-body" style="width:100%;" >
+					  <div class="container table-responsive" id="carRecDiv">	  
+			     
+	 		        </div>	
+					
+			</div>
+			<div class="modal-footer" style="margin-left:5px;margin-right:5px;border:none;">
+				<!-- <button type="button" class="btn btn-default" data-dismiss="modal"  onclick="$('#myModal').modal('show'); " >关闭
+				</button>	 -->
+				<a id="brandCarTypeSelect" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" style="padding: 5px 20px; text-decoration: none;">产&nbsp;品&nbsp;搜&nbsp;配</a>	
+				<!--  <button type="button" class="btn btn-primary"  data-toggle="modal" id="brandCarTypeSelect" >
+	                        	产品搜配
+	                  </button>		 -->
+			</div>
+		   </div><!-- /.modal-content -->
+	        </div><!-- /.modal -->
+		      </div>
+		      
+		       <!--搜配预览模态框（Modal） -->
+   <div class="modal fade" id="goodQueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
+	 <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"  onclick="$('#tableGoodModal').modal('show');" >
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					产品匹配结果
+				</h4>
+			</div>
+			<div class="modal-body" style="height:95%;width:100%;" >
+					  <div class="container table-responsive" id="goodRecDiv">	  
+			     
+	 		        </div>	
+					
+			</div>
+			<div class="modal-footer">
+				<!-- <button type="button" class="btn btn-default"  onclick="$('#tableGoodModal').modal('show');" data-dismiss="modal">关闭
+				</button> -->				
+			</div>
+		   </div><!-- /.modal-content -->
+	        </div><!-- /.modal -->
+		      </div>
+		      
+
+    
+ </body>   
+ 
+     <script type="text/javascript">
+        $(function() {
+            $('#m1').on("click", function() {
+                $('#firstmodal').modal();
+            });
+            $('#m2').on("click", function () {
+                $('#secondmodal').modal();
+            });
+        });
+    </script>
+ 
+ <script>
+ 
+ 
+    var carBrand=document.getElementById("carBrand");
+    var fatory=document.getElementById("fatory"); 
+    var carForm=document.getElementById("carForm"); 
+    var carOutputTl=document.getElementById("carOutputTl");
+    var carYear=document.getElementById("carYear");
+    var marketYear=document.getElementById("marketYear");
+    var saleName=document.getElementById("saleName");
+
+    //动态载入所有省份
+    function load(){
+    var	 brand_prov =findcarBrand();
+        for(var i=0;i<brand_prov.length;i++){
+        	carBrand.options[i]=brand_prov[i];
+        }
+    }
+    
+    //确定按钮的事件
+    $('#carSelectVal').click(function(){ 
+    	 var lyId = $("input[name='cartype']:checked").val();
+    	 $("#myModal").modal('hide');  //手动关闭
+    	 
+    	 $("#tableGoodModal").modal('show'); 
+    	  
+    	 
+    	// window.open("view/page/carTableQue.html");
+    	findCarGood(lyId);
+    	 localStorage.setItem("lyId",lyId);
+    });
+    
+    //产品搜配
+    $('#brandCarTypeSelect').click(function(){
+    	 $("#tableGoodModal").modal('hide'); 
+    	 var lyId=localStorage.getItem("lyId");
+    		queGoods(lyId);
+    	
+    });
+    
+    function queGoods(lyId){
+    	var url =basUrl+"/CarStyle/queryCarGoodByid.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            lyId:lyId
+    		},  
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	var rowList = new Array(res.length);
+            	for(var i=0;i<rowList.length;i++){
+    				rowList[i]=res[i]
+    			}
+            	document.getElementById("goodRecDiv").innerHTML =template("good_rec", {
+    				list: rowList
+    			});
+            	 $("#goodQueModal").modal('show'); 
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    };
+	
+
+  //加载对应的车型产品
+  function findCarGood(lyId){
+  	var url =basUrl+"/CarStyle/queryCarGoodByid.action";
+  	$.ajax({  
+          url: url,
+          type: 'POST',  
+          data : {
+          lyId:lyId
+  		},  
+          timeout : 10000, //超时时间设置，单位毫秒
+          async: false,  
+          success: function (result) {
+          	var rec=JSON.parse(result);
+          	var res=rec.data.res;
+          	var rowList = new Array(res.length);
+          	for(var i=0;i<rowList.length;i++){
+  				rowList[i]=res[i]
+  			}
+          	document.getElementById("carRecDiv").innerHTML =template("car_rec", {
+  				list: rowList
+  			});
+         	},  
+          error: function (returndata) {
+          
+          }
+         	
+  		});
+  };
+    
+    //加载品牌
+    function findcarBrand(){
+     	var brand_prov=new Array();
+    	var url =basUrl+"/CarStyle/findCarBrandList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data: {},  
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            cache: false,  
+            contentType: false,  
+            processData: false, 
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	 brand_prov.push(new Option("--请选择品牌--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   brand_prov.push(new Option(row.carBrand,row.carBrand));
+		           }
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    	return brand_prov;
+    };
+    
+    //加载车系
+    function findFactor(brand){
+     	var fatory_prov=new Array();
+    	var url =basUrl+"/CarStyle/findFactorList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:brand
+    		},  
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	fatory_prov.push(new Option("--请选择厂家--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   fatory_prov.push(new Option(row.fatory,row.fatory));
+		           }
+            	
+           	},  
+            error: function (returndata) {           
+            }
+           	
+    		});
+    	return fatory_prov;
+    };
+    //加载车型
+    function findcarForm(brand,type){
+     	var carForm_prov=new Array();
+    	var url =basUrl+"/CarStyle/findCarFormList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:brand,
+            	fatory:type         	
+    		}, 
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	carForm_prov.push(new Option("--请选择车型--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   carForm_prov.push(new Option(row.carForm,row.carForm));
+		           }
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    	return carForm_prov;
+    };
+    
+    //加载排量
+    function findOutput(brand,type,carForm){
+     	var carOutputTl_prov=new Array();
+    	var url =basUrl+"/CarStyle/findCarOutputList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:brand,
+            	fatory:type,
+            	carForm:carForm        	
+    		},   
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	carOutputTl_prov.push(new Option("--请选择排量--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   carOutputTl_prov.push(new Option(row.carOutputTl,row.carOutputTl));
+		           }
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    	return carOutputTl_prov;
+    };
+    
+    
+    //加载年款
+    function findCarYear(brand,type,carForm,carOutputTl){
+     	var carYear_prov=new Array();
+    	var url =basUrl+"/CarStyle/findCarYearList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:brand,
+            	fatory:type,
+            	carForm:carForm,
+            	carOutput:carOutputTl
+    		},   
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	carYear_prov.push(new Option("--请选择年款--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   carYear_prov.push(new Option(row.carYear,row.carYear));
+		           }
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    	return carYear_prov;
+    };
+    
+    
+    //加载上市年份
+    function findMarketYear(brand,type,carForm,carOutputTl,carYear,saleName){
+     	var carYear_prov=new Array();
+    	var url =basUrl+"/CarStyle/findMarketYearList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:brand,
+            	fatory:type,
+            	carForm:carForm,
+            	carOutput:carOutputTl,
+            	carYear:carYear,
+            	saleName:saleName
+    		},   
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	carYear_prov.push(new Option("--请选择生产年份--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   carYear_prov.push(new Option(row.produceYear,row.produceYear));
+		           }
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    	return carYear_prov;
+    };
+    
+    //加载销售名称
+    function findSaleName(brand,type,carForm,carOutputTl,carYear){
+     	var carYear_prov=new Array();
+    	var url =basUrl+"/CarStyle/findSaleNameList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:brand,
+            	fatory:type,
+            	carForm:carForm,
+            	carOutput:carOutputTl,
+            	carYear:carYear
+            	
+    		},   
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	carYear_prov.push(new Option("--请选择销售名称--",''));
+		           for(var i=0;i<res.length;i++){
+		        	   var row=res[i];
+		        	   carYear_prov.push(new Option(row.saleName,row.saleName));
+		           }
+            	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    	return carYear_prov;
+    };
+    
+    //加载对应的车型产品
+    function findNgkGood(brand,type,output,year){
+    	var url =basUrl+"/ngk/findCarListByBrandAndTypeAndOutPutAndYear.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	brand:brand,
+            	type:type,
+            	output:output,
+            	year:year
+            	
+    		},  
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+                console.log(result)    	
+           	},  
+            error: function (returndata) {
+            
+            }
+           	
+    		});
+    };
+    //查询
+    function queryCarList(){
+    	if(saleName.options.length>0){
+    		 var marketYear_index=marketYear.selectedIndex;
+             var marketYear_val=marketYear.options[marketYear_index]["value"];
+            if(marketYear_val!=null && marketYear_val !=''){
+          	 // window.open("view/page/carTableQue.html");  
+          	 findCarList();
+            }else{
+          	   window.alert('请您选择生产年份!');
+            }
+    	}else{
+       	   window.alert('请您选择生产年份!');
+        }
+    	 	
+    };
+    
+    //根据各个类型查找出数据
+    function findCarList(){
+    	var url =basUrl+"/CarStyle/queryCarList.action";
+    	$.ajax({  
+            url: url,
+            type: 'POST',  
+            data : {
+            	carBrand:localStorage.getItem("carBrand"),
+            	fatory:localStorage.getItem("fatory"),
+            	carForm:localStorage.getItem("carForm"),
+            	carOutput:localStorage.getItem("carOutput"),
+            	carYear:localStorage.getItem("carYear"),
+            	produceYear:localStorage.getItem("produceYear"),
+            	saleName:localStorage.getItem("saleName")   	
+    		},  
+            timeout : 10000, //超时时间设置，单位毫秒
+            async: false,  
+            success: function (result) {
+            	var rec=JSON.parse(result);
+            	var res=rec.data.res;
+            	var rowList = new Array(res.length);
+            	for(var i=0;i<rowList.length;i++){
+    				rowList[i]=res[i]
+    			}
+            	document.getElementById("ngkQueRec").innerHTML =template("que_rec", {
+    				list: rowList
+    			});
+            	$("#carTypeSelect").click();
+           	},  
+            error: function (returndata) {           
+            }           	
+    		});
+    };
+    
+    //-------------对应的change事件-----
+    
+    //选中品牌之后，根据索引动态载入相应车系数据
+    function changeBrand(){
+        //清空上次的选项
+        fatory.options.length=0;
+        carForm.options.length=0;
+        carOutputTl.options.length=0;
+        //获取省一级的下拉列表选中的索引
+        var index=carBrand.selectedIndex;
+        var val=carBrand.options[index]["value"];
+        var fatory_prov=findFactor(val);
+        for(var i=0;i<fatory_prov.length;i++){
+        	fatory.options[i]=fatory_prov[i];
+        }
+    }
+    
+  //选中车系之后，根据索引动态载入车型
+    function changeType(){
+        //清空上次的选项
+        carForm.options.length=0;
+        carOutputTl.options.length=0;
+        //获取省一级的下拉列表选中的索引
+        var brand_index=carBrand.selectedIndex;
+        var brand_val=carBrand.options[brand_index]["value"];
+        var type_index=fatory.selectedIndex;
+        var type_val=fatory.options[type_index]["value"];
+        var carForm_prov=findcarForm(brand_val,type_val);
+        for(var i=0;i<carForm_prov.length;i++){
+        	carForm.options[i]=carForm_prov[i];
+        }
+    }
+    //选中车型之后，根据索引动态载入排量数据
+    function changeCarForm(){
+        //清空上次的选项
+        carOutputTl.options.length=0;
+        //获取省一级的下拉列表选中的索引
+        var brand_index=carBrand.selectedIndex;
+        var brand_val=carBrand.options[brand_index]["value"];
+        var type_index=fatory.selectedIndex;
+        var type_val=fatory.options[type_index]["value"];
+        var carForm_index=carForm.selectedIndex;
+        var carForm_val=carForm.options[carForm_index]["value"];
+        var ngkYear_prov=findOutput(brand_val,type_val,carForm_val);
+        for(var i=0;i<ngkYear_prov.length;i++){
+        	carOutputTl.options[i]=ngkYear_prov[i];
+        }
+    }
+    
+    //选中排量之后，根据索引动态载入相应年款数据
+    function changeOutput(){
+    	   var brand_index=carBrand.selectedIndex;
+           var brand_val=carBrand.options[brand_index]["value"];
+           var type_index=fatory.selectedIndex;
+           var type_val=fatory.options[type_index]["value"];
+           var carForm_index=carForm.selectedIndex;
+           var carForm_val=carForm.options[carForm_index]["value"];
+           var output_index=carOutputTl.selectedIndex;
+           var output_val=carOutputTl.options[output_index]["value"];
+           var carYear_prov=findCarYear(brand_val,type_val,carForm_val,output_val);
+           for(var i=0;i<carYear_prov.length;i++){
+        	   carYear.options[i]=carYear_prov[i];
+           }
+
+    }
+    //选中年款之后，根据索引动态载入相应上市年份数据
+    function changeCarYear(){
+    	   var brand_index=carBrand.selectedIndex;
+           var brand_val=carBrand.options[brand_index]["value"];
+           var type_index=fatory.selectedIndex;
+           var type_val=fatory.options[type_index]["value"];
+           var carForm_index=carForm.selectedIndex;
+           var carForm_val=carForm.options[carForm_index]["value"];
+           var output_index=carOutputTl.selectedIndex;
+           var output_val=carOutputTl.options[output_index]["value"];
+           var carYear_index=carYear.selectedIndex;
+           var carYear_val=carYear.options[carYear_index]["value"];       
+           var saleName_prov=findSaleName(brand_val,type_val,carForm_val,output_val,carYear_val);
+           for(var i=0;i<saleName_prov.length;i++){
+        	   saleName.options[i]=saleName_prov[i];
+           }
+
+    }
+    
+    //选中年款之后，根据索引动态载入相应上市年份数据
+    function changeMarketYear(){
+    	   var brand_index=carBrand.selectedIndex;
+           var brand_val=carBrand.options[brand_index]["value"];
+           var type_index=fatory.selectedIndex;
+           var type_val=fatory.options[type_index]["value"];
+           var carForm_index=carForm.selectedIndex;
+           var carForm_val=carForm.options[carForm_index]["value"];
+           var output_index=carOutputTl.selectedIndex;
+           var output_val=carOutputTl.options[output_index]["value"];
+           var carYear_index=carYear.selectedIndex;
+           var carYear_val=carYear.options[carYear_index]["value"];
+           var marketYear_index=marketYear.selectedIndex;
+           var marketYear_val=marketYear.options[marketYear_index]["value"];
+           var saleName_index=saleName.selectedIndex;
+           var saleName_val=saleName.options[saleName_index]["value"];
+        localStorage.setItem("carBrand",brand_val);
+       	localStorage.setItem("fatory",type_val);
+       	localStorage.setItem("carForm",carForm_val);
+       	localStorage.setItem("carOutput",output_val);
+       	localStorage.setItem("carYear",carYear_val);
+       	localStorage.setItem("produceYear",marketYear_val);
+       	localStorage.setItem("saleName",saleName_val);
+			
+    }
+  //选中销售名称
+    function changeSaleName(){
+    	   var brand_index=carBrand.selectedIndex;
+           var brand_val=carBrand.options[brand_index]["value"];
+           var type_index=fatory.selectedIndex;
+           var type_val=fatory.options[type_index]["value"];
+           var carForm_index=carForm.selectedIndex;
+           var carForm_val=carForm.options[carForm_index]["value"];
+           var output_index=carOutputTl.selectedIndex;
+           var output_val=carOutputTl.options[output_index]["value"];
+           var carYear_index=carYear.selectedIndex;
+           var carYear_val=carYear.options[carYear_index]["value"];
+           var saleName_index=saleName.selectedIndex;
+           var saleName_val=saleName.options[saleName_index]["value"];
+           var carYear_prov=findMarketYear(brand_val,type_val,carForm_val,output_val,carYear_val,saleName_val);
+           for(var i=0;i<carYear_prov.length;i++){
+        	   marketYear.options[i]=carYear_prov[i];
+           } 
+        	       
+    }
+  
+    $(function(){
+    	load();
+    });
+</script>
+
+</html>

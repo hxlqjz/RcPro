@@ -1,0 +1,43 @@
+
+<!Doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<base href="/hotCheng/" />
+	<title>登录</title>
+	
+</head>
+<body>
+	<!-- .container固定宽度1170px .container-fluid 宽度为100%-->
+	<div >
+		     <form id="form1" name="loginForm" action="system/userLogin.action" method="post" class="login-form" method="post">
+            <div class="textTitle">&nbsp;</div>
+            <div class="Title Item1">用户名</div>
+            <div class="Content Item2">
+              <input type="text" id="workCode" name="workCode" value=""  placeholder="请输入账号"/>
+            </div>
+            <div class="Title Item1">密码</div>
+            <div class="Content Item3">
+              <input type="password" id="password" name="password" value=""   placeholder="请输入密码"/>
+            </div>
+            
+            <button  onClick="login();">登&nbsp;&nbsp;录</button>
+            
+          </form>
+	</div>
+<script>
+function login(){
+	var workerCode = document.getElementById("workCode").value;
+	var loginPwd = document.getElementById("password").value;
+	if (workerCode == "请输入用户名" || loginPwd == "请输入密码" || !workerCode || !loginPwd) {
+		alert("用户名或密码不能为空!");
+		return;
+	}
+	document.getElementById('form1').submit();
+}
+</script>
+	
+</body>
+
+</html>

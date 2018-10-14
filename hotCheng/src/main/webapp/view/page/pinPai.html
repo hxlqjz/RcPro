@@ -1,0 +1,488 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />
+		<link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/index.css">		
+		<script type="text/javascript" src="static/js/plugin/jquery-3.2.1.min.js"></script>
+		<script src="static/js/tool.js"></script> 
+		<script src="static/js/template.js"></script>
+		
+	 <script id="ppDetail_rec" type="text/html">
+		{{each list as value j}}
+				 <h3>{{list[j].fatory}}</h3>
+	    	     		<ul class="ppDetail-ul">
+	 			      {{each list[j].carFormLs as value i}}
+			          <li id="{{list[j].carFormLs[i]}}" fatory="{{list[j].fatory}}" >{{list[j].carFormLs[i]}}</li>							
+   				     {{/each}} 	
+					</ul>				
+	     {{/each}}
+	</script>		
+	</head>
+	<body style="width: 100%;">
+		<header style="position: fixed;z-index: 100;top: 0;">
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy"><a href="view/page/index.html"></a></div>
+		</header>
+		<!--侧边栏ABCD。。。。-->
+		<div class="aside-zimu">
+			<a href="view/page/pinPai.html#carrRe">#</a>
+			<a href="view/page/pinPai.html#carA">A</a>
+			<a href="view/page/pinPai.html#carB">B</a>
+			<a href="view/page/pinPai.html#carC">C</a>
+			<a href="view/page/pinPai.html#carD">D</a>
+			<a href="view/page/pinPai.html#carE">E</a>
+			<a href="view/page/pinPai.html#carF">F</a>
+			<a href="view/page/pinPai.html#carG">G</a>
+			<a href="view/page/pinPai.html#carF">H</a>
+			<a href="view/page/pinPai.html#carI">I</a>
+			<a href="view/page/pinPai.html#carJ">J</a>
+			<a href="view/page/pinPai.html#carK">K</a>
+			<a href="view/page/pinPai.html#carL">L</a>
+			<a href="view/page/pinPai.html#carM">M</a>
+			<a href="view/page/pinPai.html#carN">N</a>
+			<a href="view/page/pinPai.html#carO">O</a>
+			<a href="view/page/pinPai.html#carP">P</a>
+			<a href="view/page/pinPai.html#carQ">Q</a>
+			<a href="view/page/pinPai.html#carR">R</a>
+			<a href="view/page/pinPai.html#carS">S</a>
+			<a href="view/page/pinPai.html#carT">T</a>
+			<a href="view/page/pinPai.html#carU">U</a>
+			<a href="view/page/pinPai.html#carV">V</a>
+			<a href="view/page/pinPai.html#carW">W</a>
+			<a href="view/page/pinPai.html#carX">X</a>
+			<a href="view/page/pinPai.html#carY">Y</a>
+			<a href="view/page/pinPai.html#carZ">Z</a>
+		</div>
+		
+		<!--侧边滑出品牌详情-->
+		<div class="ppDetail-box">
+			<div class="ppDetail-close"></div>
+			<div class="ppDetail">
+				<div class="ppDetail-ulBox" id="ppDetail_div" >
+					
+				</div>		
+			</div>
+		</div>
+		
+		<!--热门品牌开始-->
+		<div class="homeDiv" id="carRe" style="border-top: 50px solid transparent;">
+			<h3 class="pinPai-title">热门品牌</h3>
+			<ul class="reMen-ul clearfix">
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-dazhong.png"></div>
+					<p>大众</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-baoma.png"></div>
+					<p>宝马</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-benchi.png"></div>
+					<p>奔驰</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-aodi.png"></div>
+					<p>奥迪</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-bieke.png"></div>
+					<p>别克</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-richan.png"></div>
+					<p>日产</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-bentian.png"></div>
+					<p>本田</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-fengtian.png"></div>
+					<p>丰田</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-fute.png"></div>
+					<p>福特</p>
+				</li>
+				<li>
+					<div class="imgBox"><img src="static/img/carlogo/re-xuefolan.png"></div>
+					<p>雪佛兰</p>
+				</li>					
+			</ul>
+		</div>
+		<!--热门品牌结束-->
+
+		<!--A品牌开始-->
+		<div class="homeDiv" id="carA">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">A</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/aerfaluomiou.png"><p>阿尔法-罗密欧</p></li>					
+				<li><img src="static/img/carlogo/asidunmading.png"><p>阿斯顿马丁</p></li>					
+				<li><img src="static/img/carlogo/anchi.png"><p>安驰</p></li>					
+				<li><img src="static/img/carlogo/aodi.png"><p>奥迪</p></li>					
+			</ul>
+		</div>
+		<!--A品牌结束-->		
+		<!--B品牌开始-->
+		<div class="homeDiv" id="carB">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">B</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/babosi.png"><p>巴博斯</p></li>					
+				<li><img src="static/img/carlogo/baojun.png"><p>宝骏</p></li>					
+				<li><img src="static/img/carlogo/baolong.png"><p>宝龙</p></li>					
+				<li><img src="static/img/carlogo/baoma.png"><p>宝马</p></li>								
+				<li><img src="static/img/carlogo/baowo.png"><p>宝沃</p></li>								
+				<li><img src="static/img/carlogo/baoshijie.png"><p>保时捷</p></li>								
+				<li><img src="static/img/carlogo/beijing.png"><p>北京</p></li>								
+				<li><img src="static/img/carlogo/beiqi.png"><p>北汽</p></li>								
+				<li><img src="static/img/carlogo/benchi.png"><p>奔驰</p></li>								
+				<li><img src="static/img/carlogo/benteng.png"><p>奔腾</p></li>								
+				<li><img src="static/img/carlogo/bentian.png"><p>本田</p></li>								
+				<li><img src="static/img/carlogo/bisu.png"><p>比速</p></li>								
+				<li><img src="static/img/carlogo/biyadi.png"><p>比亚迪</p></li>								
+				<li><img src="static/img/carlogo/biaozhi.png"><p>标致</p></li>								
+				<li><img src="static/img/carlogo/bieke.png"><p>别克</p></li>								
+				<li><img src="static/img/carlogo/binli.png"><p>宾利</p></li>								
+			</ul>
+		</div>
+		<div class="homeDiv" id="carC">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">C</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/changan.png"><p>长安</p></li>								
+				<li><img src="static/img/carlogo/changanshangyong.png"><p>长安商用</p></li>								
+				<li><img src="static/img/carlogo/changcheng.png"><p>长城</p></li>								
+				<li><img src="static/img/carlogo/changhe.png"><p>昌河</p></li>								
+				<li><img src="static/img/carlogo/chuanqi.png"><p>传祺</p></li>								
+			</ul>
+		</div>	
+		<div class="homeDiv" id="carD">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">D</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/DS.png"><p>DS</p></li>								
+				<li><img src="static/img/carlogo/dadi.png"><p>大迪</p></li>								
+				<li><img src="static/img/carlogo/dafa.png"><p>大发</p></li>								
+				<li><img src="static/img/carlogo/datong.png"><p>大通</p></li>								
+				<li><img src="static/img/carlogo/dazhong.png"><p>大众</p></li>					
+				<li><img src="static/img/carlogo/daoda.png"><p>道达</p></li>								
+				<li><img src="static/img/carlogo/daoqi.png"><p>道奇</p></li>								
+				<li><img src="static/img/carlogo/dihao.png"><p>帝豪</p></li>								
+				<li><img src="static/img/carlogo/dongfeng.png"><p>东风</p></li>								
+				<li><img src="static/img/carlogo/dongfengfengdu.png"><p>东风风度</p></li>	
+				<li><img src="static/img/carlogo/dongfengxiaokang.png"><p>东风小康</p></li>								
+				<li><img src="static/img/carlogo/dongnan.png"><p>东南</p></li>					
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carF">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">F</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/falali.png"><p>法拉利</p></li>								
+				<li><img src="static/img/carlogo/feiyate.png"><p>菲亚特</p></li>					
+				<li><img src="static/img/carlogo/fengtian.png"><p>丰田</p></li>								
+				<li><img src="static/img/carlogo/fengxing.png"><p>风行</p></li>								
+				<li><img src="static/img/carlogo/fengxing.png"><p>风神</p></li>								
+				<li><img src="static/img/carlogo/fudi.png"><p>福迪</p></li>								
+				<li><img src="static/img/carlogo/fute.png"><p>福特</p></li>	
+				<li><img src="static/img/carlogo/futian.png"><p>福田</p></li>								
+				<li><img src="static/img/carlogo/fuqi.png"><p>富奇</p></li>							
+			</ul>
+		</div>
+		<div  class="homeDiv"id="carG">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">G</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/guanzhi.png"><p>观致</p></li>								
+			</ul>
+		</div>		
+		<div class="homeDiv"  id="carH">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">H</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/hafei.png"><p>哈飞</p></li>								
+				<li><img src="static/img/carlogo/hafu.png"><p>哈弗</p></li>					
+				<li><img src="static/img/carlogo/haige.png"><p>海格</p></li>								
+				<li><img src="static/img/carlogo/haima.png"><p>海马</p></li>								
+				<li><img src="static/img/carlogo/hanteng.png"><p>汉腾</p></li>								
+				<li><img src="static/img/carlogo/heibao.png"><p>黑豹</p></li>								
+				<li><img src="static/img/carlogo/hanteng.png"><p>恒天</p></li>	
+				<li><img src="static/img/carlogo/hongqi.png"><p>红旗</p></li>								
+				<li><img src="static/img/carlogo/huabei.png"><p>华北</p></li>							
+				<li><img src="static/img/carlogo/huapu.png"><p>华普</p></li>							
+				<li><img src="static/img/carlogo/huaqi.png"><p>华骐</p></li>							
+				<li><img src="static/img/carlogo/huasong.png"><p>华颂</p></li>							
+				<li><img src="static/img/carlogo/huatai.png"><p>华泰</p></li>							
+				<li><img src="static/img/carlogo/huayang.png"><p>华阳</p></li>							
+				<li><img src="static/img/carlogo/huansu.png"><p>幻速</p></li>							
+				<li><img src="static/img/carlogo/huanghai.png"><p>黄海</p></li>							
+				<li><img src="static/img/carlogo/huizhong.png"><p>汇众</p></li>							
+			</ul>
+		</div>			
+		<div class="homeDiv" id="carJ">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">J</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/Jeep.png"><p>Jeep</p></li>							
+				<li><img src="static/img/carlogo/jiao.png"><p>吉奥</p></li>							
+				<li><img src="static/img/carlogo/jiaxing.png"><p>佳星</p></li>							
+				<li><img src="static/img/carlogo/jianghuai.png"><p>江淮</p></li>							
+				<li><img src="static/img/carlogo/jiangling.png"><p>江铃</p></li>							
+				<li><img src="static/img/carlogo/jiangnan.png"><p>江南</p></li>							
+				<li><img src="static/img/carlogo/jiebao.png"><p>捷豹</p></li>							
+				<li><img src="static/img/carlogo/jinbei.png"><p>金杯</p></li>							
+				<li><img src="static/img/carlogo/jiulong.png"><p>九龙</p></li>									
+				<li><img src="static/img/carlogo/junma.png"><p>君马</p></li>									
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carK">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">K</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/kawei.png"><p>卡威</p></li>									
+				<li><img src="static/img/carlogo/kairui.png"><p>开瑞</p></li>									
+				<li><img src="static/img/carlogo/kaidilake.png"><p>凯迪拉克</p></li>									
+				<li><img src="static/img/carlogo/kaiyi.png"><p>凯翼</p></li>									
+				<li><img src="static/img/carlogo/kelaisile.png"><p>克莱斯勒</p></li>																		
+												
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carL">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">L</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/lanbojini.png"><p>兰博基尼</p></li>									
+				<li><img src="static/img/carlogo/laosilaisi.png"><p>劳斯莱斯</p></li>									
+				<li><img src="static/img/carlogo/leikesasi.png"><p>雷克萨斯</p></li>									
+				<li><img src="static/img/carlogo/leinuo.png"><p>雷诺</p></li>									
+				<li><img src="static/img/carlogo/linian.png"><p>理念</p></li>									
+				<li><img src="static/img/carlogo/lifan.png"><p>力帆</p></li>									
+				<li><img src="static/img/carlogo/lianhua.png"><p>莲花</p></li>									
+				<li><img src="static/img/carlogo/liebao.png"><p>猎豹</p></li>									
+				<li><img src="static/img/carlogo/lingke.png"><p>林肯</p></li>									
+				<li><img src="static/img/carlogo/lingmu.png"><p>铃木</p></li>									
+				<li><img src="static/img/carlogo/lingke.png"><p>领克</p></li>									
+				<li><img src="static/img/carlogo/lufeng.png"><p>陆风</p></li>									
+				<li><img src="static/img/carlogo/luhu.png"><p>路虎</p></li>									
+				<li><img src="static/img/carlogo/lutesi.png"><p>路特斯</p></li>																
+												
+			</ul>
+		</div>		
+		<div class="homeDiv"  id="carM">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">M</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/MG.png"><p>MG</p></li>									
+				<li><img src="static/img/carlogo/MINI.png"><p>MINI</p></li>									
+				<li><img src="static/img/carlogo/mazida.png"><p>马自达</p></li>								
+				<li><img src="static/img/carlogo/masuoladi.png"><p>玛莎拉蒂</p></li>								
+				<li><img src="static/img/carlogo/maikailun.png"><p>迈凯伦</p></li>								
+				<li><img src="static/img/carlogo/meiya.png"><p>美亚</p></li>															
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carN">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">N</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/nazhijie.png"><p>纳智捷</p></li>																
+			</ul>
+		</div>		
+		<div id="carO">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">O</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/ouge.png"><p>讴歌</p></li>
+				<li><img src="static/img/carlogo/oubao.png"><p>欧宝</p></li>
+				<li><img src="static/img/carlogo/oulang.png"><p>欧朗</p></li>				
+			</ul>
+		</div>			
+		<div class="homeDiv" id="carQ">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">Q</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/qirui.png"><p>奇瑞</p></li>				
+				<li><img src="static/img/carlogo/qizhi.png"><p>祺智</p></li>											
+				<li><img src="static/img/carlogo/qichen.png"><p>启辰</p></li>											
+				<li><img src="static/img/carlogo/qiteng.png"><p>启腾</p></li>											
+				<li><img src="static/img/carlogo/qiya.png"><p>起亚</p></li>											
+				<li><img src="static/img/carlogo/qingling.png"><p>庆铃</p></li>											
+				<li><img src="static/img/carlogo/quanqiuying.png"><p>全球鹰</p></li>																					
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carR">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">R</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/RUF.png"><p>RUF</p></li>											
+				<li><img src="static/img/carlogo/richan.png"><p>日产</p></li>											
+				<li><img src="static/img/carlogo/rongwei.png"><p>荣威</p></li>											
+				<li><img src="static/img/carlogo/ruiqi.png"><p>瑞麟</p></li>															
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carS">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">S</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/Smart.png"><p>Smart</p></li>								
+				<li><img src="static/img/carlogo/SPRINGO.png"><p>SPRINGO</p></li>									
+				<li><img src="static/img/carlogo/saibao.png"><p>赛宝</p></li>									
+				<li><img src="static/img/carlogo/sanling.png"><p>三菱</p></li>									
+				<li><img src="static/img/carlogo/shanqitongjia.png"><p>陕汽通家</p></li>									
+				<li><img src="static/img/carlogo/shenbao.png"><p>绅宝</p></li>									
+				<li><img src="static/img/carlogo/shuanghuan.png"><p>双环</p></li>									
+				<li><img src="static/img/carlogo/shuanglong.png"><p>双龙</p></li>									
+				<li><img src="static/img/carlogo/siming.png"><p>思铭</p></li>									
+				<li><img src="static/img/carlogo/sibalu.png"><p>斯巴鲁</p></li>									
+				<li><img src="static/img/carlogo/sikeda.png"><p>斯柯达</p></li>									
+				<li><img src="static/img/carlogo/siwei.png"><p>斯威</p></li>									
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carT">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">T</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/tesila.png"><p>特斯拉</p></li>									
+				<li><img src="static/img/carlogo/tengshi.png"><p>腾势</p></li>									
+				<li><img src="static/img/carlogo/tianma.png"><p>天马</p></li>									
+				<li><img src="static/img/carlogo/tongtian.png"><p>通田</p></li>									
+				<li><img src="static/img/carlogo/tongyong.png"><p>通用</p></li>																
+			</ul>
+		</div>				
+		<div class="homeDiv" id="carW">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">W</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/WEY.png"><p>WEY</p></li>									
+				<li><img src="static/img/carlogo/wanfeng.png"><p>万丰</p></li>									
+				<li><img src="static/img/carlogo/weilin.png"><p>威麟</p></li>									
+				<li><img src="static/img/carlogo/weiwang.png"><p>威旺</p></li>									
+				<li><img src="static/img/carlogo/weiziman.png"><p>威兹曼</p></li>									
+				<li><img src="static/img/carlogo/weilai.png"><p>蔚来</p></li>									
+				<li><img src="static/img/carlogo/woerwo.png"><p>沃尔沃</p></li>									
+				<li><img src="static/img/carlogo/wuling.png"><p>五菱</p></li>									
+				<li><img src="static/img/carlogo/wushiling.png"><p>五十铃</p></li>																
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carX">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">X</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/xianaotuo.png"><p>西安奥拓</p></li>									
+				<li><img src="static/img/carlogo/xiyate.png"><p>西雅特</p></li>									
+				<li><img src="static/img/carlogo/xiali.png"><p>夏利</p></li>									
+				<li><img src="static/img/carlogo/xiandai.png"><p>现代</p></li>									
+				<li><img src="static/img/carlogo/xinkai.png"><p>新凯</p></li>									
+				<li><img src="static/img/carlogo/xinyatu.png"><p>新雅图</p></li>									
+				<li><img src="static/img/carlogo/xuefolan.png"><p>雪佛兰</p></li>									
+				<li><img src="static/img/carlogo/xuetielong.png"><p>雪铁龙</p></li>																								
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carY">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">Y</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/yangzi.png"><p>扬子</p></li>							
+				<li><img src="static/img/carlogo/yema.png"><p>野马</p></li>							
+				<li><img src="static/img/carlogo/yiqi.png"><p>一汽</p></li>							
+				<li><img src="static/img/carlogo/yingfeinidi.png"><p>英菲尼迪</p></li>							
+				<li><img src="static/img/carlogo/yinglun.png"><p>英伦</p></li>							
+				<li><img src="static/img/carlogo/yingzhi.png"><p>英致</p></li>							
+				<li><img src="static/img/carlogo/yongyuan.png"><p>永源</p></li>							
+				<li><img src="static/img/carlogo/yundu.png"><p>云度</p></li>							
+				<li><img src="static/img/carlogo/yunque.png"><p>云雀</p></li>							
+			</ul>
+		</div>		
+		<div class="homeDiv" id="carZ">
+			<!--间隔-->
+			<div class="line"></div>			
+			<h3 class="pinPai-title">Z</h3>
+			<ul class="ziMu-ul">
+				<li><img src="static/img/carlogo/zhinuo.png"><p>之诺</p></li>							
+				<li><img src="static/img/carlogo/zhidou.png"><p>知豆</p></li>							
+				<li><img src="static/img/carlogo/zhonghua.png"><p>中华</p></li>							
+				<li><img src="static/img/carlogo/zhongou.png"><p>中欧</p></li>							
+				<li><img src="static/img/carlogo/zhongshun.png"><p>中顺</p></li>							
+				<li><img src="static/img/carlogo/zhongxing.png"><p>中兴</p></li>							
+				<li><img src="static/img/carlogo/zhongtai.png"><p>众泰</p></li>								
+			</ul>
+		</div>	
+			<script>
+			$(function(){
+				$(".homeDiv").on("click",".ziMu-ul li,.reMen-ul li",function(){
+					scroll=$(window).scrollTop();
+					var carBrand=$(this).find("p").html();
+					$("#ppDetail_h3").html(carBrand);
+					localStorage.setItem("carBrand",carBrand);
+					findCarFormByCarBrand(carBrand);
+					$(".ppDetail-box").css("right","0").find("h3");					
+					//$("body,html").css("overflow","hidden");
+					$("body").css({'overflow':'hidden','position':'fixed','top':'-'+scroll+'px'}) 
+				})
+				$(".ppDetail-box").on("click",".ppDetail-close",function(){
+					$(".ppDetail-box").css("right","-100%");
+					//$("body,html").css("overflow","visible");
+					$("body").css({'overflow':'auto','position':'static'}); 
+					$(window).scrollTop(scroll);
+				})
+
+			})
+						
+			function findCarFormByCarBrand(carBrand){			
+				var url =basUrl+"/carStyleSublist/findCarFormList.action";
+		    	$.ajax({  
+		            url: url,
+		            type: 'POST',  
+		            data : {	
+		            	carBrand:carBrand
+		    		}, 
+		            timeout : 10000, //超时时间设置，单位毫秒
+		            async: false,  
+		            success: function (result) {
+		            	var rec=JSON.parse(result);
+		            	var ls=rec.data;			            		            	
+		             	document.getElementById("ppDetail_div").innerHTML =template("ppDetail_rec", {
+		      				list: ls
+		      			});		             		        	
+		           	},  
+		            error: function (returndata) {
+		            
+		            }		           	
+		    		});
+			};
+			
+			$("#ppDetail_div").on('click',"ul>li",function(){			
+				var carForm=this.id;
+				var fatory=this.getAttribute("fatory");			   
+			 	localStorage.setItem("carForm",carForm);
+			 	localStorage.setItem("fatory",fatory);
+				window.location.href="view/page/product.html";
+			});
+			
+		</script>
+</body></html>

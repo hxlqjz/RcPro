@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<base href="/hotCheng/" />
+		<title></title>	
+		<link rel="stylesheet" type="text/css" href="static/style/avatar/style.css" />				
+	    <script src="static/js/jquery-1.9.1.min.js"></script>
+		<script src="static/js/tool.js"></script>	
+		<script src="static/js/cropbox.js"></script>			
+	</head>
+
+	<body>
+	  		
+  <div class="container">
+    <div class="imageBox">
+        <div class="thumbBox"></div>
+        <div class="spinner" style="display: none">Loading...</div>
+    </div>
+    <div class="action">
+        <div class="new-contentarea tc">
+            <a href="javascript:void(0)" class="upload-img">
+                <label for="upload-file">上传图片</label>
+            </a>
+            <input type="file" style="cursor: pointer;" name="upload-file" id="upload-file" />
+        </div>
+        <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+        <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">
+        <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
+    </div>
+    <div style="position: absolute;right: -230px;top: 0;width: 200px;border: 1px #ddd solid;height: 390px;padding: 4px;	box-shadow: 0px 0px 12px #ddd;text-align: center;">
+        <div class="photo_top">&nbsp<br/>图片预览</div>
+        <div class="photo"></div>
+        <div class="imgshow">*文件大小不超过1M；<br/>*图片格式可支持jpg、png和bmp。</div>     
+    </div>
+    <div style="position: absolute;right: -200px;bottom: -20px;width: 200px;">
+        <input type="button" onclick="clearPhoto()" class="Btnsty_peyton"  value="取消" />
+        <input type="button" onclick="uploadImg()" class="Btnsty_peyton"  value="保存" />
+    </div>
+    <div class="clear"></div>  
+</div>
+	</body>
+
+<script type="text/javascript">
+var userId = "${userContext.empId}";
+ 	jQuery.noConflict();
+	jQuery(function($){
+	var options =
+	{
+		thumbBox: '.thumbBox',
+		spinner: '.spinner',
+		style:'',
+		imgSrc: '/js/CPITrainingJS/avatar/images/avatar.png'
+	}
+		var cropper = $('.imageBox').cropbox(options);
+ 		$('#upload-file').on('change', function(){
+			
+			if (window.FileReader){				
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					
+					options.imgSrc = e.target.result;
+					cropper = $('.imageBox').cropbox(options);
+				}
+				reader.readAsDataURL(this.files[0]);
+				this.files = [];
+			}else if(document.all) {
+	                    this.select();
+	                    var reallocalpath = document.selection.createRange().text;//IE下获取实际的本地文件路径
+	                    
+	             if (window.ie6) options.imgSrc = reallocalpath; //IE6浏览器设置img的src为本地路径可以直接显示图片
+	             else { //非IE6版本的IE由于安全问题直接设置img的src无法显示本地图片，但是可以通过滤镜来实现，IE10浏览器不支持滤镜，需要用FileReader来实现，所以注意判断FileReader先
+	            	 //this.select();
+	                 //var reallocalpath = document.selection.createRange().text   	
+	                options.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='image',src=\"" + reallocalpath + "\")";
+	                options.imgSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='; //设置img的src为base64编码的透明图片，要不会显示红xx
+	            }
+	        }
+	        
+	}); 
+	
+	$('#btnCrop').on('click', function(){
+		var img = cropper.getDataURL();
+		clearPhoto();
+		$('.photo').append('<img  id="imgCroop" src="'+img+'" align="absmiddle" style="width:100px;margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;"><p>100px*100px</p>');
+    })
+	$('#btnZoomIn').on('click', function(){
+		cropper.zoomIn();
+	})
+	$('#btnZoomOut').on('click', function(){
+		cropper.zoomOut();
+	})
+		$.ajax({
+            url: "/Avatar/getPic.action",
+            data:{"userId":userId},
+            type:"post",
+            dataType:"json",
+            success: function(result){
+            	//document.getElementById('headPortraitS').src=result.headPortraitS;
+            	headPortraitId = result.headPortraitId;
+            }
+        })
+	
+});
+	
+	 function clearPhoto(){
+	        $(".photo").empty();
+	 }   
+	        function uploadImg(){
+	            var imgStr = $("#imgCroop").attr("src");
+	            
+	            if(imgStr==null){alert("请裁剪后保存");return;}
+	            $(".edit_photo").hide();   
+
+	             $.ajax({
+	                type: 'post',
+	                url: "/Avatar/uploadImg.action",
+	                dataType: 'json', 
+	                data:{"data":imgStr, "headPortraitId" :headPortraitId},
+	                success: function(result){
+	                	//$("#headPortraitS").attr("src",imgStr);
+	                	alert("头像上传成功！");
+	                },
+	                failure :  function(result) {
+						alert('错误', '头像上传失败，请重新上传！');
+					}
+	                });
+	        }
+	        
+</script>
+
+</html>

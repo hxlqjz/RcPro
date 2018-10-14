@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<base href="/hotCheng/" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="static/mui/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/mui/css/pj.css" />					
+		<script type="text/javascript" src="static/mui/js/mui.min.js"></script>
+	    <script src="static/js/jquery-1.9.1.min.js"></script>
+		<script src="static/js/tool.js"></script>		
+	</head>
+
+	<style type="text/css">
+		html,
+		body {
+			background: #FFFFFF;
+		}
+		video {
+		    object-fit:fill;
+		    height:300px;
+		}
+		.mui-bar .mui-icon{color: #fff;}
+		.mui-bar{background:#003D92;}
+		.mui-inline{
+			vertical-align: bottom;
+			font-size: 14px;
+			color: #8f8f94;
+			}
+		input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+			font-size: 14px;
+		}
+	</style>
+	<script id="tpl" type="text/html">
+		<h4 style="text-align: center; margin-top: 10px;">{{list.theme}}</h4>
+		<h5 style="text-align: center; margin-top: 10px;">
+			【{{list.modifyDate}}】
+			【栏目:{{list.theColumnName}}】
+			【发布人:{{list.publishName}}】
+		</h5>
+		<hr />
+	</script>
+	<!-- 评价  -->
+	<script id="pj" type="text/html">
+		{{each list as value i}}		
+				<div class="qh-cmt qh-reset-font">
+                       <div class="qh-cmt-bar">
+                         <div class="qh-avatar" > <img style="border-radius:25px" src={{list[i].headPic}} alt=""></div>
+                         <div class="qh-user-nt">
+                           <div class="qh-u-name" style="float:left;padding-right:10px">{{list[i].userName}}</div>
+                           <div class="qh-u-time" style="float:right">{{list[i].createTime}}</div>
+                         </div>                     
+                       </div>
+                       <div class="qh-cmt-cont-wrap">
+                         <div class="qh-cmt-cont">
+                           <div class="qh-cmt-cont-t" >{{list[i].commentsText}}</div>                       
+                			{{each list[i].list as value j}}
+                				<div class="qh-cmt-bar">
+			                         <div class="qh-user-nt">        
+			                           <div class="qh-u-name" style="float:left;padding-right:10px;padding-top:10px;">{{(list[i].list)[j].createBy}}</div>			                           
+			                         </div>                     
+                       			</div>
+                       			<div class="qh-cmt-bar">
+			                         <div class="qh-user-nt">
+			                           <div class="qh-u-name" style="float:left;padding-right:12px">{{(list[i].list)[j].commentsText}}</div>			                           
+			                         </div>                     
+                       			</div>
+                       			{{/each}}
+                         </div>
+                       </div>
+            
+			</div>
+		{{/each}}
+	</script>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<a id="back" class="mui-action-back mui-icon mui-icon-arrowleft  mui-pull-left"></a>
+			<h1 class="mui-title"><font color="#FFFFFF">互动新闻</font></h1>
+		</header>		  
+		<div class="mui-content">		
+			<div id="info" class="mui-content" style="padding: 10px; background-color: #FFFFFF;">
+			</div>
+			<div id="info1" class="mui-scroll" style="padding: 10px;">				
+			</div>			
+		</div>
+	</body>
+
+	
+	<script type="text/javascript" src="static/js/template.js"></script>
+	
+	<script type="text/javascript">
+		function getQueryString(name) {  
+		    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+		    var rr = decodeURI(window.location.search);
+		    var r = rr.substr(1).match(reg);  
+		    if (r != null) return unescape(r[2]);  
+		    return null;  
+		}  
+	   var newsId = getQueryString("newsId");
+	   
+	   $(function(){
+		   queryDataDetail(newsId);
+		});
+	 
+		var totalPage;
+		var currPage;
+		var pic;
+		var screenWidth = document.body.offsetWidth;	
+		
+		mui.init({
+			beforeback: function(){
+				//获得列表界面的webview
+				clearBody();
+				return true;
+			}
+		});
+		
+		function clearBody(){
+			document.getElementById("info").innerHTML = "";
+			document.getElementById("info1").innerHTML = "";
+			//document.getElementById("info2").innerHTML = "";
+		}
+	
+		function addData(currPage) {
+				var url = basUrl+"PortalCommentsController/getAllPortalCommentsByNewsId.do?page="+currPage+"&&rows=5&&newsId="+newsId			
+				mui.ajax(url, {
+				data:{},	
+				type: 'post', //HTTP请12是求类型
+				timeout: 60000, //超时时间设置为60秒；
+				success: function(data) { //服务器返回响应
+					console.log("评价个数="+data.rows.length);
+					console.log("getPllist="+JSON.stringify(data));
+					if(data==null){
+						return;
+					}
+					currPage = data.currpage;
+					totalPage = data.pageNumber;
+								
+				var json = data.rows;
+				for(var i=0;i<json.length;i++){
+					json[i].createTime = formatDatepj(json[i].createTime);						
+					var doms = $.parseHTML(json[i].commentsText)
+					json[i].commentsText ="";					
+					$.each(doms, function( j, el ) { 
+						//属于image				
+						if( el instanceof HTMLImageElement){
+							console.log("html___el="+el.getAttribute('src'));
+							var srcvalue = el.getAttribute('src');
+							if(srcvalue.indexOf("http://")<0){
+									el.setAttribute('src',baseHeNan+srcvalue);
+							}
+							json[i].commentsText += el.outerHTML;
+						}else{
+							json[i].commentsText += el.textContent;
+						}
+					});
+					console.log((json[i].list).length)
+					//有回复
+					var huifulist = json[i].list;					
+						for(var j=0;j<huifulist.length;j++){
+							var doms = $.parseHTML(huifulist[j].commentsText)
+							if(huifulist[j].replyToName!=null){							
+								huifulist[j].createBy = huifulist[j].createBy+" 回复 "+huifulist[j].replyToName;
+							}
+							huifulist[j].commentsText ="";						
+							$.each(doms, function( k, el ) { 
+								//属于image				
+								if( el instanceof HTMLImageElement){
+									var srcvalue = el.getAttribute('src');
+									if(srcvalue.indexOf("http://")<0){
+											el.setAttribute('src',baseHeNan+srcvalue);
+									}
+								
+									huifulist[j].commentsText += el.outerHTML;
+								}else{
+									huifulist[j].commentsText += el.textContent;
+								}
+							});
+						}
+					
+					json[i].list = huifulist;
+					console.log("============="+JSON.stringify(json[i].list) )				
+				}					
+					var pjdiv = template("pj", {
+							list: json
+						});
+
+					$("#info1").append(pjdiv);										
+					},
+					error: function(xhr, type, errorThrown) {
+		
+						if(xhr.status == 403) {
+							mui.toast('会话超时，请重新登录！');
+							plus.runtime.restart();
+						}
+						if(type == 'timeout'){
+							mui.toast('请求超时请重试!');
+						}else if(type == 'error'){
+							mui.toast('请求错误!');
+							console.log(errorThrown);
+						}else if(type == 'abort'){
+							mui.toast('请求中止!');
+						}else if(type == 'parsererror'){
+							mui.toast('结果解析失败!');
+							console.log(errorThrown);
+						}else{
+							mui.toast('操作失败，请检查原因!');
+						}
+					}
+				});
+
+			}
+		String.prototype.replaceAll = function (FindText, RepText) {
+			    regExp = new RegExp(FindText, "g");
+			    return this.replace(regExp, RepText);
+		}	
+		
+		function queryDataDetail(itemId) {
+			var url = basUrl+"/interact/info_findPublishInfoById.action";
+			var screenWidth = document.body.offsetWidth-40;			
+			mui.ajax(url, {	
+			data:{newsId:itemId},
+			dataType: "json",
+			type: 'post', //HTTP请2求类型
+			timeout: 60000, //超时时间设置为60秒；
+			success: function(data) { //服务器返回响应								
+				if(data==null){
+					return;
+				}		
+				var content  =data.publishContent;
+				content = content.replaceAll("192.168.30.56:8080/dataRe-pc","www.hnic.com.cn").replaceAll('<img','<img width="'+screenWidth+'"');
+				data.publishContent = content;
+				console.log("dataaaaaaaaa="+JSON.stringify(data));									
+				getPllist(newsId,data);				
+			},
+			error: function(xhr, type, errorThrown) {
+
+				if(xhr.status == 403) {
+					mui.toast('会话超时，请重新登录！');
+					plus.runtime.restart();
+				}
+				if(type == 'timeout'){
+					mui.toast('请求超时请重试!');
+				}else if(type == 'error'){
+					mui.toast('请求错误!');
+					console.log(errorThrown);
+				}else if(type == 'abort'){
+					mui.toast('请求中止!');
+				}else if(type == 'parsererror'){
+					mui.toast('结果解析失败!');
+					console.log(errorThrown);
+				}else{
+					mui.toast('操作失败，请检查原因!');
+				}
+			}
+		});
+		}
+		function getPllist(newsId,data1){
+			var url = basUrl+"/interact/getAllPortalCommentsByNewsId.action?page=1&&rows=5&&newsId="+newsId
+			mui.ajax(url, {
+			data:{},	
+			type: 'post', //HTTP请求类型
+			timeout: 60000, //超时时间设置为60秒；
+			success: function(data) { //服务器返回响应
+				if(data==null){
+					return;
+				}					
+				var json = JSON.parse(data);	
+				for(var i=0;i<json.length;i++){					
+					json[i].createTime = formatDatepj(json[i].createTime);
+					var doms = $.parseHTML(json[i].COMMENTSTEXT);
+					json[i].commentsText ="";
+					$.each(doms, function( j, el ) { 
+						//属于image				
+						if( el instanceof HTMLImageElement){
+							var srcvalue = el.getAttribute('src');
+							if(srcvalue.indexOf("http://")<0){
+									el.setAttribute('src',basUrl+srcvalue);
+							}
+							json[i].commentsText += el.outerHTML;
+						}else{
+							//文字
+							json[i].commentsText += el.textContent;
+						}
+					});
+					//console.log((json[i].list))
+					//有回复
+					var huifulist = json[i].list;					
+						for(var j=0;j<huifulist.length;j++){
+							var doms = $.parseHTML(huifulist[j].commentsText)
+							if(huifulist[j].replyToName!=null){							
+								huifulist[j].createBy = huifulist[j].createBy+" 回复 "+huifulist[j].replyToName;
+							}
+							huifulist[j].commentsText ="";
+							$.each(doms, function( k, el ) { 
+								//属于image				
+								if( el instanceof HTMLImageElement){
+									console.log("html___el="+el.getAttribute('src'));
+									var srcvalue = el.getAttribute('src');
+									if(srcvalue.indexOf("http://")<0){
+											el.setAttribute('src',basUrl+srcvalue);
+									}
+								
+									huifulist[j].commentsText += el.outerHTML;
+								}else{
+									//文字
+									huifulist[j].commentsText += el.textContent;
+								}
+							});
+						}
+					
+					json[i].list = huifulist;			
+				}
+				//template解析
+				template.config('escape', false);
+				var pjdiv = template("pj", {
+						list: json
+					});
+					//console.log("pjdiv="+pjdiv);
+					loadHtml(pjdiv,data1,function(){
+						
+					var v = mui("#info1 video");
+					var i = mui("#info1 img");
+					var a = mui("#info1 a");
+					var t = mui("#info1 table");
+					v.each(function(){
+						//video需要重新设置宽高，把地址前面加上服务器的IP地址
+						var w = this.getAttribute("width");
+						this.setAttribute("width",100);
+						var vSrc = c.Ip + this.getAttribute("src");
+						this.setAttribute("src",vSrc);
+					});
+					i.each(function(){
+						console.info(screenWidth)
+						this.setAttribute("width",screenWidth-20);
+						//var iSrc = c.Ip + this.getAttribute("src");
+						//this.setAttribute("src",iSrc);
+					});
+					a.each(function(){
+						var aSrc = c.Ip + this.getAttribute("href");
+						this.setAttribute("href",aSrc);
+					});
+					t.each(function(){
+						this.setAttribute("width",screenWidth-20);
+					});
+				});
+				
+			},
+			error: function(xhr, type, errorThrown) {
+
+				if(xhr.status == 403) {
+					mui.toast('会话超时，请重新登录！');
+					plus.runtime.restart();
+				}
+				if(type == 'timeout'){
+					mui.toast('请求超时请重试!');
+				}else if(type == 'error'){
+					mui.toast('请求错误!');
+					console.log(errorThrown);
+				}else if(type == 'abort'){
+					mui.toast('请求中止!');
+				}else if(type == 'parsererror'){
+					mui.toast('结果解析失败!');
+					console.log(errorThrown);
+				}else{
+					mui.toast('操作失败，请检查原因!');
+				}
+			}
+		});
+		}
+		function loadHtml(pjdiv,data1,callBack){
+			//console.log("pjdiv==="+pjdiv);
+			data1.modifyDate= formatYMD(data1.modifyDate);			
+			document.getElementById("info").innerHTML = template("tpl", {
+				list: data1
+			});
+				
+				$("#info").append(data1.publishContent).append('<div class="mui-content-padded"  id="pldiv"><div class="mui-inline">评论</div><div class="row mui-input-row"><textarea id="question"   placeholder="请输入评论"></textarea><button type="button" class="mui-btn " style="text-align: center;" onclick="fubu()">发布</button></div>');
+				$("#info1").append(pjdiv);
+				plus.webview.currentWebview().show('slide-in-right', 250);
+
+				
+		}
+		function fubu(){
+			var tear = $("#question").val();
+			tear = encodeURI(tear);
+			if(tear==""){
+				mui.toast("请填写评论");			
+				return;
+			}
+			var url =basUrl+"/interact/addCommentsText.action"
+			mui.ajax(url, {
+			data:{newsId:newsId,content_text_:tear},	
+			type: 'post', //HTTP请求类型
+			timeout: 60000, //超时时间设置为60秒；
+			success: function(data) { //服务器返回响应
+				if(data.success==true){
+					mui.toast("发布成功");
+					document.getElementById("info1").innerHTML = "";
+					queryDataDetail(newsId);
+				}
+				
+			},
+			error: function(xhr, type, errorThrown) {
+
+				if(xhr.status == 403) {
+					mui.toast('会话超时，请重新登录！');
+					plus.runtime.restart();
+				}
+				if(type == 'timeout'){
+					mui.toast('请求超时请重试!');
+				}else if(type == 'error'){
+					mui.toast('请求错误!');
+					console.log(errorThrown);
+				}else if(type == 'abort'){
+					mui.toast('请求中止!');
+				}else if(type == 'parsererror'){
+					mui.toast('结果解析失败!');
+					console.log(errorThrown);
+				}else{
+					mui.toast('操作失败，请检查原因!');
+				}
+			}
+		});
+			
+		}
+		function fabu_login(){
+			mui.openWindow({	
+							id: "fabu_login.html",
+							url: "static/login.html",
+							show: {
+								autoShow: true
+							},
+							extras: {
+								newsId: newsId													
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '正在加载...'
+							}
+						});
+		}
+		
+	    function formatYMD(time) {
+		if(time != null) {
+			var t = new Date(time);
+			var tf = function(i) {
+				return(i < 10 ? '0' : '') + i
+			};
+			return t.getFullYear() + "-" + tf(t.getMonth() + 1) + "-" + tf(t.getDate());
+		}
+		return "";
+	}
+	function add0(m){return m<10?'0'+m:m }  
+  function formatDatepj(needTime)  
+  {  
+       var time = new Date(needTime);  
+       var y = time.getFullYear();  
+       var m = time.getMonth()+1;  
+       var d = time.getDate();  
+       var h = time.getHours();  
+      var mm = time.getMinutes();  
+      var s = time.getSeconds();  
+      return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);  
+  }  
+	
+	</script>
+
+</html>

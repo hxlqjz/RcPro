@@ -1,0 +1,131 @@
+body {
+	background: url(../images/loginBG.png);
+	background-size: cover;
+}
+
+.area {
+	margin: 20px auto 0px auto;
+}
+
+
+.mui-radio input[type=radio] {
+	top: 6px;
+}
+
+.mui-content-padded {
+	margin-top: 22px;
+	text-align: center
+}
+
+.mui-content-padded a {
+	font-size: 14px;
+}
+
+.mui-content {
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	margin: 0 auto;
+	background: none;
+}
+
+.mui-btn {
+	padding: 12px;
+}
+
+.link-area {
+	display: block;
+	margin-top: 25px;
+	text-align: center;
+}
+
+.spliter {
+	color: #bbb;
+	padding: 0px 8px;
+}
+
+.oauth-area {
+	
+	bottom: 20px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+.oauth-area .oauth-btn {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-size: 30px 30px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin: 0px 20px;
+	/*-webkit-filter: grayscale(100%); */
+	border: solid 1px #ddd;
+	border-radius: 25px;
+}
+
+.mui-content-padded {
+	margin: 15px
+}
+
+.oauth-area .oauth-btn:active {
+	border: solid 1px #aaa;
+}
+
+.mui-content-padded {
+	margin-top: 22px
+}
+
+
+
+.mui-checkbox input[type=checkbox] {
+	top: -5px;
+}
+
+.mui-btn-primary {
+	border-radius: 4px;
+	background: #0E8BE3;
+}
+
+.primary2 {
+	border-radius: 100px;
+	border: #003D92 1px solid;
+	color: #003D92;
+	background: none
+}
+
+a {
+	text-decoration: none;
+	color: #2C95CD
+}
+
+.mui-collapse-content li {
+	padding-right: 30px;
+	line-height: 35px;
+	padding-top: 10px;
+	border-bottom: #DDD 1px solid;
+	list-style: none;
+	font-size: 14px;
+	color: #333;
+}
+
+.mui-icon-eye.mui-active:before {
+	content: '\e568';
+}
+
+.mui-icon-eye:before {
+	/*content: '\0078';*/
+	content: '\e568';
+}
+
+.ui-page-login, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.mui-content {
+	height: 100%;
+}

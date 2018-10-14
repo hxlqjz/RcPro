@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<description>Spring公共配置 </description>
+	
+	<import resource="framework-mvc.xml" />	
+	
+	<!-- 数据源、数据操作配置文件 -->
+	<import resource="framework-data.xml" />
+	<!-- 缓存配置文件 -->
+	<import resource="framework-cache.xml" />
+
+	<!-- 自动扫描类路径 -->
+	<context:component-scan base-package="com.kdgcsoft.power.*" />
+	<context:component-scan base-package="com.kdgcsoft.power.dao.*" />
+	<context:component-scan base-package="com.kdgcsoft.power.ftl.*" />
+	<context:component-scan base-package="com.kdgcsoft.power.service.*" />
+	<context:component-scan base-package="com.kdgcsoft.power.controller.*" />	
+	<context:component-scan base-package="com.hxxdemo.weixinsaomalogin.*" />		
+	
+	<!-- 用于持有ApplicationContext,可以使用SpringContextHolder.getBean('xxxx')的静态方法得到spring bean对象 -->
+	<bean id="SpringContextHolder" class="com.kdgcsoft.power.common.support.SpringContextHolder" lazy-init="false"></bean>	
+	
+	<!--
+	<bean id="NativeSqlHelper" class="com.kdgcsoft.power.dao.base.NativeSqlHelper" lazy-init="false"></bean>
+	-->
+	 <!-- 开启shiro注解 -->
+    <!-- <bean
+        class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+        depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true" />
+    </bean> -->
+
+    <bean
+        class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager" />
+    </bean>
+    <bean lazy-init="true" id="startQuertz" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="overwriteExistingJobs" value="true" />
+		<property name="transactionManager" ref="transactionManager" />
+		<!-- <property name="configLocation" value="classpath:quartz.properties" />-->
+	    <property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		 <property name="autoStartup" value="true" />
+		<!--<property name="dataSource" ref="dataSourceMH" />
+		<property name="quartzProperties">
+			<props>
+				<prop key="org.quartz.jobStore.useProperties">true</prop>
+			</props>
+		</property>-->
+		<!-- <property name="triggers">
+            <list>
+                <ref bean="getPendTime"/>
+                <ref bean="saveJob"/>
+            </list>
+        </property> -->
+	</bean>	
+    <bean id="exceptionHandler" class="com.kdgcsoft.power.common.support.ExceptionHandler"/>
+
+    <!-- 未认证或未授权时跳转必须在springmvc里面配，spring-shiro里的shirofilter配不生效 -->
+    <bean
+        class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!--表示捕获的异常 -->
+                <prop key="org.apache.shiro.authz.UnauthorizedException">
+                    <!--捕获该异常时跳转的路径 -->
+                    /error/unauthorized
+                </prop>
+                <!--表示捕获的异常 -->
+                <prop key="org.apache.shiro.authz.UnauthenticatedException">
+                    <!--捕获该异常时跳转的路径 -->
+                    /error/unauthorized
+                </prop>
+            </props>
+        </property>
+    </bean>
+</beans>

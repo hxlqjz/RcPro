@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />
+		<link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/smIndex.css">
+		<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy"><a href="index.html"></a></div>
+		</header>
+		<div class="mainBg"></div>
+		<!-- -->				
+		<div class="taikeContainer">
+			<img src="static/img/taike.png" class="taikeLogo"/>
+			<div class="containerBox" style="">
+				<input type="text" class="taikeBtn taikeInt" placeholder="联系管理员"/>
+				<button class="taikeBtn" onclick="window.location.href='view/wechat/index.html'">确&nbsp;&nbsp;定</button>
+			</div>
+		</div>
+		<!--footer -->
+		<footer>
+			<div class="foot1">
+				<span>移动版</span>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="javascript:;">热骋</a>
+			</div>
+			<div class="foot2">系统版本<i>RC5861-1.07 .13499s</i></div>
+
+		</footer>
+		
+		
+		<script>
+
+			//解决输入框获取焦点时底部弹上来问题
+			$(document).ready(function(){			
+			    var h=$(window).height();
+			    $(window).resize(function() {
+			        if($(window).height()<h){
+			            $('footer').hide();
+			        }
+			        if($(window).height()>=h){
+			            $('footer').show();
+			        }
+			    });
+				$("input").focus(function(){
+			    	$(this).attr("placeholder","")
+			    })//input输入框获取焦点时placeholder为空			
+			});
+		</script>
+	
+
+</body></html>

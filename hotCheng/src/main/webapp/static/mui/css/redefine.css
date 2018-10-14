@@ -1,0 +1,14 @@
+/*9官格样式*/
+.mui-grid-view.mui-grid-9{
+	background-color: #fffFFF;
+}
+/*9官格的每格高度*/
+.mui-grid-view.mui-grid-9 .mui-table-view-cell>a:not(.mui-btn) {
+    margin: 0;
+    padding: 0px 0 5px 0;
+}
+.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+	margin-top:5px
+}
+/*9官格改改造后影响了badge*/
+.mui-icon .mui-badge{ top: 0;}

@@ -1,0 +1,72 @@
+﻿/* CSS Document */
+html,body{ margin:0; padding:0; height:100%; font-family:arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', 宋体b8b\4f53, Tahoma, Arial, Helvetica, STHeiti; }
+a{ color: #FFF; text-decoration: none;}
+a{ color: #FFF; text-decoration:underline;}
+.Login{ width:100%; height:100%; position:absolute; font-size:13px; overflow: hidden;background:url(../images/Skin2/21.png) center center no-repeat; background-size:cover;}
+.Login2{ width:100%; height:100%; position:absolute; font-size:13px; overflow: hidden;background:url(../images/Skin2/22.png) center center no-repeat; background-size:cover;}
+	/*登录界面的上部分*/
+	.Login .Head{}
+	.Login .Head .Box{}
+		.Login .Head .Logo{ background:none; width:100%; height:30%; background:url(../images/Skin2/logo.png) center center no-repeat; position:absolute; margin-top:0px; margin-left:20px;}
+		.Login .Head .SystemName{ display:none;}
+		.Login .Head .Tools{ display:none}
+	/*中间部分*/
+	.Login .Center{ width:100%; height:382px; position:absolute; top:50%; margin-top:-175px;}
+	.Login .Center .Box{ height:100%; position:relative; background: url(../images/Skin2/boxBaner.png) center center no-repeat; width: 1012px; left: 50%; margin-left: -506px;}
+	.Login2 .Center .Box{ background: url(../images/Skin2/boxBaner2.png) center center no-repeat;}
+.Box>.guang{ background:url(../images/Skin2/guang.png); width: 364px; height: 291px;
+top:-118px; right:-182px; position:absolute;
+}
+		.Login .Center .FlashBox{ position:absolute}
+		.Login .Center .InputBox{ position:absolute; top:22px; right:378px; width:336px; height:333px; left:50%; margin-left:-167px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px; z-index: 100}
+.Login .Center .InputBox .shadow{ background: url(../images/Skin2/shadow.png); width: 399px; height: 133px; position: absolute; top:280px; z-index: -10}
+			.InputBox .textTitle{ font-size:25px; color:#A5DCFE; line-height:65px; text-align:center;  -moz-border-radius: 5px 5px 0 0;-webkit-border-radius:  5px 5px 0 0;border-radius: 5px 5px 0 0}
+			.InputBox .Space{ height:115px;}
+			.InputBox .Title{ font-size:15px; line-height:30px; font-weight:bold; color:#333}
+			.InputBox .Content{ height:40px; text-align:center; margin-top:9px;}
+			.InputBox .Content input{width: 247px;line-height:40px;height:40px;font-size:16px;padding:0;margin:0;border:none;background:#fff;padding-left: 14px;color:#555;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px; border: 1px solid #BCBCBC}
+			.InputBox .Item1{color: #666; margin-left: 42px;margin-top: 10px;font-size: 18px;font-weight: normal}
+			.InputBox .Item2.Content{ margin-top:9px;}
+			.InputBox .Item1.Content input{ cursor:pointer}
+			.InputBox .Item1.Content{}
+			.InputBox .Item2.Content{ }
+			.InputBox .Item3.Content{}
+			.InputBox .Item1.ContentHover{ }
+			.InputBox .Item2.ContentHover{}
+			.InputBox .Item3.ContentHover{ }
+			.InputBox .Item1.ContentHover input{ color:#6bb700;}
+			.InputBox .Item2.ContentHover input{ color:#6bb700;}
+			.InputBox .Item3.ContentHover input{ color:#6bb700;}
+			
+			
+			
+			.Login .InputBox .submit{ height:40px; margin:20px auto 10px; line-height:40px; text-align:center; width:262px; background:#743087; font-size:22px; cursor:pointer; color:#fff; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius:2px;}
+			.Login .InputBox .submitHover{ background:#6A2B80;}
+			.Login .InputBox .submitClick{ background:#480662;}
+
+			.Login2 .InputBox .submit{ height:40px; margin:20px auto 10px; line-height:40px; text-align:center; width:262px; background:#1899E9; font-size:22px; cursor:pointer; color:#fff; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius:2px;}
+			.Login2 .InputBox .submitHover{ background:#0088E5;}
+			.Login2 .InputBox .submitClick{ background:#006EDC;}
+			
+			.InputBox .rememberUser{ padding-left:0; text-align: center; color: #333; width:100%; padding-top:10px; float:left; line-height:35px; font-size:12px;}
+			.InputBox .forgetPassword{ line-height:30px; font-size:12px; color:#fff; text-align:right; padding-right:46px}
+	/*下半部分*/
+	.Login .Foot{ display:block; position:absolute; bottom:10px; width:100%; color:#fff;}
+	.Login .Foot .Box{ border-top:none; line-height:30px; color:333; display:block; float:left; width:100%; margin-top:15px; text-align: center}
+		.Login .Foot .TextL{ display:block; text-align:center; line-height:20px; font-size:16px; color:#fff}
+		.Login .Foot .TextC{ width:100%; position:absolute; text-align:center; color:#fff}
+		.Login .Foot .TextR{ display:inline-block; text-align:center; line-height:20px; font-size:14px; color:#2674AA; background: #FFF; border-radius: 9px; padding: 0 20px;}
+
+.btn3login{ padding-left:18px; display:inline-block; margin: 0 3px; text-decoration: none; color: #333}
+.btn3login.qq{ background:url(../images/Skin2/qq.png) left center no-repeat; display: none;}
+.btn3login.weixin{ background:url(../images/Skin2/weixin.png) left center no-repeat; display: none;}
+.btn3login.qq.now{ display:inline-block;}
+.btn3login.weixin.now{ display: inline-block;}
+.btn3login:hover{ text-decoration: underline;}
+
+/* 切换二维码登录*/
+.choice2{}
+.code{ width:43px; height:44px; background:url(../images/Skin2/code.png); position:absolute; right:0}
+.computer{width:43px; height:44px; background:url(../images/Skin2/computer.png); position:absolute; right:0;left: 50%;margin-left: 157px}
+.computerTitle{ color:#fff; padding-top:40px; width:100%; text-align:center; font-size:16px}
+.ewm{ width:104px; height:92; margin: 70px 26px 0 26px; text-align:center; color:#fff;font-size:17px; margin-bottom:33px; line-height:30px; display: inline-block ;}

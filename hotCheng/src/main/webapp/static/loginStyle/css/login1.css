@@ -1,0 +1,43 @@
+/* CSS Document */
+html,body{ margin:0; padding:0; height:100%; font-family:arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', 宋体b8b\4f53, Tahoma, Arial, Helvetica, STHeiti;}
+.Login{ width:100%; height:100%; position:absolute; font-size:13px;}
+	/*登录界面的上部分*/
+	.Login .Head{ height:60px;}
+	.Login .Head .Box{}
+		.Login .Head .Logo{ background:url(../images/Skin1/logoForLogin.jpg) left top no-repeat; width:560px; height:60px;}
+		.Login .Head .SystemName{ display:none;}
+		.Login .Head .Tools{ display:none;}
+	/*中间部分*/
+	.Login .Center{ height:300px;}
+	.Login .Center .Box{ background:url(../images/Skin1/loginBg.jpg) left top no-repeat; height:100%;}
+		.Login .Center .FlashBox{ position:absolute}
+		.Login .Center .InputBox{ float:right; top:53px; right:0px; background:url(../images/Skin1/inputBoxBg.jpg) left top no-repeat; width:346px; height:382px;}
+			.InputBox .Space{ height:90px;}
+			.InputBox .Title{ padding-left:38px; font-size:15px; line-height:22px; font-weight:bold; color:#333}
+			.InputBox .Content{ padding-left:38px; height:40px; text-align:right}
+			.InputBox .Content input{ width:227px; line-height:32px; height:32px; font-size:16px; padding:0; margin:0; border:none; background:none; margin-right:42px; padding-left:6px; color:#555}
+			.InputBox .Item1.Content input{ cursor:pointer}
+			.InputBox .Item1.Content{ background:url(../images/Skin1/inputListBg.jpg) 38px top no-repeat;}
+			.InputBox .Item2.Content{ background:url(../images/Skin1/inputUserBg.jpg) 38px top no-repeat;}
+			.InputBox .Item3.Content{ background:url(../images/Skin1/inputPassBg.jpg) 38px top no-repeat;}
+			.InputBox .Item1.ContentHover{ background:url(../images/Skin1/inputListHoverBg.jpg) 38px top no-repeat;}
+			.InputBox .Item2.ContentHover{ background:url(../images/Skin1/inputUserHoverBg.jpg) 38px top no-repeat;}
+			.InputBox .Item3.ContentHover{ background:url(../images/Skin1/inputPassHoverBg.jpg) 38px top no-repeat;}
+			.InputBox .Item1.ContentHover input{ color:#6bb700;}
+			.InputBox .Item2.ContentHover input{ color:#6bb700;}
+			.InputBox .Item3.ContentHover input{ color:#6bb700;}
+			
+			
+			
+			.InputBox .submit{ margin-left:38px; height:33px; margin-top:5px; line-height:33px; text-align:center; width:266px; background:#2d99e7; font-size:18px; cursor:pointer; color:#fff; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius:2px;}
+			.InputBox .submitHover{ background:#005dd1;}
+			.InputBox .submitClick{ background:#039;}
+			
+			.InputBox .rememberUser{ padding-left:38px; padding-top:10px; float:left; line-height:35px; font-size:12px;}
+			.InputBox .forgetPassword{ padding-right:43px; padding-top:10px; float:right; line-height:35px; font-size:12px;}
+	/*下半部分*/
+	.Login .Foot{ display:block; padding-top:20px;}
+	.Login .Foot .Box{ border-top:1px solid #ccc; line-height:30px; color:333; display:block; float:left; width:100%;}
+		.Login .Foot .TextL{ float:left}
+		.Login .Foot .TextC{ width:100%; position:absolute; text-align:center}
+		.Login .Foot .TextR{ float:right;}

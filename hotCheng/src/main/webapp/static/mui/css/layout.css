@@ -1,0 +1,49 @@
+/*用于页面排版中每个版块的上边距*/
+.cus-row{ margin-top: 10px;}
+/*第一个上边距默认不要*/
+.mui-content>.cus-row:first-child{ margin-top: 0;}
+
+/*9官格*/
+.hot{ width: 50px; height: 50px; z-index: 10; position: absolute; top:0; right: 0;}
+.hot img{ width: 50px; height: 50px; font-style:normal}
+.new{ width: 50px; height: 50px; z-index: 10; position: absolute; top:0; right: 0;}
+.new img{ width: 50px; height: 50px;}
+/*便民资讯*/
+.bianmingzixun{ background-color: white; padding: 20px 20px 20px 90px; background:#FFFFFF url(../images/bmzx.png) left center no-repeat; background-size: auto 60%;}
+/*互动交流*/
+.hudongjiaoliu{}
+.hudongjiaoliu .mui-card-content{ margin-bottom: 10px; background-color: #FFFFFF;}
+.hudongjiaoliu .mui-card-header{ line-height: 40px; background:#FFFFFF url(../images/titleIcon.png) left center no-repeat; padding-left: 35px; font-size: 20px; color: #333}
+.hudongjiaoliu .mui-card-header .more{ float: right; height: 40px; width: 40px;background: url(../images/more.png) right center no-repeat;}
+.author{ display: block; color: #666; margin-bottom: 10px;}
+.author:after{  display: block; content: ''; clear: both; visibility: hidden;}
+.author .photo{ float: left; width: 36px; height: 36px; background: #CCC; border-radius: 36px; overflow: hidden;}
+.author .photo img{ width:36px; height: 36px;}
+.author .name{ float: left; height: 36px; line-height: 36px; font-size: 16px; padding-left: 10px;}
+.author .date{ float: right; height: 36px; line-height: 36px; color: #999; font-size: 16px;}
+.content{ color: #333; font-size: 15px; margin-bottom: 0px;}
+.title{ display: block; font-size: 16px;}
+.title:after{  display: block; content: ''; clear: both; visibility: hidden;}
+.title .type{ float: left; height: 30px; line-height: 30px; padding: 0 8px; color: #21B9F0; border:1px solid #21B9F0; border-radius: 4px;}
+.title .text{ float: left; height: 40px; line-height: 30px; padding-left: 10px; font-weight: bold;}
+.reply{ padding: 10px 15px; border-top:1px solid #E3E3E5; font-size: 15px;}
+.reply>span{}
+.reply>span:first-child{ color: #21B9F0}
+/*4个链接*/
+.fourLink{width: 100%; font-size: 12px;}
+.fourLink>tbody>tr>td{ border-left:6px solid #EFEFF4; padding: 15px; background-color: #FFFFFF; height: 52px; text-align: center}
+.fourLink>tbody>tr>td:first-child{ border-left:none;}
+.fourLink>tbody>tr>td img{ display: block; max-width: 100px; padding-bottom: 8px;}
+.fourLink>tbody>tr>td span{ display: block; text-align: center; width: 100%;}
+
+/*
+单行文字上下间断滚动
+说明：修改高度后，同时要修改 js "timer"中的margin-top
+*/
+.notice_active { height: 52px; width: 100%; padding: 0; overflow: hidden; position: relative; font-size: 18px;}
+.notice_active ul,.notice_active li{ margin: 0; padding: 0}
+.notice_active li{list-style-type:none;line-height: 26px;overflow: hidden; position: relative;}
+.notice_active li.notice_active_ch a {color:#656972;white-space:nowrap; text-overflow:ellipsis; width: 100%; display: block; overflow: hidden;float: left; overflow: hidden;margin:0 0 0 0;padding-right: 0px;}
+.notice_active li.notice_active_ch em {text-align:right; float:left; color:#888; width: 100px;}
+
+

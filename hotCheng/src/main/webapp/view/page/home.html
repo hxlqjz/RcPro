@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <base href="../hotCheng/" />
+        <link href="static/mui/css/mui.min.css" rel="stylesheet" />
+        <script src="static/mui/js/mui.min.js"></script>
+        <script src="static/js/jquery-1.9.1.min.js"></script>
+        <script src="static/js/template.js"></script>
+        <script src="static/js/tool.js"></script>
+        <script src="static/js/car/home.js"></script>
+       
+        
+ <style>         	 	
+
+/*.side-bar {width: 66px;position: fixed;bottom: 20px;right: 25px;font-size: 0;line-height: 0;z-index: 100;}
+.side-bar a {width: 66px;height: 64px;display: inline-block;background-color: #ddd;margin-bottom: 5px;border-radius:12px;text-align:center;padding-top:5px;}
+.side-bar a span{font-size:16px;display:block;width:40px;margin:0 13px;} */
+
+.side-bar {width: 66px;position: fixed;bottom: 20px;right: 25px;font-size: 0;line-height: 0;z-index: 100;}
+.side-bar a{width: 66px;isplay: inline-block;text-align:center;}
+.side-bar a .mui-icon{width: 34px;background-color: #ddd;border-radius:50%;height:34px;display:block;line-height: 34px;margin-bottom: 12px;margin-left: 13px;;}
+.side-bar a  span{font-size:14px;display:block;height:20px;}
+
+
+
+/*.side-bar a {width: 66px;height: 66px;display: inline-block;background-color: #ddd;margin-bottom: 2px;}
+.side-bar a:hover {background-color: #669fdd;}
+.side-bar .icon-qq {background-position: 0 -62px;}
+.side-bar .icon-chat {background-position: 0 -130px;position: relative;}
+.side-bar .icon-blog {background-position: 0 -198px;}
+.side-bar .icon-mail {background-position: 0 -266px;}
+ .side-bar .icon-chat:hover .chat-tips {display: block;}
+.chat-tips {padding: 20px;border: 1px solid #d1d2d6;position: absolute;right: 78px;top: -55px;background-color: #fff;display: none;}
+.chat-tips i {width: 9px;height: 16px;display: inline-block;position: absolute;right: -9px;top: 80px;background-position:-88px -350px;}
+.chat-tips img {width: 138px;height: 138px;}   */      	 	
+ </style>
+    </head>
+<body>
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">首页</h1>
+        </header>
+       <script id="jtyw123" type="text/html">
+		{{each list3 as value j}}
+		<li class="mui-table-view-cell mui-transitioning" newsId={{list3[j].newsId}} theColumn={{list3[j].theColumn}} >
+				   <div  class="praise mui-slider-right mui-disabled">
+				  	{{if value.isToPraise==0}}  				   	
+                   			<a id={{j}} class="mui-btn mui-btn-green jtyw-like-btn" newsId={{list3[j].newsId}}  style="transform: translate(0px, 0px);">
+						   	<div   class="mui-icon-extra mui-icon-extra-like"></div>点赞		  
+						   </a>
+						   </div>
+						   <div class="mui-slider-handle" style="transform: translate(0px, 0px);">{{list3[j].theme}}
+						   <p class="mui-h6 mui-ellipsis">{{list3[j].createDate}}</p>
+                	{{else}} 
+						   <a style="background:red" newsType="1" class="mui-btn mui-btn-green jtyw-like-btn" newsId={{list3[j].newsId}}  style="transform: translate(0px, 0px);">
+						   	<div   class="mui-icon-extra mui-icon-extra-like"></div>已点赞		  
+						   </a>
+						   </div>
+						   <div class="mui-slider-handle" style="transform: translate(0px, 0px);">{{list3[j].theme}}
+						   <p class="mui-h6 mui-ellipsis">{{list3[j].createDate}}</p>
+					{{/if}}
+				   </div>
+		</li>
+		{{/each}}
+	</script>
+
+     <div class="mui-content">
+           <!--互动交流-->
+	      <div class="cus-row">
+		  <div class="hudongjiaoliu">
+				<div class="mui-card-header">互动交流<a id="jtywsx" class="mui-icon mui-icon-loop mui-pull-right"></a></div>
+				<ul  id="jtywlist" class="mui-table-view">
+					
+				</ul>
+		   </div>
+	       </div>
+     </div>
+        
+   <!--  <div class="side-bar"> 
+	<a  class="mui-icon mui-icon-chat"><span>我的热骋</span></a> 
+	<a href="view/page/moreMain.html" class="mui-icon mui-icon-settings"><span>在线目录</span></a> 
+	<a href="view/page/queryCarVinCode.html" class="mui-icon mui-icon-search"><span>开始查询</span></a> 
+     </div> -->
+     
+     <div class="side-bar"> 
+	    <a href="view/page/queryNgkCarGood.html"> <i class="mui-icon mui-icon-chat"></i><span>ngk查询</span></a>
+	    <a href="view/page/moreMain.html"> <i class="mui-icon mui-icon-settings"></i><span>在线目录</span></a>
+	    <a href="view/page/carQueryButto.html"> <i class="mui-icon mui-icon-search"></i><span>开始查询</span></a>	 
+     </div>
+     
+     
+ 
+    </body>    
+    <script>
+	mui('#jtywlist').on('tap', 'li', function() {
+		 var biaoti =   $(this).attr("target");		
+		
+		if(biaoti=="biaoti"){
+
+		}else{
+			var newsId = this.getAttribute('newsId');
+			var url="view/page/detail.html?newsId="+newsId;
+			mui.openWindow({	
+					id: "jtyw_detail2.html",
+					url: encodeURI(url),
+					show: {
+						autoShow: true
+					},
+					extras: {
+						newsId: newsId													
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...'
+					}
+				});
+		}
+				
+	});
+	
+	function sendSmsCode(){
+		var url =basUrl+"/comcont/testEhcacheWrite.action";
+		$.ajax({
+			url : url,
+			data : {
+				
+			},
+			dataType: 'json',
+			success : function(data) {
+				
+			},
+			error:function(data){
+				//alert("err:"+JSON.stringify(data));
+			}
+		}); 
+	};
+	
+	function getSmsCode(){
+		 var url =basUrl+"/comcont/testEhcacheRead.action";
+		$.ajax({
+			url : url,
+			data : {
+				
+			},
+			dataType: 'json',
+			success : function(data) {
+				
+			},
+			error:function(data){
+				//alert("err:"+JSON.stringify(data));
+			}
+		}); 
+	};
+    </script>
+
+</html>

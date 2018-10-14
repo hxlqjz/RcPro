@@ -1,0 +1,51 @@
+html{height: 100%;}
+body{background: #ececec;font-size: 16px;}
+button{ outline:none;}
+header{width: 100%;height: 50px;background: #000 url(../img/tabli.jpg) repeat-x;background-size: 100% 100%;padding: 0 10px;box-sizing: border-box;
+position:fixed;z-index: 100;top:0;left:0;}
+.headTitle{height: 30px;float: left;vertical-align: middle;margin-top: 10px;max-width: calc(100% - 65px);}
+.headsy{float: right;width: 65px;height: 30px;background: url(../img/headsy.png) no-repeat center;background-size: 100% 100%;margin-top: 10px;}
+.headback{background: url(../img/headback.png) no-repeat center;background-size: 100% 100%;}
+.headsy a{display: block;width: 100%;height: 100%;}
+.mainBg{width: 100%;height: 100%;position: fixed;top: 0;left: 0;background: url(../img/bg.png);z-index: -1;}
+/*footer*/
+footer{width: 90%;border-top: 1px solid #bebdbd;position:fixed;z-index: 100;bottom: 0;left: 5%;padding-bottom: 10px;}
+.foot1{text-align: center;font-size: 16px;line-height: 200%;}
+.foot1 a{color: #0370ba;font-weight: bold;}
+.foot2{text-align: center;font-size: 12px;}
+.foot2 i{font-size: 10px;color: #333;display:inline-block;-webkit-transform:scale(0.833);vertical-align: bottom;}
+
+/**/
+.taikeContainer{width: 75%;background: #ECECEC;padding: 20px;border-radius: 10px;box-sizing: border-box;
+margin: 35% auto 70px;box-shadow: 0px 0px 3px 2px #aaa;}
+.taikeLogo{width: 100%;}
+.containerBox{margin-top: 22px;}
+.taikeBtn{width: 100%;height: 70px;background: url(../img/line.jpg) repeat-x;border-radius: 8px;color: #FFF;
+font-size: 28px;border: none;background-size: 100% 100%;margin-top: 10px;line-height: 70px;}
+.taikeBtn[type=text]{margin-bottom: 0px;background:none;border-radius: 8px;}
+.taikeInt{background: none;border: 1px solid #B8B8B8;padding-left: 10px;box-sizing: border-box;
+color: #000;font-size: 22px;text-align: center;}
+.taikeInt:-moz-placeholder{color: #333;font-size: 28px;}
+.taikeInt::-moz-placeholder{color: #333;font-size: 28px;}
+.taikeInt:-ms-input-placeholder{color: #333;font-size: 28px;}
+.taikeInt::-webkit-input-placeholder{color: #333;font-size: 28px;}
+.taikeTable td{padding-bottom: 16px;font-size: 15px;}
+.taikeLogoRight{width: 30%;float: right;}
+
+.conH3{font-size: 34px;text-align: center;margin-bottom: 10px;font-weight: bold;}
+
+/*记录查询*/
+.jiluContainer{width: 75%;margin: 20% auto 0;padding-bottom: 100px;}
+.jiluInt{width: 48%;background: url(../img/typebg1.jpg) repeat-x;background-size: 100% 100%;box-sizing: border-box;
+float: left;font-size: 18px;padding: 10px;margin-bottom: 10px;text-align: center;border-left: 1px solid #BEBDBD;
+border-right: 1px solid #BEBDBD;border-radius: 2px;}
+.jiluInt:nth-of-type(2n){margin-left: 2%;}
+.jiluInt:-moz-placeholder{color: #000;}
+.jiluInt::-moz-placeholder{color: #000;}
+.jiluInt:-ms-input-placeholder{color: #000;}
+.jiluInt::-webkit-input-placeholder{color: #000;}
+.jiluBtn{width: 100%;height: 40px;background: url(../img/line.jpg) repeat-x;border-radius: 25px;color: #FFF;
+border: none;background-size: 100% 100%;font-size: 20px;box-shadow: 2px 2px 2px #ccc;margin-bottom: 20px;}
+
+.jiluTable{background: #FFF;}
+.jiluTable td,.jiluTable th{text-align: center;border: 1px solid #B8B8B8;font-size: 14px;padding: 3px 0;}

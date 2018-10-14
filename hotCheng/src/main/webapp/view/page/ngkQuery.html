@@ -1,0 +1,105 @@
+
+<!Doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>车型匹配的产品</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	 <base href="/hotCheng/" />
+	 <!--  <link rel="stylesheet" href="static/css/bootstrap.min.css">-->
+	 <script src="static/js/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="static/js/bootstrap.min.js"></script> 
+	 <script src="static/js/tool.js"></script>     
+	 <script src="static/js/template.js"></script>
+	 <style>
+	 *{padding:0;margin:0;}
+	 table{width:100%;border-collapse:collapse;}
+	 table caption{background:#7A9EE9;color:#fff;text-align:left;font-size:14px;padding-left:20px;line-height:35px;}
+	 table tr td{border:1px solid #ddd;line-height:20px;background:#c4e3f3;font-size:12px;text-align:center;padding:10px 0;}
+	 table thead tr td{font-size:13px;background:#e8e8e8;}
+	 
+	 
+	 </style>
+    </head>
+      <script id="que_rec" type="text/html">
+		{{each list as value j}}
+ 		<tr class="success">
+				    <td>{{list[j].ngkBrand}}</td>
+	 	  			<td>{{list[j].ngkType}}</td>
+	 	  			<td>{{list[j].outputAmount}}</td>
+	 	  			<td>{{list[j].marketYear}}</td>
+	 	  			<td>{{list[j].engineType}}</td>
+	 	  			<td>{{list[j].sparkPlug}}</td>
+					<td>{{list[j].gearNum}}</td>
+		</tr>
+	 {{/each}}
+	</script>
+	
+  <body>
+  <div>
+	    <div class="container table-responsive">
+	   
+	 	  	<table class="table table-border table-hover table-striped table-condensed">
+	 	  	<caption>车型匹配的结果</caption>
+				<thead>
+				<tr class="success">
+	 	  			<td>品牌</td>
+	 	  			<td>车种车型</td>
+	 	  			<td>排气量</td>
+	 	  			<td>上市年份</td>
+	 	  			<td>发动机型式</td>
+	 	  			<td>火花塞</td>
+					<td width="13%">安装支数</td>
+	 	  			</tr>
+			    	</thead>
+					<tbody  id="ngkQueRec">
+					</tbody>	 	  	
+	 	  	</table>
+	    </div>	
+	   </div> 
+</body>
+
+<script>
+$(document).ready(function(e) {
+  	var brand=localStorage.getItem("brand");
+	var type=localStorage.getItem("type");
+	var output=localStorage.getItem("output");
+	var year=localStorage.getItem("year");
+	findNgkGood(brand,type,output,year);
+});
+
+//加载对应的车型产品
+function findNgkGood(brand,type,output,year){
+	var url =basUrl+"/ngk/findCarListByBrandAndTypeAndOutPutAndYear.action";
+	$.ajax({  
+        url: url,
+        type: 'POST',  
+        data : {
+        	brand:brand,
+        	type:type,
+        	output:output,
+        	year:year
+        	
+		},  
+        timeout : 10000, //超时时间设置，单位毫秒
+        async: false,  
+        success: function (result) {
+        	var rec=JSON.parse(result);
+        	var res=rec.data.res;
+        	var rowList = new Array(res.length);
+        	for(var i=0;i<rowList.length;i++){
+				rowList[i]=res[i]
+			}
+        	document.getElementById("ngkQueRec").innerHTML =template("que_rec", {
+				list: rowList
+			});
+       	},  
+        error: function (returndata) {
+        
+        }
+       	
+		});
+};
+</script>
+</html>

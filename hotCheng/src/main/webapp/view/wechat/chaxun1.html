@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />		
+		<script src="static/js/mui.min.js"></script>
+	    <script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
+	    <link href="static/css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="static/css/mui.picker.min.css" />
+	    <link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/smIndex.css">
+		<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="static/js/template.js"></script>
+	</head>
+	<body>
+		<header>
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy headback"><a href="view/wechat/chaxun.html"></a></div>
+		</header>
+		<div class="mainBg"></div>
+		<!-- -->				
+		<div class="taikeContainer" style="margin-top: 25%;padding: 15px;" >
+		<div id="content">		
+			<script type="text/html" id="infoTpl">
+			<table cellpadding="0" cellspacing="0" width="100%" class="taikeTable">
+				<tr>
+					<td width="100px">能佰尔型号：</td>
+					<td>{{data.productModel}}</td>
+				</tr>
+				<tr>
+					<td width="100px">质保起始日：</td>
+					<td>{{data.qualityStart}}</td>
+				</tr>
+				<tr>
+					<td width="100px">质保终止日：</td>
+					<td>{{data.qualityEnd}}</td>
+				</tr>
+
+				<tr>
+					<td width="100px">验收微信号：</td>
+					<td>{{data.nickName}}</td>
+				</tr>
+				<tr>
+					<td width="100px">验收者姓名：</td>
+					<td>{{data.wechatName}}</td>
+				</tr>
+				<tr>
+					<td width="100px">联 系 电 话：</td>
+					<td>{{data.wechatTel}}</td>
+				</tr>
+				<tr>
+					<td width="100px">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</td>
+					<td>{{data.wechatInfo}}</td>
+				</tr>
+				<tr>
+					<td width="100px">车&nbsp;&nbsp;&nbsp;牌&nbsp;&nbsp;&nbsp;号：</td>
+					<td>{{data.plateNumber}}</td>
+				</tr>
+				<tr>
+					<td width="100px">车 主 电 话：</td>
+					<td>{{data.carTel}}</td>
+				</tr>																																								
+			</table>
+ 		</script>
+ 		</div>
+			<div class="clearfix">
+				<img src="static/img/taike.png" class="taikeLogoRight"/>
+			</div>
+		</div>
+		<!--footer -->
+		<footer>
+			<div class="foot1">
+				<span>移动版</span>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="javascript:;">热骋</a>
+			</div>
+			<div class="foot2">系统版本<i>RC5861-1.07 .13499s</i></div>
+
+		</footer>	
+		<script type="text/javascript">
+		mui.init();
+		window.addEventListener("pageshow", ready);
+		function ready(){
+			var scanWechat = localStorage.getItem("scanWechat");
+			var qr = getUrlParms("qrCode");
+			mui.ajax("statistics/getInfoByQp.action", {
+				data: {
+					scanWechat:scanWechat,
+					qrCode:qr
+				},
+				dataType: "json", //服务器返回json格式数据
+				type: 'post', //HTTP请求类型 
+				timeout: 60000, //超时时间设置为60秒；
+				success: function(result) { //服务器返回响应
+					result.qualityStart = FormatDate(result.qualityStart);
+					result.qualityEnd = FormatDate(result.qualityEnd); 
+					document.getElementById("content").innerHTML = template("infoTpl", {
+						data: result  
+					});
+				}, 
+				error: function(xhr, type, errorThrown) {
+					console.log(errorThrown)
+				}
+			}); 
+		
+		}
+		function getUrlParms(name) {
+		    let tstr = window.location.href;
+		    let index = tstr.indexOf('?')
+		    let str = tstr.substring(index + 1);
+		    let arr = str.split('&');
+		    let result = {};
+		    arr.forEach((item) => {
+		        let a = item.split('=');
+		        result[a[0]] = a[1];
+		    })
+		    return result[name];
+		}
+		
+		function FormatDate(strTime) { 
+			var date = new Date(strTime); 
+			return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();}
+		</script>
+	</body>
+</html>
