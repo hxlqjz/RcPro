@@ -1,0 +1,833 @@
+2018-05-24 14:47:40,508 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 14:47:40,696 [main] - <spring profile development>
+2018-05-24 14:47:40,699 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 14:47:40 CST 2018]; root of context hierarchy>
+2018-05-24 14:47:40,759 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/applicationContext.xml]>
+2018-05-24 14:47:41,114 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-mvc.xml]>
+2018-05-24 14:47:41,435 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-data.xml]>
+2018-05-24 14:47:48,695 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-cache.xml]>
+2018-05-24 14:47:49,731 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 14:47:50,493 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 14:47:50,719 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,417 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,461 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,480 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,513 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,521 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,725 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,800 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,873 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:51,890 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:52,007 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:52,278 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:52,937 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:53,442 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 14:47:57,372 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:57,401 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:57,490 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:57,841 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:57,979 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,093 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,104 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,168 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,171 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,282 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,304 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,400 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,411 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,488 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,490 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,585 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,601 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,700 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,707 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,779 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,782 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,903 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:58,925 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,017 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,027 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,077 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,080 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,209 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,227 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,323 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,333 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,406 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,409 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,534 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,556 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,635 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 14:47:59,635 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,768 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 14:47:59,779 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,911 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,912 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,913 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,927 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,934 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,944 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:47:59,952 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:00,021 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:00,135 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:00,365 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:00,628 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:00,686 [main] - <Bean 'util:map#1286528d' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:00,695 [main] - <Bean 'util:map#1286528d' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:48:05,150 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 14:48:10,603 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 14:48:10,757 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 14:48:10,779 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 14:48:11,119 [main] - <Successfully validated 1 migration (execution time 00:00.229s)>
+2018-05-24 14:48:11,256 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 14:48:11,264 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 14:48:11,385 [main] - <Instance is null, creating with provided config>
+2018-05-24 14:48:11,436 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 14:48:11,441 [main] - <Setting default auxiliaries to DC>
+2018-05-24 14:48:11,447 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 14:48:11,453 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 14:48:11,454 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527144491448, LastAccessTime = 1527144491448, getTimeToLiveSeconds() = -1, createTime = 1527144491448 ]>
+2018-05-24 14:48:11,476 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 14:48:11,476 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 14:48:11,526 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotPin\hotPin/jcs_swap>
+2018-05-24 14:48:11,535 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 14:48:11,537 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 14:48:11,537 [main] - <Parsed regions [comboCache]>
+2018-05-24 14:48:11,538 [main] - <Finished configuration in 98 ms.>
+2018-05-24 14:48:21,533 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 14:48:21,575 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 14:48:21,576 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 14:48:21,578 [main] - <RAMJobStore initialized.>
+2018-05-24 14:48:21,581 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 14:48:21,581 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 14:48:21,581 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 14:48:21,591 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@1cb929a9>
+2018-05-24 14:48:21,743 [main] - <Starting beans in phase 2147483647>
+2018-05-24 14:48:21,744 [main] - <Starting Quartz Scheduler now>
+2018-05-24 14:48:21,744 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 14:48:21,748 [main] - <Root WebApplicationContext: initialization completed in 41235 ms>
+2018-05-24 14:48:21,925 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 14:48:21,928 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 14:48:21 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 14:48:21,964 [main] - <FrameworkServlet 'springServlet': initialization completed in 39 ms>
+2018-05-24 14:48:38,695 [2009787198@qtp-1870647526-0] - <Enabling session validation scheduler...>
+2018-05-24 14:49:57,805 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 14:49:57,963 [main] - <spring profile development>
+2018-05-24 14:49:57,965 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 14:49:57 CST 2018]; root of context hierarchy>
+2018-05-24 14:49:58,021 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/applicationContext.xml]>
+2018-05-24 14:49:58,387 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-mvc.xml]>
+2018-05-24 14:49:58,621 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-data.xml]>
+2018-05-24 14:50:06,127 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-cache.xml]>
+2018-05-24 14:50:07,232 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 14:50:08,011 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 14:50:08,204 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:08,979 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,025 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,039 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,076 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,084 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,272 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,354 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,431 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,450 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,592 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:09,820 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:10,549 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:11,110 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 14:50:15,517 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:15,543 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:15,629 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,011 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,196 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,309 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,322 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,385 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,389 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,508 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,532 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,622 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,633 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,702 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,704 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,833 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,850 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,960 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:16,971 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,045 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,048 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,174 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,197 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,304 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,314 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,393 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,396 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,538 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,561 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,659 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,669 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,730 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,732 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,840 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,860 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:17,947 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 14:50:17,947 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,067 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 14:50:18,078 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,193 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,194 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,195 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,206 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,211 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,227 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,239 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,307 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,430 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,665 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,944 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,986 [main] - <Bean 'util:map#2228db21' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:18,995 [main] - <Bean 'util:map#2228db21' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:50:23,701 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 14:50:29,990 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 14:50:30,094 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 14:50:30,117 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 14:50:30,231 [main] - <Successfully validated 1 migration (execution time 00:00.052s)>
+2018-05-24 14:50:30,343 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 14:50:30,346 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 14:50:30,501 [main] - <Instance is null, creating with provided config>
+2018-05-24 14:50:30,516 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 14:50:30,520 [main] - <Setting default auxiliaries to DC>
+2018-05-24 14:50:30,527 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 14:50:30,533 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 14:50:30,534 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527144630528, LastAccessTime = 1527144630528, getTimeToLiveSeconds() = -1, createTime = 1527144630528 ]>
+2018-05-24 14:50:30,561 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 14:50:30,562 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 14:50:30,646 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotPin\hotPin/jcs_swap>
+2018-05-24 14:50:30,661 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 14:50:30,664 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 14:50:30,664 [main] - <Parsed regions [comboCache]>
+2018-05-24 14:50:30,664 [main] - <Finished configuration in 146 ms.>
+2018-05-24 14:50:34,467 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 14:50:34,516 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 14:50:34,517 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 14:50:34,519 [main] - <RAMJobStore initialized.>
+2018-05-24 14:50:34,523 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 14:50:34,523 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 14:50:34,523 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 14:50:34,528 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@2a191f83>
+2018-05-24 14:50:34,723 [main] - <Starting beans in phase 2147483647>
+2018-05-24 14:50:34,724 [main] - <Starting Quartz Scheduler now>
+2018-05-24 14:50:34,725 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 14:50:34,730 [main] - <Root WebApplicationContext: initialization completed in 36920 ms>
+2018-05-24 14:50:35,010 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 14:50:35,014 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 14:50:35 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 14:50:35,067 [main] - <FrameworkServlet 'springServlet': initialization completed in 57 ms>
+2018-05-24 14:51:53,812 [2009787198@qtp-1870647526-0] - <Enabling session validation scheduler...>
+2018-05-24 14:58:40,505 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 14:58:40,659 [main] - <spring profile development>
+2018-05-24 14:58:40,661 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 14:58:40 CST 2018]; root of context hierarchy>
+2018-05-24 14:58:40,715 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/applicationContext.xml]>
+2018-05-24 14:58:41,056 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-mvc.xml]>
+2018-05-24 14:58:41,299 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-data.xml]>
+2018-05-24 14:58:48,612 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-cache.xml]>
+2018-05-24 14:58:49,672 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 14:58:50,440 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 14:58:50,697 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,571 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,612 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,633 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,669 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,679 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,883 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:51,946 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:52,023 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:52,037 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:52,155 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:52,441 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:53,127 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:53,619 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 14:58:57,506 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:57,540 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:57,632 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:57,938 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,124 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,212 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,222 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,302 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,307 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,428 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,451 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,529 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,539 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,598 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,601 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,697 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,712 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,802 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,813 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,868 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,871 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,974 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:58,994 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,081 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,091 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,193 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,196 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,286 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,307 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,404 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,414 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,496 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,500 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,649 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,673 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,753 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 14:58:59,753 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:58:59,892 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 14:58:59,903 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,043 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,045 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,046 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,056 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,061 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,074 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,083 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,143 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,247 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,440 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,759 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,810 [main] - <Bean 'util:map#18388a3c' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:00,820 [main] - <Bean 'util:map#18388a3c' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 14:59:05,673 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 14:59:11,440 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 14:59:11,614 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 14:59:11,637 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 14:59:11,818 [main] - <Successfully validated 1 migration (execution time 00:00.068s)>
+2018-05-24 14:59:11,961 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 14:59:11,968 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 14:59:12,104 [main] - <Instance is null, creating with provided config>
+2018-05-24 14:59:12,117 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 14:59:12,121 [main] - <Setting default auxiliaries to DC>
+2018-05-24 14:59:12,130 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 14:59:12,139 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 14:59:12,142 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527145152131, LastAccessTime = 1527145152131, getTimeToLiveSeconds() = -1, createTime = 1527145152131 ]>
+2018-05-24 14:59:12,166 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 14:59:12,166 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 14:59:12,211 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotPin\hotPin/jcs_swap>
+2018-05-24 14:59:12,224 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 14:59:12,226 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 14:59:12,227 [main] - <Parsed regions [comboCache]>
+2018-05-24 14:59:12,227 [main] - <Finished configuration in 107 ms.>
+2018-05-24 14:59:15,248 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 14:59:15,293 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 14:59:15,295 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 14:59:15,297 [main] - <RAMJobStore initialized.>
+2018-05-24 14:59:15,299 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 14:59:15,299 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 14:59:15,299 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 14:59:15,303 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3b17759c>
+2018-05-24 14:59:15,487 [main] - <Starting beans in phase 2147483647>
+2018-05-24 14:59:15,488 [main] - <Starting Quartz Scheduler now>
+2018-05-24 14:59:15,488 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 14:59:15,492 [main] - <Root WebApplicationContext: initialization completed in 34983 ms>
+2018-05-24 14:59:15,672 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 14:59:15,676 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 14:59:15 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 14:59:15,710 [main] - <FrameworkServlet 'springServlet': initialization completed in 38 ms>
+2018-05-24 14:59:24,606 [2009787198@qtp-1870647526-0] - <Enabling session validation scheduler...>
+2018-05-24 15:11:13,247 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 15:11:13,407 [main] - <spring profile development>
+2018-05-24 15:11:13,410 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 15:11:13 CST 2018]; root of context hierarchy>
+2018-05-24 15:11:13,483 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/applicationContext.xml]>
+2018-05-24 15:11:13,823 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-mvc.xml]>
+2018-05-24 15:11:14,077 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-data.xml]>
+2018-05-24 15:11:20,887 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/framework-cache.xml]>
+2018-05-24 15:11:21,831 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotPin/hotPin/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 15:11:22,540 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 15:11:22,670 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,310 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,354 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,372 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,406 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,417 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,650 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,743 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,819 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,835 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:23,954 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:24,201 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:24,787 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:25,334 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 15:11:29,443 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:29,462 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:29,551 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:29,871 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,070 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,158 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,168 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,239 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,243 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,367 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,391 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,494 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,506 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,596 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,601 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,743 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,770 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,874 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,885 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,952 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:30,955 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,067 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,089 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,158 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,170 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,246 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,249 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,360 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,383 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,494 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,506 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,573 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,575 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,677 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,700 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,804 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 15:11:31,805 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:31,949 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 15:11:31,959 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,104 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,106 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,107 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,120 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,126 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,138 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,147 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,220 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,337 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,561 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,839 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,905 [main] - <Bean 'util:map#18388a3c' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:32,915 [main] - <Bean 'util:map#18388a3c' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 15:11:37,893 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 15:11:43,524 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 15:11:43,606 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 15:11:43,631 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 15:11:43,756 [main] - <Successfully validated 1 migration (execution time 00:00.055s)>
+2018-05-24 15:11:43,838 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 15:11:43,841 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 15:11:43,980 [main] - <Instance is null, creating with provided config>
+2018-05-24 15:11:43,996 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 15:11:44,000 [main] - <Setting default auxiliaries to DC>
+2018-05-24 15:11:44,007 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 15:11:44,015 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 15:11:44,015 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527145904007, LastAccessTime = 1527145904007, getTimeToLiveSeconds() = -1, createTime = 1527145904007 ]>
+2018-05-24 15:11:44,044 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 15:11:44,045 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 15:11:44,102 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotPin\hotPin/jcs_swap>
+2018-05-24 15:11:44,116 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 15:11:44,118 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 15:11:44,118 [main] - <Parsed regions [comboCache]>
+2018-05-24 15:11:44,118 [main] - <Finished configuration in 119 ms.>
+2018-05-24 15:11:47,381 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 15:11:47,426 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 15:11:47,427 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 15:11:47,430 [main] - <RAMJobStore initialized.>
+2018-05-24 15:11:47,434 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 15:11:47,434 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 15:11:47,434 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 15:11:47,439 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@63846fa4>
+2018-05-24 15:11:47,619 [main] - <Starting beans in phase 2147483647>
+2018-05-24 15:11:47,620 [main] - <Starting Quartz Scheduler now>
+2018-05-24 15:11:47,620 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 15:11:47,625 [main] - <Root WebApplicationContext: initialization completed in 34374 ms>
+2018-05-24 15:11:47,846 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 15:11:47,849 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 15:11:47 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 15:11:47,905 [main] - <FrameworkServlet 'springServlet': initialization completed in 59 ms>
+2018-05-24 15:11:51,359 [32017212@qtp-1870647526-1] - <Enabling session validation scheduler...>
+2018-05-24 15:41:51,392 [Thread-9] - <Validating all active sessions...>
+2018-05-24 15:41:51,394 [Thread-9] - <Finished session validation.  No sessions were stopped.>
+2018-05-24 16:11:51,422 [Thread-9] - <Validating all active sessions...>
+2018-05-24 16:11:51,422 [Thread-9] - <Finished session validation.  No sessions were stopped.>
+2018-05-24 16:35:38,004 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 16:35:38,202 [main] - <spring profile development>
+2018-05-24 16:35:38,204 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 16:35:38 CST 2018]; root of context hierarchy>
+2018-05-24 16:35:38,265 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/applicationContext.xml]>
+2018-05-24 16:35:38,632 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-mvc.xml]>
+2018-05-24 16:35:38,841 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-data.xml]>
+2018-05-24 16:35:45,986 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-cache.xml]>
+2018-05-24 16:35:47,093 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 16:35:47,804 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 16:35:47,941 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,466 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,532 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,560 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,602 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,611 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,800 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,872 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,955 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:49,974 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:50,107 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:50,437 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:51,079 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:51,599 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 16:35:58,582 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:58,614 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:58,800 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,197 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,429 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,553 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,564 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,631 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,635 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,779 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:35:59,818 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,176 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,188 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,297 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,310 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,468 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,489 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,605 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,615 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,692 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,696 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,833 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,856 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,975 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:00,985 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,064 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,066 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,162 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,175 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,282 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,301 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,377 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,382 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,505 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,527 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,634 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 16:36:01,634 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,792 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 16:36:01,802 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,925 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,927 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,928 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,942 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,950 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,967 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:01,979 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:02,075 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:02,197 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:02,402 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:02,794 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:02,874 [main] - <Bean 'util:map#4ee33af7' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:02,884 [main] - <Bean 'util:map#4ee33af7' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:36:07,811 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 16:36:13,563 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 16:36:14,002 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 16:36:14,022 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 16:36:14,232 [main] - <Successfully validated 1 migration (execution time 00:00.077s)>
+2018-05-24 16:36:14,349 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 16:36:14,355 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 16:36:14,522 [main] - <Instance is null, creating with provided config>
+2018-05-24 16:36:14,546 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 16:36:14,553 [main] - <Setting default auxiliaries to DC>
+2018-05-24 16:36:14,561 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 16:36:14,567 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 16:36:14,567 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527150974562, LastAccessTime = 1527150974562, getTimeToLiveSeconds() = -1, createTime = 1527150974562 ]>
+2018-05-24 16:36:14,601 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 16:36:14,602 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 16:36:14,672 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotCheng\hotCheng/jcs_swap>
+2018-05-24 16:36:14,687 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 16:36:14,689 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 16:36:14,690 [main] - <Parsed regions [comboCache]>
+2018-05-24 16:36:14,690 [main] - <Finished configuration in 140 ms.>
+2018-05-24 16:36:17,869 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 16:36:17,926 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 16:36:17,927 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 16:36:17,930 [main] - <RAMJobStore initialized.>
+2018-05-24 16:36:17,934 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 16:36:17,934 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 16:36:17,934 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 16:36:17,939 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@16120270>
+2018-05-24 16:36:18,077 [main] - <Starting beans in phase 2147483647>
+2018-05-24 16:36:18,078 [main] - <Starting Quartz Scheduler now>
+2018-05-24 16:36:18,078 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 16:36:18,083 [main] - <Root WebApplicationContext: initialization completed in 40036 ms>
+2018-05-24 16:36:18,296 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 16:36:18,300 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 16:36:18 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 16:36:18,353 [main] - <FrameworkServlet 'springServlet': initialization completed in 57 ms>
+2018-05-24 16:37:22,636 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 16:37:22,807 [main] - <spring profile development>
+2018-05-24 16:37:22,809 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 16:37:22 CST 2018]; root of context hierarchy>
+2018-05-24 16:37:22,897 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/applicationContext.xml]>
+2018-05-24 16:37:23,381 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-mvc.xml]>
+2018-05-24 16:37:23,751 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-data.xml]>
+2018-05-24 16:37:31,204 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-cache.xml]>
+2018-05-24 16:37:32,175 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 16:37:32,891 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 16:37:33,083 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:34,684 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:34,756 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:34,783 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:34,820 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:34,826 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:35,055 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:35,153 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:35,259 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:35,281 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:35,436 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:35,659 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:36,223 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:36,675 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 16:37:41,253 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:41,287 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:41,402 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:41,795 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,126 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,233 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,243 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,320 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,323 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,454 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,477 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,568 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,578 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,650 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,663 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,786 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,837 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,943 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:42,955 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,034 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,037 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,177 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,199 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,315 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,326 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,405 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,407 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,541 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,571 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,801 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,813 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,887 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:43,889 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,030 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,052 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,141 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 16:37:44,142 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,307 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 16:37:44,320 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,452 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,454 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,455 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,468 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,475 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,490 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,498 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,571 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,706 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:44,869 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:45,101 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:45,150 [main] - <Bean 'util:map#265c5d69' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:45,159 [main] - <Bean 'util:map#265c5d69' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:37:50,029 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 16:37:55,667 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 16:37:56,028 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 16:37:56,048 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 16:37:56,415 [main] - <Successfully validated 1 migration (execution time 00:00.054s)>
+2018-05-24 16:37:56,496 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 16:37:56,498 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 16:37:56,674 [main] - <Instance is null, creating with provided config>
+2018-05-24 16:37:56,690 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 16:37:56,694 [main] - <Setting default auxiliaries to DC>
+2018-05-24 16:37:56,701 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 16:37:56,708 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 16:37:56,709 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527151076701, LastAccessTime = 1527151076701, getTimeToLiveSeconds() = -1, createTime = 1527151076701 ]>
+2018-05-24 16:37:56,761 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 16:37:56,761 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 16:37:56,824 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotCheng\hotCheng/jcs_swap>
+2018-05-24 16:37:56,841 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 16:37:56,844 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 16:37:56,845 [main] - <Parsed regions [comboCache]>
+2018-05-24 16:37:56,845 [main] - <Finished configuration in 153 ms.>
+2018-05-24 16:38:00,423 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 16:38:00,477 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 16:38:00,478 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 16:38:00,481 [main] - <RAMJobStore initialized.>
+2018-05-24 16:38:00,482 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 16:38:00,483 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 16:38:00,483 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 16:38:00,487 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@e0d9e3f>
+2018-05-24 16:38:00,645 [main] - <Starting beans in phase 2147483647>
+2018-05-24 16:38:00,646 [main] - <Starting Quartz Scheduler now>
+2018-05-24 16:38:00,647 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 16:38:00,652 [main] - <Root WebApplicationContext: initialization completed in 38011 ms>
+2018-05-24 16:38:01,211 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 16:38:01,217 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 16:38:01 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 16:38:01,290 [main] - <FrameworkServlet 'springServlet': initialization completed in 78 ms>
+2018-05-24 16:38:40,002 [1370076553@qtp-1870647526-2] - <Enabling session validation scheduler...>
+2018-05-24 16:40:09,223 [main] - <Root WebApplicationContext: initialization started>
+2018-05-24 16:40:09,405 [main] - <spring profile development>
+2018-05-24 16:40:09,407 [main] - <Refreshing Root WebApplicationContext: startup date [Thu May 24 16:40:09 CST 2018]; root of context hierarchy>
+2018-05-24 16:40:09,473 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/applicationContext.xml]>
+2018-05-24 16:40:09,864 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-mvc.xml]>
+2018-05-24 16:40:10,101 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-data.xml]>
+2018-05-24 16:40:17,423 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/framework-cache.xml]>
+2018-05-24 16:40:18,470 [main] - <Loading XML bean definitions from URL [file:/D:/workspace-eclipse/hotCheng/hotCheng/target/classes/framework/spring-shiro-cas.xml]>
+2018-05-24 16:40:19,224 [main] - <Loading properties file from class path resource [resource-development.properties]>
+2018-05-24 16:40:19,428 [main] - <Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,238 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#1' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,285 [main] - <Bean 'sessionDAO' of type [class org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,305 [main] - <Bean 'ShiroSessionListener' of type [class com.kdgcsoft.power.common.listeners.ShiroSessionListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,339 [main] - <Bean 'sessionIdCookie' of type [class org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,347 [main] - <Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,562 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#0' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,643 [main] - <Bean 'org.springframework.beans.factory.config.MethodInvokingFactoryBean#1' of type [class org.springframework.beans.factory.config.MethodInvokingFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,722 [main] - <Bean '(inner bean)#1' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,742 [main] - <Bean '(inner bean)#1' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:20,868 [main] - <Bean '(inner bean)' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:21,114 [main] - <Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:21,788 [main] - <Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#24f360b2' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:22,310 [main] - <Building JPA container EntityManagerFactory for persistence unit 'default'>
+2018-05-24 16:40:26,846 [main] - <Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:26,880 [main] - <Bean 'entityManagerFactory' of type [class com.sun.proxy.$Proxy29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:26,984 [main] - <Bean '(inner bean)#2' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,352 [main] - <Bean 'sysCUserDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,547 [main] - <Bean 'sysCUserDao' of type [class com.sun.proxy.$Proxy32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,634 [main] - <Bean '(inner bean)#4' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,645 [main] - <Bean '(inner bean)#4' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,721 [main] - <Bean '(inner bean)#3' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,724 [main] - <Bean '(inner bean)#5' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,823 [main] - <Bean 'sysCRolePermDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,839 [main] - <Bean 'sysCRolePermDao' of type [class com.sun.proxy.$Proxy34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,928 [main] - <Bean '(inner bean)#7' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:27,939 [main] - <Bean '(inner bean)#7' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,010 [main] - <Bean '(inner bean)#6' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,013 [main] - <Bean '(inner bean)#8' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,136 [main] - <Bean 'sysCUserRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,156 [main] - <Bean 'sysCUserRoleDao' of type [class com.sun.proxy.$Proxy35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,246 [main] - <Bean '(inner bean)#10' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,256 [main] - <Bean '(inner bean)#10' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,317 [main] - <Bean '(inner bean)#9' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,320 [main] - <Bean '(inner bean)#11' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,436 [main] - <Bean 'sysCUserDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,455 [main] - <Bean 'sysCUserDeptDao' of type [class com.sun.proxy.$Proxy36] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,557 [main] - <Bean '(inner bean)#13' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,567 [main] - <Bean '(inner bean)#13' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,629 [main] - <Bean '(inner bean)#12' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,631 [main] - <Bean '(inner bean)#14' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,757 [main] - <Bean 'hrCDeptDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,779 [main] - <Bean 'hrCDeptDao' of type [class com.sun.proxy.$Proxy37] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,859 [main] - <Bean '(inner bean)#16' of type [class org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,869 [main] - <Bean '(inner bean)#16' of type [class java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,926 [main] - <Bean '(inner bean)#15' of type [class org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:28,929 [main] - <Bean '(inner bean)#17' of type [class com.sun.proxy.$Proxy31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,044 [main] - <Bean 'sysCRoleDao' of type [class org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,062 [main] - <Bean 'sysCRoleDao' of type [class com.sun.proxy.$Proxy38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,192 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 16:40:29,192 [main] - <Bean 'localShiroDbRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,348 [main] - <No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.>
+2018-05-24 16:40:29,358 [main] - <Bean 'ShiroCasRealm' of type [class com.kdgcsoft.power.service.fw.base.ShiroCasRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,486 [main] - <Bean 'casSubjectFactory' of type [class org.apache.shiro.cas.CasSubjectFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,488 [main] - <Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,489 [main] - <Bean 'org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor#0' of type [class org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,504 [main] - <Bean 'org.springframework.cache.annotation.AnnotationCacheOperationSource#0' of type [class org.springframework.cache.annotation.AnnotationCacheOperationSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,511 [main] - <Bean 'org.springframework.cache.config.internalCacheAdvisor' of type [class org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,529 [main] - <Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,539 [main] - <Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,618 [main] - <Bean 'casFilter' of type [class org.apache.shiro.cas.CasFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,743 [main] - <Bean 'formAuthenticationFilter' of type [class org.apache.shiro.web.filter.authc.FormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:29,921 [main] - <Bean 'userformAuthenticationFilter' of type [class com.kdgcsoft.power.common.security.shiro.FwFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:30,202 [main] - <Bean 'logoutFilter' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:30,263 [main] - <Bean 'util:map#18388a3c' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:30,287 [main] - <Bean 'util:map#18388a3c' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)>
+2018-05-24 16:40:35,217 [main] - <Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'>
+2018-05-24 16:40:41,374 [main] - <Flyway 4.0.3 by Boxfuse>
+2018-05-24 16:40:41,646 [main] - <Database: jdbc:mysql://localhost:3306/data_re?useUnicode=true&characterEncoding=UTF-8 (MySQL 5.7)>
+2018-05-24 16:40:41,669 [main] - <Unable to resolve location classpath:db/migration>
+2018-05-24 16:40:41,900 [main] - <Successfully validated 1 migration (execution time 00:00.053s)>
+2018-05-24 16:40:42,079 [main] - <Current version of schema `data_re`: 1>
+2018-05-24 16:40:42,084 [main] - <Schema `data_re` is up to date. No migration necessary.>
+2018-05-24 16:40:42,210 [main] - <Instance is null, creating with provided config>
+2018-05-24 16:40:42,229 [main] - <thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]>
+2018-05-24 16:40:42,234 [main] - <Setting default auxiliaries to DC>
+2018-05-24 16:40:42,243 [main] - <setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 2000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]>
+2018-05-24 16:40:42,251 [main] - <No such property [maxLife] in org.apache.jcs.engine.ElementAttributes.>
+2018-05-24 16:40:42,252 [main] - <setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = 1800, CreateTime = 1527151242244, LastAccessTime = 1527151242244, getTimeToLiveSeconds() = -1, createTime = 1527151242244 ]>
+2018-05-24 16:40:42,285 [main] - <initialized LRUMemoryCache for comboCache>
+2018-05-24 16:40:42,285 [main] - <Constructed cache with name [comboCache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 1000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]>
+2018-05-24 16:40:42,368 [main] - <Region [comboCache] Cache file root directory: D:\workspace-eclipse\hotCheng\hotCheng/jcs_swap>
+2018-05-24 16:40:42,379 [main] - <Region [comboCache] Set maxKeySize to: '1000000'>
+2018-05-24 16:40:42,381 [main] - <Region [comboCache] Indexed Disk Cache is alive.>
+2018-05-24 16:40:42,381 [main] - <Parsed regions [comboCache]>
+2018-05-24 16:40:42,381 [main] - <Finished configuration in 149 ms.>
+2018-05-24 16:40:46,098 [main] - <Using default implementation for ThreadExecutor>
+2018-05-24 16:40:46,159 [main] - <Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl>
+2018-05-24 16:40:46,161 [main] - <Quartz Scheduler v.2.2.1 created.>
+2018-05-24 16:40:46,162 [main] - <RAMJobStore initialized.>
+2018-05-24 16:40:46,164 [main] - <Scheduler meta-data: Quartz Scheduler (v2.2.1) 'startQuertz' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+>
+2018-05-24 16:40:46,165 [main] - <Quartz scheduler 'startQuertz' initialized from an externally provided properties instance.>
+2018-05-24 16:40:46,166 [main] - <Quartz scheduler version: 2.2.1>
+2018-05-24 16:40:46,170 [main] - <JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@4cbb11e4>
+2018-05-24 16:40:46,349 [main] - <Starting beans in phase 2147483647>
+2018-05-24 16:40:46,350 [main] - <Starting Quartz Scheduler now>
+2018-05-24 16:40:46,351 [main] - <Scheduler startQuertz_$_NON_CLUSTERED started.>
+2018-05-24 16:40:46,356 [main] - <Root WebApplicationContext: initialization completed in 37128 ms>
+2018-05-24 16:40:46,613 [main] - <FrameworkServlet 'springServlet': initialization started>
+2018-05-24 16:40:46,618 [main] - <Refreshing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 24 16:40:46 CST 2018]; parent: Root WebApplicationContext>
+2018-05-24 16:40:46,663 [main] - <FrameworkServlet 'springServlet': initialization completed in 50 ms>
+2018-05-24 16:41:05,620 [2009787198@qtp-1870647526-0] - <Enabling session validation scheduler...>
+2018-05-24 17:11:05,653 [Thread-9] - <Validating all active sessions...>
+2018-05-24 17:11:05,655 [Thread-9] - <Finished session validation.  No sessions were stopped.>
+2018-05-24 17:41:05,682 [Thread-9] - <Validating all active sessions...>
+2018-05-24 17:41:05,683 [Thread-9] - <Finished session validation.  No sessions were stopped.>
