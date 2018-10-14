@@ -27,7 +27,7 @@ import com.xiaoleilu.hutool.util.CollectionUtil;
 
 /**   
  * @Title: Controller
- * @Description: ngk品牌相关的后台代码
+ * @Description: ngk de品牌相关的后台代码
  * @date 2017-08-21
  * @version V1.0   
  *
