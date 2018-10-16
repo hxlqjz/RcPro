@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +23,7 @@ import com.kdgcsoft.power.common.bean.SystemConstants;
 import com.kdgcsoft.power.controller.fw.base.BaseController;
 import com.kdgcsoft.power.dao.fw.base.BeetlSQLHelper;
 import com.kdgcsoft.power.service.business.interact.WetdataService;
-import com.ustcinfo.bwp.service.startflow.util.StringUtils;
+
 import com.xiaoleilu.hutool.util.CollectionUtil;
 
 /**   
