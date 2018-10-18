@@ -52,4 +52,9 @@ VALUES(#wechatNo#,#nickName#,#idCode#,#userName#,#tel#,#info#,#queryPower#,#role
 
 getUsersByStore
 ===
-select wechat_no,user_name ,nick_name,tel,info from rp_user where id_code=#idCode#;
+select u.wechat_no,u.user_name ,u.nick_name,u.tel,u.info from rp_user as u where 1=1
+and u.id_code in 
+(
+select s.id_code from rp_store  as s
+where s.province=#province# and s.store_name=#storeName#
+);

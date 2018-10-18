@@ -29,13 +29,25 @@
 				<input type="hidden" id="chooseWechat" autocomplete="off"/>	
 				<button class="jiluBtn" id="query">查询</button>
 			</div>
-			<div class="clearfix">
+						<!--选择个人时-->
+			<div style="margin-bottom: 20px;" class="clearfix" id="telDiv">
+				<div style="width: 75%;float: left;">
+					<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable">
+						<tr><td id="tdtel">无号码</td></tr>
+						<tr><td id="tdinfo">无信息</td></tr>
+					</table>					
+				</div>
+				<div style="width: 25%;float: left;">
+					<a id="atel"><img src="static/img/phone.png" style="height: 53px;margin: auto;"/></a>
+				</div>
+			</div>
+			<!-- <div class="clearfix">
 			<div style="width:50px">
 			<div id="tdtel">无号码</div>
 			<div id="tdinfo">无信息</div>
 			</div>
 			<div><a id="atel"><button style="width:40px" id="tbut">拨号</button></a></div>
-			</div>
+			</div> -->
 			<table cellpadding="0" id="tjtable" cellspacing="0" width="100%" class="jiluTable">
 				<tr id="tjlist">
 					<th>能佰尔型号</th><th width="25%">统计</th>
@@ -57,7 +69,7 @@
 		window.addEventListener("pageshow", ready);
 		var scanWechat =  "od1hc1Yq76nIAr10GeuoHf_PE088";//localStorage.getItem("scanWechat");
 		function ready(){
-			
+			$("#telDiv").hide();
 			//设置时间初始值为当月
 			var currentDate = new Date();
 			var year = currentDate.getFullYear();
@@ -162,29 +174,27 @@
 							picker.show(function(items) {
 								//if item.value!=null则显示拨号那段div，将数据放进div对应的数据中
 								if(items[0].value != null && items[0].value != ""){
+									$("#telDiv").show();
 									//显示
-									console.log(items[0].tel)
 									var itel = items[0].tel;
 									var iinfo = items[0].info;
 									if(itel == null || itel == ""){
 										 itel = "无号码";
-										 document.getElementById("tbut").innerHTML = "无号码";
 									}else{
 										$("#atel").attr("href","tel:"+itel);
-										 document.getElementById("tbut").innerHTML = "拨号";
 									}
 									if(iinfo == null || iinfo == ""){
 										iinfo = "无信息";
 									}
-									document.getElementById("tdtel").innerHTML = itel;
-									document.getElementById("tdinfo").innerHTML = iinfo;
+									$("#tdtel").html(itel);
+									$("#tdinfo").html(iinfo);
 									
 								}else{
 									//隐藏
-									document.getElementById("tdtel").innerHTML = "无号码";
-									document.getElementById("tdinfo").innerHTML = "无信息";
+									$("#telDiv").hide();
+									$("#tdtel").html("无号码");
+									$("#tdinfo").html("无信息");
 									$("#atel").attr("href","");
-									document.getElementById("tbut").innerHTML = "拨号";
 									
 								}
 								document.getElementById("choose").innerHTML = items[0].text;

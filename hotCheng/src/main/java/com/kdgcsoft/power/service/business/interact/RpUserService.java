@@ -106,7 +106,11 @@ public class RpUserService  extends BaseService{
 	public List<RpUser> getUsersByStore(String wechatNo){
 		Map<String, Object> para = new HashMap<String, Object>();
 		RpUser u = getInfoByWechat(wechatNo);
-		para.put("idCode", u.getIdCode());
+		RpStore s = rpStoreService.getInfoByIdCode(u.getIdCode());
+		//根据当前用户的省份和门店进行查询
+		para.put("province", s.getProvince());
+		para.put("storeName", s.getStoreName());
+		//根据省份和门店，进行反向查询门店标识码
 		return bsh.getList("business.interact.rpUser.getUsersByStore", para, RpUser.class);
 	}
 }
