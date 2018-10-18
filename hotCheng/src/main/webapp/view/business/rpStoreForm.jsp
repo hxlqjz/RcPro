@@ -96,7 +96,7 @@
 		
 		function save() {
 
-			saveRecord(form, 'store/save.action', function(jsonData) {
+			saveRecord(form, 'pcStore/save.action', function(jsonData) {
 				msgSaveSuc(jsonData.msg,function(){
 					parent.$("#datagrid").datagrid('reload', {});
 			        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
@@ -114,7 +114,7 @@
 		function focusoutFunction(){
 			$.ajax({
 				type : "POST",
-				url : 'store/getInfoByIdCode.action',
+				url : 'pcStore/getInfoByIdCode.action',
 				data:{
 					idCode:this.value
 				},

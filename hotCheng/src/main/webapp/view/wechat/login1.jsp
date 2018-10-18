@@ -26,7 +26,9 @@
 		<div class="taikeContainer">
 			<img src="static/img/taike.png" class="taikeLogo"/>
 			<div class="containerBox" style="">
-				<input type="text" id="code"  autocomplete="off" class="taikeBtn taikeInt" placeholder="输入识别码" style="height:70px;padding:0;"/>
+				<input type="text" id="code"  autocomplete="off" class="taikeBtn taikeInt" placeholder="请输入识别码" style="height:40px;padding:0;"/>
+				<input type="text" id="userName"  autocomplete="off" class="taikeBtn taikeInt" placeholder="姓名" style="height:40px;padding:0;"/>
+				<input type="text" id="tel"  autocomplete="off" class="taikeBtn taikeInt" placeholder="电话" style="height:40px;padding:0;"/>
 				<button class="taikeBtn" id="check">确&nbsp;&nbsp;定</button>
 			</div>
 		</div>
@@ -53,49 +55,57 @@
 			//var scanWechat = "ping";
 			document.getElementById("check").addEventListener("click", function() {
 				var code = $("#code").val();
+				var un= $("#userName").val();
+				var tel = $("#tel").val();
 				if(code==null||code==""){
 					mui.toast("请输入识别码");
 				}else{
 					
-					mui.ajax("user/checkNum.action", {
-						data: {
-							wechatNo:scanWechat
-						},
-						dataType: "json", //服务器返回json格式数据
-						type: 'get', //HTTP请求类型 
-						timeout: 60000, //超时时间设置为60秒；
-						success: function(data) { //服务器返回响应
-							if(data!=null && data.num>=2){ 
-								mui.toast("今日已操作错误两次，请明日再操作");
-							}else{
-								 mui.ajax("user/reg.action", {
-									data: {
-										wechatNo:scanWechat,
-										idCode:code,
-										nickName:nickName
-									},
-									dataType: "json", //服务器返回json格式数据
-									type: 'get', //HTTP请求类型 
-									timeout: 60000, //超时时间设置为60秒；
-									success: function(result) { //服务器返回响应
-										console.log(result);
-										if(result.success == true){
-											mui.toast(result.msg);
-											window.location.href='view/wechat/chaxun.html';
-										}else{  
-											mui.toast(result.msg);
+					if(un!=null&&un!=""&&tel!=null&&tel!=""){
+						mui.ajax("user/checkNum.action", {
+							data: {
+								wechatNo:scanWechat
+							},
+							dataType: "json", //服务器返回json格式数据
+							type: 'get', //HTTP请求类型 
+							timeout: 60000, //超时时间设置为60秒；
+							success: function(data) { //服务器返回响应
+								if(data!=null && data.num>=2){ 
+									mui.toast("今日已操作错误两次，请明日再操作");
+								}else{
+									 mui.ajax("user/reg.action", {
+										data: {
+											wechatNo:scanWechat,
+											idCode:code,
+											nickName:nickName,
+											userName:un,
+											tel:tel
+										},
+										dataType: "json", //服务器返回json格式数据
+										type: 'get', //HTTP请求类型 
+										timeout: 60000, //超时时间设置为60秒；
+										success: function(result) { //服务器返回响应
+											console.log(result);
+											if(result.success == true){
+												mui.toast(result.msg);
+												window.location.href='view/wechat/chaxun.html';
+											}else{  
+												mui.toast(result.msg);
+											}
+										},
+										error: function(xhr, type, errorThrown) {
+											console.log(errorThrown)
 										}
-									},
-									error: function(xhr, type, errorThrown) {
-										console.log(errorThrown)
-									}
-								});
+									});
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								console.log(errorThrown)
 							}
-						},
-						error: function(xhr, type, errorThrown) {
-							console.log(errorThrown)
-						}
-					}); 
+						}); 
+					}else{
+						mui.toast("请输入您的信息");
+					} 
 				}
 				
 			});

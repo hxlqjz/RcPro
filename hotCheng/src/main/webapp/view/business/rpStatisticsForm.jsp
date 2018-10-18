@@ -86,7 +86,7 @@
 	</div>
 	<script type="text/javascript">
 	function save() {
-		saveRecord(form, 'statistics/save.action', function(jsonData) {
+		saveRecord(form, 'pcStatistics/save.action', function(jsonData) {
 			msgSaveSuc(jsonData.msg,function(){
 				parent.$("#datagrid").datagrid('reload', {});
 		        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
@@ -104,7 +104,7 @@
 	function focusoutCode(){
 		$.ajax({
 			type : "POST",
-			url : 'statistics/checkQr.action',
+			url : 'pcStatistics/checkQr.action',
 			data:{
 				qrCode:this.value,
 				qrNo : null
@@ -129,7 +129,7 @@
 	function focusoutNo(){
 		$.ajax({
 			type : "POST",
-			url : 'statistics/checkQr.action',
+			url : 'pcStatistics/checkQr.action',
 			data:{
 				//qrCode:null,  
 				qrNo : this.value

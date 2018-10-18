@@ -23,27 +23,30 @@
 				<!--主键-->
 
 				<tr>
-					<td class="CTableTitle1" width="12%" align="right">识别码:</td>
-					<td width="38%">
 					<input type="hidden" id="id" name="id" value="${entity.id}" />
-					<c:if test="${entity.idCode!='' and entity.idCode!=null}">
-					    <input id="idCode" name="idCode" value="${entity.idCode}"  
-					     class="easyui-textbox" readonly="readonly"
-						data-options="required:true"
-						style="width: 100%; height: 30px">
-					</c:if>
-					<c:if test="${entity.idCode=='' or entity.idCode==null}">
-					  <input id="idCode" name="idCode" value="${entity.idCode}"  
-					 class="easyui-textbox"
-						data-options="required:true"
-						style="width: 100%; height: 30px"></c:if>
-						</td>
-					<td class="CTableTitle1" width="10%" align="right">微信号:</td>
-					<td width="40%"><input id="wechatNo" name="wechatNo" <c:if test="${type == 'edit' }">readonly="readonly"</c:if>
+					<td class="CTableTitle1" width="10%" align="right">微信openID:</td>
+					<td width="40%" colspan="3"><input id="wechatNo" name="wechatNo" <c:if test="${type == 'edit' }">readonly="readonly"</c:if>
 						value="${entity.wechatNo}" class="easyui-textbox"
 						style="width: 100%; height: 30px"
 						data-options="required:true"></td>
-
+				</tr>
+				<tr>
+				<td class="CTableTitle1" width="10%" align="right">微信昵称:</td>
+					<td width="40%"><input id="nickName" name="nickName" <c:if test="${type == 'edit' }">readonly="readonly"</c:if>
+						value="${entity.nickName}" class="easyui-textbox"
+						style="width: 100%; height: 30px"
+						data-options="required:true"></td>
+					<td class="CTableTitle1" width="12%" align="right">识别码:</td>
+					<td width="38%">
+					 <input class="easyui-combobox"
+									style="width: 200px" name="idCode" id="idCode"
+									editable="false" value="${entity.idCode}"  
+									data-options="url:'store/getIdCodeList.action',valueField:'idCode', textField:'idCode', panelHeight:'auto'" />
+					<%-- <input id="idCode" name="idCode" value="${entity.idCode}"  
+					 class="easyui-textbox"
+						data-options="required:true"
+						style="width: 100%; height: 30px"> --%>
+					</td>
 				</tr>
 				<tr>
 					<td class="CTableTitle1" width="12%" align="right">查询权限:</td>
@@ -78,10 +81,9 @@
 						data-options=""></td>
 				</tr>
 				<tr>
-					<td class="CTableTitle1" width="12%" align="right">门店:</td>
+					<td class="CTableTitle1" width="12%" align="right">备注信息:</td>
 					<td width="38%"><input id="info" name="info"
 						value="${entity.info}" class="easyui-textbox"
-						data-options="required:true"
 						style="width: 100%; height: 30px"></td>
 					<td class="CTableTitle1" width="10%" align="right">黑名单:</td>
 					<td width="40%">
@@ -109,7 +111,7 @@
 	<script type="text/javascript">
 		function save() {
 
-			saveRecord(form, 'user/save.action', function(jsonData) {
+			saveRecord(form, 'pcUser/save.action', function(jsonData) {
 				msgSaveSuc(jsonData.msg,function(){
 					parent.$("#datagrid").datagrid('reload', {});
 			        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
@@ -126,7 +128,7 @@
 		$("input[name=idCode]").focusout(function(){
 			$.ajax({
 				type : "POST",
-				url : 'store/getInfoByIdCode.action',
+				url : 'pcStore/getInfoByIdCode.action',
 				data:{
 					idCode:$("#idCode").val()
 				},

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">  
 <head>  
 <title>电力部ERP开发基础框架 </title>
-    <jsp:include page="/WEB-INF/views/common/jsp/common.jsp"></jsp:include>
+    <jsp:include page="/view/common/jsp/common.jsp"></jsp:include>
     <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="static/css/skin/skin.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/skin/layout.css"/>

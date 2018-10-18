@@ -14,7 +14,7 @@
 <head>
 <base href="<%=basePath%>"/>
 <meta charset="UTF-8">
-<title>合肥通后台管理 </title>
+<title>热骋</title>
 
 <script src="static/thirdparty/jquery-1.9.1.min.js"></script>
 <script src="static/thirdparty/layui/layui.js" charset="utf-8"></script>
@@ -136,14 +136,6 @@ $(function(){
       $(class2).css("display","block");  
 
     }  
-/*给右下角的图标设置点击事件*/  
-  //$('.code').click(function(){  
-  //    showDiv(".choice1",".choice2");  
-  //})  
-
-  //$('.computer').click(function(){  
-  //    showDiv(".choice2",".choice1");  
-  //}) 
 })
 
 </script>
@@ -154,7 +146,7 @@ $(function(){
 <div class="Login">
   <div class="Head">
     <div class="Box">
-      <div class="Logo"></div>
+   <!--    <div class="Logo"></div> -->
       <div class="SystemName"></div>
       <div class="Tools">2017年8月4日&nbsp;&nbsp;欢迎登录&nbsp;&nbsp;管理系统&nbsp;&nbsp;帮助&nbsp;&nbsp;<a href="#" onClick="changeSkin(skin1);">样式</a></div>
     </div>
@@ -162,7 +154,7 @@ $(function(){
   <div class="Center">
     <div class="Box">
      	<div class="guang">&nbsp;</div>
-      <div class="FlashBox"> &nbsp; </div>
+   <!--    <div class="FlashBox"> &nbsp; </div> -->
       <div class="InputBox">
         <!-- 账号密码登录 -->
         <div class="choice1">
@@ -174,45 +166,20 @@ $(function(){
               <input type="text" id="workCode" name="workCode" value=""  placeholder="请输入账号"/>
             </div>
             <div class="Title Item1">密码</div>
-            <div class="Content Item3">
-              <input type="password" id="password" name="password" value=""   placeholder="请输入密码"/>
+            <div class="Content Item3"><!-- onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" -->
+              <input type="password" id="password" name="password" value=""    placeholder="请输入密码"/>
             </div>
-            
             <div class="btn submit" onClick="login();">登&nbsp;&nbsp;录</div>
-            
           </form>
         </div>
        
-           <!-- 二维码登录 -->
-        <div class="choice2" style="display:none">
-          <div class="computer"></div>
-          <form>
-            <div  class="textTitle">手机客户端扫码下载</div>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tbody>
-    <tr>
-      <td align="center"><div class="ewm"><img src="static/loginStyle/images/Skin2/ewm1.png" width="104" height="92" alt=""/>Android版</div>
-            <div class="ewm"><img src="static/loginStyle/images/Skin2/ewm2.png" width="104" height="92" alt=""/>ios版</div></td>
-    </tr>
-  </tbody>
-</table>
-            
-           
-          </form>
-        </div>
-        
-      </div>
-      <div class="child">
-   
-    <image src="static/android.png"/>
-    <!-- 	 <a id="com-quick-QRcode" class="QRcodebg1" title="扫描二维码" style="top:153px"><span class="closeQR"></span></a> -->
-    </div>
+
     </div>
     
     
   </div>
     <div class="Foot">
-    <div class="Box"> <span class="TextC"></span> <span class="TextR">版权所有 数据资源局</span></div>
+   
   </div>
 
 </body>

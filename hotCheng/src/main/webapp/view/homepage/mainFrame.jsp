@@ -14,8 +14,8 @@
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=edge;chrome=1" />
-<title>合肥通后台管理  </title>
-<jsp:include page="/WEB-INF/views/common/jsp/common.jsp"></jsp:include>
+<title>热骋 </title>
+<jsp:include page="/view/common/jsp/common.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="static/css/fuping/skin.css"/>
 <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 <style>
@@ -56,19 +56,55 @@
 		<div class="logo">&nbsp;</div>
 		  <div class="smallTools"> 
 		  <span id="userInfo"><%=principal.getUserName()%>，您好！</span>
-		  <a title="刷新系统" href="javascript:location.reload();"><img src="static/images/homepage/3-0.png" width="19" height="17" alt=""/></a> 
-		  <a title="修改密码" href="javascript:openPwdWin();"><img src="static/images/homepage/2-0.png" width="19" height="17" alt=""/></a> 
-		  <a title="注销" href="javascript:toIndex();"><img src="static/images/homepage/1-0.png" width="19" height="17" alt=""/></a> 
+		  <div >
+			  <a title="刷新系统" href="javascript:location.reload();">刷新系统</a> 
+			  <a title="修改密码" href="javascript:openPwdWin();">修改密码</a> 
+			  <a title="注销" href="javascript:toIndex();">注销</a> 
+		  </div>
 		  </div>
 		</div>
 
 	</div>	
 
 
-	<div id="west" region="west" title="<font color='#fff'>系统导航</font>" style="width:240px;" style=" overflow-y:hidden;">
+	<div id="west" region="west" title="系统导航" style="width:240px;" style=" overflow-y:hidden;">
 	
 		<div id="menu" class="easyui-accordion"  data-options ="fit:true,border:false">
-			<c:forEach var="menu" items="${fileList}">
+			<div title="电池管理" style="overflow-x: auto; overflow-y: auto" data-options="iconCls:'icon'">
+				<div title="扫码人员管理" style="overflow-x: auto; overflow-y: auto"
+					data-options="iconCls:'icon'">
+               			<div class="J2" >                    
+							<ul id="nav47" class="easyui-tree" onClick="openMenu('扫码人员管理','view/business/rpUserList.jsp')">
+								扫码人员管理
+							</ul>  
+						</div>
+				</div>
+				<div title="门店管理" style="overflow-x: auto; overflow-y: auto"
+					data-options="iconCls:'icon'">
+               			<div class="J2" >                    
+							<ul id="nav47" class="easyui-tree" onClick="openMenu('门店管理','view/business/rpStoreList.jsp')">
+								门店管理
+							</ul>  
+						</div>
+				</div>
+				<div title="用户管理" style="overflow-x: auto; overflow-y: auto"
+					data-options="iconCls:'icon'">
+               			<div class="J2" >                    
+							<ul id="nav47" class="easyui-tree" data-options="iconCls:'icon-save'" onClick="openMenu('电池数据管理','view/business/rpStatisticsList.jsp')">
+								电池数据管理
+							</ul>  
+						</div>
+				</div>
+				<div title="电池销售统计" style="overflow-x: auto; overflow-y: auto"
+					data-options="iconCls:'icon'">
+               			<div class="J2" >                    
+							<ul id="nav47" class="easyui-tree" onClick="openMenu('电池销售统计','view/business/rpStatisticsTj.jsp')">
+								电池销售统计
+							</ul>  
+						</div>
+				</div>
+			</div>
+			<%-- <c:forEach var="menu" items="${fileList}">
 			
 				<div title=${menu.text} style="overflow-x: auto; overflow-y: auto"
 					data-options="iconCls:'icon'">
@@ -96,15 +132,15 @@
 					</div>
 </div>
 
-			</c:forEach>
-		</div>
+			</c:forEach> --%>
+	 </div> 
 
 	</div>
 	
 		<div id="mainPanle" region="center" style=" overflow-y:hidden;">  
         <div id="tabs" class="easyui-tabs"  fit="true" border="false">  
-            <div title="<font color='white'>首页</font>">  
-                  <iframe frameborder="0" src="views/homepage/home1-4.action" width="100%" height="100%"></iframe>
+            <div title="首页">
+                  <iframe frameborder="0" src="view/homepage/first.jsp" width="100%" height="90%"></iframe>
             </div>  
         </div>  
     </div>  
@@ -242,9 +278,9 @@ function toIndex(){
   		btn: ['确定 ','取消'] //按钮
 	}, function(){
 		//确定
-		window.location = ctx+"logout.action";
+		window.location = ctx+"system/logout.action";
 	}, function(){
-		//取消
+		//取消 
 	});
 }
 
@@ -397,6 +433,19 @@ function closeTab(menu, type) {
 				    }
 				}
 			}
+		}
+		function openMenu(name,url){
+			if($("#tabs").tabs("exists",name)){
+			       $("#tabs").tabs("select",name); 
+		    } else{
+		    	//iframeId = node.code;
+				$('#tabs').tabs('add',{
+					//id:node.id,
+					title: name,
+					content: '<iframe  frameborder="0"  src="'+url+'" width="100%" height="100%"></iframe>',
+					closable: true 
+				});
+		    }
 		}
 
 </script>

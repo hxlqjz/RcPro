@@ -7,7 +7,7 @@ $(function() {
 		pageSize : 20,
 		toolbar : "#datagrid_tb",
 		pagination : true,
-		url : 'statistics/getList.action',
+		url : 'pcStatistics/getList.action',
 		queryParams:{
 		},
 		columns : [ [
@@ -131,7 +131,7 @@ $(function() {
 			      
 		 ] ],
 		 onDblClickRow: function(rowIndex, rowData){		
-				var url = "statistics/getDetail.action?id=" + rowData.id;
+				var url = "pcStatistics/getDetail.action?id=" + rowData.id;
 				layer.open({
 			        type: 2
 			        ,title: "查看"
@@ -165,7 +165,7 @@ $(function() {
 
 // 增加记录
 function insert() {
-	var url = "statistics/loadInfo.action";
+	var url = "pcStatistics/loadInfo.action";
 	layer.open({
         type: 2
         ,title: "新增"
@@ -191,7 +191,7 @@ function insert() {
 function update() {
 	if (checkSelectOne(datagrid)) {
 		var row = $('#datagrid').datagrid('getSelected');
-		var url = "statistics/loadInfo.action?id=" + row.id;
+		var url = "pcStatistics/loadInfo.action?id=" + row.id;
 		layer.open({
 	        type: 2
 	        ,title: "修改"
@@ -214,7 +214,7 @@ function update() {
 
 //删除记录
 function del() {
-	deleteRecord(datagrid, 'statistics/del.action', 'id');
+	deleteRecord(datagrid, 'pcStatistics/del.action', 'id');
 }
 //激活
 function activate() {
@@ -235,8 +235,27 @@ function activate() {
         zIndex: layer.zIndex
     });
 }
+$("#exports").click(function(){
+	var url = 'pcStatistics/export.action';
+	var param = {
+		activiateStatus : $("#activiateStatus").val(),
+		productModel : $("#productModel").val(),
+		startTime : $("#startTime").datebox("getValue"),
+		endTime : $("#endTime").datebox("getValue")
+	}; 
+	//var p = "activiateStatus="+$("#activiateStatus").val()+"&productModel="+$("#productModel").val()+"&startTime="+$("#startTime").datebox("getValue")
+	$('#exports').attr('href',url + '?'  + 'param=' +  encodeURI(JSON.stringify(param)));
+})
 function exports(){
-	$.ajax({
+	var url = 'pcStatistics/export.action';
+	var param = {
+		activiateStatus : $("#activiateStatus").val(),
+		productModel : $("#productModel").val(),
+		startTime : $("#startTime").datebox("getValue"),
+		endTime : $("#endTime").datebox("getValue")
+	};  
+	//$('#exports').attr('href',url + '?' + 'param=' + encodeURI(JSON.stringify(param)));
+	/*$.ajax({
 		type : "POST",
 		url : 'statistics/export.action',
 		data:{
@@ -254,7 +273,7 @@ function exports(){
 		failure : function(error) {
 			console.log(error);
 		}
-	});
+	});*/
 }
 function imports(){
 	layer.open({
@@ -265,7 +284,7 @@ function imports(){
 			  if($("#excelPath").val().length>0){
 				  $.ajax({
 						type : "POST",
-						url : 'statistics/importExcel.action',
+						url : 'pcStatistics/importExcel.action',
 						data:{
 							excelPath : $("#excelPath").val()
 						},

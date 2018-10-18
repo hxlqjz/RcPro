@@ -39,6 +39,14 @@ public class RpStatistics implements Serializable{
 	private String wechatName;
 	private String wechatTel;
 	private String nickName;
+	private Long isYs;
+	@Column(name="IS_YS")
+	public Long getIsYs() {
+		return isYs;
+	}
+	public void setIsYs(Long isYs) {
+		this.isYs = isYs;
+	}
 	@Column(name="NICK_NAME")
 	public String getNickName() {
 		return nickName;

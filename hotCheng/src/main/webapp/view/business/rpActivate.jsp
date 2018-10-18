@@ -47,7 +47,7 @@
 	</div>
 	<script type="text/javascript">
 	function activate() {
-		saveRecord(form, 'statistics/activate.action', function(jsonData) {
+		saveRecord(form, 'pcStatistics/activate.action', function(jsonData) {
 			msgSaveSuc(jsonData.msg,function(){
 				parent.$("#datagrid").datagrid('reload', {});
 		        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引

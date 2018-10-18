@@ -7,7 +7,7 @@ $(function() {
 		pageSize : 20,
 		toolbar : "#datagrid_tb",
 		pagination : true,
-		url : 'user/getList.action',
+		url : 'pcUser/getList.action',
 		queryParams:{
 			name : $("#name").val(),
 			idCode : $("#idCode").val()
@@ -21,7 +21,7 @@ $(function() {
 				},
 				{
 					field : 'wechatNo',
-					title : '微信号',
+					title : '微信openID',
 					width : '100',
 					align : 'center',
 					halign : 'center'
@@ -58,7 +58,7 @@ $(function() {
 				},
 				{
 					field : 'info',
-					title : '门店',
+					title : '备注信息',
 					width : '200',
 					align : 'center',
 					halign : 'center'
@@ -131,7 +131,7 @@ $(function() {
 
 // 增加记录
 function insert() {
-	var url = "user/loadInfo.action";
+	var url = "pcUser/loadInfo.action";
 	layer.open({
         type: 2
         ,title: "新增"
@@ -157,7 +157,7 @@ function insert() {
 function update() {
 	if (checkSelectOne(datagrid)) {
 		var row = $('#datagrid').datagrid('getSelected');
-		var url = "user/loadInfo.action?id=" + row.id;
+		var url = "pcUser/loadInfo.action?id=" + row.id;
 		layer.open({
 	        type: 2
 	        ,title: "修改"
@@ -180,5 +180,5 @@ function update() {
 
 //删除记录
 function del() {
-	deleteRecord(datagrid, 'user/del.action', 'id');
+	deleteRecord(datagrid, 'pcUser/del.action', 'id');
 }

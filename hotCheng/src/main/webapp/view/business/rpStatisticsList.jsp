@@ -38,7 +38,8 @@
 				<!-- <a id="update" class="btn default"  onclick="update()" >修改</a>			 -->						
 				<a id="del" class="btn default"  onclick="del()" >删除</a>
 				<a id="activate" class="btn default"  onclick="activate()" >激活</a>	
-				<a id="exports" class="btn default"  onclick="exports()" >下载</a>
+				<a id="exports" class="btn default" >下载</a> 
+				
 				<a id="imports" class="btn default"  onclick="imports()" >导入</a>									
 			</div>  
 	</div>

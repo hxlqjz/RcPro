@@ -86,12 +86,16 @@ public class RpUserService  extends BaseService{
     }
 	
 	@Transactional(readOnly = true)
-    public void reg(String wechatNo, String nickName, String idCode){
+    public void reg(String wechatNo, String nickName, String idCode,String userName,String tel,String info){
     	Map<String,Object> para = new HashMap<String,Object>();
+    	
     	RpStore s = rpStoreService.getInfoByIdCode(idCode);
     	para.put("wechatNo", wechatNo);
     	para.put("idCode", idCode);
     	para.put("nickName", nickName);
+    	para.put("userName", userName);
+    	para.put("tel", tel);
+    	para.put("info", info);
     	para.put("queryPower", s.getQueryPower());
     	para.put("rolePower", s.getRolePower());
     	para.put("isBlack", 0);

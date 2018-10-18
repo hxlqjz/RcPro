@@ -2,7 +2,7 @@
 <%-- <%@page import="com.kdgcsoft.power.common.bean.Principal"%>  --%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":8080"  + path + "/"; 
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":80"  + path + "/"; 
 /* 	Principal principal =(principal) session.getAttribute("principal"); */
 %>
 <base href="<%=basePath%>">

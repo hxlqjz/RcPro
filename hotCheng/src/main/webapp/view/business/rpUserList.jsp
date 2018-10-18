@@ -18,13 +18,13 @@
 		        <table border="0" id="datagrid"  data-options="toolbar: 'datagrid_tb'"></table>
 				<div id="datagrid_tb">
 	     	微信：
-	      <input id= "name" class="easyui-textbox"  style="height: 30px;" prompt="微信号/微信名">
-	       标识码：
+	      <input id= "name" class="easyui-textbox"  style="height: 30px;" prompt="微信昵称/姓名/手机号">
+	       	标识码：
 	      <input id= "idCode" class="easyui-textbox"  style="height: 30px;"  prompt="门店识别码">
             	<a id="search" class="btn default" onclick="search()">查询</a>                   
 				<!-- <a id="insert" class="btn default"  onclick="insert()" >新增</a> -->
 				<a id="update" class="btn default"  onclick="update()" >修改</a>									
-				<!-- <a id="del" class="btn default"  onclick="del()" >删除</a>	 -->
+				<a id="del" class="btn default"  onclick="del()" >删除</a>
 				<!-- <a id="black" class="btn default"  onclick="black()" >拉黑</a>		 -->					
 			</div>  
 	</div>

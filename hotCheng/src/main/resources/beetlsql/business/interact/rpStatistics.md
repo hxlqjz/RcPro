@@ -1,7 +1,7 @@
 getList
 ===
-select id,presale_area,qr_code,qr_no,product_model,activiate_status, date_format(scan_time,'%Y-%m-%d %h:%i:%s') as  scan_time,
- date_format(quality_start,'%Y-%m-%d') as quality_start,date_format(quality_end,'%Y-%m-%d') as quality_end,date_format(cash_time,'%Y-%m-%d %h:%i:%s') as cash_time,
+select id,presale_area,qr_code,qr_no,product_model,activiate_status, date_format(scan_time,'%Y-%m-%d %H:%i:%s') as  scan_time,
+ date_format(quality_start,'%Y-%m-%d') as quality_start,date_format(quality_end,'%Y-%m-%d') as quality_end,date_format(cash_time,'%Y-%m-%d %H:%i:%s') as cash_time,
  scan_wechat,province,store_name,wechat_name,nick_name,
 wechat_tel,wechat_info,query_power,role_power,plate_number,car_tel
  from rp_statistics
@@ -49,8 +49,8 @@ where  activiate_status= 2
 
 getInfo
 ===
-select id,presale_area,qr_code,qr_no,product_model,activiate_status, date_format(scan_time,'%Y-%m-%d %h:%i:%s') as  scan_time,
- date_format(quality_start,'%Y-%m-%d') as quality_start,date_format(quality_end,'%Y-%m-%d') as quality_end,date_format(cash_time,'%Y-%m-%d %h:%i:%s') as cash_time,
+select id,presale_area,qr_code,qr_no,product_model,activiate_status, date_format(scan_time,'%Y-%m-%d %H:%i:%s') as  scan_time,
+ date_format(quality_start,'%Y-%m-%d') as quality_start,date_format(quality_end,'%Y-%m-%d') as quality_end,date_format(cash_time,'%Y-%m-%d %H:%i:%s') as cash_time,
  scan_wechat,province,store_name,wechat_name,nick_name,
 wechat_tel,wechat_info,query_power,role_power,plate_number,car_tel
  from rp_statistics
@@ -73,7 +73,7 @@ checkQr
 ===
 select id,presale_area,qr_code,qr_no,product_model,activiate_status,scan_time,
 quality_start,quality_end,cash_time,scan_wechat,province,store_name,wechat_name,nick_name,
-wechat_tel,wechat_info,query_power,role_power,plate_number,car_tel
+wechat_tel,wechat_info,query_power,role_power,plate_number,car_tel,is_ys
  from rp_statistics
 where 1=1 
 @if(!isEmpty(qrCode)){
@@ -108,6 +108,7 @@ role_power1_query
 select product_model,count(1) as count
 from rp_statistics
 where activiate_status=2
+and is_ys=0
 @if(!isEmpty(province)){
 	and province = #province#
 @}
@@ -127,6 +128,7 @@ role_power2_query
 select product_model,count(1) as count
 from rp_statistics
 where activiate_status=2
+and is_ys=0
 @if(!isEmpty(province)){
 	and province = #province#
 @}
@@ -149,6 +151,7 @@ role_power3_query
 select product_model,count(1) as count
 from rp_statistics
 where activiate_status=2
+and is_ys=0
 @if(!isEmpty(wechatNo)){
 	and scan_wechat = #wechatNo#
 @}
@@ -164,6 +167,7 @@ role_power3_sum
 ===
 select count(1)*5 as totalMoney from rp_statistics
 where activiate_status=2
+and is_ys=0 
 @if(!isEmpty(wechatNo)){
 	and scan_wechat = #wechatNo#
 @}

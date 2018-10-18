@@ -4,7 +4,7 @@ select id,wechat_no,id_code,user_name,nick_name,tel,info,query_power,role_power,
 from rp_user where 1=1
 
 @if(!isEmpty(name)){
-	and (wechat_no like  #'%'+name+'%'# or user_name like  #'%'+name+'%'# )
+	and (nick_name like  #'%'+name+'%'# or user_name like  #'%'+name+'%'#  or tel like  #'%'+name+'%'#)
 @}
 @if(!isEmpty(idCode)){
 	
@@ -37,6 +37,7 @@ update
 ===
 update  rp_user
 set user_name = #userName#,
+id_code = #idCode#,
 tel=#tel#,
 info=#info#,
 query_power=#queryPower#,
@@ -46,9 +47,9 @@ where id = #id#;
 
 reg
 ===
-insert into rp_user( wechat_no,nick_name,id_code,query_power,role_power,is_black)
-VALUES(#wechatNo#,#nickName#,#idCode#,#queryPower#,#rolePower#,#isBlack#);
+insert into rp_user( wechat_no,nick_name,id_code,user_name,tel,info,query_power,role_power,is_black)
+VALUES(#wechatNo#,#nickName#,#idCode#,#userName#,#tel#,#info#,#queryPower#,#rolePower#,#isBlack#);
 
 getUsersByStore
 ===
-select wechat_no,user_name ,nick_name from rp_user where id_code=#idCode#;
+select wechat_no,user_name ,nick_name,tel,info from rp_user where id_code=#idCode#;

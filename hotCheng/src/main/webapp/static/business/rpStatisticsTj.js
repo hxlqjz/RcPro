@@ -7,7 +7,7 @@ $(function() {
 		pageSize : 20,
 		toolbar : "#datagrid_tb",
 		pagination : true,
-		url : 'statistics/getTjList.action',
+		url : 'pcStatistics/getTjList.action',
 		queryParams:{
 		},
 		columns : [ [
@@ -20,14 +20,14 @@ $(function() {
 				},
 				{
 					field : 'scanWechat',
-					title : '扫码微信号',
+					title : '微信openID',
 					width : '100',
 					align : 'center',
 					halign : 'center'
 				},
 				{
-					field : 'wechatName',
-					title : '微信名',
+					field : 'userName',
+					title : '姓名',
 					width : '100',
 					align : 'center',
 					halign : 'center'
@@ -48,7 +48,7 @@ $(function() {
 				},
 				{
 					field : 'scannum',
-					title : '扫码数量',
+					title : '扫码数量', 
 					width : '100',
 					align : 'center',
 					halign : 'center'
@@ -74,7 +74,7 @@ $(function() {
 function exports(){
 	$.ajax({
 		type : "POST",
-		url : 'statistics/exportTj.action',
+		url : 'pcSstatistics/exportTj.action',
 		data:{
 			/*activiateStatus : $("#activiateStatus").val(),
 			startTime : $("#startTime").datebox("getValue"),
@@ -91,3 +91,13 @@ function exports(){
 		}
 	});
 }
+$("#exports").click(function(){
+	var url = 'pcStatistics/exportTj.action';
+	var param = {
+		wechat : $("#wechat").val(),
+		startTime : $("#startTime").datebox("getValue"),
+		endTime : $("#endTime").datebox("getValue")
+	}; 
+	//var p = "activiateStatus="+$("#activiateStatus").val()+"&productModel="+$("#productModel").val()+"&startTime="+$("#startTime").datebox("getValue")
+	$('#exports').attr('href',url + '?'  + 'param=' +  encodeURI(JSON.stringify(param)));
+})

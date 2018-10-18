@@ -77,4 +77,8 @@ public class RpStoreService  extends BaseService{
     	bsh.updateOrDelete("business.interact.rpStore.delete", para);
     }
 	
+	@Transactional(readOnly = true)
+    public List<RpStore> getIdCodeList(){
+		return bsh.getList("business.interact.rpStore.getIdCodeList", null, RpStore.class);
+    }
 }

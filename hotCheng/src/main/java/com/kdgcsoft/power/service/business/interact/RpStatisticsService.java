@@ -177,7 +177,7 @@ public class RpStatisticsService  extends BaseService{
     	//返现时间应该是返现成功后更新10
     	Calendar cal2 = Calendar.getInstance();
     	cal2.setTime(new Date());//设置起时间
-    	cal2.add(Calendar.MINUTE, 10);
+    //	cal2.add(Calendar.MINUTE, 10);
     	
     	RpUser u = rpUserService.getInfoByWechat(entity.getScanWechat());
     	RpStore s = rpStoreService.getInfoByIdCode(u.getIdCode());
@@ -278,5 +278,14 @@ public class RpStatisticsService  extends BaseService{
 		Map<String,Object> para = new HashMap<String,Object>();	
 		para.put("province", province);
 		return bsh.getMapList("business.interact.rpStatistics.getStore", para);
+    }
+	
+	@Transactional(readOnly = true)
+    public List<Map<String, Object>> getExportTjList (String wechat, String startTime, String endTime){
+    	Map<String,Object> para = new HashMap<String,Object>();	  
+    	para.put("wechat", wechat);
+    	para.put("startTime", startTime);
+    	para.put("endTime", endTime);
+		return bsh.getMapList("business.interact.rpStatistics.getTjList",para);
     }
 }

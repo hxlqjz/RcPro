@@ -18,12 +18,12 @@
 		        <table border="0" id="datagrid"  data-options="toolbar: 'datagrid_tb'"></table>
 				<div id="datagrid_tb">
 				微信信息：
-	      <input id= "wechat" class="easyui-textbox"  style="height: 30px;" prompt="微信号/用户名/电话">
+	      <input id= "wechat" class="easyui-textbox"  style="height: 30px;" prompt="昵称/姓名/电话">
 		扫码时间：
 		<input type="text" class="easyui-datebox" id="startTime" >-
 		<input type="text" class="easyui-datebox" id="endTime" >
         <a id="search" class="btn default" onclick="search()">查询</a>            
-        <a id="exports" class="btn default"  onclick="exports()" >下载</a>       
+        <a id="exports" class="btn default" >下载</a>       
 		</div>  
 	</div>
 </div>

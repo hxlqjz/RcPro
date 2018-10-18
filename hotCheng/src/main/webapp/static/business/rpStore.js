@@ -7,7 +7,7 @@ $(function() {
 		pageSize : 20,
 		toolbar : "#datagrid_tb",
 		pagination : true,
-		url : 'store/getList.action',
+		url : 'pcStore/getList.action',
 		queryParams:{
 			storeName : $("#storeName").val(),
 			idCode : $("#idCode").val()
@@ -102,7 +102,7 @@ $(function() {
 
 // 增加记录
 function insert() {
-	var url = "store/loadInfo.action";
+	var url = "pcStore/loadInfo.action";
 	layer.open({
         type: 2
         ,title: "新增"
@@ -128,7 +128,7 @@ function insert() {
 function update() {
 	if (checkSelectOne(datagrid)) {
 		var row = $('#datagrid').datagrid('getSelected');
-		var url = "store/loadInfo.action?id=" + row.id;
+		var url = "pcStore/loadInfo.action?id=" + row.id;
 		layer.open({
 	        type: 2
 	        ,title: "修改"
@@ -151,5 +151,5 @@ function update() {
 
 //删除记录
 function del() {
-	deleteRecord(datagrid, 'store/del.action', 'id');
+	deleteRecord(datagrid, 'pcStore/del.action', 'id');
 }
