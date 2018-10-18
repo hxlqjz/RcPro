@@ -57,7 +57,6 @@
 				/statistics/**.action=anon
 				/ngk/**.action=anon
 				/nbe/**.action=anon
-				/smhb/**.action=anon
 				/interact/**.action=anon
 				/CarStyle/**.action=anon
 				/carStyleSublist/**.action=anon
