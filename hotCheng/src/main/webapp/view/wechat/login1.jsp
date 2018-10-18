@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<!--footer -->
-		<footer>
+		<footer style="background:#ececec">
 			<div class="foot1">
 				<span>移动版</span>
 				<span>&nbsp;|&nbsp;</span>

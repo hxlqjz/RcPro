@@ -25,7 +25,8 @@
 			    <button id='end' data-options='{"type":"date"}' class="btn mui-btn  date-btn jiluInt">终止时间</button>
 				<input type="hidden" id="startDate" autocomplete="off"/>
 				<input type="hidden" id="endDate" autocomplete="off"/>
-				<button id='choose'  class="btn mui-btn jiluInt" style="width: 100%;">全员或个人</button>
+				<button id='choose'  class="btn mui-btn jiluInt" style="width: 100%;overflow: hidden;
+					text-overflow:ellipsis;white-space: nowrap;">全员或个人</button>
 				<input type="hidden" id="chooseWechat" autocomplete="off"/>	
 				<button class="jiluBtn" id="query">查询</button>
 			</div>
@@ -50,7 +51,7 @@
 			</table>
 		</div>
 		<!--footer -->
-		<footer>
+		<footer style="background:#ececec">
 			<div class="foot1">
 				<span>移动版</span>
 				<span>&nbsp;|&nbsp;</span>
@@ -161,7 +162,7 @@
 								}else{
 									name = un
 								}
-								udata.text = "微信:"+name;
+								udata.text = name;
 								jsondata.push(udata);
 							}
 							picker.setData(jsondata);

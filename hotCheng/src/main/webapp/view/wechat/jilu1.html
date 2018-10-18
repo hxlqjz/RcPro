@@ -25,8 +25,10 @@
 			    <button id='end' data-options='{"type":"date"}' class="btn mui-btn  date-btn jiluInt">终止时间</button>
 				<input type="hidden" id="startDate"  autocomplete="off"/>
 				<input type="hidden" id="endDate"  autocomplete="off"/>
-				<button id='provinceBtn'  class="btn mui-btn jiluInt" >省份</button>
-				<button id='storeBtn'  class="btn mui-btn jiluInt" >门店</button>
+				<button id='provinceBtn'  class="btn mui-btn jiluInt" style="overflow: hidden;
+					text-overflow:ellipsis;white-space: nowrap;">省份</button>
+				<button id='storeBtn'  class="btn mui-btn jiluInt" style="overflow: hidden;
+					text-overflow:ellipsis;white-space: nowrap;" >门店</button>
 				<input type="hidden" id="storeName"  autocomplete="off"/>
 				<input type="hidden" id="province"  autocomplete="off"/>				
 				<button class="jiluBtn" id="query">查询</button>
@@ -42,7 +44,7 @@
 			</table>	
 		</div>
 		<!--footer -->
-		<footer>
+		<footer style="background:#ececec">
 			<div class="foot1">
 				<span>移动版</span>
 				<span>&nbsp;|&nbsp;</span>
