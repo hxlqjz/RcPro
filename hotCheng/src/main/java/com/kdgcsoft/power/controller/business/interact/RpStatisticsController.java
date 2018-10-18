@@ -1,5 +1,12 @@
 package com.kdgcsoft.power.controller.business.interact;
 
+import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,11 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import net.sf.ehcache.CacheManager;
 
 import org.beetl.sql.core.SQLManager;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hxxdemo.weixinsaomalogin.entity.MD5;
 import com.kdgcsoft.power.common.bean.JsonMsg;
 import com.kdgcsoft.power.common.bean.SystemConstants;
 import com.kdgcsoft.power.common.util.StringUtil;
@@ -79,18 +88,48 @@ public class RpStatisticsController extends BaseController {
 		entity.setQrCode(qrCode);
 		entity.setPlateNumber(plateNumber);
 		entity.setCarTel(carTel);
-		
+
 		rpStatisticsService.scanToBack(entity);
 		RpStatistics s = rpStatisticsService.checkQr(qrCode, null);
 		
-		if(s != null){ 
-			if(s.getIsYs() == 1){
-				//演示字段，返现金额为1分
-			}else{
-				//返现5元
+		System.out.println("开始返现----");
+		String totalAmount = "0";
+		String hbname = "电池扫描返现";// 红包名称
+		String zfy = "恭喜发财";
+		if (s != null) {
+			if (s.getIsYs() == 1) {
+				// 演示字段，返现金额为1分
+				totalAmount = "100";
+				hbname = "演示电池扫码返现";
+				zfy = "演示恭喜发财";
+			} else {
+				// 返现5元
+				totalAmount = "500";
 			}
 		}
-		//调用接口
+		//扫码返现----
+		Map<String,String> map =new HashMap<String,String>();
+		MD5 md = new MD5();
+		String opendid = scanWechat;
+		System.out.println("scantoBack扫码返现--->" + opendid);
+		try {
+			map = md.sendRedPack(opendid, totalAmount, hbname, zfy);
+			System.out.println("扫码结果"+map);
+		} catch (KeyManagementException e) {
+			e.printStackTrace();
+		} catch (UnrecoverableKeyException e) {
+			e.printStackTrace();
+		} catch (KeyStoreException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (CertificateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		}
 		RpUser u = rpUserService.getInfoByWechat(scanWechat);
 		return new JsonMsg(true, SystemConstants.MSG_SAVE_SUCCESS, u);
 	}

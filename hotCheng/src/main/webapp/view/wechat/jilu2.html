@@ -29,17 +29,19 @@
 				<input type="hidden" id="chooseWechat" autocomplete="off"/>	
 				<button class="jiluBtn" id="query">查询</button>
 			</div>
-			
-			
-			<!-- <div class="clearfix">
-			<div style="width:50px">
-			<table style="border:1px solid #fff">
-				<tr style="border:1px solid #fff"><td>15205696430</td></tr>
-				<tr style="border:1px solid #fff"><td>热骋 热骋</td></tr>
-			</table>
+						<!--选择个人时-->
+			<div style="margin-bottom: 20px;" class="clearfix" id="telDiv">
+				<div style="width: 75%;float: left;">
+					<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable">
+						<tr><td id="tdtel">无号码</td></tr>
+						<tr><td id="tdinfo">无信息</td></tr>
+					</table>					
+				</div>
+				<div style="width: 25%;float: left;">
+					<a id="atel"><img src="static/img/phone.png" style="height: 53px;margin: auto;"/></a>
+				</div>
 			</div>
-			<div><a href="tel:18297741141"><button style="width:40px">拨号</button></a></div>
-			</div> -->
+		
 			<table cellpadding="0" id="tjtable" cellspacing="0" width="100%" class="jiluTable">
 				<tr id="tjlist">
 					<th>能佰尔型号</th><th width="25%">统计</th>
@@ -61,7 +63,7 @@
 		window.addEventListener("pageshow", ready);
 		var scanWechat =  localStorage.getItem("scanWechat");
 		function ready(){
-			
+			$("#telDiv").hide();
 			//设置时间初始值为当月
 			var currentDate = new Date();
 			var year = currentDate.getFullYear();
@@ -134,7 +136,6 @@
 					success: function(data) { //服务器返回响应
 						var picker = new mui.PopPicker();
 						var jsondata = [];
-						console.log(JSON.stringify(data))
 						var qb = {};
 						qb.value = null;
 						qb.text = "全员";
@@ -145,6 +146,8 @@
 							for(var i = 0; i < data.length; i++) {
 								var udata = {};
 								udata.value = data[i].wechatNo;
+								udata.tel = data[i].tel;
+								udata.info = data[i].info;
 								var un = data[i].userName;
 								var nn = data[i].nickName;
 								var w = data[i].wechatNo;
@@ -163,6 +166,31 @@
 							}
 							picker.setData(jsondata);
 							picker.show(function(items) {
+								//if item.value!=null则显示拨号那段div，将数据放进div对应的数据中
+								if(items[0].value != null && items[0].value != ""){
+									$("#telDiv").show();
+									//显示
+									var itel = items[0].tel;
+									var iinfo = items[0].info;
+									if(itel == null || itel == ""){
+										 itel = "无号码";
+									}else{
+										$("#atel").attr("href","tel:"+itel);
+									}
+									if(iinfo == null || iinfo == ""){
+										iinfo = "无信息";
+									}
+									$("#tdtel").html(itel);
+									$("#tdinfo").html(iinfo);
+									
+								}else{
+									//隐藏
+									$("#telDiv").hide();
+									$("#tdtel").html("无号码");
+									$("#tdinfo").html("无信息");
+									$("#atel").attr("href","");
+									
+								}
 								document.getElementById("choose").innerHTML = items[0].text;
 								document.getElementById("chooseWechat").value = items[0].value;
 							});
