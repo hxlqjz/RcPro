@@ -113,4 +113,12 @@ public class RpUserService  extends BaseService{
 		//根据省份和门店，进行反向查询门店标识码
 		return bsh.getList("business.interact.rpUser.getUsersByStore", para, RpUser.class);
 	}
+	
+	@Transactional(readOnly = true)
+    public List<Map<String, Object>> getExportList (String name,String idCode){
+    	Map<String,Object> para = new HashMap<String,Object>();	  
+    	para.put("name", name);
+    	para.put("idCode", idCode);
+		return bsh.getMapList("business.interact.rpUser.getList",para);
+    }
 }

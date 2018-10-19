@@ -25,6 +25,7 @@
 				<a id="insert" class="btn default"  onclick="insert()" >新增</a>
 				<a id="update" class="btn default"  onclick="update()" >修改</a>									
 				<!-- <a id="del" class="btn default"  onclick="del()" >删除</a>	 -->						
+				<a id="exports" class="btn default" >下载</a> 
 			</div>  
 	</div>
 </div>

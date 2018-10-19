@@ -153,3 +153,12 @@ function update() {
 function del() {
 	deleteRecord(datagrid, 'pcStore/del.action', 'id');
 }
+
+$("#exports").click(function(){
+	var url = 'pcStore/export.action';
+	var param = {
+		storeName : $("#storeName").val(),
+		idCode : $("#idCode").val()
+	}; 
+	$('#exports').attr('href',url + '?'  + 'param=' +  encodeURI(JSON.stringify(param)));
+});

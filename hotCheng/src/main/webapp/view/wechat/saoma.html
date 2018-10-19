@@ -62,6 +62,8 @@
 							timeout: 60000, //超时时间设置为60秒；
 							success: function(result) { //服务器返回响应
 								mui.toast("扫码成功");
+								$("#plateNumber").val("");
+								$("#carTel").val(""); 
 								var query = result.data.queryPower;
 								//根据role判断去chaxun1页面还是chaxun2页面
 								if(query == 1){

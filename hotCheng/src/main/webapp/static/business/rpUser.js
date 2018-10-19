@@ -182,3 +182,12 @@ function update() {
 function del() {
 	deleteRecord(datagrid, 'pcUser/del.action', 'id');
 }
+
+$("#exports").click(function(){
+	var url = 'pcUser/export.action';
+	var param = {
+		name : $("#name").val(),
+		idCode : $("#idCode").val()
+	}; 
+	$('#exports').attr('href',url + '?'  + 'param=' +  encodeURI(JSON.stringify(param)));
+});

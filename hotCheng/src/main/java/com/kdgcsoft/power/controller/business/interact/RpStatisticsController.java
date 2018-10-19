@@ -83,20 +83,27 @@ public class RpStatisticsController extends BaseController {
 		String qrCode = request.getParameter("qrCode");
 		String plateNumber = request.getParameter("plateNumber");
 		String carTel = request.getParameter("carTel");
-		RpStatistics entity = new RpStatistics();
-		entity.setScanWechat(scanWechat);
-		entity.setQrCode(qrCode);
-		entity.setPlateNumber(plateNumber);
-		entity.setCarTel(carTel);
-
-		rpStatisticsService.scanToBack(entity);
-		RpStatistics s = rpStatisticsService.checkQr(qrCode, null);
 		
-		System.out.println("开始返现----");
-		String totalAmount = "0";
-		String hbname = "电池扫描返现";// 红包名称
-		String zfy = "恭喜发财";
-		if (s != null) {
+		//先获取这条数据，若这条数据的状态已经是2了，则不给更新了
+		RpStatistics s = rpStatisticsService.checkQr(qrCode, null);
+		if(s.getActiviateStatus() == 2){
+			//什么也不做
+			System.out.println("这条数据已经扫过了，不做任何操作");
+		}else{
+			//更新
+			RpStatistics entity = new RpStatistics();
+			entity.setScanWechat(scanWechat);
+			entity.setQrCode(qrCode);
+			entity.setPlateNumber(plateNumber);
+			entity.setCarTel(carTel);
+
+			rpStatisticsService.scanToBack(entity);
+			
+			
+			System.out.println("开始返现----");
+			String totalAmount = "0";
+			String hbname = "泰科能佰尔";// 红包名称
+			String zfy = "恭喜发财";
 			if (s.getIsYs() == 1) {
 				// 演示字段，返现金额为1分
 				totalAmount = "100";
@@ -106,30 +113,38 @@ public class RpStatisticsController extends BaseController {
 				// 返现5元
 				totalAmount = "500";
 			}
+			//扫码返现----
+			Map<String,String> map =new HashMap<String,String>();
+			MD5 md = new MD5();
+			String opendid = scanWechat;
+			System.out.println("scantoBack扫码返现--->" + opendid);
+			try {
+				if(StringUtil.isEmpty(s.getCashTime())){
+					map = md.sendRedPack(opendid, totalAmount, hbname, zfy);
+					rpStatisticsService.updateCashTime(qrCode);
+					System.out.println("扫码结果"+map);
+				}else{
+					System.out.println("--已经扫过了");
+				}
+				
+			} catch (KeyManagementException e) {
+				e.printStackTrace();
+			} catch (UnrecoverableKeyException e) {
+				e.printStackTrace();
+			} catch (KeyStoreException e) {
+				e.printStackTrace();
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			} catch (CertificateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (DocumentException e) {
+				e.printStackTrace();
+			}
 		}
-		//扫码返现----
-		Map<String,String> map =new HashMap<String,String>();
-		MD5 md = new MD5();
-		String opendid = scanWechat;
-		System.out.println("scantoBack扫码返现--->" + opendid);
-		try {
-			map = md.sendRedPack(opendid, totalAmount, hbname, zfy);
-			System.out.println("扫码结果"+map);
-		} catch (KeyManagementException e) {
-			e.printStackTrace();
-		} catch (UnrecoverableKeyException e) {
-			e.printStackTrace();
-		} catch (KeyStoreException e) {
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		} catch (CertificateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
+		
+		
 		RpUser u = rpUserService.getInfoByWechat(scanWechat);
 		return new JsonMsg(true, SystemConstants.MSG_SAVE_SUCCESS, u);
 	}

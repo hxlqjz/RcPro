@@ -26,6 +26,7 @@
 				<a id="update" class="btn default"  onclick="update()" >修改</a>									
 				<a id="del" class="btn default"  onclick="del()" >删除</a>
 				<!-- <a id="black" class="btn default"  onclick="black()" >拉黑</a>		 -->					
+				<a id="exports" class="btn default" >下载</a>
 			</div>  
 	</div>
 </div>

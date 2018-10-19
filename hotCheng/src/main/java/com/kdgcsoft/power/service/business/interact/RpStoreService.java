@@ -81,4 +81,12 @@ public class RpStoreService  extends BaseService{
     public List<RpStore> getIdCodeList(){
 		return bsh.getList("business.interact.rpStore.getIdCodeList", null, RpStore.class);
     }
+	
+	@Transactional(readOnly = true)
+    public List<Map<String, Object>> getExportList (String storeName,String idCode){
+    	Map<String,Object> para = new HashMap<String,Object>();	  
+    	para.put("storeName", storeName);
+    	para.put("idCode", idCode);
+    	return bsh.getMapList("business.interact.rpStore.getList",para);
+    }
 }

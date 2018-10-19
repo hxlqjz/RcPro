@@ -205,7 +205,6 @@ activiate_status=#activiateStatus#,
 scan_time=#scanTime#,
 quality_start=#qualityStart#,
 quality_end=#qualityEnd#,
-cash_time=#cashTime#,
 scan_wechat=#scanWechat#,
 province=#province#,
 store_name=#storeName#,
@@ -217,6 +216,13 @@ query_power=#queryPower#,
 role_power=#rolePower#,
 plate_number=#plateNumber#,
 car_tel=#carTel#
+where qr_code=#qrCode#;
+
+updateCashTime
+===
+UPDATE rp_statistics
+SET
+cash_time=#cashTime# 
 where qr_code=#qrCode#;
 
 getProvince

@@ -138,6 +138,11 @@ $(function(){
     }  
 })
 
+window.onload = function () {
+    if (window.parent.window != window) {
+        window.top.location = "system/login.action"; 
+    }
+}
 </script>
 </head>
 

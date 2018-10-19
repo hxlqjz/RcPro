@@ -243,19 +243,11 @@ $("#exports").click(function(){
 		startTime : $("#startTime").datebox("getValue"),
 		endTime : $("#endTime").datebox("getValue")
 	}; 
-	//var p = "activiateStatus="+$("#activiateStatus").val()+"&productModel="+$("#productModel").val()+"&startTime="+$("#startTime").datebox("getValue")
 	$('#exports').attr('href',url + '?'  + 'param=' +  encodeURI(JSON.stringify(param)));
-})
+});
 function exports(){
-	var url = 'pcStatistics/export.action';
-	var param = {
-		activiateStatus : $("#activiateStatus").val(),
-		productModel : $("#productModel").val(),
-		startTime : $("#startTime").datebox("getValue"),
-		endTime : $("#endTime").datebox("getValue")
-	};  
-	//$('#exports').attr('href',url + '?' + 'param=' + encodeURI(JSON.stringify(param)));
-	/*$.ajax({
+	
+	$.ajax({
 		type : "POST",
 		url : 'statistics/export.action',
 		data:{
@@ -273,7 +265,7 @@ function exports(){
 		failure : function(error) {
 			console.log(error);
 		}
-	});*/
+	});
 }
 function imports(){
 	layer.open({

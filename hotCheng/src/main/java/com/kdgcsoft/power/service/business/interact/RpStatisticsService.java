@@ -191,7 +191,7 @@ public class RpStatisticsService  extends BaseService{
     	para.put("scanTime", new Date());
     	para.put("qualityStart", new Date());
     	para.put("qualityEnd", cal.getTime());
-    	para.put("cashTime", cal2.getTime());
+    	//para.put("cashTime", cal2.getTime());
     	para.put("wechatName", u.getUserName());
     	para.put("wechatTel", u.getTel());
     	para.put("wechatInfo", u.getInfo());
@@ -201,11 +201,20 @@ public class RpStatisticsService  extends BaseService{
     	para.put("province", s.getProvince());
     	para.put("storeName", s.getStoreName());
     	
-    	
 		bsh.updateOrDelete("business.interact.rpStatistics.scanToBack",para);
     }
 	
-	
+	@Transactional(readOnly = true)
+    public void updateCashTime(String qrCode){
+    	Map<String,Object> para = new HashMap<String,Object>();
+    	
+    	Calendar cal2 = Calendar.getInstance();
+    	cal2.setTime(new Date());//设置起时间
+    	System.out.println("更新返现时间");
+    	para.put("qrCode", qrCode);
+    	para.put("cashTime", cal2.getTime());
+		bsh.updateOrDelete("business.interact.rpStatistics.updateCashTime",para);
+    }
 	@Transactional(readOnly = true)
     public RpStatistics getInfoByQp(String qrCode, String scanWechat){
     	Map<String,Object> para = new HashMap<String,Object>();	  

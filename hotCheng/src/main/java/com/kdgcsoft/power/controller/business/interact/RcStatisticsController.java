@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -325,25 +326,34 @@ public class RcStatisticsController extends BaseController {
 		Date d = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		String fileName = "统计报表" + sdf.format(d) + ".xls";
+		
 		HSSFCellStyle cellStyle = hwb.createCellStyle(); // 样式对象
 		cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直
 		cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);// 水平
-		cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN); // 下边框
-		cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);// 左边框
-		cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);// 上边框
-		cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);// 右边框
 		HSSFFont font = hwb.createFont();// 设置字体
 		font.setFontName("Arial");
-		font.setFontHeightInPoints((short) 30);// 设置字体大小
+		font.setFontHeightInPoints((short) 20);// 设置字体大小
 		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);// 加粗
 		cellStyle.setFont(font);
+		
+		HSSFCellStyle titleStyle = hwb.createCellStyle();  
+		titleStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式  
+		titleStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+		HSSFFont tfont = hwb.createFont();// 设置字体
+		tfont.setFontName("Arial");
+		tfont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);// 加粗
+		titleStyle.setFont(tfont);
+		
+		HSSFCellStyle vStyle = hwb.createCellStyle();  
+		vStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式  
+		vStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
 		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 19));
 
 		HSSFRow title = sheet.createRow(0);
-		title.setRowStyle(cellStyle);
 		title.createCell(0).setCellValue("统计报表");
-
+		title.getCell(0).setCellStyle(cellStyle);
+		
 		String[] titles = { "预售地区", "二维码序号", "产品型号", "激活状态", "扫码时间", "起始质保日期",
 				"终止质保日期", "返现时间", "扫码微信号", "省份", "门店名", "姓名", "电话", "备注",
 				"信息查询权限", "角色权限", "车主车牌号", "车主手机号", "昵称" };
@@ -354,6 +364,7 @@ public class RcStatisticsController extends BaseController {
 			sheet.setColumnWidth(t,
 					(int) ((titles[t].length() * 3 + 0.72) * 256));
 			sheet.setColumnWidth(14, (int) ((20 + 0.72) * 256));
+			trow.getCell(t).setCellStyle(titleStyle);
 		}
 		for (int i = 0; i < list.size(); i++) {
 			// 新建一行
@@ -443,6 +454,12 @@ public class RcStatisticsController extends BaseController {
 							.toString() : "");
 		}
 		response.reset();
+		try { 
+			fileName =  java.net.URLEncoder.encode(fileName, "UTF-8");
+		} catch (UnsupportedEncodingException e1) { 
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		response.setHeader("Content-Disposition", "attachment;filename="
 				+ fileName);
 		response.setContentType("application/vnd.ms-excel;charset=UTF-8");
@@ -566,25 +583,34 @@ public class RcStatisticsController extends BaseController {
 		Date d = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		String fileName = "销售统计报表" + sdf.format(d) + ".xls";
+		
 		HSSFCellStyle cellStyle = hwb.createCellStyle(); // 样式对象
 		cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直
 		cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);// 水平
-		cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN); // 下边框
-		cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);// 左边框
-		cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);// 上边框
-		cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);// 右边框
 		HSSFFont font = hwb.createFont();// 设置字体
 		font.setFontName("Arial");
-		font.setFontHeightInPoints((short) 30);// 设置字体大小
+		font.setFontHeightInPoints((short) 20);// 设置字体大小
 		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);// 加粗
 		cellStyle.setFont(font);
+		
+		HSSFCellStyle titleStyle = hwb.createCellStyle();  
+		titleStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式  
+		titleStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+		HSSFFont tfont = hwb.createFont();// 设置字体
+		tfont.setFontName("Arial");
+		tfont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);// 加粗
+		titleStyle.setFont(tfont);
+		
+		HSSFCellStyle vStyle = hwb.createCellStyle();  
+		vStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式  
+		vStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
 		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 5));
 
 		HSSFRow title = sheet.createRow(0);
-		title.setRowStyle(cellStyle);
 		title.createCell(0).setCellValue("销售统计报表");
-
+		title.getCell(0).setCellStyle(cellStyle);
+		
 		String[] titles = { "扫码时间", "微信openID", "姓名", "昵称", "电话", "扫码数量"};
 		HSSFRow trow = sheet.createRow(1);
 		for (int t = 0; t < titles.length; t++) {
@@ -593,6 +619,7 @@ public class RcStatisticsController extends BaseController {
 			sheet.setColumnWidth(t,
 					(int) ((titles[t].length() * 3 + 0.72) * 256));
 			sheet.setColumnWidth(14, (int) ((20 + 0.72) * 256));
+			trow.getCell(t).setCellStyle(titleStyle);
 		}
 		for (int i = 0; i < list.size(); i++) {
 			// 新建一行
@@ -620,12 +647,18 @@ public class RcStatisticsController extends BaseController {
 							.toString() : "");
 		}
 		response.reset();
+		try { 
+			fileName =  java.net.URLEncoder.encode(fileName, "UTF-8");
+		} catch (UnsupportedEncodingException e1) { 
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		response.setHeader("Content-Disposition", "attachment;filename="
 				+ fileName);
 		response.setContentType("application/vnd.ms-excel;charset=UTF-8");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Cache-Control", "no-cache");
-		response.setDateHeader("Expires", 0);
+		response.setDateHeader("Expires", 0); 
 		OutputStream output;
 		/* OutputStream out = null; */
 		try {
