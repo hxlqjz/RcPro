@@ -98,7 +98,7 @@ public class loginController{
             System.out.println(" ----- this is weixintest---"); 
             System.out.println("user openId--->"+snsUserInfo.getOpenId());   
             System.out.println("user nickname--->"+snsUserInfo.getNickname());   
-            System.out.println("user sex--->"+snsUserInfo.getSex());              
+            System.out.println("user sex--->"+snsUserInfo.getSex());   			 
             RpUser en=rpUserService.getInfoByWechat(snsUserInfo.getOpenId());
             //给手机端返回页面，成功，此处无法给pc端进行页面跳转
             mav.addObject("openId", snsUserInfo.getOpenId());

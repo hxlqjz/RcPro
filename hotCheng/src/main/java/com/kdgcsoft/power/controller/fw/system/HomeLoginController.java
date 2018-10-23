@@ -133,7 +133,7 @@ public class HomeLoginController extends BaseController{
 	public Object userLoginFail(String workCode,String password,Model model,HttpServletRequest request,HttpServletResponse response) throws IOException {
 		String msg = "";
 		ModelAndView view = new ModelAndView();
-
+		
 		Object principal = SecurityUtils.getSubject().getPrincipal();
 		// 如果已经登录，则跳转到管理首页
 		if (principal != null) {

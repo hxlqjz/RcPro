@@ -59,7 +59,7 @@
 		window.addEventListener("pageshow", ready);
 		function ready(){
 			scanWechat =localStorage.getItem("scanWechat");
-			var qr = getUrlParms("qrCode");
+			var qr = localStorage.getItem("qrCode");//getUrlParms("qrCode");
 			mui.ajax("statistics/getInfoByQp.action", {
 				data: {
 					scanWechat:scanWechat,

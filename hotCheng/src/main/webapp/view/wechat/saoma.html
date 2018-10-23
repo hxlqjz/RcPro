@@ -45,7 +45,7 @@
 			window.addEventListener("pageshow", ready);
 			function ready(){
 				var scanWechat =localStorage.getItem("scanWechat");
-				var qr = getUrlParms("qrCode");
+				var qr = localStorage.getItem("qrCode");//getUrlParms("qrCode");
 				document.getElementById("sub").addEventListener("click", function() {
 					var plateNumber = $("#plateNumber").val();
 					var carTel = $("#carTel").val();
