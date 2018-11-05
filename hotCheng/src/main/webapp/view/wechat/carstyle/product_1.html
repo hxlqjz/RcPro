@@ -1,0 +1,630 @@
+<html><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">		
+		<title></title>
+		<base href="/hotCheng/" />
+		<link rel="stylesheet" href="static/css/common.css">
+		<link rel="stylesheet" href="static/css/index.css">
+		<link rel="stylesheet" href="static/css/product.css" />
+		<script type="text/javascript" src="static/js/plugin/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="static/js/plugin/touchslider.js"></script>
+		<script src="static/js/tool.js"></script> 
+		<script src="static/js/template.js"></script>
+		<script type="text/javascript" src="static/layer/layer.js"></script>
+		<style>
+		.table-responsive{width:100%;}
+		.table{
+		 margin-bottom: 2px;
+		 margin-top: 2px;
+		}
+	   .table>tbody>tr:first-child>td{ text-align: center;border: 0;}	   
+		</style>
+		
+		<script id="cx_rec" type="text/html">
+	{{each list as value j}}
+	     <li id="{{value.lyId}}" >
+			<p>{{value.cj}}&nbsp;{{value.cx}}&nbsp;{{value.pth}}&nbsp;{{value.nk}}款</p>
+	        <p>{{value.xsmc}} &nbsp;{{value.scnf}}年产</p>
+	  </li>
+ 	{{/each}}   
+	</script>
+	
+	<script id="bf_qzd" type="text/html">
+{{each list as value j}}
+	   <tr>
+			<td>宝丰编码：</td>
+			<td>{{list[j]}}</td>
+		</tr>
+		<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ {{/each}}   
+	</script>
+<script id="bf_hzd" type="text/html">
+	{{each list as value j}}
+	   <tr>
+		<td>宝丰编码：</td>
+		<td>{{list[j]}}</td>
+		</tr>
+		<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ 	{{/each}}   	
+	</script>
+
+<script id="bds_qzd" type="text/html">
+{{each list as value j}}
+	   <tr>
+			<td>奔德士编码：</td>
+			<td>{{list[j]}}</td>
+		</tr>
+<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ {{/each}}   
+	</script>
+<script id="bds_hzd" type="text/html">
+{{each list as value j}}
+	   <tr>
+			<td>奔德士编码：</td>
+			<td>{{list[j]}}</td>
+		</tr>
+<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ {{/each}} 
+	</script>
+<script id="avia_rhy" type="text/html">
+{{each list as value j}}
+	  <tr>
+		<td>AVIA编码：</td>
+		<td>{{list[j]}}</td>
+		</tr>
+ 	<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ {{/each}}   
+	</script>
+	<script id="avia_rhy_byjzl" type="text/html">
+ 		<tr>
+			<td>保养加注量(L)：</td>
+			<td>{{value}}</td>
+		</tr>
+	</script>
+	<script id="avia_bsxy" type="text/html">
+	{{each list as value j}}
+	   <tr>
+			<td>AVIA编码：</td>
+			<td>{{list[j].info}}</td>
+		</tr>
+ 		{{if   list[j].bz !=null && list[j].bz!='' }}
+ 			<tr>
+			<td>备注:</td>
+			<td>{{list[j].bz}}</td>
+		</tr>
+		{{/if}} 
+	<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ 	{{/each}}   
+	</script>
+	<script id="avia_bsxy_jzl" type="text/html">
+ 		<tr>
+			<td>保养加注量(L)：</td>
+			<td>{{byjzl}}</td>
+		</tr>
+		<tr>
+			<td>大修加注量(L)：</td>
+			<td>{{dxjzl}}</td>
+		</tr>
+	</script>
+<script id="nbe_rec" type="text/html">
+{{each list as value j}}
+	   <tr>
+			<td>电池编码：</td>
+			<td>{{list[j].info}}</td>
+		</tr>
+ 		<tr>
+	{{if   list[j].bz !=null && list[j].bz!='' }}
+ 		<tr>
+			<td>备注:</td>
+			<td>{{list[j].bz}}</td>
+		</tr>
+	{{/if}} 
+		</tr>
+<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ {{/each}}   
+	</script> 
+
+<script id="hhs_rec" type="text/html">
+{{each list as value j}}
+	   <tr>
+			<td>火花塞编码：</td>
+			<td>{{list[j].info}}</td>
+		</tr>
+ 		<tr>
+		{{if   list[j].bz !=null && list[j].bz!='' }}
+ 			<tr>
+			<td>备注:</td>
+			<td>{{list[j].bz}}</td>
+		</tr>
+		{{/if}} 
+		</tr>
+<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
+ {{/each}}   
+	</script>
+
+<script id="rc_rec" type="text/html">
+{{if value.pp != null && value.pp !='' }}
+<table border="0" cellspacing="5" cellpadding="2" width="100%" class="table" >
+	  <tbody>
+                    <tr><td colspan="2" class='center'>{{value.pp}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value.cx}}&nbsp;&nbsp;&nbsp;{{value.pfbz}}<br />{{value.nk}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value.xsmc}}</td></tr>
+					<tr><td>厂家:</td><td><span>{{value.cj}}</span></td></tr>
+					<tr><td>排放标准:</td><td><span>{{value.pfbz}}</span></td></tr>
+					<tr><td>发动机型号:</td><td><span>{{value.fdjxh}}</span></td></tr>
+					<tr><td>进气形式:</td><td><span>{{value.jqxs}}</span></td></tr>
+					<tr><td>燃油标号:</td><td><span>{{value.rybh}}</span></td></tr>
+					<tr><td>气缸数(个):</td><td><span>{{value.qgs}}</span></td></tr>
+					<tr><td>平台号:</td><td><span>{{value.pth}}</span></td></tr>
+					<tr><td>变速器描述:</td><td><span>{{value.bsqms}}</span></td></tr>
+					<tr><td>档位数:</td><td><span>{{value.dws}}</span></td></tr>
+					<tr><td>前制动器类型:</td><td><span>{{value.qzdlx}}</span></td></tr>
+					<tr><td>后制动器类型:</td><td><span>{{value.hzdlx}}</span></td></tr>
+					<tr><td>助力类型:</td><td><span>{{value.zllx}}</span></td></tr>
+					<tr><td>轴距(mm):</td><td><span>{{value.zj}}</span></td></tr>
+					<tr><td>轮毂规格:</td><td><span>{{value.lggg}}</span></td></tr>
+					<tr><td>轮胎规格:</td><td><span>{{value.ltgg}}</span></td></tr>
+ 	             </tbody>	
+	</table>
+{{/if}} 
+	</script>
+	
+	</head>
+	<body>
+		<header style="position: fixed;z-index: 10;">
+			<img src="static/img/headTitle.png" class="headTitle">
+			<div class="headsy"><a href="view/page/index.html"></a></div>
+		</header>
+		<!--型号分类盒子-->
+		<div class="productTypeBox">
+			<ul class="typeBox-ul" id="goodRecDiv" >
+				
+			</ul>
+		</div>
+		<div class="productBox" id="slider">
+		<ul class="productSolider">
+			<li>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_13.jpg" />
+					<h3>前制动片</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="bf_qzd_div">
+					</table>
+				</div>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_13.jpg" />
+					<h3>后制动片</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="bf_hzd_div">
+					</table>
+				</div>
+			</li>
+			<li>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_14.jpg" />
+					<h3>前制动片</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="bds_qzd_div">
+					</table>
+				</div>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_14.jpg" />
+					<h3>后制动片</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="bds_hzd_div">
+					</table>
+				</div>
+			</li>
+
+			<li>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_15.jpg" />
+					<h3>
+						润滑油<span
+							style="font-size: 11px; line-height: 16px; margin-left: 8px;">
+							请再次核实相关参数 </span>
+					</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="avia_rhy_div">
+					</table>
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="avia_rhy_byjzl_div">
+					</table>
+				</div>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_15.jpg" />
+					<h3>
+						变速箱油 <span
+							style="font-size: 11px; line-height: 16px; margin-left: 8px;">
+							请再次核实相关参数 </span>
+					</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="avia_bsxy_div">
+					</table>
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="avia_bsxy_jzl_div">
+					</table>
+				</div>
+			</li>
+			<li>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_16.jpg" />
+					<h3>免维护电池</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="nbe_div">
+						
+					</table>
+				</div>
+			</li>
+			<li>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_17.jpg" />
+					<h3>火花塞</h3>
+				</div>
+				<div class="tableBox">
+					<table border="0" cellspacing="0" cellpadding="" width="100%"
+						id="hhs_div">
+					</table>
+				</div>
+			</li>
+			<li>
+				<div class="titleBox clearfix">
+					<img src="static/img/images/foot_18.jpg" />
+					<h3 style="font-size: 11px; line-height: 16px;">
+						选择排量.年款.销售名称等选项<br />查看车型参数
+					</h3>
+				</div>
+				<div class="tableBox rePin" id="rc_div"></div>
+			</li>
+		</ul>
+	</div>
+		<!--底部logo -->
+		<ul class="navSolider">
+			<li class="navActive"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>			
+		</ul>	
+
+
+		<script>
+			$(function(){				
+				$(".productBox").css("top",$(".titleselectBox").height() + 71 +"px");//
+				$(".navSolider").css("margin-left",-($(".navSolider").width()/2) +"px");//底部logo				
+				$(".navSolider .navActive").siblings().css("margin-top","7.5px");//底部logo	
+				
+				
+				//汽车类型
+				$(".typeBox-ul").on("click","li",function(){
+					var idv=this.id;
+					showLoad();
+					getCarStyleByLyId(idv);
+					$(this).addClass("typeActive").siblings().removeClass("typeActive");
+				})
+				if($(".typeBox-ul li").length>3){
+					$(".typeBox-ul li").css("margin-right","10px")
+				}							
+			})
+			
+		</script>
+		<script type="text/javascript" src="static/js/plugin/touchslider.js"></script><!--左右滑动-->
+		<script type="text/javascript">
+		
+			$(function() {
+				var tt = new TouchSlider({
+					id: 'slider',
+					'auto': '-1',
+					fx: 'ease-out',
+					direction: 'left',
+					speed: 450,
+					timeout: 3500,
+					'before': function(index) {
+	
+						var es = $('#slider').find('.productSolider li');
+	
+						var it = $(es[index]).index();
+
+						$(".navSolider li").eq(it).addClass("navActive").css("margin-top","0").siblings().css("margin-top","5px").removeClass("navActive");
+					//	es.scrollTop(0);
+						es.eq(it).siblings().animate({scrollTop: 0 }, 500);
+
+					}
+				});//手指滑动切换页面
+				for(var i=0;i<$(".navSolider li").length;i++){
+					(function(){
+						var j=i;
+						$(".navSolider li")[j].tt = tt;
+						$(".navSolider li")[j].onclick=function(){
+							this.tt.slide(j);
+							return false;
+						}
+					})();
+				}
+				loadByVin();
+				
+			})
+			function showLoad(){
+	   			return layer.msg('努力中...', {icon: 16,shade: [0.5, '#f5f5f5'],scrollbar: false,offset: '0px', time:100000}) ;
+		   	}
+		   	function closeLoad(index){
+		   		layer.close(index);
+		   	}
+		   	function showTip(){
+		   		layer.msg('恭喜您，加载完成！',{time: 1000,offset: '10px'});
+		   	}
+			//一进来加载数据，所有数据都加载出来
+			function loadByVin(){
+				showLoad();
+				var url =basUrl+"/wcCarQuery/getCarStyleByVin.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        dataType:"json",
+			        data : {
+			       		vinCode:localStorage.getItem("vinCode")
+					},  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	console.log(result)
+			        	document.getElementById("bf_qzd_div").innerHTML =template("bf_qzd", {
+							list: result.bfQzd
+						});
+		            	document.getElementById("bf_hzd_div").innerHTML =template("bf_hzd", {
+		            		list: result.bfHzd
+						});
+		            	document.getElementById("bds_qzd_div").innerHTML =template("bds_qzd", {
+		            		list: result.bdsQzd
+						});
+		            	document.getElementById("bds_hzd_div").innerHTML =template("bds_hzd", {
+		            		list: result.bdsHzd
+						});
+		            	
+		            	document.getElementById("avia_rhy_div").innerHTML =template("avia_rhy", {
+		            		list: result.aviaRhy
+						});
+		            	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
+		            		list: result.aviaRhyJzl
+						});
+		            	document.getElementById("avia_bsxy_div").innerHTML =template("avia_bsxy", {
+		            		list: result.aviaBsxy
+						});
+		            	document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
+		            		dxjzl:result.aviaBsxyDxjzl,
+		            		byjzl:result.aviaBsxyByjzl
+						});
+		            	document.getElementById("nbe_div").innerHTML =template("nbe_rec", {
+		            		list: result.nbe
+						});
+		            	document.getElementById("hhs_div").innerHTML =template("hhs_rec", {
+		            		list: result.hhs
+						});
+		             	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+		            		value: result.rc
+						});
+						
+		            	document.getElementById("goodRecDiv").innerHTML =template("cx_rec", {
+		            		list: result.ls
+						});
+		            	closeLoad();
+		            	showTip();
+			        	
+			       	},  
+			        error: function (returndata) {
+			        	closeLoad();
+			        }
+			       	
+				}); 
+			}
+			
+			function getCarStyleByLyId(id){
+				var url =basUrl+"/wcCarQuery/getCarStyleByLyId.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        dataType:"json",
+			        data : {
+			       		lyIds:id
+					},  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	document.getElementById("bf_qzd_div").innerHTML =template("bf_qzd", {
+							list: result.bfQzd
+						});
+		            	document.getElementById("bf_hzd_div").innerHTML =template("bf_hzd", {
+		            		list: result.bfHzd
+						});
+		            	document.getElementById("bds_qzd_div").innerHTML =template("bds_qzd", {
+		            		list: result.bdsQzd
+						});
+		            	document.getElementById("bds_hzd_div").innerHTML =template("bds_hzd", {
+		            		list: result.bdsHzd
+						});
+		            	
+		            	document.getElementById("avia_rhy_div").innerHTML =template("avia_rhy", {
+		            		list: result.aviaRhy
+						});
+		            	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
+		            		list: result.aviaRhyJzl
+						});
+		            	document.getElementById("avia_bsxy_div").innerHTML =template("avia_bsxy", {
+		            		list: result.aviaBsxy
+						});
+		            	document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
+		            		dxjzl:result.aviaBsxyDxjzl,
+		            		byjzl:result.aviaBsxyByjzl
+						});
+		            	document.getElementById("nbe_div").innerHTML =template("nbe_rec", {
+		            		list: result.nbe
+						});
+		            	document.getElementById("hhs_div").innerHTML =template("hhs_rec", {
+		            		list: result.hhs
+						});
+		            	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+		            		value: result.rc
+						});
+		         
+		            	closeLoad();
+		            	showTip();
+			        	
+			       	},  
+			        error: function (returndata) {
+			        	closeLoad();
+			        }
+			       	
+				}); 
+			}
+			function load(i){
+				var url =basUrl+"/vinCode/findCarStyleList.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        data : {
+			       		vinCode:localStorage.getItem("vinCode")
+					},  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	console.log(result)
+			        	var rec=JSON.parse(result);
+			        	var res=rec.data;
+			        	var rowList = new Array(res.length);
+			        	var lyIds=[];
+			        	var rcLs=[];
+			        	for(var i=0;i<rowList.length;i++){
+							rowList[i]=res[i]
+							lyIds.push(res[i].lyId);
+						}			        
+			        	document.getElementById("goodRecDiv").innerHTML =template("que_rec", {
+							list: rowList
+						});
+			        	
+			        	if(rowList.length>0){
+			        		rcLs.push(rowList[0]);
+			        	}
+			        	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+							list: rcLs
+						});
+			        	// $("#vinQueModal").modal('show');  //手动打开	
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			        	 i= ityzl_SHOW_LOAD_LAYER();
+			        	findTheProducts(lyIds.join(","),i);
+			        	
+			       	},  
+			        error: function (returndata) {
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			        }
+			       	
+					}); 
+			}
+			
+			function findCarStyleLs(ids,i){
+				var url =basUrl+"/vinCode/findCarStyleListByLyId.action";
+				$.ajax({  
+			        url: url,
+			        type: 'POST',  
+			        data : {
+			        	lyIds:ids
+			        },  
+			        timeout : 10000, //超时时间设置，单位毫秒
+			        async: false,  
+			        success: function (result) {
+			        	var rec=JSON.parse(result);
+			        	var res=rec.data;
+			        	var rowList = new Array(res.length);
+			        	var lyIds=[];
+			        	for(var i=0;i<rowList.length;i++){
+							rowList[i]=res[i]
+							lyIds.push(res[i].lyId);
+						}			        
+			        	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+							list: rowList							
+						});
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			       	},  
+			        error: function (returndata) {
+			        	ityzl_CLOSE_LOAD_LAYER(i);
+			        }
+			       	
+					}); 
+			}
+			
+			//查找相应的产品	
+			function findTheProducts(lyIds,i){	
+			       	var url =basUrl+"/carStyleSublist/findTheProductsByIds.action";
+			    	$.ajax({  
+			            url: url,
+			            type: 'POST',  
+			            data:{
+			            	lyIds:lyIds			            	
+			            },  
+			            timeout : 10000, //超时时间设置，单位毫秒
+			            async: false,         
+			            success: function (result) {
+			            	var rec=JSON.parse(result);
+			            	var pre_bf_Bls=rec.data.pre_bf_Bls;//宝丰前制动
+			            	var suf_bf_Bls=rec.data.suf_bf_Bls;//宝丰后制动
+			            	var pre_bds_Bls=rec.data.pre_bds_Bls;//奔德士前制动
+			            	var suf_bds_Bls=rec.data.suf_bds_Bls;//奔德士后制动
+			            	var rhls=rec.data.rhls;//润滑油品
+			            	var bsxls=rec.data.bsxls;//变速箱油品
+			            	var dcls=rec.data.dcls;//电池
+			            	var hhsls=rec.data.hhsls;//火花塞
+			            	
+			            	document.getElementById("preB_bf_div").innerHTML =template("preB_bf", {
+								list: pre_bf_Bls
+							});
+			            	document.getElementById("sufB_bf_div").innerHTML =template("sufB_bf", {
+								list: suf_bf_Bls
+							});
+			            	document.getElementById("preB_bds_div").innerHTML =template("preB_bds", {
+								list: pre_bds_Bls
+							});
+			            	document.getElementById("sufB_bds_div").innerHTML =template("sufB_bds", {
+								list: suf_bds_Bls
+							});
+			            	
+			            	document.getElementById("rhls_div").innerHTML =template("rh_ls", {
+								list: rhls
+							});
+			            	document.getElementById("bsxls_div").innerHTML =template("bsx_ls", {
+								list: bsxls
+							});
+			            	document.getElementById("hhs_div").innerHTML =template("hhs_rec", {
+								list: hhsls
+							});		
+			            	document.getElementById("dc_div").innerHTML =template("dc_rec", {
+								list: dcls
+							});
+			            	ityzl_CLOSE_LOAD_LAYER(i);
+			            					          
+			           	},  
+			            error: function (returndata) {
+			            	ityzl_CLOSE_LOAD_LAYER(i);
+			            }          	
+			    		});
+			       
+			}
+			
+
+
+		</script>	
+
+	</body>
+</html>

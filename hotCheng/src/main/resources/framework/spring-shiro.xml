@@ -54,6 +54,8 @@
 				/index/**.action=anon
 				/store/**.action=anon
 				/user/**.action=anon
+				/wcCarQuery/**.action=anon
+				/vinCode/**.action=anon
 				/statistics/**.action=anon
 				/ngk/**.action=anon
 				/nbe/**.action=anon
