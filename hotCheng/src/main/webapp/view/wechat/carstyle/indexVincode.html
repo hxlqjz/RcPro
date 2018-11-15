@@ -1,0 +1,156 @@
+
+<!Doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>查询结果</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	 <base href="/hotCheng/" />
+	    <link href="static/mui/css/mui.min.css" rel="stylesheet" />
+	 <link rel="stylesheet" href="static/css/bootstrap.min.css">
+	 <script src="static/mui/js/mui.min.js"></script>
+	 <script src="static/js/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+	 <script src="static/js/tool.js"></script>     
+	 <script src="static/js/template.js"></script>
+	 <style> 
+	 .title{background:#7A9EE9;color:#fff;text-align:left;font-size:14px;padding-left:20px;line-height:35px;}
+	 .table-responsive{width:100%;}
+	 .table>tbody>tr:first-child>td{border-top:0;text-align: center;}
+	 
+	 
+	 .mui-input-row.check_img_info{background:#d9edf7;color:#31708f;line-height:2.5rem;padding-left:10px;}
+	 .mui-input-row.check_img_back{background:#fff;padding-left:10px;line-height:4.5rem;}
+	 
+	 .mui-input-row label{
+	 line-height: 1.6;
+	 }
+
+	 </style>
+    </head>
+	
+  <body style="background:#f2f2f2;">
+  <div>
+         
+	    <div class="mui-content" >	
+	       <div class="mui-input-row check_img_back">
+	          <a onclick="closeCutWin()"> <span class="mui-icon mui-icon-back"></span></a>
+	       </div>
+	    
+	      <div class="mui-input-row check_img_info">
+	          <span> 请检查上传图片与识别结果是否一致</span>
+	      </div>
+	      
+	      
+	    <div class="mui-input-row" style="width:900px;height:300px;display:table-cell;vertical-align: middle; text-align: center;">
+	    <img alt="" src="" id="queVinCodeV" style="width:auto;height:auto;max-height:300px;max-width:100%">
+	    </div>   
+	    	<div id="sd" class="mui-input-row" style="padding-top:10px;padding-right:10px;">
+				<label >请确认vin码：</label>			
+					
+				<input id="confirmVin"  name="confirmVin" type="text"  style="border:1px solid #d2d2d2;padding-left:10px;padding-right:10px;font-size:20px;">	
+			
+			  </div>         
+	    </div>	
+	    	<div class="mui-button-row">
+					 <button type="button" class="btn btn-primary btn-block"  data-toggle="modal" id="carTypeSelect"  style="margin-bottom: 5px;">
+	                        	查询
+	                    </button>
+			</div>
+ <!--预览模态框（Modal） -->
+   <div class="modal fade" id="vinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	 <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					产品匹配结果
+				</h4>
+			</div>
+			<div class="modal-body" style="height:95%;width:100%;" >
+					  <div class="container table-responsive" id="goodRecDiv">	  
+			     
+	 		        </div>	
+					
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>	
+					 <button type="button" class="btn btn-default btn-primary" id="carSelectVal" data-glyphicon="glyphicon-ok">确定</button>					
+			</div>
+		   </div><!-- /.modal-content -->
+	        </div><!-- /.modal -->
+		      </div>
+	   </div>
+	   </body>
+
+
+<script>
+$(document).ready(function(e) {
+	var url=basUrl+"/vinCode/findThePic.action";
+    $("#queVinCodeV").attr("src",url).show();
+    $("#confirmVin").val(localStorage.getItem("vinCode"));
+    
+});
+
+function closeCutWin(){
+	window.history.back();
+};
+
+function findCarStyleList(vinCode){
+	var url =basUrl+"/vinCode/findCarStyleList.action";
+	$.ajax({  
+        url: url,
+        type: 'POST',  
+        data : {
+        vinCode:vinCode
+		},  
+        timeout : 10000, //超时时间设置，单位毫秒
+        async: false,  
+        success: function (result) {
+        	var rec=JSON.parse(result);
+        	var res=rec.data;
+        	var rowList = new Array(res.length);
+        	for(var i=0;i<rowList.length;i++){
+				rowList[i]=res[i]
+			}
+        	document.getElementById("goodRecDiv").innerHTML =template("que_rec", {
+				list: rowList
+			});
+        	$("#vinModal").modal('show');  //手动打开
+       	},  
+        error: function (returndata) {
+        
+        }
+       	
+		});
+};
+
+
+$('#carTypeSelect').click(function(){
+	var vinCode= $("#confirmVin").val();
+	 var leng=vinCode.length;
+	 localStorage.setItem("vinCode",vinCode); 
+	 if(leng==17){
+		// findCarStyleList(vinCode);
+		 window.open("view/wechat/carstyle/product_1.html");	
+	 }else{
+		 alert("车型码不对，请您修改");
+	 }
+});
+
+//确定按钮的事件
+$('#carSelectVal').click(function(){ 
+	 var lyId = $("input[name='cartype']:checked").val();
+	 $("#vinModal").modal('hide');  //手动关闭
+	 
+	 window.open("view/wechat/carstyle/product_1.html");	
+	 localStorage.setItem("lyId",lyId);
+});
+
+
+</script>
+</html>
