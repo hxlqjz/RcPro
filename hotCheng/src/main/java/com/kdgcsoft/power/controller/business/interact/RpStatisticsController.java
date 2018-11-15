@@ -185,6 +185,27 @@ public class RpStatisticsController extends BaseController {
 		return rpStatisticsService.getListByRole(start, end, scanWechat,
 				chooseWechat, province, storeName);
 	}
+	
+	/**
+	 * jilu2页面中，统计实时数据
+	 * 查询当前人员的店面下，最近三天时间内，谁销售了哪些型号，返回时间月日时，型号，人员
+	 * 需要门店信息，开始时间是三天前，结束时间是现在
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("getSsListByRole")
+	@ResponseBody
+	public Object getSsListByRole(HttpServletRequest request) {
+		/*String start = StringUtil.isEmpty(request.getParameter("start")) ? null
+				: request.getParameter("start") + " 00:00:00";
+		String end = StringUtil.isEmpty(request.getParameter("end")) ? null
+				: request.getParameter("end") + " 23:59:59";*/
+		String scanWechat = StringUtil.isEmpty(request
+				.getParameter("scanWechat")) ? null : request
+				.getParameter("scanWechat");
+
+		return rpStatisticsService.getSsListByRole(scanWechat);
+	}
 
 	/**
 	 * 根据统计记录中的数据查找所有省份，再根据省份查找门店

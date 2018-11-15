@@ -36,7 +36,6 @@
 			<td>宝丰编码：</td>
 			<td>{{list[j]}}</td>
 		</tr>
-		<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 <script id="bf_hzd" type="text/html">
@@ -45,7 +44,6 @@
 		<td>宝丰编码：</td>
 		<td>{{list[j]}}</td>
 		</tr>
-		<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  	{{/each}}   	
 	</script>
 
@@ -55,7 +53,6 @@
 			<td>奔德士编码：</td>
 			<td>{{list[j]}}</td>
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 <script id="bds_hzd" type="text/html">
@@ -64,48 +61,51 @@
 			<td>奔德士编码：</td>
 			<td>{{list[j]}}</td>
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}} 
 	</script>
 <script id="avia_rhy" type="text/html">
 {{each list as value j}}
 	  <tr>
-		<td>AVIA编码：</td>
+		<td style="width:35%">AVIA编码：</td>
 		<td>{{list[j]}}</td>
 		</tr>
- 	<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 	<script id="avia_rhy_byjzl" type="text/html">
+		{{if value != null && value != ""}}
  		<tr>
-			<td>保养加注量(L)：</td>
-			<td>{{value}}</td>
+			<td style="width:35%">保养加注量(L)：</td>
+			<td style="text-align:left;"><span style="color:red;">{{value}}</span></td>
 		</tr>
+{{/if}}
 	</script>
 	<script id="avia_bsxy" type="text/html">
 	{{each list as value j}}
 	   <tr>
-			<td>AVIA编码：</td>
+			<td style="width:35%">AVIA编码：</td>
 			<td>{{list[j].info}}</td>
 		</tr>
  		{{if   list[j].bz !=null && list[j].bz!='' }}
  			<tr>
-			<td>备注:</td>
-			<td>{{list[j].bz}}</td>
+			<td><span style="font-size:11px;color:blue">备注:</span></td>
+			<td><span style="font-size:11px;color:blue;word-wrap:break-word;word-break:break-all;">{{list[j].bz}}</span></td>
 		</tr>
 		{{/if}} 
-	<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  	{{/each}}   
 	</script>
 	<script id="avia_bsxy_jzl" type="text/html">
+{{if byjzl != null && byjzl != ""}}
  		<tr>
-			<td>保养加注量(L)：</td>
-			<td>{{byjzl}}</td>
+			<td style="width:35%">保养加注量(L)：</td>
+			<td style="text-align:left;"><span style="color:red;">{{byjzl}}</span></td>
 		</tr>
+{{/if}}
+{{if dxjzl != null && dxjzl != ""}}
 		<tr>
-			<td>大修加注量(L)：</td>
-			<td>{{dxjzl}}</td>
+			<td  style="width:35%">大修加注量(L)：</td>
+			<td style="text-align:left;"><span style="color:red">{{dxjzl}}</span></td>
 		</tr>
+{{/if}}
 	</script>
 <script id="nbe_rec" type="text/html">
 {{each list as value j}}
@@ -121,7 +121,6 @@
 		</tr>
 	{{/if}} 
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script> 
 
@@ -139,7 +138,6 @@
 		</tr>
 		{{/if}} 
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 
@@ -157,8 +155,8 @@
 					<tr><td>平台号:</td><td><span>{{value.pth}}</span></td></tr>
 					<tr><td>变速器描述:</td><td><span>{{value.bsqms}}</span></td></tr>
 					<tr><td>档位数:</td><td><span>{{value.dws}}</span></td></tr>
-					<tr><td>前制动器类型:</td><td><span>{{value.qzdlx}}</span></td></tr>
-					<tr><td>后制动器类型:</td><td><span>{{value.hzdlx}}</span></td></tr>
+					<tr><td>前制动器类型:</td><td><span>{{value.qzdqlx}}</span></td></tr>
+					<tr><td>后制动器类型:</td><td><span>{{value.hzdqlx}}</span></td></tr>
 					<tr><td>助力类型:</td><td><span>{{value.zllx}}</span></td></tr>
 					<tr><td>轴距(mm):</td><td><span>{{value.zj}}</span></td></tr>
 					<tr><td>轮毂规格:</td><td><span>{{value.lggg}}</span></td></tr>
@@ -172,12 +170,11 @@
 	<body>
 		<header style="position: fixed;z-index: 10;">
 			<img src="static/img/headTitle.png" class="headTitle">
-			<div class="headsy"><a href="view/page/index.html"></a></div>
+			<div class="headsy"><a href="view/wechat/carstyle/index.html"></a></div>
 		</header>
 		<!--型号分类盒子-->
 		<div class="productTypeBox">
 			<ul class="typeBox-ul" id="goodRecDiv" >
-				
 			</ul>
 		</div>
 		<div class="productBox" id="slider">
@@ -228,14 +225,15 @@
 					<img src="static/img/images/foot_15.jpg" />
 					<h3>
 						润滑油<span
-							style="font-size: 11px; line-height: 16px; margin-left: 8px;">
-							请再次核实相关参数 </span>
+							style="font-size: 11px;color:red; line-height: 16px; margin-left: 8px;">
+							数据仅供参考，准确信息以用户手册为准 </span>
 					</h3>
 				</div>
 				<div class="tableBox">
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_rhy_div">
 					</table>
+					<div style="height:5px;background-color:#ececec;"></div>
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_rhy_byjzl_div">
 					</table>
@@ -244,14 +242,15 @@
 					<img src="static/img/images/foot_15.jpg" />
 					<h3>
 						变速箱油 <span
-							style="font-size: 11px; line-height: 16px; margin-left: 8px;">
-							请再次核实相关参数 </span>
+							style="font-size: 11px;color:red; line-height: 16px; margin-left: 8px;">
+							请核实变速箱描述等相关信息 </span>
 					</h3>
 				</div>
 				<div class="tableBox">
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_bsxy_div">
 					</table>
+					<div style="height:5px;background-color:#ececec;"></div>
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_bsxy_jzl_div">
 					</table>
@@ -312,7 +311,6 @@
 				//汽车类型
 				$(".typeBox-ul").on("click","li",function(){
 					var idv=this.id;
-					showLoad();
 					getCarStyleByLyId(idv);
 					$(this).addClass("typeActive").siblings().removeClass("typeActive");
 				})
@@ -356,20 +354,10 @@
 					})();
 				}
 				loadByVin();
-				
 			})
-			function showLoad(){
-	   			return layer.msg('努力中...', {icon: 16,shade: [0.5, '#f5f5f5'],scrollbar: false,offset: '0px', time:100000}) ;
-		   	}
-		   	function closeLoad(index){
-		   		layer.close(index);
-		   	}
-		   	function showTip(){
-		   		layer.msg('恭喜您，加载完成！',{time: 1000,offset: '10px'});
-		   	}
+			
 			//一进来加载数据，所有数据都加载出来
 			function loadByVin(){
-				showLoad();
 				var url =basUrl+"/wcCarQuery/getCarStyleByVin.action";
 				$.ajax({  
 			        url: url,
@@ -398,15 +386,15 @@
 		            	document.getElementById("avia_rhy_div").innerHTML =template("avia_rhy", {
 		            		list: result.aviaRhy
 						});
-		            	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
-		            		list: result.aviaRhyJzl
+		             	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
+		            		value:result.aviaRhyJzl.join(' / ')
 						});
 		            	document.getElementById("avia_bsxy_div").innerHTML =template("avia_bsxy", {
 		            		list: result.aviaBsxy
 						});
-		            	document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
-		            		dxjzl:result.aviaBsxyDxjzl,
-		            		byjzl:result.aviaBsxyByjzl
+		                document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
+		            		dxjzl:result.aviaBsxyDxjzl.join(' / '),
+		            		byjzl:result.aviaBsxyByjzl.join(' / ') 
 						});
 		            	document.getElementById("nbe_div").innerHTML =template("nbe_rec", {
 		            		list: result.nbe
@@ -421,12 +409,9 @@
 		            	document.getElementById("goodRecDiv").innerHTML =template("cx_rec", {
 		            		list: result.ls
 						});
-		            	closeLoad();
-		            	showTip();
 			        	
 			       	},  
 			        error: function (returndata) {
-			        	closeLoad();
 			        }
 			       	
 				}); 
@@ -460,15 +445,15 @@
 		            	document.getElementById("avia_rhy_div").innerHTML =template("avia_rhy", {
 		            		list: result.aviaRhy
 						});
-		            	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
-		            		list: result.aviaRhyJzl
+		             	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
+		            		value:result.aviaRhyJzl.join(' / ')
 						});
 		            	document.getElementById("avia_bsxy_div").innerHTML =template("avia_bsxy", {
 		            		list: result.aviaBsxy
 						});
-		            	document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
-		            		dxjzl:result.aviaBsxyDxjzl,
-		            		byjzl:result.aviaBsxyByjzl
+		                document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
+		            		dxjzl:result.aviaBsxyDxjzl.join(' / '),
+		            		byjzl:result.aviaBsxyByjzl.join(' / ') 
 						});
 		            	document.getElementById("nbe_div").innerHTML =template("nbe_rec", {
 		            		list: result.nbe
@@ -476,16 +461,14 @@
 		            	document.getElementById("hhs_div").innerHTML =template("hhs_rec", {
 		            		list: result.hhs
 						});
-		            	document.getElementById("rc_div").innerHTML =template("rc_rec", {
+		             	document.getElementById("rc_div").innerHTML =template("rc_rec", {
 		            		value: result.rc
 						});
+					
 		         
-		            	closeLoad();
-		            	showTip();
 			        	
 			       	},  
 			        error: function (returndata) {
-			        	closeLoad();
 			        }
 			       	
 				}); 

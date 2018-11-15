@@ -101,7 +101,7 @@
 
 	</head>
 	<body>
-		<header>
+		<header  style="background-color:blue;">
 			<img src="static/img/headTitle.png" class="headTitle">
 			<div class="headsy"><a href="view/wechat/carstyle/index.html"></a></div>
 		</header>
@@ -142,14 +142,14 @@
 			<div class="vinImg"><img src="static/img/vin.png"></div>
 			<div class="vinsb">VIN码识别</div>
 		</div> -->
-		<div id="vinCodeDiv" >
-			  <a onclick="openFile()" id="file_0_a" class="file">
+		<div id="vinCodeDiv">
+			   <a onclick="openFile()" id="file_0_a" class="file"> 
 		<div class="vinMa" >
 			<div class="vinImg"><img src="static/img/vin.png"></div>
 			<div class="vinsb">
 			 <form id="plantotalform" enctype="multipart/form-data" class="mui-input-group" >  
        			VIN码识别
-   		  		<input id="inputImage"   name="inputImage"   type="file"   accept="image/*"  capture="camera" >    
+   		  		<input id="inputImage"   name="inputImage"   type="file"   accept="image/*"  >    
    		  		<img id="textId" alt="" src="" style="width:100px;height:100px;display:none;">    
    		  			<br/>
   	     			<img  id="showImg"  style="width:100px;height:100px;display:none;"/>        		  
@@ -269,9 +269,12 @@
 </div>
 		<script>
 		var inputSelectVal=new Array();
-		 function openFile(){
+		function openFile(){
 			  fileElem = document.getElementById("inputImage");
-			  //fileElem.click();
+			  var u = navigator.userAgent;
+			  if(u.indexOf('iPhone') > -1){
+				  fileElem.click();  
+			  }
 		 };
 		
 		mui.init();
@@ -283,12 +286,18 @@
 	       
 	  
 	        function getIos() {
-	            var ua=navigator.userAgent.toLowerCase();
+	        	var u = navigator.userAgent;
+	        	if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
+	        		return false;
+	        	} else if (u.indexOf('iPhone') > -1) {//苹果手机
+	        		return true;
+	        	}
+	            /* var ua=navigator.userAgent.toLowerCase();
 	            if (ua.match(/iPhone\sOS/i) == "iphone os") {
 	                return true;
 	            } else {
 	                return false;
-	            }
+	            } */
 	        }
 
 			
@@ -353,7 +362,7 @@
 					$(".keyBg").hide();
 				})
 				
-				initVinCodeV();
+				//initVinCodeV();
 			})
 			
 			//如果之前扫过vin码值，则做记录
@@ -442,7 +451,7 @@
 			        },
 			        success: function (result) {
 			        	var rec=JSON.parse(result);
-			        	localStorage.setItem("vinCodeV",rec.data);
+			        	localStorage.setItem("vinCode",rec.data);
 			        //	document.activeElement.blur();//禁止手机自带软键盘弹出
 			        	var vinC=rec.data;
 			        	$('.tab-car li').removeClass("carActive").eq(1).addClass("carActive");
@@ -477,7 +486,7 @@
 				 }else{
 					 mui.toast("车型码不对，请您修改");
 				 }
-			};
+			}; 
 			
 			function findCarStyleList(vinCode){
 			

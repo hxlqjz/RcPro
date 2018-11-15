@@ -232,3 +232,23 @@ select distinct(province) as province from rp_statistics where province is not n
 getStore
 ===
 select distinct(store_name) as storeName from rp_statistics where province=#province#  and store_name is not null;
+
+getSsListByRole
+===
+select DATE_FORMAT(s.scan_time,"%m/%d:%k") as scan_time,
+s.product_model,s.scan_wechat,s.wechat_name,s.nick_name,
+s.wechat_tel from rp_statistics s
+where s.is_ys=0
+@if(!isEmpty(startTime)){
+	and s.scan_time >= #startTime# 
+@}
+@if(!isEmpty(endTime)){
+	and s.scan_time <= #endTime#
+@}
+@if(!isEmpty(province)){
+	and s.province = #province#
+@}
+@if(!isEmpty(storeName)){
+	and s.store_name = #storeName#
+@}
+order by s.scan_time desc;

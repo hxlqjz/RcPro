@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="static/css/common.css">
 <link rel="stylesheet" href="static/css/index.css">
 <link rel="stylesheet" href="static/css/product.css" />
+<link href="static/css/mui.min.css" rel="stylesheet"/>
+<script src="static/js/mui.min.js"></script>
 <script type="text/javascript"
 	src="static/js/plugin/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="static/js/plugin/touchslider.js"></script>
@@ -68,7 +70,6 @@
 			<td>宝丰编码：</td>
 			<td>{{list[j]}}</td>
 		</tr>
-		<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 <script id="bf_hzd" type="text/html">
@@ -77,7 +78,6 @@
 		<td>宝丰编码：</td>
 		<td>{{list[j]}}</td>
 		</tr>
-		<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  	{{/each}}   	
 	</script>
 
@@ -87,7 +87,6 @@
 			<td>奔德士编码：</td>
 			<td>{{list[j]}}</td>
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 <script id="bds_hzd" type="text/html">
@@ -96,48 +95,51 @@
 			<td>奔德士编码：</td>
 			<td>{{list[j]}}</td>
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}} 
 	</script>
 <script id="avia_rhy" type="text/html">
 {{each list as value j}}
 	  <tr>
-		<td>AVIA编码：</td>
+		<td style="width:35%">AVIA编码：</td>
 		<td>{{list[j]}}</td>
 		</tr>
- 	<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 	<script id="avia_rhy_byjzl" type="text/html">
+		{{if value != null && value != ""}}
  		<tr>
-			<td>保养加注量(L)：</td>
-			<td>{{value}}</td>
+			<td style="width:35%">保养加注量(L)：</td>
+			<td style="text-align:left;"><span style="color:red;">{{value}}</span></td>
 		</tr>
+{{/if}}
 	</script>
 	<script id="avia_bsxy" type="text/html">
 	{{each list as value j}}
 	   <tr>
-			<td>AVIA编码：</td>
+			<td style="width:35%">AVIA编码：</td>
 			<td>{{list[j].info}}</td>
 		</tr>
  		{{if   list[j].bz !=null && list[j].bz!='' }}
  			<tr>
-			<td>备注:</td>
-			<td>{{list[j].bz}}</td>
+			<td><span style="font-size:11px;color:blue">备注:</span></td>
+			<td><span style="font-size:11px;color:blue;word-wrap:break-word;word-break:break-all;">{{list[j].bz}}</span></td>
 		</tr>
 		{{/if}} 
-	<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  	{{/each}}   
 	</script>
 	<script id="avia_bsxy_jzl" type="text/html">
+{{if byjzl != null && byjzl != ""}}
  		<tr>
-			<td>保养加注量(L)：</td>
-			<td>{{byjzl}}</td>
+			<td style="width:35%">保养加注量(L)：</td>
+			<td style="text-align:left;"><span style="color:red;">{{byjzl}}</span></td>
 		</tr>
+{{/if}}
+{{if dxjzl != null && dxjzl != ""}}
 		<tr>
-			<td>大修加注量(L)：</td>
-			<td>{{dxjzl}}</td>
+			<td  style="width:35%">大修加注量(L)：</td>
+			<td style="text-align:left;"><span style="color:red">{{dxjzl}}</span></td>
 		</tr>
+{{/if}}
 	</script>
 <script id="nbe_rec" type="text/html">
 {{each list as value j}}
@@ -153,7 +155,6 @@
 		</tr>
 	{{/if}} 
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script> 
 
@@ -171,7 +172,6 @@
 		</tr>
 		{{/if}} 
 		</tr>
-<tr><td colspan="2" style="background-color:#ececec;height:3px"></td></tr>
  {{/each}}   
 	</script>
 
@@ -189,8 +189,8 @@
 					<tr><td>平台号:</td><td><span>{{value.pth}}</span></td></tr>
 					<tr><td>变速器描述:</td><td><span>{{value.bsqms}}</span></td></tr>
 					<tr><td>档位数:</td><td><span>{{value.dws}}</span></td></tr>
-					<tr><td>前制动器类型:</td><td><span>{{value.qzdlx}}</span></td></tr>
-					<tr><td>后制动器类型:</td><td><span>{{value.hzdlx}}</span></td></tr>
+					<tr><td>前制动器类型:</td><td><span>{{value.qzdqlx}}</span></td></tr>
+					<tr><td>后制动器类型:</td><td><span>{{value.hzdqlx}}</span></td></tr>
 					<tr><td>助力类型:</td><td><span>{{value.zllx}}</span></td></tr>
 					<tr><td>轴距(mm):</td><td><span>{{value.zj}}</span></td></tr>
 					<tr><td>轮毂规格:</td><td><span>{{value.lggg}}</span></td></tr>
@@ -216,19 +216,19 @@
 		<div class="productSelectBox" id="optBox">
 			<div class="productSelect clearfix">
 				<div class="proSelect">
-					<select id="plOpt" onchange="changeSelect(this)"
+					<select id="plmsOpt" onchange="changeSelect('plmsOpt')"
 						class="mui-btn mui-btn-block">
-						<option value="" selected="selected">排量</option>
+						<option value="" disabled="">排量</option>
 					</select>
 				</div>
 				<div class="proSelect">
-					<select id="nkOpt" onchange="changeSelect(this)"
-						class="mui-btn mui-btn-block">
-						<option value="" selected="selected">年款</option>
+					<select id="nkOpt" name="年款" onchange="changeSelect('nkOpt')"
+						class="mui-btn mui-btn-block selectbtn">
+					 	<option value="" selected="selected">年款</option>
 					</select>
 				</div>
 				<div class="proSelect">
-					<select id="ptOpt" onchange="changeSelect(this)"
+					<select id="pthOpt" name="平台" onchange="changeSelect('pthOpt')"
 						class="mui-btn mui-btn-block">
 						<option value="" selected="selected">平台</option>
 					</select>
@@ -236,19 +236,19 @@
 			</div>
 			<div class="productSelect clearfix">
 				<div class="proSelect">
-					<select id="fdjOpt" onchange="changeSelect(this)"
+					<select id="fdjxhOpt" name="发动机" onchange="changeSelect('fdjxhOpt')"
 						class="mui-btn mui-btn-block">
 						<option value="" selected="selected">发动机</option>
 					</select>
 				</div>
 				<div class="proSelect">
-					<select id="bsxOpt" onchange="changeSelect(this)"
+					<select id="bsqmsOpt" name="变速箱" onchange="changeSelect('bsqmsOpt')"
 						class="mui-btn mui-btn-block">
 						<option value="" selected="selected">变速箱</option>
 					</select>
 				</div>
 				<div class="proSelect">
-					<select id="lgOpt" onchange="changeSelect(this)"
+					<select id="lgggOpt" name="轮毂" onchange="changeSelect('lgggOpt')"
 						class="mui-btn mui-btn-block">
 						<option value="" selected="selected">轮毂</option>
 					</select>
@@ -256,13 +256,13 @@
 			</div>
 			<div class="productSelect productSelect1 clearfix">
 				<div class="proSelect">
-					<select id="xsmcOpt" onchange="changeSelect(this)"
-						class="mui-btn mui-btn-block">
+					<select id="xsmcOpt" name="销售名称" onchange="changeSelect('xsmcOpt')"
+						class="mui-btn mui-btn-block selectbtn">
 						<option value="" selected="selected">销售名称</option>
 					</select>
 				</div>
 				<div class="proSelect">
-					<select id="scnfOpt" onchange="changeSelect(this)"
+					<select id="scnfOpt" name="生产年份"  onchange="changeSelect('scnfOpt')"
 						class="mui-btn mui-btn-block">
 						<option value="" selected="selected">生产年份</option>
 					</select>
@@ -319,14 +319,15 @@
 					<img src="static/img/images/foot_15.jpg" />
 					<h3>
 						润滑油<span
-							style="font-size: 11px; line-height: 16px; margin-left: 8px;">
-							请再次核实相关参数 </span>
+							style="font-size: 11px;color:red; line-height: 16px; margin-left: 8px;">
+							数据仅供参考，准确信息以用户手册为准 </span>
 					</h3>
 				</div>
 				<div class="tableBox">
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_rhy_div">
 					</table>
+					<div style="height:5px;background-color:#ececec;"></div>
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_rhy_byjzl_div">
 					</table>
@@ -335,14 +336,15 @@
 					<img src="static/img/images/foot_15.jpg" />
 					<h3>
 						变速箱油 <span
-							style="font-size: 11px; line-height: 16px; margin-left: 8px;">
-							请再次核实相关参数 </span>
+							style="font-size: 11px;color:red; line-height: 16px; margin-left: 8px;">
+							请核实变速箱描述等相关信息 </span>
 					</h3>
 				</div>
 				<div class="tableBox">
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_bsxy_div">
 					</table>
+					<div style="height:5px;background-color:#ececec;"></div>
 					<table border="0" cellspacing="0" cellpadding="" width="100%"
 						id="avia_bsxy_jzl_div">
 					</table>
@@ -438,12 +440,14 @@
 		
 		
 	    //this is start --------------
+	    mui.init();
 			$(function() {
 				var htm=localStorage.getItem("carBrand")+"<span >"+localStorage.getItem("carFactory")+"&nbsp;&nbsp;&nbsp;"+localStorage.getItem("carModel")+"</span>";	
 				$("#carBrand").html(htm);
 				$('.selectImg').css("display","none");
-				getOptByStyle();
-				changeSelect();
+				getPlByStyle();
+				//changeSelect('plmsOpt');
+				
 				var tt = new TouchSlider({
 					id: 'slider',
 					'auto': '-1',
@@ -479,18 +483,19 @@
         	   var id=$(this).find("select").attr("id");
         	    $("#"+id).removeClass("selectDisplay");
         	   var idv=id.substring(0,1).toUpperCase()+id.substring(1);
- 
           });
+			
 			})
 
 		//-------select all---start-----
-		    //查找所有数据
-		 function getOptByStyle(){
-				var url = basUrl + "/wcCarQuery/getOptByStyle.action";
+		//先查找排量，其他选项暂时不查找
+		var dataArr=new Array();
+		 function getPlByStyle(){
+			var url = basUrl + "/wcCarQuery/getPlByStyle.action";
 	    	var param = {
-	    			carBrand:localStorage.getItem("carBrand"),
-	            	carModel:localStorage.getItem("carModel"),
-	            	carFactory:localStorage.getItem("carFactory")
+    			carBrand:localStorage.getItem("carBrand"),
+            	carModel:localStorage.getItem("carModel"),
+            	carFactory:localStorage.getItem("carFactory")
 	    	};
 	    	
 	    	$.ajax({
@@ -501,49 +506,137 @@
 	    		timeout:10000,
 	    		async:false,
 	    		success:function(result){
-	    			
-	    			optArry = result;
-	    			var pl = result.pl;
-	 
-	    			result.pl.forEach(function(value,index,array){
-	    				$("#plOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.nk.forEach(function(value,index,array){
-	    				$("#nkOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.pt.forEach(function(value,index,array){
-	    				$("#ptOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.fdj.forEach(function(value,index,array){
-	    				$("#fdjOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.bsx.forEach(function(value,index,array){
-	    				$("#bsxOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.lg.forEach(function(value,index,array){
-	    				$("#lgOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.xsmc.forEach(function(value,index,array){
-	    				$("#xsmcOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			result.scnf.forEach(function(value,index,array){
-	    				$("#scnfOpt").append("<option value='"+value+"'>"+value+"</option>");
-					});
-	    			
-	    			//加载option
+	 			//	console.log("===="+result)
+	    			result.forEach(function(value,index,array){
+	    				$("#plmsOpt").append("<option value='"+value.carDisplace+"'>"+value.carDisplace+"</option>");
+					}); 
+	 				$("#plmsOpt").val("");
+	 				//获取根据排量查询的所有信息
+	 				getOptsByPl();
 	    		}
 	    	}); 
 	    }
+	    
+	    function getOptsByPl(){
+	    	var plms = $("#plOpt").val();
+	    	var url = basUrl + "/wcCarQuery/getOptsByPl.action";
+	    	var param = {
+    			carBrand:localStorage.getItem("carBrand"),
+            	carModel:localStorage.getItem("carModel"),
+            	carFactory:localStorage.getItem("carFactory"),
+            	plOpt:plms
+	    	};
+	    	
+	    	$.ajax({
+	    		url:url,
+	    		dataType:"json",
+	    		type:"POST",
+	    		data:param,
+	    		timeout:10000,
+	    		async:false,
+	    		success:function(result){
+	 			    dataArr = result;
+	    			//加载其他选项
+	 				var opts = document.getElementById("optBox").getElementsByTagName("select");
+	 				for(var i=0; i<opts.length; i++){
+	 					console.log(opts[i].id);
+	 					if(opts[i].id != "plmsOpt"){
+	 						setOption(opts[i].id);
+	 					}
+	 		    		
+	 		    	} 
+	    		}
+	    	}); 
+	    }
+	    function setOption(opt){
+	    	var optSelect = $("#"+opt).val();
+	    	$("#"+opt).val("");
+	    	var conditions = resetCondition();
+	    	var sOpt = document.getElementById(opt);
+	        console.log(sOpt+"condition =="+conditions);
+	    	//设置每个参数
+	    	var opt_val = null;
+	    	
+	    	 
+	    	//清空select，并且设置第一个值
+	    	var firstText = sOpt.getAttribute("name");
+	    	sOpt.options.length = 0; 
+	    	sOpt.options[0] = new Option(firstText,"");
+	    	
+	    	var j = 0; 
+	    	var optionval = [];
+	        for(var i=0; i<dataArr.length; i++){
+	    		var row = dataArr[i];
+	    		
+	    		if(eval(conditions)){ 
+	    			if(opt == "nkOpt"){opt_val = row.nk;}
+	    			if(opt == "pthOpt"){opt_val = row.pth;}
+	    			if(opt == "fdjxhOpt"){opt_val = row.fdjxh;}
+	    			if(opt == "bsqmsOpt"){opt_val = row.bsqms;}
+	    			if(opt == "lgggOpt"){opt_val = row.lggg;}
+	    			if(opt == "xsmcOpt"){opt_val = row.xsmc;}
+	    			if(opt == "scnfOpt"){opt_val = row.scnf;}
+	    			
+	    			if(optionval.indexOf(opt_val) == -1 && !(opt_val.replace(/(^s*)|(s*$)/g, "").length ==0)){
+	    				optionval.push(opt_val);
+	    				sOpt.options[j+1]=new Option(opt_val,opt_val);
+	    				if(optSelect != null && opt_val == optSelect){
+	    					sOpt.options[j+1].selected=true;	
+	    				}
+	        	    	j++;
+	    			}
+	    			
+	    		}
+	    	}
+	    }
+ 		
+	    function resetCondition(){
+	    	var conditions = ""; //if条件
+	    	var opts = document.getElementById("optBox").getElementsByTagName("select");
+			for(var i=0; i<opts.length; i++){
+				var optId = opts[i].id.substring(0,opts[i].id.length-3);
+				var opt_val = $("#"+opts[i].id).val();
+				if(opt_val != null && opt_val != ""){
+					 conditions+="dataArr[i]."+optId+"=='"+opt_val+"'&&";
+				}
+	    		
+	    	} 
+			conditions+="1==1";
+	    	return conditions;
+	    	
+	    	
+	    	
+	    }
+		 
 		//每次改变，重新加载数据，获取所有opt的参数
 	    function changeSelect(t){
-	    	showLoad();
-	    	var opts = document.getElementById("optBox").getElementsByTagName("select");
+			//如果t是排量的话，清空所有选项 
+			var opts = document.getElementById("optBox").getElementsByTagName("select");
+			console.log(t)
+			var plmsVal = $("#plmsOpt").val();
+			
+			if(t == "plmsOpt"){
+				console.log("===")
+				
+				for(var j=0; j<opts.length; j++){
+		    		if(opts[j].id != "plmsOpt"){
+		    			document.getElementById(opts[j].id).options[0].selected = true;
+		    		}
+		    	} 
+			}else{
+				if(plmsVal == null || plmsVal == ""){
+					mui.alert("请先选择排量");
+					document.getElementById(t).options[0].selected = true;
+					return ; 
+				}
+			}
 	    	var param = {
 	    			carBrand:localStorage.getItem("carBrand"),
 	            	carModel:localStorage.getItem("carModel"),
 	            	carFactory:localStorage.getItem("carFactory")
 	    	};
 	    	for(var i=0; i<opts.length; i++){
+	    		
 	    		var value = $("#"+opts[i].id).val();
 	    		param[opts[i].id] = value;
 	    	}
@@ -572,15 +665,16 @@
 	            	document.getElementById("avia_rhy_div").innerHTML =template("avia_rhy", {
 	            		list: result.aviaRhy
 					});
+	            	console.log(result.aviaRhyJzl.join(' '))
 	            	document.getElementById("avia_rhy_byjzl_div").innerHTML =template("avia_rhy_byjzl", {
-	            		list: result.aviaRhyJzl
+	            		value:result.aviaRhyJzl.join(' / ')
 					});
 	            	document.getElementById("avia_bsxy_div").innerHTML =template("avia_bsxy", {
 	            		list: result.aviaBsxy
 					});
 	            	document.getElementById("avia_bsxy_jzl_div").innerHTML =template("avia_bsxy_jzl", {
-	            		dxjzl:result.aviaBsxyDxjzl,
-	            		byjzl:result.aviaBsxyByjzl
+	            		dxjzl:result.aviaBsxyDxjzl.join(' / '),
+	            		byjzl:result.aviaBsxyByjzl.join(' / ')
 					});
 	            	document.getElementById("nbe_div").innerHTML =template("nbe_rec", {
 	            		list: result.nbe
@@ -592,22 +686,19 @@
 	            		value: result.rc
 					});
 	            	
-	            	closeLoad();
-	            	showTip();
+	            	var opts = document.getElementById("optBox").getElementsByTagName("select");
+	 				for(var i=0; i<opts.length; i++){
+	 					if(opts[i].id != "plmsOpt"){
+	 						setOption(opts[i].id);
+	 					}
+	 		    	} 
+	    		},
+	    		error:function(){
 	    		}
 	    	}); 
 	    	console.log(param)
 	    }
-	    function showLoad(){
-	   		return layer.msg('努力中...', {icon: 16,shade: [0.5, '#f5f5f5'],scrollbar: false,offset: '0px', time:100000}) ;
-	   	}
-	   	function closeLoad(index){
-	   		layer.close(index);
-	   	}
-	   	function showTip(){
-	   		layer.msg('恭喜您，加载完成！',{time: 1000,offset: '10px'});
-	   	}
-
+	   
 		</script>
 
 </body>

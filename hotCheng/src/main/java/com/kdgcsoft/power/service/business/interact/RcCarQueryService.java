@@ -26,18 +26,10 @@ public class RcCarQueryService extends BaseService {
 		return bsh.getMapList("business.interact.rcCarQuery.getAllCarStyle",para);
 	}
 
-	@Transactional(readOnly = true)
-	public List<Map<String, Object>> getOptByStyle(String carBrand, String carModel, String carFactory) {
-		Map<String, Object> para = new HashMap<String, Object>();
-		para.put("carBrand", carBrand);
-		para.put("carModel", carModel);
-		para.put("carFactory",carFactory);
-		return bsh.getMapList("business.interact.rcCarQuery.getOptByStyle",para);
-	}
 	
 	@Transactional(readOnly = true)
-    public List<Map<String, Object>> getCarStyleByKey (String carBrand,String carModel,String carFactory,String pl,
-    		String nk,String pt,String fdj,String bsx,String lg,String xsmc,String scnf){
+    public List<Map<String, Object>> getCarStyleByKey (String carBrand,String carModel,String carFactory,
+    		String pl, String nk,String pt,String fdj,String bsx,String lg,String xsmc,String scnf){
     	Map<String,Object> para = new HashMap<String,Object>();	 	    	
     	para.put("carBrand", carBrand);
     	para.put("carModel", carModel);
@@ -68,6 +60,19 @@ public class RcCarQueryService extends BaseService {
     	}
     	return bsh.getMapList("business.interact.rcCarQuery.getCarStyleByKey",para);
 	}
+	@Transactional(readOnly = true)
+    public List<Map<String, Object>> getOptsByPl(String carBrand,String carModel,String carFactory, String pl){
+    	Map<String,Object> para = new HashMap<String,Object>();	 	    	
+    	para.put("carBrand", carBrand);
+    	para.put("carModel", carModel);
+    	para.put("carFactory", carFactory);
+    
+    	if(StringUtils.isNoneBlank(pl)){
+    		para.put("pl", pl);
+    	}
+    	
+    	return bsh.getMapList("business.interact.rcCarQuery.getOptsByPl",para);
+	}
 	
 	@Transactional(readOnly = true)
     public List<Map<String, Object>> getFactoryAndModelByBrand (String carBrand){
@@ -83,4 +88,12 @@ public class RcCarQueryService extends BaseService {
     	return bsh.getMapList("business.interact.rcCarQuery.getCarStyleByLyId",para);
 	}
 
+	@Transactional(readOnly = true)
+	public List<Map<String, Object>> getPlByStyle(String carBrand, String carModel, String carFactory) {
+		Map<String, Object> para = new HashMap<String, Object>();
+		para.put("carBrand", carBrand);
+		para.put("carModel", carModel);
+		para.put("carFactory",carFactory);
+		return bsh.getMapList("business.interact.rcCarQuery.getPlByStyle",para);
+	}
 }

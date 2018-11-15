@@ -1,6 +1,7 @@
 package com.kdgcsoft.power.service.business.interact;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -277,6 +278,37 @@ public class RpStatisticsService  extends BaseService{
     	}
 		
     }
+	
+	
+	@Transactional(readOnly = true)
+    public List<Map<String, Object>> getSsListByRole(String scanWechat){
+    	Map<String,Object> para = new HashMap<String,Object>();	  
+    	//根据微信号查找他的角色权限
+    	RpUser u = rpUserService.getInfoByWechat(scanWechat);
+    	RpStore s = rpStoreService.getInfoByIdCode(u.getIdCode());
+    	
+    	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		Date date=new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DAY_OF_MONTH, -3);
+		date = calendar.getTime();
+		String start = sdf.format(date) + " 00:00:00";
+    	String end = sdf.format(new Date()) + " 23:59:59";
+    	System.out.println("time == "+start+"=="+end);
+    	para.put("startTime", start);
+    	para.put("endTime", end);
+    	para.put("province", s.getProvince());
+    	para.put("storeName", s.getStoreName());
+    	
+    	Long rolePower = u.getRolePower();
+    	List<Map<String, Object>> list = new ArrayList<>();
+    	if(rolePower == 2){
+    		 list = bsh.getMapList("business.interact.rpStatistics.getSsListByRole",para);
+    	}
+    	return list;
+    }
+	
 	
 	@Transactional(readOnly = true)
     public List<Map<String, Object>> getProvince(){

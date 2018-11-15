@@ -74,44 +74,43 @@ public class RcCarQueryController extends BaseController {
 		return map;
 	};
 
+	
+	
 	/**
-	 * 根据品牌，厂家车型，获取参数， 排量，年款，平台，发动机，变速箱，轮毂，销售名称，生产年份
-	 * 
+	 * 获取排量选项
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/getOptByStyle", method = RequestMethod.POST)
+	@RequestMapping(value = "/getPlByStyle", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> getOptByStyle(HttpServletRequest request) {
+	public Object getPlByStyle(HttpServletRequest request) {
 		String carBrand = request.getParameter("carBrand");
 		String carModel = request.getParameter("carModel");
 		String carFactory = request.getParameter("carFactory");
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		List<Map<String, Object>> ls = rcCarQueryService.getOptByStyle(
+		List<Map<String, Object>> ls = rcCarQueryService.getPlByStyle(
 				carBrand, carModel, carFactory);
-		Map<String, Object> rs = ls.get(0);
-		// 获取结果集，将结果以，分割，放入结果集中
-		String[] plArry = convertStrToArray(rs.get("pl").toString());
-		String[] nkArry = convertStrToArray(rs.get("nk").toString());
-		String[] ptArry = convertStrToArray(rs.get("pt").toString());
-		String[] fdjArry = convertStrToArray(rs.get("fdj").toString());
-		String[] bsxArry = convertStrToArray(rs.get("bsx").toString());
-		String[] lgArry = convertStrToArray(rs.get("lg").toString());
-		String[] xsmcArry = convertStrToArray(rs.get("xsmc").toString());
-		String[] scnfArry = convertStrToArray(rs.get("scnf").toString());
-
-		map.put("pl", plArry);
-		map.put("nk", nkArry);
-		map.put("pt", ptArry);
-		map.put("fdj", fdjArry);
-		map.put("bsx", bsxArry);
-		map.put("lg", lgArry);
-		map.put("xsmc", xsmcArry);
-		map.put("scnf", scnfArry);
-		return map;
+		return ls;
 	};
+	
+	/**
+	 * 获取除排量外的其他参数，参数之间相关联
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/getOptsByPl", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> getOptsByPl(HttpServletRequest request) {
+		String carBrand = request.getParameter("carBrand");
+		String carModel = request.getParameter("carModel");
+		String carFactory = request.getParameter("carFactory");
+		String field = request.getParameter("field"); //这是查询的参数字段
+		String pl = request.getParameter("plOpt");
 
+		List<Map<String, Object>> ls = rcCarQueryService.getOptsByPl(carBrand, carModel, carFactory,pl);
+		return ls;
+	};
 	/**
 	 * 根据条件查找车型数据 宝丰制动片 奔德士制动片 avia润滑油，变速箱油 泰科能波尔电池 火花塞 热骋电池
 	 * 
@@ -126,12 +125,12 @@ public class RcCarQueryController extends BaseController {
 		String carModel = request.getParameter("carModel");
 		String carFactory = request.getParameter("carFactory");
 
-		String pl = request.getParameter("plOpt");
+		String pl = request.getParameter("plmsOpt");
 		String nk = request.getParameter("nkOpt");
-		String pt = request.getParameter("ptOpt");
-		String fdj = request.getParameter("fdjOpt");
-		String bsx = request.getParameter("bsxOpt");
-		String lg = request.getParameter("lgOpt");
+		String pt = request.getParameter("pthOpt");
+		String fdj = request.getParameter("fdjxhOpt");
+		String bsx = request.getParameter("bsqmsOpt");
+		String lg = request.getParameter("lgggOpt");
 		String xsmc = request.getParameter("xsmcOpt");
 		String scnf = request.getParameter("scnfOpt");
 
@@ -234,26 +233,29 @@ public class RcCarQueryController extends BaseController {
 		List<Map<String, Object>> rec = new ArrayList<Map<String, Object>>();
 		List<String> models = new ArrayList<String>();
 		Map<String, Object> en = new HashMap<String, Object>();
-		for (int i = 0; i < ls.size(); i++) {
+		
+		for (int i = 0; i < ls.size(); i++) {    
 			Map<String, Object> map = ls.get(i);
-			if (!en.containsKey("carFactory")) {
+			if (!en.containsKey("carFactory")) {   
 				en.put("carFactory", map.get("carFactory"));
-			}
+			} 
 			if (en.get("carFactory").equals(map.get("carFactory"))) {
 				if (!models.contains(map.get("carModel").toString())) {
 					models.add(map.get("carModel").toString());
 				}
 				en.put("carModels", models);
 			} else {
-				rec.add(en);
-				en = new HashMap<String, Object>();
-				models = new ArrayList<String>();
+				rec.add(en); 
+				en = new HashMap<String, Object>();   
+				models = new ArrayList<String>();    
+				en.put("carFactory", map.get("carFactory"));
 				if (!models.contains(map.get("carModel").toString())) {
-					models.add(map.get("carModel").toString());
-				}
+					models.add(map.get("carModel").toString()); 
+				} 
 				en.put("carModels", models);
-			}
-			if (i == ls.size() - 1) {
+				
+			} 
+			if (i == ls.size()-1) {
 				rec.add(en);
 			}
 		}
@@ -282,9 +284,9 @@ public class RcCarQueryController extends BaseController {
 		for (int i = 0; i < size; i++) {
 			JSONObject ob = arr.getJSONObject(i);
 			ids[i] = ob.get("LevelId").toString();
-			String shiftMemo = ob.get("TransmissionModel").toString();
+			String shiftMemo = ob.get("TransmissionModel")!= null ?ob.get("TransmissionModel").toString():"" ;
 			if (!StringUtils.isEmpty(shiftMemo)) {
-				List<Map<String, Object>> ls = carStyleService
+				List<Map<String, Object>> ls = carStyleService 
 						.findVinRecordList(ids[i]);
 				if (ls.size() == 0) {
 					carStyleService.insertVinRecordList(ids[i], shiftMemo,
@@ -308,6 +310,7 @@ public class RcCarQueryController extends BaseController {
 		if(StringUtil.isEmpty(lyIds)){
 			lyIds = newIds;
 		}
+		System.out.println("RcCarQueryController.getCarStyleByLyId()"+lyIds);
 		List<Map<String, Object>> ls = rcCarQueryService.getCarStyleByLyId(lyIds);
 		// 获取结果集，将结果以，分割，放入结果集中
 		// 各个模块数据放进去

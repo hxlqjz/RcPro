@@ -3,22 +3,27 @@ getAllCarStyle
 select  car_brand,car_factory,car_model,car_query 
 from rc_car_query;
 
-getOptByStyle
-===
-select 
-	group_concat(distinct plms) as pl,
-  group_concat(distinct nk) as nk,
-  group_concat(distinct fdjxh) as fdj,
-	group_concat(distinct pth) as pt,
-	GROUP_CONCAT(distinct bsqms) as bsx,
-	GROUP_CONCAT(distinct lggg) as lg,
-	GROUP_CONCAT(DISTINCT xsmc) as xsmc,
-	GROUP_CONCAT(DISTINCT scnf) as scnf
-from rc_car_style
-where pp= #carBrand#
-and cj= #carFactory#
-and cx = #carModel#;
 
+getPlByStyle
+===
+select distinct car_displace
+from rc_car_dis_query
+where car_brand= #carBrand#
+and car_factory= #carFactory#
+and car_model = #carModel#;
+
+getOptsByPl
+===
+select pp,cj,cx,nk,plms,pth,fdjxh,bsqms,lggg,xsmc,scnf
+from rc_car_style
+where pp=#carBrand# 
+and cj=#carFactory#
+and cx = #carModel#
+@if(!isEmpty(pl)){
+	and plms=#pl#
+@}
+
+;
 getCarStyleByKey
 ===
 select ly_id,pp,cj,cx,nk,plms,pth,fdjxh,bsqms,lggg,xsmc,scnf,pfbz,

@@ -106,50 +106,23 @@
 $(document).ready(function(e) {
 	var url=basUrl+"/vinCode/findThePic.action";
     $("#queVinCodeV").attr("src",url).show();
-    $("#confirmVin").val(localStorage.getItem("vinCodeV"));
+    $("#confirmVin").val(localStorage.getItem("vinCode"));
 });
 
 function closeCutWin(){
 	window.history.back();
 };
 
-function findCarStyleList(vinCode){
-	var url =basUrl+"/vinCode/findCarStyleList.action";
-	$.ajax({  
-        url: url,
-        type: 'POST',  
-        data : {
-        vinCode:vinCode
-		},  
-        timeout : 10000, //超时时间设置，单位毫秒
-        async: false,  
-        success: function (result) {
-        	var rec=JSON.parse(result);
-        	var res=rec.data;
-        	var rowList = new Array(res.length);
-        	for(var i=0;i<rowList.length;i++){
-				rowList[i]=res[i]
-			}
-        	document.getElementById("goodRecDiv").innerHTML =template("que_rec", {
-				list: rowList
-			});
-        	$("#vinModal").modal('show');  //手动打开
-       	},  
-        error: function (returndata) {
-        
-        }
-       	
-		});
-};
+
 
 
 $('#carTypeSelect').click(function(){
 	var vinCode= $("#confirmVin").val();
 	 var leng=vinCode.length;
-	 localStorage.setItem("vinCodeV",vinCode);
+	 localStorage.setItem("vinCode",vinCode);
 	 if(leng==17){
 		// findCarStyleList(vinCode);
-		 window.open("view/page/product_1.html");	
+		 window.open("view/wechat/carstyle/product_1.html");	
 	 }else{
 		 alert("车型码不对，请您修改");
 	 }
