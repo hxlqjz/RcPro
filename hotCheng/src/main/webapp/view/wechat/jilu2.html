@@ -33,6 +33,7 @@
 				<button class="jiluBtn" id="current" style="width:45%;float:right;">实时</button>
 			</div>
 						<!--选择个人时-->
+			<div id="tab">
 			<div style="margin-bottom: 20px;" class="clearfix" id="telDiv">
 				<div style="width: 75%;float: left;">
 					<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable">
@@ -44,17 +45,17 @@
 					<a id="atel"><img src="static/img/phone.png" style="height: 53px;margin: auto;"/></a>
 				</div>
 			</div>
-		
+		</div>
 			<table cellpadding="0" id="tjtable" cellspacing="0" width="100%" class="jiluTable">
 				<tr id="tjlist">
 					<th>能佰尔型号</th><th width="25%">统计</th>
 				</tr>
-				<tr><td>合计</td><td id="count"></td></tr>	
+				<tr><td>合计数量</td><td id="count"></td></tr>	
 			</table> 
 				<span id="info" style="font-size:10px;color:blue;">备注：三天以内实时销售信息</span>
 				<table cellpadding="0" id="sstable" cellspacing="0" width="100%" class="jiluTable"> 
 				<tr id="sslist">
-					<th>时间</th><th>型号</th><th>销售人员</th><th>拨号</th>  
+					<th>时间</th><th>型号</th><th>销售人员</th><th>拨号</th>
 				</tr>
 			</table>
 		</div>
@@ -70,7 +71,7 @@
 		</footer>	
 	<script>
 		window.addEventListener("pageshow", ready);
-		var scanWechat =  "od1hc1SpZFJmWOlwBY1O8wvkTQ0k";//localStorage.getItem("scanWechat");
+		var scanWechat =  localStorage.getItem("scanWechat");
 		function ready(){ 
 			$("#telDiv").hide();
 			//设置时间初始值为当月
@@ -117,12 +118,25 @@
 						if(s != null && s != undefined && s != "" && id == "end"){
 							startDate = s;
 						} 
-						//alert(endDate.substring(0,4)+"-"+endDate.substring(5,7)+"="+endDate.substring(8,10)) 
-						_self.picker = new mui.DtPicker({
-							type:"date",
-							beginDate:new Date(startDate.substring(0,4),startDate.substring(5,7),startDate.substring(8,10)) ,
-							endDate:new Date(endDate.substring(0,4),endDate.substring(5,7),endDate.substring(8,10)) 
-						});
+						var minD = new Date();
+						var maxD = new Date(); 
+						var currD = new Date();
+						minD.setFullYear(startDate.substring(0,4),startDate.substring(5,7)-1,startDate.substring(8,10));
+						maxD.setFullYear(endDate.substring(0,4),endDate.substring(5,7)-1,endDate.substring(8,10)); 
+						currD.setFullYear(year,mon-1,day);
+						if(id == "start"){
+							_self.picker = new mui.DtPicker({
+								type:"date",
+								endDate:maxD
+							});
+						}else{
+							_self.picker = new mui.DtPicker({
+								type:"date",
+								beginDate:minD,
+								endDate:currD
+							});
+						}
+						
 						_self.picker.show(function(rs) {
 							document.getElementById(id).innerHTML = rs.text;
 							document.getElementById(id+"Date").value = rs.text;
@@ -226,8 +240,8 @@
 			
 			$("#sstable").hide();
 			$("#info").hide();
+			$("#tab").show();
 			$("#tjtable").show();
-			
 			var chooseWechat = document.getElementById("chooseWechat").value;
 			var start = document.getElementById("startDate").value;
 			var end = document.getElementById("endDate").value;
@@ -247,7 +261,7 @@
 					$("#sum").text("");
 					var tjHtml = "";
 					for(var i=0;i<result.list.length;i++){
-						tjHtml += "<tr><td>"+ result.list[i].productModel +"</td><td>"+ result.list[i].count +"</td></tr>";
+						tjHtml += "<tr><td style='font-size:11px;'>"+ result.list[i].productModel +"</td><td style='font-size:11px;'>"+ result.list[i].count +"</td></tr>";
 					}
 					$("#tjlist").after(tjHtml);
 					$("#count").text( result.count);
@@ -262,8 +276,9 @@
 			
 			$("#sstable").show();
 			$("#info").show();
+			$("#tab").hide();
 			$("#tjtable").hide();
-			$("#telDiv").hide();
+			//$("#telDiv").hide();
 			
 			var start = document.getElementById("startDate").value;
 			var end = document.getElementById("endDate").value;
@@ -283,11 +298,11 @@
 					var ssHtml = "";
 					for(var i=0;i<result.length;i++){
 						if(result[i].wechatTel!=null && result[i].wechatTel!=""){
-							ssHtml += "<tr><td>"+ result[i].scanTime +"</td><td>"+ result[i].productModel +
-							"</td><td>"+ result[i].wechatName +"</td><td><a href='tel:"+result[i].wechatTel+"'><img src='static/img/gphone.png' /></a></td></tr>";
+							ssHtml += "<tr><td style='font-size:11px;'>"+ result[i].scanTime +"</td><td style='font-size:11px;'>"+ result[i].productModel +
+							"</td><td style='font-size:11px;'>"+ result[i].wechatName +"</td><td style='font-size:11px;'><a href='tel:"+result[i].wechatTel+"'><img src='static/img/gphone.png' /></a></td></tr>";
 						}else{
-							ssHtml += "<tr><td>"+ result[i].scanTime +"</td><td>"+ result[i].productModel +
-							"</td><td>"+ result[i].wechatName +"</td><td><img src='static/img/grayphone.png'/></td></tr>";
+							ssHtml += "<tr><td style='font-size:11px;'>"+ result[i].scanTime +"</td><td style='font-size:11px;'>"+ result[i].productModel +
+							"</td><td style='font-size:11px;'>"+ result[i].wechatName +"</td><td><img src='static/img/grayphone.png'/></td></tr>";
 						}
 						
 					}

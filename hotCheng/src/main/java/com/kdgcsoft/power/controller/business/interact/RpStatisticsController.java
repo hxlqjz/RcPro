@@ -6,6 +6,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -226,4 +227,55 @@ public class RpStatisticsController extends BaseController {
 		return slist;
 	}
 
+	/**
+	 * 个人记录查询中，根据微信号查询本人安装的车牌号
+	 * 
+	 * @param wechatNo
+	 * @param 
+	 * @return
+	 */
+	@RequestMapping("getPlateByWechat")
+	@ResponseBody
+	public Object getPlateByWechat(HttpServletRequest request) {
+		String scanWechat = request.getParameter("scanWechat");
+		List<String> plateList = new ArrayList<String>();
+		RpUser u = rpUserService.getInfoByWechat(scanWechat);
+		if(StringUtil.isNotEmpty(u)){
+			Long role = u.getRolePower();
+			if(role == 3){
+				//获取车牌号结果
+				List<RpStatistics> list = rpStatisticsService.getPlateByWechat(scanWechat);
+				if(list.size() != 0){
+					for(int i=0; i < list.size(); i++){
+						plateList.add(list.get(i).getPlateNumber());
+					}
+				}
+			}
+		}
+		return plateList;
+	}
+	
+	/**
+	 * 根据查询的车牌号和微信号查询安装信息
+	 * @param scanWechat
+	 * @param plateNumber
+	 * @return
+	 */
+	@RequestMapping("getInstallByPlate")
+	@ResponseBody
+	public Object getInstallByPlate(HttpServletRequest request) {
+		String scanWechat = request.getParameter("scanWechat");
+		String plateNumber = request.getParameter("plateNumber");
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		RpUser u = rpUserService.getInfoByWechat(scanWechat);
+		if(StringUtil.isNotEmpty(u)){ 
+			Long role = u.getRolePower();
+			if(role == 3){
+				//获取车牌号结果
+				list = rpStatisticsService.getInstallByPlate(scanWechat,plateNumber);
+			}
+		}
+		return list;
+	}
+	
 }

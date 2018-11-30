@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">	
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<base href="/hotCheng/" />
+	<script src="static/js/mui.min.js"></script>
+	<script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
+	<link href="static/css/mui.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="static/css/mui.picker.min.css" />
+	<link rel="stylesheet" href="static/css/common.css">
+	<link rel="stylesheet" href="static/css/smIndex.css">	
+	<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+<header>
+	<img src="static/img/headTitle.png" class="headTitle">
+	<div class="headsy"><a href="view/wechat/index.html"></a></div>
+</header>
+		<div class="mainBg"></div>
+		<!-- -->				
+		<div class="taikeContainer">
+			<img src="static/img/taike.png" class="taikeLogo"/>
+			<div class="containerBox" style="">
+				<button id='scanQRCode' class="taikeBtn"  style="cursor:pointer"> 能佰尔质保</button>
+				<button class="taikeBtn" style="cursor:pointer" id="jlcx" >记录查询</button> 
+			</div>
+		</div>
+		<!--footer -->
+		<footer>    
+			<div class="foot1">
+				<span>移动版</span>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="javascript:;">热骋</a>
+			</div>
+			<div class="foot2">系统版本<i>RC5861-1.07 .13499s</i></div>
+
+		</footer>	
+	
+	<script>
+	var data;
+	var getWxConfig = function(){
+		$.post("index/getSignature.action", {"url":location.href.split('#')[0]},function(data){
+		    data=$.parseJSON(data);
+		});
+	}
+	getWxConfig();
+	window.onload = function(){ 
+		document.getElementById("scanQRCode").addEventListener("click", function(){
+			wx.config({
+	            debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	            //                                debug : true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	            appId : data.appId, // 必填，公众号的唯一标识
+	            timestamp : data.timestamp, // 必填，生成签名的时间戳
+	            nonceStr : data.noncestr, // 必填，生成签名的随机串
+	            signature : data.signature,// 必填，签名，见附录1
+	            jsApiList : ['checkJsApi', 'scanQRCode'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+	        });
+			wx.ready(function() {
+	            wx.scanQRCode({   
+	                needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+	                scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+	                success: function (res) {
+	                	var qr = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+						localStorage.setItem("qrCode",qr);
+						$.ajax({
+							type : "POST",
+							url : 'statistics/getActivate.action',
+							data:{
+								qrCode:qr
+							},
+							success : function(result) {
+								
+								if(result!=null){
+									if(result == 0){
+										mui.toast("请联系经销商");
+										//window.location.href='view/wechat/saoma.html';
+									}else if(result == 2){
+										//判断用户的querypower
+										$.ajax({  
+											type : "POST",
+											dataType:"json",
+											url : 'user/getInfoByWechat.action',
+											data:{
+												wechatNo:localStorage.getItem("scanWechat")
+											},
+											success : function(data) {
+												if(data.queryPower == 1){
+													window.location.href='view/wechat/chaxun1.html';
+												}else{
+													window.location.href='view/wechat/chaxun2.html';
+												} 
+											},
+											failure : function(error) {
+												console.log(error)
+											}
+										});
+										
+									}else if(result == 1){
+										window.location.href='view/wechat/saoma.html';
+									}else{
+									}
+								}else{
+									mui.toast("二维码不存在");
+								}
+							},
+							failure : function(error) {
+								console.log(error)
+							}
+						});
+					}
+				}); 
+            });
+        }); 
+	        
+		document.getElementById("jlcx").addEventListener("click", function(){
+			mui.ajax("user/getInfoByWechat.action", {
+				data: {
+					wechatNo: localStorage.getItem("scanWechat")
+				},
+				dataType: "json", //服务器返回json格式数据
+				type: 'get', //HTTP请求类型 
+				timeout: 60000, //超时时间设置为60秒；
+				success: function(result) { //服务器返回响应
+					console.log(result);
+					if(result == null){
+						mui.toast("请联系管理员");
+						//window.location.href='view/wechat/info1.html';
+					}else{
+						var role = result.rolePower;
+						if(role == 1){
+							window.location.href='view/wechat/jilu1.html';
+						}else if(role == 2){
+							window.location.href='view/wechat/jilu2.html';
+						}else if(role == 3){
+							window.location.href='view/wechat/jilu3.html';
+						}
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log(errorThrown)
+				}
+			});
+		})
+	}
+		
+	</script>
+</body>
+</html>

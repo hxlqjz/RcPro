@@ -215,11 +215,13 @@ public class VinCodeController extends BaseController{
  	@ResponseBody
     public  Object findVehicleInfoByImgData(HttpServletRequest request,HttpServletResponse response) throws IOException{
  		String vinCode="";
- 		String imgData="";
+ 		String imgData=""; 
  		String imgStr=request.getParameter("textT2");
- 		  String str = imgStr.substring(imgStr.indexOf(",")+1);
+ 		System.out.println("imgStr=="+imgStr);
+ 		String str = imgStr.substring(imgStr.indexOf(",")+1);
  		 imgData=imgStr;
  		// GenerateImage(str, "D:/PAS/"+System.currentTimeMillis()+".jpg");
+ 		 System.out.println("imgdata=="+imgData);
  		GenerateImage(str, "C:/PAS/v1.jpg");
  		String xmlInput = "<root><appkey>cac3a8c229c48a24</appkey><appsecret>c38446546e844c0ca77d9255a777c95e</appsecret><method>level.vehicle.vin.ocr</method><requestformat>json</requestformat><imgbase64>"+imgData+"</imgbase64></root>";// 传参是XML格式的字符串，xmlInput中的特殊字符需要转义，比如<>
  		xmlInput = xmlInput.replace("<", "&lt;");
@@ -234,7 +236,7 @@ public class VinCodeController extends BaseController{
  		    
  		PostMethod postMethod = null;
  		postMethod = new PostMethod("http://service.vin114.net/req"); // 接口地址
- 		    
+ 		System.out.println(soapRequestData);   
  		byte[] b = null;
  		try {
  		b = soapRequestData.getBytes("utf-8");

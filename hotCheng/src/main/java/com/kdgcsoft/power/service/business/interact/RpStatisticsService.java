@@ -329,4 +329,19 @@ public class RpStatisticsService  extends BaseService{
     	para.put("endTime", endTime);
 		return bsh.getMapList("business.interact.rpStatistics.getTjList",para);
     }
+	
+	@Transactional(readOnly = true)
+    public List<RpStatistics> getPlateByWechat(String scanWechat){
+    	Map<String,Object> para = new HashMap<String,Object>();	  
+    	para.put("scanWechat", scanWechat);
+    	return bsh.getList("business.interact.rpStatistics.getPlateByWechat", para, RpStatistics.class);
+    }
+	
+	@Transactional(readOnly = true)
+    public List<Map<String, Object>> getInstallByPlate(String scanWechat,String plateNumber){
+    	Map<String,Object> para = new HashMap<String,Object>();	  
+    	para.put("scanWechat", scanWechat);
+    	para.put("plateNumber", plateNumber);
+    	return bsh.getMapList("business.interact.rpStatistics.getInstallByPlate", para);
+    }
 }

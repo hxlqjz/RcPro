@@ -5,13 +5,25 @@
 		<meta name="format-detection" content="telephone=no">		
 		<title></title>
 		<base href="/hotCheng/" />
-		<script src="static/js/mui.min.js"></script>
-	    <script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
-	    <link href="static/css/mui.min.css" rel="stylesheet"/>
+		<link href="static/css/mui.min.css" rel="stylesheet"/>
 	    <link rel="stylesheet" href="static/css/mui.picker.min.css" />
 		<link rel="stylesheet" href="static/css/common.css">
-		<link rel="stylesheet" href="static/css/smIndex.css">	    
+		<link rel="stylesheet" href="static/css/smIndex.css">
+		 
+		<script src="static/js/mui.min.js"></script>
+	    <script type="text/javascript" src="static/js/mui.picker.min.js" ></script>
+	    
 		<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+		<script src="static/js/template.js"></script>
+		<script id="plateOption_data" type="text/html">
+		{{each list as value j}}
+			<li>{{value}}</li>
+ 		{{/each}}   
+	</script>
+	<style>
+	.inputBoxSelect{position: absolute;width: 100px;top: 235px;border: 1px solid #bebdbd;background: #FFF;display: none;}
+	.inputBoxSelect li{text-align: center;line-height: 30px;}
+	</style>
 	</head>
 	<body>
 		<header>
@@ -26,16 +38,29 @@
 				<input type="hidden" id="startDate"  autocomplete="off"/>
 				<input type="hidden" id="endDate"  autocomplete="off"/>		
 				<button class="jiluBtn" id="query">查询</button>
+				<input type="text"  placeholder="请输入车牌号" id="carPlate" style="width:78%"/>
+				<button style="width:20%;height:40px;" class="btn mui-btn" id="plateQuery">检索</button>
+				
+				<ul class="inputBoxSelect" id="plateOption_div" style="height:160px;width:58%;overflow: auto;">
+					
+				</ul>
 			</div>
+			
 			<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable" id="tjtable">
 				<tr id="tjlist">
 					<th>能佰尔型号</th><th width="25%">统计</th>
 				</tr>
-				<tr><td>合计</td><td id="count"></td></tr>	
+				<tr><td>合计数量</td><td id="count"></td></tr>	
 			</table>
-			<table cellpadding="0" cellspacing="0" width="100%" class="jiluTable" style="margin-top: 10px;">
-				<tr><td>累计红包</td><td width="25%" id="sum"></td></tr>	
-			</table>			
+			<table cellpadding="0" cellspacing="0" width="100%" id="lj" class="jiluTable" style="margin-top: 10px;">
+				<tr><td>累计红包金额</td><td width="25%" id="sum"></td></tr>	
+			</table>
+			<!-- 查询车牌安装信息 -->
+			<table cellpadding="0" id="plateTable" cellspacing="0" width="100%" class="jiluTable"> 
+				<tr id="plateList">
+					<th>型号</th><th>时间</th><th>拨号</th>
+				</tr>
+			</table>		
 		</div>
 		<!--footer -->
 		<footer style="background:#ececec">
@@ -49,7 +74,8 @@
 		</footer>	
 		<script>
 		window.addEventListener("pageshow", ready);
-		
+		var plateArray = new Array();
+		var isChoose = false;
 		function ready(){
 			
 			//设置时间初始值为当月
@@ -86,19 +112,34 @@
 						var id = this.getAttribute('id');
 						var s = document.getElementById("startDate").value;
 						var e = document.getElementById("endDate").value;
-						var endDate = new Date();
+						var endDate = end;
 						var startDate = "";
+					
 						if(e != null && e != undefined && e != "" && id == "start"){
 							endDate = e;
 						}
 						if(s != null && s != undefined && s != "" && id == "end"){
 							startDate = s;
+						} 
+						var minD = new Date();
+						var maxD = new Date(); 
+						var currD = new Date();
+						minD.setFullYear(startDate.substring(0,4),startDate.substring(5,7)-1,startDate.substring(8,10));
+						maxD.setFullYear(endDate.substring(0,4),endDate.substring(5,7)-1,endDate.substring(8,10)); 
+						currD.setFullYear(year,mon-1,day);
+						if(id == "start"){
+							_self.picker = new mui.DtPicker({
+								type:"date",
+								endDate:maxD
+							});
+						}else{
+							_self.picker = new mui.DtPicker({
+								type:"date",
+								beginDate:minD,
+								endDate:currD
+							});
 						}
-						_self.picker = new mui.DtPicker({
-							type:"date",
-							beginDate:new Date(startDate),
-							endDate:new Date(endDate)
-						});
+						
 						_self.picker.show(function(rs) {
 							document.getElementById(id).innerHTML = rs.text;
 							document.getElementById(id+"Date").value = rs.text;
@@ -113,8 +154,81 @@
 			document.getElementById("query").addEventListener("click", function() {
 				load();
 			});
+			document.getElementById("plateQuery").addEventListener("click", function() {
+				$("#plateTable").show();
+				$("#tjtable").hide();
+				$("#lj").hide();
+				$(".inputBoxSelect").hide();
+				var plateNumber = $("#carPlate").val();
+				if(plateNumber.trim().length == 0){
+					$("#plateTable  tr:not(:first)").html("");
+					mui.toast("请选择车牌号");
+					return;
+				}
+				mui.ajax("statistics/getInstallByPlate.action", {
+					data: {
+						scanWechat: localStorage.getItem("scanWechat"),
+						plateNumber : plateNumber
+					},
+					dataType: "json", //服务器返回json格式数据
+					type: 'get', //HTTP请求类型 
+					timeout: 60000, //超时时间设置为60秒；
+					success: function(result) { //服务器返回响应
+						$("#plateTable  tr:not(:first)").html("");
+						var plateHtml = "";
+						for(var i=0;i<result.length;i++){
+							
+							 if(result[i].carTel!=null && result[i].carTel!=""){
+								 plateHtml += "<tr><td style='font-size:11px;'>"+ result[i].productModel +"</td><td style='font-size:11px;'>"+ result[i].scanTime +
+								"</td><td style='font-size:11px;'><a href='tel:"+result[i].carTel+"'><img src='static/img/gphone.png' /></a></td></tr>";
+							}else{
+								plateHtml += "<tr><td style='font-size:11px;'>"+ result[i].productModel +"</td><td style='font-size:11px;'>"+ result[i].scanTime +
+								"</td><td><img src='static/img/grayphone.png'/></td></tr>";
+							}
+							   
+						}
+						$("#plateList").after(plateHtml);
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(errorThrown)
+					}
+				}); 
+			});
+			
+			loadAllPlate();
+			
+			$("#carPlate").click(function(){
+				$(".inputBoxSelect").show();	
+				changeOption("");
+			})
+			
+			//车型检索方法
+			$("#carPlate").on('input propertychange',function(){
+	            var val=$(this).val();
+	            changeOption(val.toUpperCase());
+			});
+			var changeOption = function(val){
+				var newArray = new Array();
+				for(var i=0; i< plateArray.length; i++){
+					var p = plateArray[i];
+					if(p.indexOf(val) != -1){
+						newArray.push(p);
+					}
+				}
+				document.getElementById("plateOption_div").innerHTML =template("plateOption_data", {
+					list: newArray
+				});	
+			}
+			
+			$(".inputBoxSelect").on("click","li",function(){
+				$("#carPlate").val($(this).text());
+				$(".inputBoxSelect").hide();
+			})	
 		}
 		function load(){
+			$("#plateTable").hide();
+			$("#tjtable").show();
+			$("#lj").show();
 			var start = document.getElementById("startDate").value;
 			var end = document.getElementById("endDate").value;
 			var scanWechat = localStorage.getItem("scanWechat");
@@ -138,6 +252,25 @@
 					$("#tjlist").after(tjHtml);
 					$("#count").text(result.count);
 					$("#sum").text(result.sum);
+				},
+				error: function(xhr, type, errorThrown) {
+					console.log(errorThrown)
+				}
+			}); 
+		}
+		//加载所有车牌号
+		function loadAllPlate(){
+			var scanWechat = localStorage.getItem("scanWechat");
+			mui.ajax("statistics/getPlateByWechat.action", {
+				data: {
+					scanWechat: localStorage.getItem("scanWechat")
+				},
+				dataType: "json", //服务器返回json格式数据
+				type: 'get', //HTTP请求类型 
+				timeout: 60000, //超时时间设置为60秒；
+				success: function(result) { //服务器返回响应
+					console.log("车牌号"+result);
+					plateArray = result;
 				},
 				error: function(xhr, type, errorThrown) {
 					console.log(errorThrown)

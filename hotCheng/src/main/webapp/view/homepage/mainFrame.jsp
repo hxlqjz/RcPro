@@ -103,6 +103,14 @@
 							</ul>  
 						</div>
 				</div>
+				<div title="制动器管理" style="overflow-x: auto; overflow-y: auto"
+					data-options="iconCls:'icon'">
+               			<div class="J2" >                    
+							<ul id="nav47" class="easyui-tree" onClick="openMenu('制动器管理','view/business/rcBfdBrakeList.jsp')">
+								制动器管理 
+							</ul>  
+						</div>
+				</div>
 			</div>
 			<%-- <c:forEach var="menu" items="${fileList}">
 			

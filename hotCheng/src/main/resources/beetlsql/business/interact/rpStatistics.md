@@ -227,7 +227,7 @@ where qr_code=#qrCode#;
 
 getProvince
 ===
-select distinct(province) as province from rp_statistics where province is not null;
+select distinct(province) as province from rp_statistics where province is not null  and province !="";
 
 getStore
 ===
@@ -235,7 +235,7 @@ select distinct(store_name) as storeName from rp_statistics where province=#prov
 
 getSsListByRole
 ===
-select DATE_FORMAT(s.scan_time,"%m/%d:%k") as scan_time,
+select DATE_FORMAT(s.scan_time,"%m-%d %H:%i") as scan_time,
 s.product_model,s.scan_wechat,s.wechat_name,s.nick_name,
 s.wechat_tel from rp_statistics s
 where s.is_ys=0
@@ -252,3 +252,18 @@ where s.is_ys=0
 	and s.store_name = #storeName#
 @}
 order by s.scan_time desc;
+
+getPlateByWechat
+===
+select DISTINCT plate_number from rp_statistics
+where scan_wechat= #scanWechat#;
+
+getInstallByPlate
+===
+select DATE_FORMAT(scan_time,"%Y-%m-%d") as scan_time ,product_model
+,car_tel from rp_statistics
+where scan_wechat= #scanWechat# 
+@if(!isEmpty(plateNumber)){
+	and plate_number = #plateNumber#
+@} 
+; 
